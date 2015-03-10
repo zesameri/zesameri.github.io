@@ -12,11 +12,17 @@
 			// Make an instance of two and place it on the page.
 			//width: window.innerWidth, height: window.innerHeight
 			var two = new Two({ fullscreen: true }).appendTo(document.body);
-			var curve = two.makeCurve(-70, 0, -30,  50);
-			var line = two.makeCurve(-90, 5, 10);
+			var curve = two.makeCurve(110, 100, 120, 50, 140, 150, 160, 50, 180, 150, 190, 100, true);
+			curve.linewidth = 2;
+			curve.scale = 1.75;
+			curve.rotation = Math.PI / 2; // Quarter-turn
+			curve.noFill();
+			var line = two.makeLine(10, 10, 110, 210);
+			line.linewidth = 10;
+			line.stroke = "rgba(255, 0, 0, 0.5)";
 			//var rect = two.makeRectangle(70, 0, 100, 100);
 			curve.fill = '#FF8000';
-			line.fill = 'rgba(0, 200, 255, 0.75)';
+
 			//rect.fill = 'rgba(0, 200, 255, 0.75)';
 
 			var group = two.makeGroup(curve, line);
