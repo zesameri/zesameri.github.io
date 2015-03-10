@@ -1,1 +1,43 @@
-flower
+ <html>
+	<head>
+		<title>My first Three.js app</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+		<script src="./js/two.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// Make an instance of two and place it on the page.
+			//width: window.innerWidth, height: window.innerHeight
+			var two = new Two({ fullscreen: true }).appendTo(document.body);
+			var curve = two.makeCurve(-70, 0, -30,  50);
+			var line = two.makeCurve(-90, 5, 10);
+			//var rect = two.makeRectangle(70, 0, 100, 100);
+			curve.fill = '#FF8000';
+			line.fill = 'rgba(0, 200, 255, 0.75)';
+			//rect.fill = 'rgba(0, 200, 255, 0.75)';
+
+			var group = two.makeGroup(curve, line);
+			group.translation.set(two.width / 2, two.height / 2);
+			group.scale = 0;
+			group.noStroke();
+
+			// Bind a function to scale and rotate the group
+			// to the animation loop.
+			two.bind('update', function(frameCount) {
+			  // This code is called everytime two.update() is called.
+			  // Effectively 60 times per second.
+			  if (group.scale > 0.9999) {
+			    group.scale = group.rotation = 0;
+			  }
+			  var t = (1 - group.scale) * 0.125;
+			  group.scale += t;
+			  group.rotation += t * 4 * Math.PI;
+			}).play();  // Finally, start the animation loop
+
+		</script>
+
+	</body>
+
