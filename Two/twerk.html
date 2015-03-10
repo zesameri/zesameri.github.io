@@ -10,13 +10,16 @@
 	<body>
 		<script type="text/javascript">
 			// Make an instance of two and place it on the page.
-			var two = new Two({ width: window.innerWidth, height: window.innerHeight }).appendTo(document.body);
+			//width: window.innerWidth, height: window.innerHeight
+			var two = new Two({ fullscreen: true }).appendTo(document.body);
 			var circle = two.makeCircle(-70, 0, 50);
-			var rect = two.makeRectangle(70, 0, 100, 100);
+			var circle2 = two.makeCircle(-90, 5, 10);
+			//var rect = two.makeRectangle(70, 0, 100, 100);
 			circle.fill = '#FF8000';
-			rect.fill = 'rgba(0, 200, 255, 0.75)';
+			circle2.fill = 'rgba(0, 200, 255, 0.75)';
+			//rect.fill = 'rgba(0, 200, 255, 0.75)';
 
-			var group = two.makeGroup(circle, rect);
+			var group = two.makeGroup(circle, circle2);
 			group.translation.set(two.width / 2, two.height / 2);
 			group.scale = 0;
 			group.noStroke();
