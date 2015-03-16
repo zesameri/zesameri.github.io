@@ -1,6 +1,7 @@
 function setup() {
   // put setup code here
-  createCanvas(window.innerWidth, window.innerHeight);
+  //createCanvas(window.innerWidth, window.innerHeight);
+  createCanvas(640, 360);
 }
 
 function draw() {
@@ -12,8 +13,18 @@ function draw() {
   var dy = h/height;
   var x = -w/2;
   for (var i = 0; i < width; i++) {
-  	var r = Math.sqrt((x*x) + (y*y));
-  	var theta = Math.atan(y, x);
+  	var y = -h/2;
+  	for (var j = 0; j < height; j++) {
+  		var r = sqrt((x*x) + (y*y));
+  		var theta = atan2(y, x);
+  		//polar
+  		var val = sin(n*cos(r) + 5*theta);
+  		//var val = cos(r);
+  		//var val = sin(theta);
+  		pixels[i+j*width] = color((val + 1.0) * 255.0/2.0);
+      y+=dy;
+  	}
+    x += dx;
   }
-
+  updatePixels();
 }
