@@ -1,30 +1,39 @@
+var r;
+
+// Angle and angular velocity, accleration
+var theta;
+var theta_vel;
+var theta_acc;
+
 function setup() {
-  // put setup code here
-  //createCanvas(window.innerWidth, window.innerHeight);
-  createCanvas(640, 360);
+  createCanvas(710, 400);
+  
+  // Initialize all values
+  r = height * 0.45;
+  theta = 0;
+  theta_vel = 0;
+  theta_acc = 0.0001;
 }
 
 function draw() {
-  loadPixels();
-  var n = (mouseX * 10.0) / width;
-  var w = 16.0;
-  var h = 16.0;
-  var dx = w/width;
-  var dy = h/height;
-  var x = -w/2;
-  for (var i = 0; i < width; i++) {
-  	var y = -h/2;
-  	for (var j = 0; j < height; j++) {
-  		var r = sqrt((x*x) + (y*y));
-  		var theta = atan2(y, x);
-  		//polar
-  		var val = sin(n*cos(r) + 5*theta);
-  		//var val = cos(r);
-  		//var val = sin(theta);
-  		pixels[i+j*width] = color((val + 1.0) * 255.0/2.0);
-      y+=dy;
-  	}
-    x += dx;
-  }
-  updatePixels();
+  
+  background(0);
+  
+  // Translate the origin point to the center of the screen
+  translate(width/2, height/2);
+  
+  // Convert polar to cartesian
+  var x = r * cos(6*theta);
+  var y = r * sin(6*theta);
+  
+  // Draw the ellipse at the cartesian coordinate
+  rectMode(CENTER);
+  noStroke();
+  fill(200);
+  rect(x, y, 32, 32);
+  
+  // Apply acceleration and velocity to angle 
+  // (r remains static in this example)
+  theta_vel += theta_acc;
+  theta += theta_vel;
 }
