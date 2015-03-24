@@ -2,31 +2,14 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Rhodonea Curve - Jason Davies</title>
-<style>
-  body {
-    font-family: sans-serif;
-    margin: 1em auto;
-    width: 960px;
-  }
-  #vis {
-    margin: 2em 0;
-  }
-</style>
 
-<h1>Rhodonea Curve</h1>
-<p>This is a sinusoid plotted in polar coordinates, given by <em>r =
-  cos(kθ)</em> for some fixed <em>k</em>.
-<p>If <em>k = p/q</em> is rational with <em>p</em> and <em>q</em> relatively
-prime, then the curve has period <em>πq</em> when <em>p</em> and <em>q</em> are
-both odd, otherwise <em>2πq</em>. If <em>k</em> is irrational, then it will
-have infinitely many petals.
 
 <div id="vis"><img src="rhodonea.png"></div>
 
 <script src="./js/d3.js"></script>
 <script>
-  var w = 960,
-      h = 600,
+  var w = window.innerWidth,
+      h = window.innerHeight,
       d = 9,
       n = 19,
       dx = Math.min(w / (n + .5), h / (d + .5));
@@ -110,9 +93,3 @@ have infinitely many petals.
   }
 </script>
 
-<h2>Further Reading</h2>
-<ul>
-  <li><a href="http://en.wikipedia.org/wiki/Rose_(mathematics)">Rose (mathematics)</a> on Wikipedia.
-  <li><a href="http://mathworld.wolfram.com/Rose.html">Rose</a> on MathWorld.
-</ul>
-<p class="copyright">&copy; <a href="http://www.jasondavies.com/">Jason Davies</a> 2012.
