@@ -8,6 +8,7 @@
 
 <script src="./js/d3.js"></script>
 <script>
+//this seems to denote the SVG size
   var w = window.innerWidth,
       h = window.innerHeight,
       d = 9,
@@ -15,7 +16,7 @@
       dx = Math.min(w / (n + .5), h / (d + .5));
   w = dx * (n + .5);
   h = dx * (d + .5);
-
+  //Drawing the SVG
   var line = d3.svg.line()
       .interpolate("cardinal-closed")
       .x(function(d) { return d[0]; })
