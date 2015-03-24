@@ -16,7 +16,20 @@
 
 var circles = d3.selectAll("circle");
 circles.style("fill", "steelblue");
-circle.attr("r", 30);
+circles.attr("r", 30);
 //circle.attr("cx", function() { return Math.random() * 720; });
 circles.data([32, 57, 112]);
 circles.attr("r", function(d) { return Math.sqrt(d); });
+circles.attr("cx", function(d, i) { return i * 100 + 30; });
+
+var svg = d3.select("svg");
+
+circles = svg.selectAll("circle").data([32, 57, 293], function(d) { return d; });
+var circleEnter = circles.enter().append("circle");
+circleEnter.attr("cy", 60);
+circleEnter.attr("cx", function(d, i) { return i * 100 + 30; });
+circleEnter.attr("r", function(d) { return Math.sqrt(d); });
+
+//svg.selectAll("circle").data([32, 57, 112, 293]).enter().append("circle").attr("cy", 60).attr("cx", function(d, i) { return i * 100 + 30; }).attr("r", function(d) { return Math.sqrt(d); });
+//var circle = svg.selectAll("circle").data([32, 57]);
+circles.exit().remove();
