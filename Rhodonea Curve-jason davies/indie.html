@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <title>Rhodonea Curve - Jason Davies</title>
 
-
+<!--preloaded image-->
 <div id="vis"><img src="rhodonea.png"></div>
 
 <script src="./js/d3.js"></script>
@@ -21,15 +21,18 @@
       .interpolate("cardinal-closed")
       .x(function(d) { return d[0]; })
       .y(function(d) { return d[1]; })
-
+  //selecting vis element, removing all content of element
+  //AKA removeing "rhodonea.png"
   d3.select("#vis").selectAll("*").remove();
+  //adding an svg to the visual element
   var vis = d3.select("#vis").append("svg")
       .attr("width", w)
       .attr("height", h);
 
   // Easier to download raw SVG with this.
   vis.append("style").text("text { font-family: sans-serif; }\nline, path { stroke: #000; fill: none; }");
-
+  // g is 'group' in svgs (group of circles, lines, etc.)
+  // paths are the outine of shapes
   var rose = vis.selectAll("g").data(d3.range(d * n).map(function(i) {
         return [1 + i % n, 1 + ~~(i / n)];
       }))
@@ -47,6 +50,7 @@
           return [r * Math.cos(theta), r * Math.sin(theta)];
         }));
       });
+    //all of math just happened
   rose.filter(function(d) { return d[0] === 1; })
     .append("text")
       .style("font-size", "16px")
