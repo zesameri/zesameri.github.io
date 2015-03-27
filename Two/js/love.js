@@ -17,6 +17,14 @@ for (var i = 0; i < resolution; i++) {
     points[i] = new Two.Anchor();
 }
 
+// Variables for the Interpreter
+var dimensions = 140;
+var shapes = [];
+var index = 0;
+var length = 0;
+var scale = two.width > two.height ? two.height / dimensions : two.width / dimensions;
+var easing = 0.125;
+
 // Create our shape
 var shape = two.makeCurve(points);
 // Center it on the screen
