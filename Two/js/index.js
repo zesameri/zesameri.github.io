@@ -26,7 +26,7 @@ two.scene.translation.set(two.width / 2, two.height / 2);
 shape.fill = 'rgb(0, 0, 0)';
 shape.stroke = 'rgb(255, 255, 255)';
 shape.linewidth = 8
-
+/*
 // This is the animation loop
 two.bind('update', function(frameCount, timeDelta) {
 
@@ -42,9 +42,13 @@ two.bind('update', function(frameCount, timeDelta) {
     }
 
 });
-
+*/
+two.bind('update', function(){
+    k = (k + 1) % 20;
+    update();
+});
 // Update all points of a shape based on `k`
-function update() {
+ function update() {
     for (var i = 0; i < resolution; i++) {
         if (k != 1) {
             roseMath(points[i], k, Math.PI * 2 * i / resolution);
