@@ -1,4 +1,3 @@
-document.body.style.background = 'rgb(0, 0, 0)';
 // Setup the canvas
 var two = new Two({
     fullscreen: true,
@@ -26,14 +25,42 @@ var scale = two.width > two.height ? two.height / dimensions : two.width / dimen
 var easing = 0.125;
 
 // Create our shape
-var shape = two.makeCurve(points);
+//var shape = two.makeCurve(points);
+var petal = resolution/8;
+//console.log();
+var shapes = new Array(8);
+for (i = 0, j = 1; i < shapes.length; i++, j++) {
+    shapes[i] = two.makeCurve(points.slice(i*petal, j*petal));
+}
+//console.log(points.length);
+//var petal = two.makecurve(points[])
 // Center it on the screen
 two.scene.translation.set(two.width / 2, two.height / 2);
-
+shape  = two.makeGroup(shapes);
 // Style the shape
-shape.fill = 'rgb(0, 0, 0)';
-shape.stroke = 'rgb(255, 255, 255)';
-shape.linewidth = 6;
+shape.fill = 'rgb(255, 255, 255)';
+shape.stroke = 'rgb(0, 0, 0)';
+shape.linewidth = 5;
+
+two.bind('update', function(){
+    k = (3 + 1) % 20;
+    update();
+});
+// Update all points of a shape based on `k`
+ function update() {
+    for (var i = 0; i < resolution; i++) {
+        roseMath(points[i], k, Math.PI * 2 * i / resolution);
+    }
+}
+
+// The rose math function taken from
+// http://en.wikipedia.org/wiki/Rose_(mathematics)
+function roseMath(v, k, t) {
+    v.x = radius * Math.cos(k * t) * Math.cos(t);
+    v.y = radius * Math.cos(k * t) * Math.sin(t);
+    return v;
+}
+
 /*
 // This is the animation loop
 two.bind('update', function(frameCount, timeDelta) {
@@ -51,23 +78,3 @@ two.bind('update', function(frameCount, timeDelta) {
 
 });
 */
-two.bind('update', function(){
-    k = (3 + 1) % 20;
-    update();
-});
-// Update all points of a shape based on `k`
- function update() {
-    for (var i = 0; i < resolution; i++) {
-        if (k != 1) {
-            roseMath(points[i], k, Math.PI * 2 * i / resolution);
-        }
-    }
-}
-
-// The rose math function taken from
-// http://en.wikipedia.org/wiki/Rose_(mathematics)
-function roseMath(v, k, t) {
-    v.x = radius * Math.cos(k * t) * Math.cos(t);
-    v.y = radius * Math.cos(k * t) * Math.sin(t);
-    return v;
-}
