@@ -31,38 +31,31 @@ var petal = resolution/8;
 var shapes = new Array(8);
 for (i = 0, j = 1; i < shapes.length; i++, j++) {
     shapes[i] = two.makeCurve(points.slice(i*petal, j*petal));
-    //shapes[i].center();
-    shapes[i].fill = 'rgb(255, 255, 255)';
-    shapes[i].stroke = 'rgb(0, 0, 0)';
-    shapes[i].linewidth = 5;
 }
 //console.log(points.length);
 //var petal = two.makecurve(points[])
 // Center it on the screen
-shape  = two.makeGroup(shapes);
 two.scene.translation.set(two.width / 2, two.height / 2);
-shape.scale = 1;
-//shape.center();
+shape  = two.makeGroup(shapes);
 // Style the shape
-/*
 shape.fill = 'rgb(255, 255, 255)';
 shape.stroke = 'rgb(0, 0, 0)';
 shape.linewidth = 5;
-*/
+
 two.bind('update', function(){
+    k = (3 + 1) % 20;
     update();
 });
 // Update all points of a shape based on `k`
  function update() {
     for (var i = 0; i < resolution; i++) {
-        roseMath(points[i], Math.PI * 2 * i / resolution);
+        roseMath(points[i], k, Math.PI * 2 * i / resolution);
     }
 }
 
 // The rose math function taken from
 // http://en.wikipedia.org/wiki/Rose_(mathematics)
-function roseMath(v, t) {
-    k = (3 + 1) % 20;
+function roseMath(v, k, t) {
     v.x = radius * Math.cos(k * t) * Math.cos(t);
     v.y = radius * Math.cos(k * t) * Math.sin(t);
     return v;
