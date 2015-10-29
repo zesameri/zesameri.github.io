@@ -14,7 +14,7 @@ $(function() {
   var length = 0;
   var scale = two.width > two.height ? two.height / dimensions : two.width / dimensions;
   var easing = 0.125;
-
+  //each of the svgs
   $('#assets svg').each(function(i, el) {
 
     var shape = two.interpret(el).center();
@@ -22,6 +22,7 @@ $(function() {
     shape.visible = false;
     shape.noStroke();
     shape.translation.set(two.width / 2, two.height / 2);
+    //adds shape to shapes array
     shapes.push(shape);
     _.each(shape.children, function(child) {
       _.each(child.vertices, function(v) {

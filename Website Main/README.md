@@ -1,2 +1,0 @@
-# merhoo.github.io
-Blog
