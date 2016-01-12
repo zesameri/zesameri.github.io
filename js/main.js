@@ -1,5 +1,14 @@
- var petal = document.getElementById("#petal0");
-console.log(petal);
+
+/*var petals = $('#flower').children('svg').children('path');
+petals.each(function () {
+    console.log(this.id);
+});
+*/
+var svg = $('#flower').svg({loadURL: './assets/flower.svg'});
+var paths = svg.children('path');
+paths.each(function () {
+    console.log(this.id);
+});
 /*
 var rotation = 0;
 
