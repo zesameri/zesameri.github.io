@@ -71,11 +71,3 @@ two.bind('update', function(frameCount) {
   
   flower.rotation += t * 4 * Math.PI * multiplier;
 }).play();  // Finally, start the animation loop
-
-// Beginning jQuery Events
-
-//8 petals represent different parts of site
-// 1: About
-// 2: Resume
-// 3: Facebook
-// 4: 
