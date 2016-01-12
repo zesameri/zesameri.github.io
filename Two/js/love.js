@@ -56,6 +56,7 @@ for (var i = 0; i < resolution; i++) {
         points[i].y = radius * Math.cos(4 * t) * Math.sin(t);
 }
 var multiplier = 1;
+
 two.bind('update', function(frameCount) {
   // This code is called everytime two.update() is called.
   // Effectively 60 times per second.
@@ -72,3 +73,16 @@ two.bind('update', function(frameCount) {
   
   flower.rotation += t * 4 * Math.PI * multiplier;
 }).play();  // Finally, start the animation loop
+
+
+// Working with text
+
+var element1 = document.getElementById("resume-text");
+element1.setAttribute("x", 200);
+element1.setAttribute("y", two.height/2);
+var element2 = document.getElementById("portfolio-text");
+//document.body.appendChild(svg);
+
+var resume = two.interpret(element1).center();
+var resume = two.interpret(element2).center();
+resume.rotation = Math.PI / 4;
