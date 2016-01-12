@@ -4,30 +4,41 @@ var readyStateCheckInterval = setInterval(function() {
         clearInterval(readyStateCheckInterval);
     }
 }, 10);
-console.log(readyStateCheckInterval);
-var petals = $('#flower').children('svg').children('path');
 
-petals.each(
-	function () {
-		$(this).hover(
-		function() {
+var svgdoc = null;
+var svgwin = null;
+var object = document.getElementById('flower');
+if (object && object.contentDocument)
+	svgdoc = object.contentDocument;
+else try {
+	svgdoc = object.getSVGDOcument();
+}
+catch (exception) {
+	console.log('Neither the HTMLObjectElement nor the GetSVGDocument interface are implemented');
+}
+if (svgdoc && svgdoc.defaultView)
+	svgwin = svgdoc.defaultView;
+else if (object.window)
+	svgwin = object.window;
+else try {
+	svgwin = object.getWindow();
+}
+catch(exception) {
+	console.log('The DocumentView interface is not supported\r\n' +
+      'Non-W3C methods of obtaining "window" also failed');
+}
+console.log(svgdoc.getElementsByTagName("path"));
+
+/*
+for (petal in petals) {
+	petal.hover(function() {
 			$("#site-title").text(this.id);
 		}, 
 		function() {
 			$("#site-title").text("MEREDITH HOO");
-		})
-});
+		});
+}
 
-/*
-petals.each(function () {
-	$( this ).mouseenter( 
-		function() {
-			$("#site-title").text(this.id);
-		}).mouseleave( 
-		function() {
-		$("#site-title").text("this.id");
-		})
-});
 
 
 Adding Animation
