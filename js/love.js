@@ -68,7 +68,6 @@ two.bind('update', function(frameCount) {
     //flower.rotation = 0;
     multiplier = 1;
   }
-  console.log(flower.rotation);
   
   flower.rotation += t * 4 * Math.PI * multiplier;
 }).play();  // Finally, start the animation loop
