@@ -1,3 +1,6 @@
+ var petal = document.getElementById("#petal0");
+console.log(petal);
+/*
 var rotation = 0;
 
 jQuery.fn.rotate = function(degrees) {
@@ -12,3 +15,4 @@ $('.rotate').click(function() {
     rotation += 5;
     $(this).rotate(rotation);
 });
+*/
