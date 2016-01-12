@@ -16,8 +16,13 @@ body
 .svg-container { 
 	display: inline-block;
 	position: relative;
+	width: 100%;
 	padding-bottom: 100%; 
 	vertical-align: middle;
 	text-align: center;
 	overflow: hidden; 
 }
+#flower {
+	width:90%;
+}
+
