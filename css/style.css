@@ -1,9 +1,10 @@
 h1
 {
-	color: white;
+	color: black;
 	text-align: center;
 	font-size: 3em;
 	margin: 1em;
+	font-family: Helvetica;
 }
 
 body

@@ -2,7 +2,7 @@
 var two = new Two({
     fullscreen: true,
     autostart: true
-}).appendTo("flower");
+}).appendTo(document.body);
 document.body.style.background = 'rgb(0, 0, 0)';
 
 // External variables
