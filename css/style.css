@@ -20,13 +20,7 @@ canvas
 .svg-container { 
 	display: inline-block;
 	position: relative;
-<<<<<<< HEAD
 	width: 100%; 
-=======
-	width: 100%;
-	height: 80%;
-	padding-bottom: 100%; 
->>>>>>> parent of fd4366f... added site icon and small animation
 	vertical-align: middle;
 	text-align: center;
 	overflow: hidden; 
