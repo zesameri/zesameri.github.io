@@ -9,13 +9,16 @@ console.log(petals);
 petals.each(function () {
 		$(this).hover(
 		function() {
+			$("#site-title").stop(true, true).fadeOut();
 			$("#site-title").text(this.id);
+			$("#site-title").fadeIn(200);
 		}, 
 		function() {
+			$("#site-title").stop(true, true).fadeOut();
 			$("#site-title").text("MEREDITH HOO");
+			$("#site-title").fadeIn(200);
 		})
 });
-
 
 /*
 Adding Animation
