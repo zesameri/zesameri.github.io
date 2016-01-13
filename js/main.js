@@ -5,7 +5,7 @@ var readyStateCheckInterval = setInterval(function() {
     }
 }, 10);
 var petals = $('#flower').children('a');
-console.log(petals);
+
 petals.each(function () {
 		$(this).hover(
 		function() {
@@ -19,21 +19,29 @@ petals.each(function () {
 			$("#site-title").fadeIn(200);
 		})
 });
+$(function() {
+    var $elie = $("#flower"), degree = 0, timer, multiplier=1;
+    rotate();
+    function rotate() {
+        
+        $elie.css({ WebkitTransform: 'rotate(' + degree + 'deg)'});  
+        $elie.css({ '-moz-transform': 'rotate(' + degree + 'deg)'});                      
+        timer = setTimeout(function() {
+        	if (degree > 180) {
+        		multiplier = -1;
+        	}
+        	if (degree < 0){
+        		multiplier = 1;
+        	}
+        	degree+=(multiplier * 0.25);
+            rotate();
+        },5);
+    }
+    
+    $("#flower").hover(function() {
+        clearTimeout(timer);
+    }, function() {
+        rotate();
+    });
+}); 
 
-/*
-Adding Animation
-var rotation = 0;
-
-jQuery.fn.rotate = function(degrees) {
-    $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
-                 '-moz-transform' : 'rotate('+ degrees +'deg)',
-                 '-ms-transform' : 'rotate('+ degrees +'deg)',
-                 'transform' : 'rotate('+ degrees +'deg)'});
-    return $(this);
-};
-
-$('.rotate').click(function() {
-    rotation += 5;
-    $(this).rotate(rotation);
-});
-*/
