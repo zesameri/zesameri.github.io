@@ -2,7 +2,9 @@ h1
 {
 	color: white;
 	text-align: center;
-	font-size: 3em;	font-family: Arial;
+	font-size: 3em;	
+	font-family: Arial;
+	height: 1em;
 }
 
 body
@@ -25,7 +27,9 @@ canvas
 	text-align: center;
 	overflow: hidden; 
 }
-#flower {
-	width:90%;
+.svg-content {
+	display: inline-block;
+	top: 0;
+	left: 0;
 }
 

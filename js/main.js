@@ -4,7 +4,8 @@ var readyStateCheckInterval = setInterval(function() {
         clearInterval(readyStateCheckInterval);
     }
 }, 10);
-var petals = $('#flower').children('svg').children('path');
+var petals = $('#flower').children('a');
+console.log(petals);
 petals.each(function () {
 		$(this).hover(
 		function() {
