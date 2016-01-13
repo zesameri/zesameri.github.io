@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 var readyStateCheckInterval = setInterval(function() {
     if (document.readyState === "complete") {
         clearInterval(readyStateCheckInterval);
@@ -42,6 +43,19 @@ for (petal in petals) {
 
 
 Adding Animation
+=======
+/*var petals = $('#flower').children('svg').children('path');
+petals.each(function () {
+    console.log(this.id);
+});
+*/
+var svg = $('#flower').svg({loadURL: './assets/flower.svg'});
+var paths = svg.children('path');
+paths.each(function () {
+    console.log(this.id);
+});
+/*
+>>>>>>> parent of fd4366f... added site icon and small animation
 var rotation = 0;
 
 jQuery.fn.rotate = function(degrees) {
@@ -56,13 +70,4 @@ $('.rotate').click(function() {
     rotation += 5;
     $(this).rotate(rotation);
 });
-
-Making the code work for an external svg
-var svg = $('#flower').svg('get');
-var paths = svg.children('path');
-paths.each(function () {
-    console.log(this.id);
-});
-
-
 */
