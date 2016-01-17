@@ -25,12 +25,11 @@ canvas
 	width: 100%; 
 	vertical-align: middle;
 	text-align: center;
-	overflow: hidden; 
+	overflow: hidden;
 }
 .svg-content {
 	display: inline-block;
 	top: 0;
-	left: 0;
 }
 .box_rotate {
   -webkit-transform: rotate(7.5deg);  /* Chrome, Safari 3.1+ */
@@ -45,3 +44,4 @@ canvas
        -o-transition: all 0.3s ease-out;  /* Opera 10.50–12.00 */
           transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, IE 10+, Opera 12.50+ */
 }
+
