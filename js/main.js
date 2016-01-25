@@ -16,11 +16,13 @@ function changeHeader() {
                 $("#site-title").stop(true, true).fadeOut();
                 $("#site-title").text(this.id);
                 $("#site-title").fadeIn(200);
+                $("body").css("background-color", this.attr("color"));
             }, 
             function() {
                 $("#site-title").stop(true, true).fadeOut();
                 $("#site-title").text("MEREDITH HOO");
                 $("#site-title").fadeIn(200);
+                $("body").css("background-color","black");
             })
     });
 }

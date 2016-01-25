@@ -1,10 +1,17 @@
+/*! Main Stylesheet for merhoo.github.io/ */
+
+/**
+ * author: Meredith;
+ * Mostly styling dedicated to responsiveness
+ */
 h1
 {
 	color: white;
 	text-align: center;
 	font-size: 3em;	
-	font-family: Arial;
+	font-family: "Raleway";
 	height: 1em;
+	background-color: black;
 }
 
 body
