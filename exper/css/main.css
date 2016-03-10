@@ -31,6 +31,7 @@ time, mark, audio, video {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 50%;
 }
 .menu-label {
 	text-align: center;
@@ -46,6 +47,8 @@ time, mark, audio, video {
 .tutorial-container {
   max-width: 960px;
   margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
 section.module:last-child {
   margin-bottom: 0;
@@ -171,4 +174,18 @@ section.module.parallax img {
   .container {
     width: 1170px;
   }
+}
+
+section.menu {
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  padding
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
 }
