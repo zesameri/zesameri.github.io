@@ -20,6 +20,7 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: 'Calibri Light';
 }
 
 
@@ -68,7 +69,9 @@ h2 {
 
 #about
 
-.menu-label {}
+.menu-label {
+  font-size: medium;
+}
 
 .button {
   padding: 0.5em .75em;
@@ -112,7 +115,8 @@ footer {
   width: 100%;
   background-color: white;
   color: black;
-  max-height: 10%;
+  line-height: 2em;
+  font-size: 90%;
   letter-spacing: normal;
 }
 
@@ -144,6 +148,6 @@ footer {
 @media (min-width: 1180px) {
   .spacer-hor {
     width: 100vw;
-    height: 1vh;
+    height: 3vh;
   }
 }
