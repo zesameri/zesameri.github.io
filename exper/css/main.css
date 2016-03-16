@@ -33,7 +33,6 @@ html, body {
   color: beige;
   background-color: black;
   text-align: center;
-  text-transform: uppercase;
   display: inline-block;
 }
 
@@ -106,21 +105,6 @@ h2 {
   position: relative;
   top:25vh;
 }
-
-footer {
-  display: inline-block;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  background-color: beige;
-  color: black;
-  line-height: 1em;
-  font-size: 90%;
-  letter-spacing: normal;
-
-}
-
 
 @media (max-width: 500px) {
   #spacer-vert {
