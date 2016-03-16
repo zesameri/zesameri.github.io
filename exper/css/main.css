@@ -45,7 +45,7 @@ section {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url("../img/rio.jpg");
+  background-image: url("../assets/rio.jpg");
 }
 .title {
   width: 100%;
