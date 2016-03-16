@@ -30,7 +30,7 @@ html, body {
   height: 100%;
   width: 100%;
   padding: 0;
-  color: white;
+  color: beige;
   background-color: black;
   text-align: center;
   text-transform: uppercase;
@@ -79,7 +79,7 @@ h2 {
   outline: none;
   color: #fff;
   border-radius: 25%;
-  border-color: white;
+  border-color: beige;
   border-style: solid;
   background: transparent;
   text-transform: uppercase;
@@ -88,7 +88,7 @@ h2 {
 }
 
 .button:hover, .button:active {
-  background-color: white;
+  background-color: beige;
   color: black;
 }
 
@@ -113,11 +113,12 @@ footer {
   bottom: 0;
   right: 0;
   width: 100%;
-  background-color: white;
+  background-color: beige;
   color: black;
   line-height: 1em;
   font-size: 90%;
   letter-spacing: normal;
+
 }
 
 
@@ -125,6 +126,13 @@ footer {
   #spacer-vert {
     height: 28vh;
   }
+  .logo {
+    -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 6s linear infinite;
+    animation:spin 6s linear infinite;
+  }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 }
 
 @media (min-width: 540px) and (max-width: 1024px) {
