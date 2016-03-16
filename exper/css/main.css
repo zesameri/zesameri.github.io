@@ -1,6 +1,3 @@
-
-
-
 /* ============================================================
   RESET - http://meyerweb.com/eric/tools/css/reset/
 ============================================================ */
@@ -25,167 +22,128 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-.pure-img-responsive {
-  max-width: 50%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%;
-}
-.menu-label {
-	text-align: center;
-	text-transform: uppercase;
-}
-.menu {
-	padding: 1em;
-	height: 100hv;
-}
-/* ============================================================
-  PRIMARY STRUCTURE
-============================================================ */
-.tutorial-container {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-}
-section.module:last-child {
-  margin-bottom: 0;
-}
-section.module h2 {
-  margin-bottom: 40px;
-  font-size: 30px;
-}
-section.module p {
-  margin-bottom: 40px;
-  font-size: 16px;
-  font-weight: 300;
-}
-section.module p:last-child {
-  margin-bottom: 0;
-}
-section.module.content {
-  padding: 40px 0;
-}
-section.module.parallax {
-  height: 100vh;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url("../parallax/img/demo/_small/3.jpg");
-}
-section.module.parallax h1 {
-  font-size: 1em;
-  line-height: 1em;
-  text-align: center;
-  text-transform: uppercase;
-}
-section.module.parallax img {
-  font-size: 2em;
-  line-height: 2em;
-  text-align: center;
-  text-transform: uppercase;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-@media all and (min-width: 600px) {
-  section.module h2 {
-    font-size: 42px;
-  }
-  section.module p {
-    font-size: 20px;
-  }
-  section.module.parallax h1 {
-    font-size: 96px;
-  }
-}
-@media all and (min-width: 960px) {
-  section.module.parallax h1 {
-    font-size: 160px;
-  }
-}
-/* ============================================================
-  BOOTSTRAP
-============================================================ */
-.jumbotron {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  color: inherit;
-  background-color: #eee;
-}
-.jumbotron h1,
-.jumbotron .h1 {
-  color: inherit;
-}
-.jumbotron p {
-  margin-bottom: 15px;
-  font-size: 21px;
-  font-weight: 200;
-}
-.jumbotron > hr {
-  border-top-color: #d5d5d5;
-}
-.container .jumbotron,
-.container-fluid .jumbotron {
-  padding-right: 15px;
-  padding-left: 15px;
-  border-radius: 6px;
-}
-.jumbotron .container {
-  max-width: 100%;
-}
-@media screen and (min-width: 768px) {
-  .jumbotron {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-  .container .jumbotron,
-  .container-fluid .jumbotron {
-    padding-right: 60px;
-    padding-left: 60px;
-  }
-  .jumbotron h1,
-  .jumbotron .h1 {
-    font-size: 63px;
-  }
-}
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 768px) {
-  .container {
-    width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1170px;
-  }
-}
 
-section.menu {
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-  padding
-}
 
 html, body {
   margin: 0;
   height: 100%;
   width: 100%;
   padding: 0;
+  color: white;
+  background-color: black;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+section {
+	height: 100vh;
+}
+.hero {
+	background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("../img/rio.jpg");
+}
+.title {
+  width: 100%;
+  font-size: xx-large;
+  line-height: 2em;
+}
+h2 {
+  width: 100%;
+  font-size: medium;
+  line-height: 2em;
+  vertical-align: top;
+}
+.menu {}
+.pure-img-responsive {
+  max-width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#about
+
+.menu-label {}
+
+.button {
+  padding: 0.5em .75em;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border-radius: 25%;
+  border-color: white;
+  border-style: solid;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: large;
+
+}
+
+.button:hover, .button:active {
+  background-color: white;
+  color: black;
+}
+
+.logo {
+  max-width: 20%;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+}
+.logo:hover, .logo:active {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#wrapper {
+  position: relative;
+  top:25vh;
+}
+
+footer {
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  max-height: 10%;
+  letter-spacing: normal;
+}
+
+
+@media (max-width: 500px) {
+  #spacer-vert {
+    height: 28vh;
+  }
+}
+
+@media (min-width: 540px) and (max-width: 1024px) {
+  .pure-u-1-2.pure-u-lg-1-3 {
+    width: 33%;
+  }
+  .spacer-hor {
+    height:40vh;
+  }
+  
+}
+
+@media (min-width: 1024px) and (max-width: 1180px){
+  .spacer-hor {
+    width: 100vw;
+    height: 10vh;
+  }
+  
+}
+
+@media (min-width: 1180px) {
+  .spacer-hor {
+    width: 100vw;
+    height: 1vh;
+  }
 }

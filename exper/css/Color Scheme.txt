@@ -1,0 +1,7 @@
+Color Scheme
+#f5dfd1
+#ecb5c8
+#dba7be
+#aa94b8
+#bbbad9
+#e0e4ed
