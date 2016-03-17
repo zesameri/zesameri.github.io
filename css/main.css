@@ -92,7 +92,7 @@ h2 {
 .button:active {
   background-color: beige;
   color: b
-
+}
 .logo {
   max-width: 20%;
   -webkit-transition: -webkit-transform 2s ease-in-out;
