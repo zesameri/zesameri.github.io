@@ -1,0 +1,20 @@
+TODO LIST:
+Overlay images
+Make single page with scrolling nav:
+	Options:
+		Javascript: on button click, bring next screen
+		CSS: active, animate other section
+Make guestbook/log
+	PHP involved
+	But get a working one with an email form, such and such
+make Interactive Resume
+	Ideal is a series of videos
+	probably just going to do a bunch of + and drop down
+	Maybe make a cool menu
+		Education
+		Work Experience
+		Philanphropies
+		Projects -> Portfolio
+		Skills
+		Interests -> Personal passion page
+make interactive portfolio
