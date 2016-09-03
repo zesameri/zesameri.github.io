@@ -1,5 +1,5 @@
 /* ============================================================
-  RESET - http://meyerweb.com/eric/tools/css/reset/
+  RESET
 ============================================================ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -89,13 +89,12 @@ h2 {
   background-color: white;
   color: black;
 }
-/*
+
 .button:active {
-  background-color: white;
+  background-color: whitesmoke;
   color: black;
 }
 
-*/
 .logo {
   max-width: 20%;
   -webkit-transition: -webkit-transform 2s ease-in-out;
