@@ -89,10 +89,13 @@ h2 {
   background-color: white;
   color: black;
 }
+/*
 .button:active {
   background-color: white;
-  color: b
+  color: black;
 }
+
+*/
 .logo {
   max-width: 20%;
   -webkit-transition: -webkit-transform 2s ease-in-out;
