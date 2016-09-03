@@ -30,7 +30,7 @@ html, body {
   height: 100%;
   width: 100%;
   padding: 0;
-  color: beige;
+  color: white;
   background-color: black;
   text-align: center;
   display: inline-block;
@@ -78,7 +78,7 @@ h2 {
   outline: none;
   color: #fff;
   border-radius: 25%;
-  border-color: beige;
+  border-color: white;
   border-style: solid;
   background: transparent;
   font-size: large;
@@ -86,11 +86,11 @@ h2 {
 }
 
 .button:hover {
-  background-color: beige;
+  background-color: white;
   color: black;
 }
 .button:active {
-  background-color: beige;
+  background-color: white;
   color: b
 }
 .logo {
