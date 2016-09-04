@@ -28,6 +28,11 @@
         <link rel="stylesheet" href="css/pure-release-0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/about.css">
+  
+    <!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
   <script src="js/main.js"></script>
   
@@ -42,13 +47,13 @@
     <div id="wrapper">
       <img class="logo" src="assets/flower.svg">
       <h1 class="title"> meredith hoo </h1>
-      <button class="button"><b>enter<b></button>
+	  <button id="enter_button" class="button">enter</button>
     <div>
   </section>
   <!-- Main Menu ––––––––––––––––––––––––––––––––– -->
   <section id="menu-page"class="menu">
     <h1 class="title"> Menu </h1>
-    <h2> return </h2>
+    <button id="return_button" class="button">return</button>
     <nav class="pure-g">
       <div id="about" class="pure-u-1-2 pure-u-lg-1-3">
         <img class="pure-img-responsive" src="assets/print1.jpg"/>
@@ -82,48 +87,51 @@
   
     <!-- About ––––––––––––––––––––––––––––––––– -->
   <section id="about-page"class="about">
-  	<div class="header">
-  		<img class="me" src="assets/me4.jpg"/>
-  	</div>
-  	<br>
-  	<h1> Meredith Hoo </h1>
-  	<div class="frame">
-  		<div class="pure-g">
-  			<div class="pure-u-1 pure-u-md-1-3">
-  				<p class="about_text">
-  					I'm a software engineer based in New York, looking to solve complex problems wherever the code takes me.
-  					Over the last six years, I've become involved in the creative applications of machine learning, 
-  					the software development of educational and socailly responsible expereinces. From my work in the classroom
-  					and in industry.
-  				</p>
-  			</div>
-  			<div class="pure-u-1 pure-u-md-1-3"> 
-  				<img id="books" src="assets/books.jpg"/>
-  			</div>
-  			<div class="pure-u-1 pure-u-md-1-3">
-  				<h2> </h2>
-  				<form action="/my-handling-form-page" method="post">
-  					<div>
-  						<label for="name">Name:</label>
-  						<input type="text" id="name" name="user_name" />
-  					</div>
-  					<div>
-  						<label for="mail">E-mail:</label>
-  						<input type="email" id="mail" name="user_email" />
-  					</div>
-  					<div>
-  						<label for="msg">Message:</label>
-  						<textarea id="msg" name="user_message"></textarea>
-  					</div>
-  					
-  					<div class="button">
-  						<button type="submit">Send your message</button>
-  					</div>
-  				</form>
-  			</div>
-  		</div>
-  	</div>
+	<div class="header">
+		<img class="me" src="assets/me4.jpg"/>
+	</div>
+	<br>
+	<h1> Meredith Hoo </h1>
+	<div class="frame">
+		<div class="pure-g">
+			<div class="pure-u-1 pure-u-md-1-3">
+				<p class="about_text">
+					I'm a software engineer based in New York, looking to solve complex problems wherever the code takes me.
+					Over the last six years, I've become involved in the creative applications of machine learning, 
+					the software development of educational and socailly responsible expereinces. From my work in the classroom
+					and in industry.
+				</p>
+			</div>
+			<div class="pure-u-1 pure-u-md-1-3"> 
+				<img id="books" src="assets/books.jpg"/>
+			</div>
+			<div class="pure-u-1 pure-u-md-1-3">
+				<h2> </h2>
+				<form action="/my-handling-form-page" method="post">
+					<div>
+						<label for="name">Name:</label>
+						<input type="text" id="name" name="user_name" />
+					</div>
+					<div>
+						<label for="mail">E-mail:</label>
+						<input type="email" id="mail" name="user_email" />
+					</div>
+					<div>
+						<label for="msg">Message:</label>
+						<textarea id="msg" name="user_message"></textarea>
+					</div>
+					
+					<div class="button">
+						<button type="submit">Send your message</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+    
   </section>
+  
   <!-- End Document ––––––––––––––––––––––––––––––– -->
 </body>
 </html>
