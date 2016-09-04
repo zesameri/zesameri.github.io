@@ -1,0 +1,62 @@
+/* ============================================================
+  For Menu Styling
+============================================================ */
+
+
+.menu {}
+.menu-label {
+  font-size: medium;
+}
+
+.pure-img-responsive {
+  max-width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+#return_button {
+	background: transparent;
+	outline: none;
+	border-style: none;
+    padding-bottom: 1em;
+}
+
+@media (max-width: 500px) {
+  #spacer-vert {
+    height: 28vh;
+  }
+  .logo {
+    -webkit-animation:spin 6s linear infinite;
+    -moz-animation:spin 6s linear infinite;
+    animation:spin 6s linear infinite;
+  }
+  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+}
+
+@media (min-width: 540px) and (max-width: 1024px) {
+  .pure-u-1-2.pure-u-lg-1-3 {
+    width: 33%;
+  }
+  .spacer-hor {
+    height:40vh;
+  }
+  
+}
+
+@media (min-width: 1024px) and (max-width: 1180px){
+  .spacer-hor {
+    width: 100vw;
+    height: 10vh;
+  }
+  
+}
+
+@media (min-width: 1180px) {
+  .spacer-hor {
+    width: 100vw;
+    height: 3vh;
+  }
+}
