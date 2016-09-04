@@ -2,12 +2,17 @@ $(document).ready(function() {
 	
 	resizeMenu();
 	
-	$("button").click(function() {
+	$("#enter_button").click(function() {
 		$('html,body').animate({
 			scrollTop: $(".menu").offset().top},
 			'slow');
 	});
 	
+	$("#return_button").click(function() {
+		$('html,body').animate({
+			scrollTop: $(".hero").offset().top},
+			'slow');
+	});
 	
 	
 });
