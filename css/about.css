@@ -34,7 +34,7 @@
 	width: 80%;
 }
 
-h1 {
+#about_title {
 	clear: both;
     display: inline-block;
     overflow: hidden;
