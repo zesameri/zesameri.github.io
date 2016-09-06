@@ -31,27 +31,27 @@
 
 
 #books {
-	width: 80%;
+  width: 80%;
 }
 
 #about_title {
-	clear: both;
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-	font-size: 2em;
-	margin-before: 0.67em;
-	margin-after: 0.67em;
-	margin-start: 0;
-	margin-end: 0;
-	font-weight: bold;
+  clear: both;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 2em;
+  margin-before: 0.67em;
+  margin-after: 0.67em;
+  margin-start: 0;
+  margin-end: 0;
+  font-weight: bold;
 }
 
-.name, .mail, .msg {
-	width: 100%;
-	padding: 1em;
-	display: inline-block;
-	border: 1px solid #ccc;
+#name, #mail, #msg {
+  width: 100%;
+  padding: 1em;
+  display: inline-block;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
