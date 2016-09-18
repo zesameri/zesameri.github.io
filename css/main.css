@@ -23,7 +23,8 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
 }
 
 
