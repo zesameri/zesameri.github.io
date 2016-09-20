@@ -34,8 +34,8 @@ html, body {
   height: 100%;
   width: 100%;
   padding: 0;
-  color: white;
-  background-color: black;
+  color: FloralWhite;
+  background-color: #1A1110;
   text-align: center;
   display: inline-block;
 }
@@ -64,19 +64,19 @@ section {
 	color: #fff;
 	border-radius: 25%;
 	border-radius: 25%;
-	border-color: white;
+	border-color: FloralWhite;
 	border-style: solid;
 	background: transparent;
 }
 
 #enter_button:hover {
-  background-color: white;
-  color: black;
+  background-color: FloralWhite;
+  color: #1A1110;
 }
 
 #enter_button:active {
-  background-color: whitesmoke;
-  color: black;
+  background-color: FloralWhite;
+  color: #1A1110;
 }
 
 .logo {
