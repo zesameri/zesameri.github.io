@@ -1,16 +1,14 @@
 .menu-bar {
   position: fixed;
-	margin:auto;
-	width: 100%;
-	background: rgba(139,0,0, 0.2);
-	padding: 0.5em 0;
-	text-transform: lowercase;
-	text-align: center;
+  margin:auto;
+  width: 100%;
+  background: rgba(139,0,0, 0.2);
+  padding: 0.5em 0;
+  text-transform: lowercase;
+  text-align: center;
   font-weight: 500;
 }
-.snip1168 {
-  
-}
+
 .snip1168 * {
   box-sizing: border-box;
 }
