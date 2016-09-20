@@ -1,13 +1,15 @@
 .menu-bar {
   position: fixed;
-  width: 100%;
-  margin: auto;
-  display: inline-block;
+	margin:auto;
+	width: 100%;
+	background: rgba(139,0,0, 0.2);
+	padding: 0.5em 0;
+	text-transform: lowercase;
+	text-align: center;
+  font-weight: 500;
 }
 .snip1168 {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
+  
 }
 .snip1168 * {
   box-sizing: border-box;
@@ -37,7 +39,7 @@
   height: 3px;
   width: 0%;
   content: "";
-  background-color: #c0392b;
+  background-color: rgb(176,224,230);
 }
 .snip1168 a:after {
   left: 0;
