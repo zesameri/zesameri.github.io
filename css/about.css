@@ -14,5 +14,12 @@
   margin auto;
   display: block;
   border-radius: 50%;
-  width: 100%;
+  max-width: 50%;
+}
+
+.about-text {
+  padding: 1em;
+  text-align: left;
+  max-width: 50%;
+  margin: auto;
 }
