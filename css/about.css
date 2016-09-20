@@ -11,7 +11,7 @@
 
 
 .me {
-  margin auto;
+  margin: auto;
   display: block;
   border-radius: 50%;
   max-width: 50%;
