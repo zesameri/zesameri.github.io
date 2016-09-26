@@ -3,23 +3,16 @@
 ============================================================ */
 
 
-.about {
-    padding: 1em;
-    display: inline-block;
-    margin: auto;
-}
+.about {}
 
 
 .me {
-  margin: auto;
-  display: block;
-  border-radius: 50%;
-  max-width: 50%;
+  background-color: aliceblue;
+  color:
 }
 
 .about-text {
-  padding: 1em;
   text-align: left;
-  max-width: 50%;
-  margin: auto;
+  background-color: aliceblue;
+  color: midnightblue;
 }

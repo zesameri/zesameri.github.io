@@ -1,7 +1,7 @@
 
 
-.menu {}
-.menu-label {
+.portfolio-nav {}
+.portfolio-nav-label {
   font-size: medium;
 }
 
@@ -40,7 +40,7 @@
   .spacer-hor {
     height:40vh;
   }
-  
+
 }
 
 @media (min-width: 1024px) and (max-width: 1180px){
@@ -48,7 +48,7 @@
     width: 100vw;
     height: 10vh;
   }
-  
+
 }
 
 @media (min-width: 1180px) {
@@ -57,5 +57,3 @@
     height: 3vh;
   }
 }
-
-
