@@ -1,0 +1,54 @@
+.flex-parent {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex: 1;
+  padding: 20px;
+  align-items: center;
+}
+.flex-grid-halves {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex: 1;
+  padding: 20px;
+  align-items: center;
+}
+
+@media screen and (orientation:portrait) {
+    /* Portrait styles */
+    .portrait {
+      display: flex;
+    }
+    .landscape {
+      display: none;
+    }
+}
+/* Landscape */
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+    .portrait {
+      display: none;
+    }
+    .landscape {
+      display: flex;
+    }
+}
+
+.pure-img-responsive {
+  max-width: 50%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+.portfolio-nav {}
+.portfolio-nav-label {
+  font-size: medium;
+}

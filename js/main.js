@@ -1,20 +1,20 @@
 $(document).ready(function() {
-	
+
 	resizeMenu();
-	
+
 	$("#enter_button").click(function() {
 		$('html,body').animate({
-			scrollTop: $(".menu").offset().top},
+			scrollTop: $("#about-page").offset().top},
 			'slow');
 	});
-	
+
 	$("#return_button").click(function() {
 		$('html,body').animate({
 			scrollTop: $(".hero").offset().top},
 			'slow');
 	});
-	
-	
+
+
 });
 
 function resizeMenu() {

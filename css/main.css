@@ -27,18 +27,7 @@ time, mark, audio, video {
   /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
 }
 
-html {
-  overflow: hidden;
-  position: relative;
-}
-body {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: -17px; /* Increase/Decrease this value for cross-browser compatibility */
-  overflow-y: scroll;
-}
+
 
 
 html, body {
@@ -49,7 +38,6 @@ html, body {
   color: FloralWhite;
   background-color: #1A1110;
   text-align: center;
-  display: inline-block;
 
 }
 
@@ -103,46 +91,17 @@ section {
   transform: rotate(180deg);
 }
 
-@media (max-width: 500px) {
+@media screen and (orientation:portrait) {
   .logo {
     -webkit-animation:spin 6s linear infinite;
     -moz-animation:spin 6s linear infinite;
     animation:spin 6s linear infinite;
   }
   @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 }
 
 #wrapper {
   position: relative;
   top:25vh;
-}
-
-.testing {
-  overflow:hidden;
-  background-color: aquamarine;
-}
-
-.testing div {
-   height: 100%;
-}
-.one {
-  background-color: cornflowerBlue;
-  float:left;
-  width:62vw;
-  height: 100%;
-}
-.two {
-  background-color: aliceblue;
-  color: midnightblue;
-  height: 100%;
-  text-align: left;
-}
-
-@media screen and (max-width: 400px) {
-   .one {
-    float: none;
-    margin-right:0;
-    width:auto;
-  }
 }
