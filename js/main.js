@@ -1,32 +1,7 @@
 $(document).ready(function() {
-
-	resizeMenu();
-
-	$("#enter_button").click(function() {
+	$(".hero button").click(function() {
 		$('html,body').animate({
 			scrollTop: $("#about-page").offset().top},
 			'slow');
 	});
-
-	$("#return_button").click(function() {
-		$('html,body').animate({
-			scrollTop: $(".hero").offset().top},
-			'slow');
-	});
-
-
 });
-
-function resizeMenu() {
-	if ($(window).width() > $(window).height()) {
-		$('pure-u-1-2 pure-u-lg-1-3').each(function() {
-			var oneThird = 1/3;
-			$(this).width(oneThird + "%");
-			$(this).height("50%");
-		})
-	} else {
-		$('pure-u-1-2 pure-u-lg-1-3').each(function() {
-			$(this).width("50%");
-		})
-	}
-}

@@ -19,7 +19,20 @@
   padding: 20px;
   align-items: center;
 }
-
+.flex-parent p {
+  font-size: x-large;
+}
+.flex-parent img {
+  max-width: 50%;
+}
+.flex-parent img {
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+}
+.flex-parent img:hover {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
 @media screen and (orientation:portrait) {
     /* Portrait styles */
     .portrait {
@@ -38,17 +51,4 @@
     .landscape {
       display: flex;
     }
-}
-
-.pure-img-responsive {
-  max-width: 50%;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%;
-}
-
-.portfolio-nav {}
-.portfolio-nav-label {
-  font-size: medium;
 }

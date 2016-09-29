@@ -27,9 +27,6 @@ time, mark, audio, video {
   /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
 }
 
-
-
-
 html, body {
   margin: 0;
   height: 100%;
@@ -44,64 +41,4 @@ html, body {
 section {
 	height: 100vh;
   padding-top: 2em;
-}
-.hero {
-	background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url("../assets/rio.jpg");
-}
-.title {
-  width: 100%;
-  font-size: xx-large;
-  line-height: 2em;
-}
-
-#enter_button {
-	outline: none;
-	padding: 0.5em .75em;
-	cursor: pointer;
-	font-size: large;
-	color: #fff;
-	border-radius: 25%;
-	border-radius: 25%;
-	border-color: FloralWhite;
-	border-style: solid;
-	background: transparent;
-}
-
-#enter_button:hover {
-  background-color: FloralWhite;
-  color: #1A1110;
-}
-
-#enter_button:active {
-  background-color: FloralWhite;
-  color: #1A1110;
-}
-
-.logo {
-  max-width: 20%;
-  -webkit-transition: -webkit-transform 2s ease-in-out;
-  transition: transform 2s ease-in-out;
-}
-.logo:hover, .logo:active {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-@media screen and (orientation:portrait) {
-  .logo {
-    -webkit-animation:spin 6s linear infinite;
-    -moz-animation:spin 6s linear infinite;
-    animation:spin 6s linear infinite;
-  }
-  @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-  @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-}
-
-#wrapper {
-  position: relative;
-  top:25vh;
 }
