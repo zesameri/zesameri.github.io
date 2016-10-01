@@ -4,6 +4,7 @@
   background-attachment: fixed;
   background-size: cover;
   background-image: url("../assets/rio.jpg");
+	overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;

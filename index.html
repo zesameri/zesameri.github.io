@@ -19,8 +19,7 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/flexmenu.css">
-  <link rel="stylesheet" href="css/testing.css">
+  <link rel="stylesheet" href="css/project-menu.css">
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
@@ -35,116 +34,122 @@
   <!-- Main Menu –––––––––––––––––––––––––––––––––––––––––––– -->
   <nav class="menu-bar">
     <ul class="snip1168">
-      <li class="current"><a href="#" data-hover="home">home</a></li>
-      <li><a href="#about-page" data-hover="about">about</a></li>
-
-      <li><a href="#projects" data-hover="projects">projects</a></li>
-      <li><a href="#gratitude" data-hover="blog">gratitude</a></li>
+      <li><a class="goto" ref="#home" data-hover="home">home</a></li>
+      <li><a class="goto" ref="#about-page" data-hover="about">about</a></li>
+      <li><a class="goto" ref="#projects" data-hover="projects">projects</a></li>
+      <li><a class="goto" ref="#gratitude" data-hover="gratitude">gratitude</a></li>
     </ul>
   </nav>
 
   <!-- Landing page ––––––––––––––––––––––––––––––– -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div>
       <img class="rotate" src="assets/flower.svg">
       <h1> meredith hoo </h1>
-  	  <button class="button">enter</button>
+  	  <button class="button goto" ref="#about-page">enter</button>
     </div>
   </section>
 
   <!-- About ––––––––––––––––––––––––––––––––– -->
-  <section id="about-page" class="flex-exper">
-    <div class="side-nav">
-      <div class="">background</div>
-      <div class="">interests</div>
-      <div class="">skills</div>
-      <div class="">work experience</div>
-      <div class="">philanthropies</div>
-      <div class="">blog</div>
-      <div class="">resume</div>
-      <div class="">contact</div>
-    </div>
-    <div class="main">
-      <div class="content">
-        <h1 class="name">Meredith Hoo</h1>
-        <p>
-          I'm a software engineer based in New York, looking to solve complex problems wherever the code takes me.
-          Over the last six years, I've become involved in the creative applications of machine learning,
-          the software development of educational and socailly responsible expereinces. From my work in the classroom
-          and in industry.
-        </p>
-        <p >
-          Please know that this site is experiemental, and in progress
-        </p>
+  <section class="about" id="about-page" >
+    <div class="menu-space"></div>
+    <div class="flex-exper">
+      <div class="side-nav">
+        <div class="">background</div>
+        <div class="">interests</div>
+        <div class="">skills</div>
+        <div class="">work experience</div>
+        <div class="">philanthropies</div>
+        <div class="">blog</div>
+        <div class="">resume</div>
+        <div class="">contact</div>
+      </div>
+      <div class="main">
+        <div class="content">
+          <h1 class="name">Meredith Hoo</h1>
+          <p>
+            I'm a software engineer based in New York, looking to solve complex problems wherever the code takes me.
+            Over the last six years, I've become involved in the creative applications of machine learning,
+            the software development of educational and socailly responsible expereinces. From my work in the classroom
+            and in industry.
+          </p>
+          <p>
+            Please know that this site is experiemental, and in progress
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Landscape Mode ––––––––––––––––––––––––––––––––– -->
-  <section class="flex-parent landscape" id="projects">
-    <div class="flex-grid-thirds">
-      <div >
-        <img  src="assets/flower.svg">
-        <p >apps</p>
+  <!-- Projects ––––––––––––––––––––––––––––––––– -->
+  <div id="projects">
+    <section class="flex-parent landscape">
+      <div class="flex-grid-thirds">
+        <div>
+          <img  src="assets/flower.svg">
+          <p >apps</p>
+        </div>
+        <div>
+          <img  src="assets/flower.svg">
+          <p >edutech</p>
+        </div>
+        <div>
+          <img  src="assets/flower.svg">
+          <p >writing</p>
+        </div>
       </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >edutech</p>
+      <div class="flex-grid-thirds">
+        <div>
+          <img  src="assets/flower.svg">
+          <p >art</p>
+        </div>
+        <div >
+          <img  src="assets/flower.svg">
+          <p >podcast</p>
+        </div>
+        <div>
+          <img  src="assets/flower.svg">
+          <p >blog</p>
+        </div>
       </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >writing</p>
-      </div>
-    </div>
-    <div class="flex-grid-thirds">
-      <div >
-        <img  src="assets/flower.svg">
-        <p >art</p>
-      </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >podcast</p>
-      </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >blog</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
+    <section class="flex-parent portrait" id="projects">
+      <div class="flex-grid-halves">
+        <div >
+          <img  src="assets/flower.svg">
+          <p >apps</p>
+        </div>
+        <div >
+          <img  src="assets/flower.svg">
+          <p >edutech</p>
+        </div>
+      </div>
+      <div class="flex-grid-halves">
+        <div >
+          <img  src="assets/flower.svg">
+          <p >writing</p>
+        </div>
+        <div >
+          <img  src="assets/flower.svg">
+          <p >art</p>
+        </div>
+      </div>
+      <div class="flex-grid-halves">
+        <div >
+          <img  src="assets/flower.svg">
+          <p >podcast</p>
+        </div>
+        <div >
+          <img  src="assets/flower.svg">
+          <p >blog</p>
+        </div>
+      </div>
+    </section>
+  </div>
   <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
-  <section class="flex-parent portrait" id="projects">
-    <div class="flex-grid-halves">
-      <div >
-        <img  src="assets/flower.svg">
-        <p >apps</p>
-      </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >edutech</p>
-      </div>
-    </div>
-    <div class="flex-grid-halves">
-      <div >
-        <img  src="assets/flower.svg">
-        <p >writing</p>
-      </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >art</p>
-      </div>
-    </div>
-    <div class="flex-grid-halves">
-      <div >
-        <img  src="assets/flower.svg">
-        <p >podcast</p>
-      </div>
-      <div >
-        <img  src="assets/flower.svg">
-        <p >blog</p>
-      </div>
-    </div>
-  </section>
+  <section id="gratitude"></section>
 
   <!-- End Document ––––––––––––––––––––––––––––––– -->
 </body>

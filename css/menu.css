@@ -4,25 +4,30 @@
 
 .menu-bar {
   position: fixed;
-  margin:auto;
   width: 100%;
-  background: rgba(139,0,0, 0.2);
-  padding: 0.5em 0;
+  background: rgba(139,0,0, 0.4);
+  height: 2em;
   font-weight: 500;
   z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
-
-.snip1168 * {
-  box-sizing: border-box;
+.snip1168 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  list-style: outside none none;
 }
 .snip1168 li {
-  display: inline-block;
-  list-style: outside none none;
-  margin: 0 1em;
-  padding: 0;
+  padding: 0 1em;
 }
 .snip1168 a {
-  padding: 0.5em 0;
   color: rgba(255, 255, 255, 0.5);
   position: relative;
   letter-spacing: 1px;
@@ -30,22 +35,15 @@
 }
 .snip1168 a:before,
 .snip1168 a:after {
-  position: absolute;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 .snip1168 a:before {
-  top: 0;
-  display: block;
-  height: 3px;
-  width: 0%;
   content: "";
   background-color: rgb(176,224,230);
 }
 .snip1168 a:after {
   left: 0;
-  top: 0;
-  padding: 0.5em 0;
   position: absolute;
   content: attr(data-hover);
   color: #ffffff;
