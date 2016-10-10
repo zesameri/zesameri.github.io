@@ -39,23 +39,3 @@
     transform: rotate(180deg);
   }
 }
-
-.hero button {
-	outline: none;
-	padding: 0.5em .75em;
-	font-size: large;
-	border-radius: 25%;
-	border: solid FloralWhite;
-	background: transparent;
-	color: FloralWhite;
-}
-
-.hero button:hover {
-  background-color: FloralWhite;
-  color: #1A1110;
-}
-
-.hero button:active {
-  background-color: FloralWhite;
-  color: #1A1110;
-}
