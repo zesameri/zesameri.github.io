@@ -4,6 +4,7 @@
 .about {
   display: flex;
   flex-direction: column;
+  background-color: floralwhite;
 }
 
 .menu-space {
@@ -22,7 +23,6 @@
   justify-content: center;
   align-items: center;
   width:30%;
-  border: 2px solid #1A1110;
 }
 
 .side-nav div{
@@ -57,7 +57,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #1A1110;
 }
 .main .content {
   color: #1A1110;
