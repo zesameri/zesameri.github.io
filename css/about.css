@@ -9,6 +9,7 @@
 
 .menu-space {
   height: 2em;
+  background: #b9bcb6;
 }
 .flex-exper {
   display: flex;
@@ -34,7 +35,7 @@
   border: 1px solid FloralWhite;
   width: 100%;
   font-size: x-large;
-  background: salmon;
+  background: slategrey;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -53,10 +54,12 @@
 
 .main {
   width: 70vw;
-  background-color: LightSteelBlue ;
+  background-color: #a6b1d4;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid white;
+  border-left: 2px solid white;
 }
 .main .content {
   color: #1A1110;

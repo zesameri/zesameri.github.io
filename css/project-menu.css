@@ -1,3 +1,6 @@
+#projects {
+  background: linear-gradient(141deg, #708090 0%, #90A2B7 51%, #B0C4DE 75%);
+}
 .flex-parent {
   display: flex;
   flex-direction: column;
