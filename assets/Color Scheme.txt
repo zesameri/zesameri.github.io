@@ -5,3 +5,8 @@ Color Scheme
 #aa94b8
 #bbbad9
 #e0e4ed
+
+
+New
+#e0ffdd
+#a6b1d4
