@@ -16,11 +16,9 @@
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/menu-bar.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/project-menu.css">
-  <link rel="stylesheet" href="css/exper.css">
+  <link rel="stylesheet" href="css/grid.css">
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
@@ -36,7 +34,6 @@
   <nav class="menu-bar">
     <ul class="snip1168">
       <li><a class="goto" ref="#home" data-hover="home">home</a></li>
-      <li><a class="goto" ref="#about-page" data-hover="about">about</a></li>
       <li><a class="goto" ref="#projects" data-hover="projects">projects</a></li>
       <li><a class="goto" ref="#gratitude" data-hover="gratitude">gratitude</a></li>
     </ul>
@@ -45,36 +42,8 @@
   <!-- Landing page ––––––––––––––––––––––––––––––– -->
   <section class="hero" id="home">
     <div>
-      <img class="rotate" src="assets/flower.svg">
+      <img class="rotate" src="assets/black.svg">
       <h1> meredith hoo </h1>
-    </div>
-  </section>
-
-  <!-- About ––––––––––––––––––––––––––––––––– -->
-  <section class="about" id="about-page" >
-    <div class="menu-space"></div>
-    <div class="flex-exper">
-      <div class="side-nav">
-        <div class="">background</div>
-        <div class="">interests</div>
-        <div class="">skills</div>
-        <div class="">work experience</div>
-        <div class="">philanthropies</div>
-        <div class="">blog</div>
-        <div class="">resume</div>
-        <div class="">contact</div>
-      </div>
-      <div class="main">
-        <div class="content">
-          <h1 class="name">Meredith Hoo</h1>
-          <p>
-            I'm a software engineer based in New York.
-            I'm actively looking to gain experience in education technology, creative applications of machine learning and big data.
-            Over the last six years, I've become involved in variety of collaborations with artist such as Audie Maginley, and Isaac Wellish.
-            Thank you for exploring my site. This is my home for experimentation, and recognition.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -82,31 +51,37 @@
   <div id="projects">
     <section class="flex-parent landscape">
       <div class="flex-grid-thirds">
-        <div>
-          <img  src="assets/flower.svg">
-          <p >apps</p>
+        <div class="about">
+          <img src="assets/black.svg">
+          <p >about me</p>
         </div>
-        <div>
-          <img  src="assets/flower.svg">
-          <p >edutech</p>
+        <div class="resume">
+          <a href="assets/Resume.pdf">
+            <img src="assets/black.svg">
+            <p >resume</p>
+          </a>
         </div>
-        <div>
-          <img  src="assets/flower.svg">
-          <p >writing</p>
+        <div class="code">
+          <a href="https://github.com/merhoo/">
+            <img src="assets/black.svg">
+            <p >code</p>
+          </a>
         </div>
       </div>
       <div class="flex-grid-thirds">
-        <div>
-          <img  src="assets/flower.svg">
-          <p >art</p>
+        <div class="writing">
+          <img src="assets/black.svg">
+          <p >writing</p>
         </div>
-        <div >
-          <img  src="assets/flower.svg">
-          <p >podcast</p>
+        <div class="blog">
+          <a href="http://hoo-howls.tumblr.com/">
+            <img src="assets/black.svg">
+            <p >blog</p>
+          </a>
         </div>
-        <div>
-          <img  src="assets/flower.svg">
-          <p >blog</p>
+        <div class="contact">
+          <img src="assets/black.svg">
+          <p >contact</p>
         </div>
       </div>
     </section>
@@ -114,33 +89,39 @@
     <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
     <section class="flex-parent portrait" id="projects">
       <div class="flex-grid-halves">
-        <div>
-          <img  src="assets/flower.svg">
-          <p >apps</p>
+        <div class="about">
+          <img src="assets/black.svg">
+          <p >about me</p>
         </div>
-        <div >
-          <img  src="assets/flower.svg">
-          <p >edutech</p>
+        <div class="resume">
+          <a href="assets/Resume.pdf">
+            <img src="assets/black.svg">
+            <p >resume</p>
+          </a>
         </div>
       </div>
       <div class="flex-grid-halves">
-        <div >
-          <img  src="assets/flower.svg">
+        <div class="code">
+          <a href="https://github.com/merhoo/">
+            <img src="assets/black.svg">
+            <p >code</p>
+          </a>
+        </div>
+        <div class="writing">
+          <img src="assets/black.svg">
           <p >writing</p>
         </div>
-        <div >
-          <img  src="assets/flower.svg">
-          <p >art</p>
-        </div>
       </div>
       <div class="flex-grid-halves">
-        <div >
-          <img  src="assets/flower.svg">
-          <p >podcast</p>
+        <div class="blog">
+          <a href="http://hoo-howls.tumblr.com/">
+            <img src="assets/black.svg">
+            <p >blog</p>
+          </a>
         </div>
-        <div>
-          <img  src="assets/flower.svg">
-          <p>blog</p>
+        <div class="contact">
+          <img src="assets/black.svg">
+          <p>contact</p>
         </div>
       </div>
     </section>
