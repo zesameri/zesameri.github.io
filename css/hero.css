@@ -1,10 +1,4 @@
 .hero {
-	background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  /*background-image: url("../assets/mountain.jpg");*/
-	overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;

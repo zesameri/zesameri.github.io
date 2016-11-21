@@ -1,9 +1,12 @@
-#projects {
-  background-color: linear-gradient(#FFFAF0 0%, #FFF5CE 51%, #FFF0AB 75%);
-}
+/* ============================================================
+  For Flower Garden Styling
+============================================================ */
 .flex-parent {
   display: flex;
   flex-direction: column;
+}
+.menu-space {
+  min-height:2em;
 }
 .flex-grid-halves, .flex-grid-thirds {
   display: flex;
@@ -17,8 +20,8 @@
   font-size: x-large;
 }
 .flex-parent img {
-  max-width: 50%;
   border-radius: 50%;
+  max-width: 50%;
 }
 .flex-parent img {
   -webkit-transition: -webkit-transform 2s ease-in-out;
@@ -68,6 +71,6 @@
   background-color: coral;
 }
 
-.contact img {
+.grazie img {
   background-color: darkorange;
 }
