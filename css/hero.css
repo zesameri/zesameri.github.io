@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: darkorange;
 }
 .hero h1 {
   width: 100%;

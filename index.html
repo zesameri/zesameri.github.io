@@ -12,13 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round|Kalam" rel="stylesheet">
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/menu-bar.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/grid.css">
+  <link rel="stylesheet" href="css/about.css">
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
@@ -35,6 +36,7 @@
     <ul class="snip1168">
       <li><a class="goto" ref="#home" data-hover="home">home</a></li>
       <li><a class="goto" ref="#projects" data-hover="projects">projects</a></li>
+      <li><a class="goto" ref="#about" data-hover="about">about</a></li>
       <li><a class="goto" ref="#gratitude" data-hover="gratitude">gratitude</a></li>
     </ul>
   </nav>
@@ -47,12 +49,12 @@
     </div>
   </section>
 
-  <!-- Projects Lsndsape Mode ––––––––––––––––––––––––––––––––– -->
+  <!-- Projects Landsape Mode ––––––––––––––––––––––––––––––––– -->
   <div id="projects">
     <section class="flex-parent landscape">
       <div class="menu-space"></div>
       <div class="flex-grid-thirds">
-        <div class="about">
+        <div class="about-me">
           <a href="about.html">
             <img src="assets/black.svg">
             <p >about me</p>
@@ -93,7 +95,7 @@
     <section class="flex-parent portrait" id="projects">
       <div class="menu-space"></div>
       <div class="flex-grid-halves">
-        <div class="about">
+        <div class="about-me">
           <a href="about.html">
             <img src="assets/black.svg">
             <p>about me</p>
@@ -132,6 +134,64 @@
       </div>
     </section>
   </div>
+
+  <!-- About page ––––––––––––––––––––––––––––––– -->
+  <section class="about" id="about">
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      <div class="flipper">
+        <div class="front">
+          <img src="assets/black.svg"/>
+          <h1>MEREDITH HOO</h1>
+          <h2>Software Engineer</h2>
+          <p>New York, NY</p>
+        </div>
+        <div class="back">
+          <h1>MEREDITH HOO</h1>
+          <h2>New York, NY</h2>
+          <p>516-492-8916</p>
+          <a href="mailto:meredith.hoo1@gmail.com" target="_top"><p>meredith.hoo1@gmail.com</p></a>
+        </div>
+      </div>
+    </div>
+    <div class="backdrop">
+      <a class="photo" title="FLOWER"><img src="assets/purchase.jpg" alt="Cave"/></a>
+      <a class="photo" title="ROSES"><img src="assets/books.jpg" alt="Island"/></a>
+
+      <a class="photo" title="BLUE"><img src="assets/brkfst.jpg" alt="Islands Forest"/></a>
+      <a class="photo" title="rockport"><img src="assets/me5.jpg" alt="Decking"/></a>
+      <a class="index-card">
+        <h1> to do's </h1>
+        <p>  send letters to my cousins, and old friends</p>
+        <p>  plan and make thanksgiving dinner </p>
+        <p>  meditate, exercise, journal, be kind</p>
+        <p>  study for finals</p>
+        <p>  practice french for winter break in Canada </p>
+      </a>
+      <a class="photo" title="Mountains"><img src="assets/beauty.jpg" alt="Mountains"/></a>
+      <a class="photo" title="choir"><img src="assets/choir.jpg" alt="Lake" title="Lake" /></a>
+      <a class="index-card">
+        <h1> Work experience </h1>
+        <p> Future Microsoft Intern (Summer 2017)</p>
+        <p> Bloomberg Mortgage Applications Intern (Summer 2016) </p>
+        <p> Web Developer at Lehigh University (work study)</p>
+        <p> Bloomberg Mobile Development Intern- (Summer 2015) </p>
+        <p> Bloomberg Multi-Asset Risk System Intern (HS Senior Year)</p>
+        <p> Morgan Stanley Intern (Summer 2014)</p>
+      </a>
+      <a class="photo" title="CRANES IN THE SKY"><img src="assets/painting.jpg" alt="Forest"/></a>
+      <a class="photo" title="Stars"><img src="assets/stars.jpg" alt="Coast Valley"/></a>
+      <a class="photo" title="SUMMER IN DC"><img src="assets/me3.jpg" alt="Coast Valley"/></a>
+      <a class="index-card">
+        <h1> Interests </h1>
+        <p>  Software enginnering, webdev, web design</p>
+        <p>  excellent cook, eating (in progress)</p>
+        <p>  people, thoughtful outspoken</p>
+        <p>  edtech, human interaction, diversity</p>
+        <p>  philosophy, meditation, writing </p>
+      </a>
+
+    </div>
+  </section>
   <!-- End Document ––––––––––––––––––––––––––––––– -->
 </body>
 </html>

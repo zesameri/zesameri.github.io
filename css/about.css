@@ -1,12 +1,10 @@
-html, body {
-  background: tomato;
-}
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: tomato;
 }
 
 /* entire container, keeps perspective */
@@ -28,8 +26,18 @@ html, body {
 	position: relative;
 
 }
+.flipper h1 {
+  font-size: 2vw;
+  letter-spacing: 2px;
+}
+.flipper h2 {
+  font-size: 1.5vw;
+}
+.flipper p {
+  font-size: 1vw;
+}
 .flipper img {
-    max-width: 20%;
+  max-width: 20%;
 }
 /* hide back of pane during swap */
 .front, .back {
@@ -77,19 +85,6 @@ html, body {
 	transform: rotateY(180deg);
   background: linear-gradient(141deg, linen 0%, floralwhite 51%, ivory 75%);
 }
-.front h1 {
-  font-size: 2vw;
-  letter-spacing: 2px;
-}
-.front h2 {
-  font-size: 1.5vw;
-}
-.front p {
-  font-size: 1vw;
-}
-.front img {
-  max-width: 20%;
-}
 
 .backdrop {
     display: flex;
@@ -105,6 +100,9 @@ html, body {
 	float: left;
 	margin: 0 15px 30px;
 	padding: 10px 10px 25px;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);
 }
 .backdrop a:nth-child(2n)
 {
@@ -147,9 +145,7 @@ html, body {
   display: inline;
 	text-align: center;
 	text-decoration: none;
-	-webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
-	-moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
-	box-shadow: 0 4px 6px rgba(0,0,0,.3);
+
 	-webkit-transition: all .15s linear;
 	-moz-transition: all .15s linear;
 	transition: all .15s linear;
