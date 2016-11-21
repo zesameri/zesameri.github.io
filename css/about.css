@@ -4,46 +4,42 @@
   justify-content: center;
   background-color: tomato;
   position: relative;
+  overflow: hidden;
+  padding: 2em;
 }
 
-.biz-card {
-  background: linear-gradient(141deg, white 0%, floralwhite 51%, ivory 75%);
-  display: flex;
-  flex-direction: row;;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 1.5vw;
-  border-radius: 1%;
-  box-shadow: 20px 20px 7px rgba(0,0,0,0.5);
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
   z-index: 10;
   position: absolute;
 
 }
-.biz-card h1, h2 {
-  font-size: 2vw;
-}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
 
-.logo {
-  max-width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.logo img {
-  max-width: 50%;
-}
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
 
-.contact {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  max-height: 70%;
+}
+.flipper img {
+    max-width: 20%;
+}
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 @media screen and (orientation:portrait) {
     /* Portrait styles */
-    .biz-card {
+    .flip-container, .front, .back{
       width: 35vh;
       height: 20vh;
     }
@@ -51,26 +47,103 @@
 /* Landscape */
 @media screen and (orientation:landscape) {
     /* Landscape styles */
-    .biz-card {
+    .flip-container, .front, .back{
       width: 35vw;
       height: 20vw;
     }
 }
-.polaroid-images {
+.front, .back {
+  border-radius: 1%;
+  box-shadow: 20px 20px 7px rgba(0,0,0,0.5);
+	backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+  text-transform: uppercase;
+  line-height: 1.5em;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.front {
+  transform: rotateY(0deg);
+  z-index: 2;
+  background: linear-gradient(141deg, linen 0%, floralwhite 51%, ivory 75%);
+}
+.back {
+	transform: rotateY(180deg);
+  background: linear-gradient(141deg, linen 0%, floralwhite 51%, ivory 75%);
+}
+.front h1 {
+  font-size: 2vw;
+  letter-spacing: 2px;
+}
+.front h2 {
+  font-size: 1.5vw;
+}
+.front p {
+  font-size: 1vw;
+}
+.front img {
+  max-width: 20%;
+}
+
+.backdrop {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    font-family: 'Mr Dafoe', cursive;
 }
 
-.polaroid-images a
-{
-	background: floralwhite;
-	display: inline;
+.backdrop a {
+  background: floralwhite;
 	float: left;
 	margin: 0 15px 30px;
 	padding: 10px 10px 25px;
+}
+.backdrop a:nth-child(2n)
+{
+	-webkit-transform: rotate(4deg);
+	-moz-transform: rotate(4deg);
+	transform: rotate(4deg);
+}
+.backdrop a:nth-child(3n) {
+	-webkit-transform: rotate(-24deg);
+	-moz-transform: rotate(-24deg);
+	transform: rotate(-24deg);
+}
+.backdrop a:nth-child(4n)
+{
+	-webkit-transform: rotate(14deg);
+	-moz-transform: rotate(14deg);
+	transform: rotate(14deg);
+}
+.backdrop a:nth-child(5n)
+{
+	-webkit-transform: rotate(-18deg);
+	-moz-transform: rotate(-18deg);
+	transform: rotate(-18deg);
+}
+
+.backdrop a:hover{
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+        transform: scale(1.2);
+	z-index:10;
+	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
+	-moz-box-shadow: 0 10px 20px rgba(0,0,0,.7);
+  box-shadow: 0 10px 20px rgba(0,0,0,.7);
+}
+
+.photo {
+  display: inline;
 	text-align: center;
 	text-decoration: none;
 	-webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
@@ -82,55 +155,44 @@
 	z-index:0;
   position:relative;
 }
-.polaroid-images img {
+.photo img {
   max-width: 20wv;
   max-height: 20vh;
 	display: block;
 	width: inherit;
   border: 1px solid rgba(0,0,0,0.2);
 }
-.polaroid-images a:after {
+.photo:after {
 	color: #333;
 	font-size: 1em;
 	content: attr(title);
 	position: relative;
 	top:15px;
+  font-family: 'Kalam', cursive;
+  text-transform: uppercase;
 }
 
 
-.polaroid-images a:nth-child(2n)
-{
-	-webkit-transform: rotate(4deg);
-	-moz-transform: rotate(4deg);
-	transform: rotate(4deg);
-}
-.polaroid-images a:nth-child(3n) {
-	-webkit-transform: rotate(-24deg);
-	-moz-transform: rotate(-24deg);
-	transform: rotate(-24deg);
-}
-.polaroid-images a:nth-child(4n)
-{
-	-webkit-transform: rotate(14deg);
-	-moz-transform: rotate(14deg);
-	transform: rotate(14deg);
-}
-.polaroid-images a:nth-child(5n)
-{
-	-webkit-transform: rotate(-18deg);
-	-moz-transform: rotate(-18deg);
-	transform: rotate(-18deg);
-}
 
-.polaroid-images a:hover{
-	-webkit-transform: rotate(0deg);
-	-moz-transform: rotate(0deg);
-        transform: rotate(0deg);
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-        transform: scale(1.2);
-	z-index:10;
-	-webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
-	-moz-box-shadow: 0 10px 20px rgba(0,0,0,.7);
-  box-shadow: 0 10px 20px rgba(0,0,0,.7);
+.index-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  max-width: 50vh;
+  max-height: 30vh;
+  width: 50%;
+  height: 30%;
+}
+.index-card h1 {
+  border-bottom: 1px solid red;
+  text-align: left;
+  font-family: 'Kalam', cursive;
+  font-size: medium;
+}
+.index-card p {
+  border-bottom: 1px solid skyblue;
+  text-align: left;
+  font-size: 2vh;
+  font-family: 'Kalam', cursive;
+
 }
