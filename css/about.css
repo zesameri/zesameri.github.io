@@ -1,11 +1,12 @@
+html, body {
+  background: tomato;
+}
 .about {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: tomato;
   position: relative;
   overflow: hidden;
-  padding: 2em;
 }
 
 /* entire container, keeps perspective */
@@ -178,21 +179,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  max-width: 50vh;
-  max-height: 30vh;
-  width: 50%;
-  height: 30%;
 }
 .index-card h1 {
   border-bottom: 1px solid red;
   text-align: left;
   font-family: 'Kalam', cursive;
-  font-size: medium;
+  font-size: 2vh;
+  text-transform: uppercase;
 }
 .index-card p {
   border-bottom: 1px solid skyblue;
   text-align: left;
-  font-size: 2vh;
+  font-size: 1.5vh;
   font-family: 'Kalam', cursive;
 
 }
