@@ -7,6 +7,7 @@
   background: tomato;
 }
 
+
 /* entire container, keeps perspective */
 .flip-container {
 	perspective: 1000px;
@@ -87,12 +88,13 @@
 }
 
 .backdrop {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    font-family: 'Mr Dafoe', cursive;
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Mr Dafoe', cursive;
 }
 
 .backdrop a {
@@ -188,5 +190,8 @@
   text-align: left;
   font-size: 1.5vh;
   font-family: 'Kalam', cursive;
+}
 
+.index-card:link, .index-card:visited, .index-card:hover, .index-card:active {
+    color: #1A1110;
 }
