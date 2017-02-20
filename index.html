@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/exper.css">
   <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
@@ -33,165 +32,99 @@
 
 <body>
   <!-- Main Menu –––––––––––––––––––––––––––––––––––––––––––– -->
-  <nav class="menu-bar">
-    <ul class="snip1168">
-      <li><a class="goto" ref="#home" data-hover="home">home</a></li>
-      <li><a class="goto" ref="#projects" data-hover="projects">projects</a></li>
-      <li><a class="goto" ref="#about" data-hover="about">about</a></li>
-      <li><a class="goto" ref="#gratitude" data-hover="gratitude">gratitude</a></li>
-    </ul>
-  </nav>
 
+  <section id="main">
+    <div class="hero" id="home">
+      <div>
+        <img class="rotate" src="assets/black.svg">
+        <h1> meredith hoo </h1>
+      </div>
+    </div>
+    <!-- Projects Landsape Mode ––––––––––––––––––––––––––––––––– -->
+    <div id="projects">
+      <div class="flex-parent landscape">
+        <div class="menu-space"></div>
+        <div class="flex-grid-thirds">
+          <div class="about-me">
+            <a href="#about">
+              <img src="assets/black.svg">
+              <p >about me</p>
+            </a>
+          </div>
+          <div class="resume">
+            <a href="assets/Resume.pdf">
+              <img src="assets/black.svg">
+              <p >resume</p>
+            </a>
+          </div>
+          <div class="code">
+            <a href="https://github.com/merhoo/">
+              <img src="assets/black.svg">
+              <p >code</p>
+            </a>
+          </div>
+        </div>
+        <div class="flex-grid-thirds">
+          <div class="writing">
+            <img src="assets/black.svg">
+            <p >writing</p>
+          </div>
+          <div class="blog">
+            <img src="assets/black.svg">
+            <p >blog</p>
+          </div>
+          <div class="grazie">
+            <img src="assets/black.svg">
+            <p >gratitude</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
+      <div class="flex-parent portrait" id="projects">
+        <div class="menu-space"></div>
+        <div class="flex-grid-halves">
+          <div class="about-me">
+            <a href="#about">
+              <img src="assets/black.svg">
+              <p>about me</p>
+            </a>
+          </div>
+          <div class="resume">
+            <a href="assets/Resume.pdf">
+              <img src="assets/black.svg">
+              <p >resume</p>
+            </a>
+          </div>
+        </div>
+        <div class="flex-grid-halves">
+          <div class="code">
+            <a href="https://github.com/merhoo/">
+              <img src="assets/black.svg">
+              <p >code</p>
+            </a>
+          </div>
+          <div class="writing">
+            <img src="assets/black.svg">
+            <p >writing</p>
+          </div>
+        </div>
+        <div class="flex-grid-halves">
+          <div class="blog">
+            <img src="assets/black.svg">
+            <p >blog</p>
+          </div>
+          <div class="grazie">
+            <img src="assets/black.svg">
+            <p>gratitude</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
   <!-- Landing page ––––––––––––––––––––––––––––––– -->
-  <section class="hero" id="home">
-    <div>
-      <img class="tossing" src="assets/black.svg">
-      <h1> meredith hoo </h1>
-    </div>
-  </section>
 
-  <!-- Projects Landsape Mode ––––––––––––––––––––––––––––––––– -->
-  <div id="projects">
-    <section class="flex-parent landscape">
-      <div class="menu-space"></div>
-      <div class="flex-grid-thirds">
-        <div class="about-me">
-          <a href="about.html">
-            <img src="assets/black.svg">
-            <p >about me</p>
-          </a>
-        </div>
-        <div class="resume">
-          <a href="assets/Resume.pdf">
-            <img src="assets/black.svg">
-            <p >resume</p>
-          </a>
-        </div>
-        <div class="code">
-          <a href="https://github.com/merhoo/">
-            <img src="assets/black.svg">
-            <p >code</p>
-          </a>
-        </div>
-      </div>
-      <div class="flex-grid-thirds">
-        <div class="writing">
-          <img src="assets/black.svg">
-          <p >writing</p>
-        </div>
-        <div class="blog">
-          <a href="http://hoo-howls.tumblr.com/">
-            <img src="assets/black.svg">
-            <p >blog</p>
-          </a>
-        </div>
-        <div class="grazie">
-          <img src="assets/black.svg">
-          <p >gratitude</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
-    <section class="flex-parent portrait" id="projects">
-      <div class="menu-space"></div>
-      <div class="flex-grid-halves">
-        <div class="about-me">
-          <a href="about.html">
-            <img src="assets/black.svg">
-            <p>about me</p>
-          </a>
-        </div>
-        <div class="resume">
-          <a href="assets/Resume.pdf">
-            <img src="assets/black.svg">
-            <p >resume</p>
-          </a>
-        </div>
-      </div>
-      <div class="flex-grid-halves">
-        <div class="code">
-          <a href="https://github.com/merhoo/">
-            <img src="assets/black.svg">
-            <p >code</p>
-          </a>
-        </div>
-        <div class="writing">
-          <img src="assets/black.svg">
-          <p >writing</p>
-        </div>
-      </div>
-      <div class="flex-grid-halves">
-        <div class="blog">
-          <a href="http://hoo-howls.tumblr.com/">
-            <img src="assets/black.svg">
-            <p >blog</p>
-          </a>
-        </div>
-        <div class="grazie">
-          <img src="assets/black.svg">
-          <p>gratitude</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- About page ––––––––––––––––––––––––––––––– -->
-  <section class="about" id="about">
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-      <div class="flipper">
-        <div class="front">
-          <img src="assets/black.svg"/>
-          <h1>MEREDITH HOO</h1>
-          <h2>Software Engineer</h2>
-          <p>New York, NY</p>
-        </div>
-        <div class="back">
-          <h1>MEREDITH HOO</h1>
-          <h2>New York, NY</h2>
-          <p>516-492-8916</p>
-          <a href="mailto:meredith.hoo1@gmail.com" target="_top"><p>meredith.hoo1@gmail.com</p></a>
-        </div>
-      </div>
-    </div>
-    <div class="backdrop">
-      <a class="photo" title="Bloomberg Summer Picnic" href="https://youtu.be/Rz-2vL--fB0"><img src="assets/bb.jpg" alt="Bloomberg"/></a>
-      <a class="photo" title="ROSES"><img src="assets/books.jpg" alt="Island"/></a>
-
-      <a class="photo" title="BLUE"><img src="assets/brkfst.jpg" alt="Islands Forest"/></a>
-      <a class="photo" title="rockport"><img src="assets/me5.jpg" alt="Decking"/></a>
-      <a class="index-card">
-        <h1> to do's </h1>
-        <p>  send letters to my cousins, and old friends</p>
-        <p>  meditate, exercise, journal, be kind</p>
-        <p>  study for finals</p>
-        <p>  practice french </p>
-      </a>
-      <a class="photo" title="Mountains"><img src="assets/beauty.jpg" alt="Mountains"/></a>
-      <a class="photo" title="choir"><img src="assets/choir.jpg" alt="Lake" title="Lehigh University Choir" /></a>
-      <a class="index-card" href="assets/Resume.pdf">
-        <h1> Work experience </h1>
-        <p> Future Microsoft Intern (Summer 2017)</p>
-        <p> Bloomberg Mortgage Applications Intern (Summer 2016) </p>
-        <p> Web Developer at Lehigh University (work study)</p>
-        <p> Bloomberg Mobile Development Intern- (Summer 2015) </p>
-        <p> Bloomberg Multi-Asset Risk System Intern (HS Senior Year)</p>
-        <p> Morgan Stanley Intern (Summer 2014)</p>
-      </a>
-      <a class="photo" title="12-7-2016" href="http://www.chestertoye.com/"><img src="assets/me.jpg" alt="Chester Toye's professional photo of Meredith Hoo"/></a>
-      <a class="photo" title="3RD PLACE" href="http://www.lehighhacks.com/"><img src="assets/mlh.jpg" alt="Lehigh Hacks"/></a>
-      <a class="photo" title="SUMMER IN DC"><img src="assets/me3.jpg" alt="dc futbol vacation"/></a>
-      <a class="index-card">
-        <h1> Interests </h1>
-        <p>  Software enginnering, webdev, web design</p>
-        <p>  excellent cook, eating (in progress)</p>
-        <p>  people, thoughtful outspoken</p>
-        <p>  edtech, human interaction, diversity</p>
-        <p>  philosophy, meditation, writing </p>
-      </a>
-
-    </div>
-  </section>
   <!-- End Document ––––––––––––––––––––––––––––––– -->
 </body>
 </html>

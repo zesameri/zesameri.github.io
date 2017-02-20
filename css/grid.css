@@ -4,9 +4,7 @@
 .flex-parent {
   display: flex;
   flex-direction: column;
-}
-.menu-space {
-  min-height:2em;
+  height: 100vh;
 }
 .flex-grid-halves, .flex-grid-thirds {
   display: flex;
@@ -56,21 +54,21 @@
 }
 
 .resume img {
-  background-color: orange;
-}
-
-.code img {
-  background-color: gold;
-}
-
-.writing img {
   background-color: tomato;
 }
 
-.blog img {
+.code img {
   background-color: coral;
 }
 
-.grazie img {
+.writing img {
   background-color: darkorange;
+}
+
+.blog img {
+  background-color: orange;
+}
+
+.grazie img {
+  background-color: gold;
 }

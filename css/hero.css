@@ -2,34 +2,55 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 99, 71, 0.60),
+      rgba(255, 99, 71, 0.60)
+    ), url('../assets/elsa.png');
+  background-position: center;
+    background-repeat: no-repeat;
+  background-size: contain;
 }
 .hero h1 {
   width: 100%;
-  font-size: xx-large;
+  font-size: x-large;
   line-height: 2em;
 }
-
 .hero img {
-  max-width: 33%;
+  max-width: 25%;
 }
 
-@media screen and (orientation:portrait) {
-    .rotate {
-      -webkit-animation:spin 6s linear infinite;
-      -moz-animation:spin 6s linear infinite;
-      animation:spin 6s linear infinite;
-    }
-    @-webkit-keyframes spin { 100% { -webkit-transform: rotate(180deg); } }
-    @keyframes spin { 100% { -webkit-transform: rotate(180deg); transform:rotate(180deg); } }
+.rotate{
+	animation-name: rotate;
+	-webkit-animation-name: rotate;
+
+	animation-duration: 2.5s;
+	-webkit-animation-duration: 2.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
 }
 
-@media screen and (orientation:landscape) {
-  .rotate {
-    -webkit-transition: -webkit-transform 2s ease-in-out;
-    transition: transform 2s ease-in-out;
-  }
-  .rotate:hover {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
+@keyframes rotate {
+	0% {
+		transform: rotate(-30deg);
+	}
+	50% {
+		transform: rotate(30deg);
+	}
+	100% {
+		transform: rotate(-30deg);
+	}
+}
+
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform: rotate(-30deg);
+	}
+	50% {
+		-webkit-transform: rotate(30deg);
+	}
+	100% {
+		-webkit-transform: rotate(-30deg);
+	}
 }
