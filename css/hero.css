@@ -4,12 +4,12 @@
   justify-content: center;
   height: 100vh;
   background: linear-gradient(
-      rgba(255, 99, 71, 0.60),
-      rgba(255, 99, 71, 0.60)
-    ), url('../assets/elsa.png');
+      rgba(255, 99, 71, 0.50),
+      rgba(255, 99, 71, 0.50)
+    ), url('../assets/maybe.jpg');
   background-position: center;
     background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 .hero h1 {
   width: 100%;
@@ -24,8 +24,8 @@
 	animation-name: rotate;
 	-webkit-animation-name: rotate;
 
-	animation-duration: 2.5s;
-	-webkit-animation-duration: 2.5s;
+	animation-duration: 3s;
+	-webkit-animation-duration: 3s;
 
 	animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;

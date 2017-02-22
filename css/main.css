@@ -26,11 +26,12 @@ html, body {
   width: 100%;
   color: #1A1110;
   background-color: floralwhite;
+  justify-content: space-around;
 }
 section {
 	height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
 }
 
 section > div{
@@ -39,4 +40,10 @@ section > div{
 
 a:link, a:visited, a:hover, a:active {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 900px) {
+  section > div {
+    width: 100vw;
+  }
 }
