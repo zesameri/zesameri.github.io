@@ -6,7 +6,7 @@
   background: linear-gradient(
       rgba(40, 44, 52, 0.6),
       rgba(40, 44, 52, 0.6)
-    ), url('../assets/me.jpg');
+    ), url('../assets/bg-intro.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -17,8 +17,8 @@
   line-height: 3em;
   font-size: 3em;
   color: #FFF;
-  font-style: bold;
-  font-family: sans-serif;
+  font-weight: bold;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   letter-spacing: 3px;
 }
 .hero img {
