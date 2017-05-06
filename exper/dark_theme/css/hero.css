@@ -1,0 +1,26 @@
+.hero {
+  align-items: center;
+  justify-content: center;
+  background-color: #ABB2BF;
+  background-image: url('../assets/me.jpg');
+  background: linear-gradient(
+      rgba(40, 44, 52, 0.6),
+      rgba(40, 44, 52, 0.6)
+    ), url('../assets/me.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.hero h1 {
+  width: 100%;
+  font-size: x-large;
+  line-height: 3em;
+  font-size: 3em;
+  color: #FFF;
+  font-style: bold;
+  font-family: sans-serif;
+  letter-spacing: 3px;
+}
+.hero img {
+  max-width: 25%;
+}

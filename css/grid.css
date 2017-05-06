@@ -1,74 +1,26 @@
 /* ============================================================
-  For Flower Garden Styling
+  Menu
 ============================================================ */
 .flex-parent {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.flex-grid-halves, .flex-grid-thirds {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex: 1;
-  padding: 20px;
+  flex-flow: column wrap;
   align-items: center;
+  justify-content: space-around;
+  align-items: stretch;
 }
-.flex-parent p {
-  font-size: x-large;
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  flex: 1;
 }
-.flex-parent img {
-  border-radius: 50%;
-  max-width: 50%;
-}
-.flex-parent img {
-  -webkit-transition: -webkit-transform 2s ease-in-out;
-  transition: transform 2s ease-in-out;
-}
-.flex-parent img:hover {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-@media screen and (orientation:portrait) {
-    /* Portrait styles */
-    .portrait {
-      display: flex;
-    }
-    .landscape {
-      display: none;
-    }
-}
-/* Landscape */
-@media screen and (orientation:landscape) {
-    /* Landscape styles */
-    .portrait {
-      display: none;
-    }
-    .landscape {
-      display: flex;
-    }
-}
-
-.about-me img {
-  background-color: orangered;
-}
-
-.resume img {
-  background-color: tomato;
-}
-
-.code img {
-  background-color: coral;
-}
-
-.writing img {
-  background-color: darkorange;
-}
-
-.blog img {
-  background-color: orange;
-}
-
-.grazie img {
-  background-color: gold;
+.flex-row > div {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  color: #ABB2BF;
+  background: #282C34;
+  flex: 1;
+  margin: 1em;
+  align-self: stretch;
+  font-size: 1.5em;
 }

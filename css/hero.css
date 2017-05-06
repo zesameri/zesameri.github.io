@@ -1,56 +1,26 @@
 .hero {
-  display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  background-color: #ABB2BF;
+  background-image: url('../assets/me.jpg');
   background: linear-gradient(
-      rgba(255, 99, 71, 0.50),
-      rgba(255, 99, 71, 0.50)
-    ), url('../assets/maybe.jpg');
+      rgba(40, 44, 52, 0.6),
+      rgba(40, 44, 52, 0.6)
+    ), url('../assets/me.jpg');
   background-position: center;
-    background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 .hero h1 {
   width: 100%;
   font-size: x-large;
-  line-height: 2em;
+  line-height: 3em;
+  font-size: 3em;
+  color: #FFF;
+  font-style: bold;
+  font-family: sans-serif;
+  letter-spacing: 3px;
 }
 .hero img {
   max-width: 25%;
-}
-
-.rotate{
-	animation-name: rotate;
-	-webkit-animation-name: rotate;
-
-	animation-duration: 3s;
-	-webkit-animation-duration: 3s;
-
-	animation-iteration-count: infinite;
-	-webkit-animation-iteration-count: infinite;
-}
-
-@keyframes rotate {
-	0% {
-		transform: rotate(-30deg);
-	}
-	50% {
-		transform: rotate(30deg);
-	}
-	100% {
-		transform: rotate(-30deg);
-	}
-}
-
-@-webkit-keyframes rotate {
-	0% {
-		-webkit-transform: rotate(-30deg);
-	}
-	50% {
-		-webkit-transform: rotate(30deg);
-	}
-	100% {
-		-webkit-transform: rotate(-30deg);
-	}
 }

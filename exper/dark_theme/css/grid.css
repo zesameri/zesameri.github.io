@@ -1,0 +1,26 @@
+/* ============================================================
+  Menu
+============================================================ */
+.flex-parent {
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-around;
+  align-items: stretch;
+}
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  flex: 1;
+}
+.flex-row > div {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  color: #ABB2BF;
+  background: #282C34;
+  flex: 1;
+  margin: 1em;
+  align-self: stretch;
+  font-size: 1.5em;
+}

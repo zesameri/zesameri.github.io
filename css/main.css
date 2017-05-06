@@ -16,26 +16,23 @@ time, mark, audio, video {
   font-size: 100%;
   font: inherit;
   text-align: center;
-  /*font-family: "nimbus-sans",sans-serif;*/
-  font-family: 'Varela Round', sans-serif;
-  /*font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;*/
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
+html {
   color: #1A1110;
-  background-color: floralwhite;
-  justify-content: space-around;
+  background-color: #21252B;
+  font-family: "Lucida Console", Monaco, monospace;
+  height: 100%;
 }
 section {
+  display: flex;
+  flex-direction: row;
+}
+section > div {
 	height: 100vh;
+  width: 50%;
   display: flex;
   flex-flow: row wrap;
-}
-
-section > div{
-  width: 50%;
 }
 
 a:link, a:visited, a:hover, a:active {
