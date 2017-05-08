@@ -1,4 +1,6 @@
 .hero {
+  display: flex;
+  flex-flow: column wrap;
   align-items: center;
   justify-content: center;
   background-color: #ABB2BF;
@@ -6,21 +8,44 @@
   background: linear-gradient(
       rgba(40, 44, 52, 0.6),
       rgba(40, 44, 52, 0.6)
-    ), url('../assets/bg-intro.jpg');
+    ), url('../assets/me.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .hero h1 {
   width: 100%;
-  font-size: x-large;
-  line-height: 3em;
   font-size: 3em;
-  color: #FFF;
-  font-weight: bold;
+  color: #ececf3;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   letter-spacing: 3px;
 }
-.hero img {
-  max-width: 25%;
+.hero p {
+  color: #ececf3;
+  padding: 1em 4em;
+  text-align: left;
+  font-size: 1em;
+  letter-spacing: 2px;
+}
+.hero button {
+  background-color: transparent;
+  color: #ececf3;
+
+  border-radius: 12px;
+  border-color: #ececf3;
+  border: 1.5px solid #ececf3;
+  padding: 0.4em 0.6em;
+
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 1em;
+  text-decoration: none;
+
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.hero button:hover {
+    background-color: #ececf3;
+    color: #222429;
 }

@@ -21,6 +21,10 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <script src="js/jquery-3.1.0.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script src="https://unpkg.com/react@15/dist/react.js"></script>
+  <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+  <script src="app.js"></script>
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" href="assets/icon.png">
@@ -29,41 +33,31 @@
 
 <body>
   <!-- Main Menu –––––––––––––––––––––––––––––––––––––––––––– -->
-  <section class="main">
     <div class="hero">
+      <br>
+      <h1> Meredith Hoo </h1>
+      <p> I'm a software engineer based in New York. <br>I want to work with the people and problems that shape society.</p>
+      <button class="goto" ref="#menu" >enter</button>
       <div>
-        <h1> Meredith Hoo </h1>
+        <!--footer-->
       </div>
     </div>
 
-    <!-- Projects Portrait Mode ––––––––––––––––––––––––––––––––– -->
-    <div class="flex-parent">
+    <!-- Grid  ––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="flex-parent" id="menu">
       <div class="flex-row">
-        <div class="about-me">
-          <p>about me</p>
-        </div>
-        <div class="resume">
-          <p >resume</p>
-        </div>
+        <p>about</p>
+        <p>goals</p>
       </div>
       <div class="flex-row">
-        <div class="code">
-          <p >code</p>
-        </div>
-        <div class="writing">
-          <p >writing</p>
-        </div>
+        <p>interests</p>
+        <p>experience</p>
       </div>
       <div class="flex-row">
-        <div class="blog">
-          <p >blog</p>
-        </div>
-        <div class="grazie">
-          <p>gratitude</p>
-        </div>
+        <p>projects</p>
+        <p>contact</p>
       </div>
     </div>
-  </section>
 
   <!-- End Document ––––––––––––––––––––––––––––––– -->
 </body>

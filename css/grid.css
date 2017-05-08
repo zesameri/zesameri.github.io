@@ -2,6 +2,7 @@
   Menu
 ============================================================ */
 .flex-parent {
+  display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: space-around;
@@ -13,7 +14,7 @@
   justify-content: space-around;
   flex: 1;
 }
-.flex-row > div {
+.flex-row > p {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -22,5 +23,8 @@
   flex: 1;
   margin: 1em;
   align-self: stretch;
-  font-size: 1.5em;
+  font-size: 1.25em;
+}
+.flex-row > p:hover {
+  background: #343840;
 }
