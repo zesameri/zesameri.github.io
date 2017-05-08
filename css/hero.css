@@ -49,3 +49,14 @@
     background-color: #ececf3;
     color: #222429;
 }
+.footer {
+  display:flex;
+  flex-flow:row;
+  position:absolute;bottom:0;
+}
+.footer img {
+  color: white;
+  max-width: 20px;
+  max-height: 20px;
+  padding: 20px;
+}
