@@ -14,7 +14,7 @@
   justify-content: space-around;
   flex: 1;
 }
-.flex-row > p {
+.cell {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -25,6 +25,9 @@
   align-self: stretch;
   font-size: 1.25em;
 }
-.flex-row > p:hover {
+.cell:hover {
   background: #343840;
+}
+.cell > p:nth-child(2) {
+  display: none;
 }
