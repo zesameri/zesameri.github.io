@@ -1,22 +1,22 @@
 @import url("//hello.myfonts.net/count/34c3a6");
 @font-face {
   font-family: Calluna-Regular;
-  src: url(assets/fonts/34C3A6_0_0.eot);
-  src: url(assets/fonts/34C3A6_0_0.eot?#iefix) format("embedded-opentype");
-  src: url(assets/fonts/34C3A6_0_0.woff2) format("woff2");
-  src: url(assets/fonts/34C3A6_0_0.woff) format("woff");
-  src: url(assets/fonts/34C3A6_0_0.ttf) format("truetype");
+  src: url(./assets/fonts/34C3A6_0_0.eot);
+  src: url(./assets/fonts/34C3A6_0_0.eot?#iefix) format("embedded-opentype");
+  src: url(./assets/fonts/34C3A6_0_0.woff2) format("woff2");
+  src: url(./assets/fonts/34C3A6_0_0.woff) format("woff");
+  src: url(./assets/fonts/34C3A6_0_0.ttf) format("truetype");
   font-weight: 400;
   font-style: normal
 }
 @font-face {
   font-family: Oakes-Semi-Bold;
-  src: url(assets/fonts/oakes-semi-bold.eot);
-  src: url(assets/fonts/oakes-semi-bold.eot?#iefix) format("embedded-opentype");
-  src: url(assets/fonts/oakes-semi-bold.woff2) format("woff2");
-  src: url(assets/fonts/oakes-semi-bold.woff) format("woff");
-  src: url(assets/fonts/oakes-semi-bold.ttf) format("truetype");
-  src: url(assets/fonts/oakes-semi-bold.svg#youworkforthem) format("svg");
+  src: url(./assets/fonts/oakes-semi-bold.eot);
+  src: url(./assets/fonts/oakes-semi-bold.eot?#iefix) format("embedded-opentype");
+  src: url(./assets/fonts/oakes-semi-bold.woff2) format("woff2");
+  src: url(./assets/fonts/oakes-semi-bold.woff) format("woff");
+  src: url(./assets/fonts/oakes-semi-bold.ttf) format("truetype");
+  src: url(./assets//oakes-semi-bold.svg#youworkforthem) format("svg");
   font-weight: 700;
   font-style: bold
 }
@@ -326,11 +326,28 @@
   80% {
     -webkit-clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%);
     clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%)
+
   }
   to {
     -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    background-position:0% 50%;
   }
+}
+@-webkit-keyframes gradient {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    to { background-position: 0% 50% }
+}
+@-moz-keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    to {background-position:0% 50%}
+}
+@keyframes gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    to {background-position:0% 50%}
 }
 html {
   -ms-text-size-adjust: 100%;
@@ -340,7 +357,7 @@ body {
   margin: 0;
   font: 17px/1.5 Calluna-Regular, serif;
   color: #f8f8f6;
-  background-color: #0c0c0c;
+  background-color: #222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
@@ -372,12 +389,12 @@ a:focus, a:hover {
   outline: 0
 }
 ::selection {
-  color: #0c0c0c;
+  color: #222;
   text-shadow: none;
   background: #3d6eff
 }
 ::-moz-selection {
-  color: #0c0c0c;
+  color: #222;
   text-shadow: none;
   background: #3d6eff
 }
@@ -463,6 +480,10 @@ a:focus, a:hover {
 .list__item:last-child {
   margin-bottom: -.4em
 }
+.poem_block {
+    display: none;
+}
+
 .crumple {
   z-index: -1;
   position: fixed;
@@ -480,7 +501,7 @@ a:focus, a:hover {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #0c0c0c
+  background-color: #222;
 }
 .footer {
   position: fixed;
@@ -519,16 +540,23 @@ a:focus, a:hover {
     display: inline
   }
 }
-@media (hover:hover) {
+@media (hover: hover) {
   .footer__link:nth-child(odd):hover~.crumple {
-    background-color: #3d6eff
+    background: linear-gradient(45deg, #69b7eb, #b3dbd3, #f4d6db);
+    background-size: 400% 400%;
   }
   .footer__link:nth-child(2n):hover~.crumple {
-    background-color: #ce0028
+    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
+    background-size: 400% 400%;
   }
+  .footer__link:hover~.crumple {
+      -webkit-animation: gradient 30s ease infinite;
+      animation: gradient 30s ease infinite;
+  }
+
   .footer__link--email:hover~.crumple:after {
-    -webkit-animation: a 1s .25s linear forwards;
-    animation: a 1s .25s linear forwards
+      -webkit-animation: a 1s .25s linear forwards;
+      animation: a 1s .25s linear forwards
   }
   .footer__link--github:hover~.crumple:after {
     -webkit-animation: b 1s .25s linear forwards;
