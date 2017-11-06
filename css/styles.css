@@ -1,375 +1,89 @@
-@import url("//hello.myfonts.net/count/34c3a6");
-@font-face {
-  font-family: Calluna-Regular;
-  src: url(./assets/fonts/34C3A6_0_0.eot);
-  src: url(./assets/fonts/34C3A6_0_0.eot?#iefix) format("embedded-opentype");
-  src: url(./assets/fonts/34C3A6_0_0.woff2) format("woff2");
-  src: url(./assets/fonts/34C3A6_0_0.woff) format("woff");
-  src: url(./assets/fonts/34C3A6_0_0.ttf) format("truetype");
-  font-weight: 400;
-  font-style: normal
-}
-@font-face {
-  font-family: Oakes-Semi-Bold;
-  src: url(./assets/fonts/oakes-semi-bold.eot);
-  src: url(./assets/fonts/oakes-semi-bold.eot?#iefix) format("embedded-opentype");
-  src: url(./assets/fonts/oakes-semi-bold.woff2) format("woff2");
-  src: url(./assets/fonts/oakes-semi-bold.woff) format("woff");
-  src: url(./assets/fonts/oakes-semi-bold.ttf) format("truetype");
-  src: url(./assets//oakes-semi-bold.svg#youworkforthem) format("svg");
-  font-weight: 700;
-  font-style: bold
-}
-@-webkit-keyframes a {
-  0% {
-    -webkit-clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 27% 24%, 40% 66%, 100% 50%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 27% 24%, 40% 66%, 100% 50%, 100% 100%, 0 100%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 16%, 19% 54%, 24% 89%, 64% 67%, 100% 100%, 0 100%);
-    clip-path: polygon(0 16%, 19% 54%, 24% 89%, 64% 67%, 100% 100%, 0 100%)
-  }
-  60% {
-    -webkit-clip-path: polygon(0 47%, 9% 70%, 14% 100%, 44% 89%, 89% 100%, 0 100%);
-    clip-path: polygon(0 47%, 9% 70%, 14% 100%, 44% 89%, 89% 100%, 0 100%)
-  }
-  80% {
-    -webkit-clip-path: polygon(0 61%, 6% 89%, 10% 100%, 27% 95%, 87% 100%, 0 100%);
-    clip-path: polygon(0 61%, 6% 89%, 10% 100%, 27% 95%, 87% 100%, 0 100%)
-  }
-  to {
-    -webkit-clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
-    clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%)
-  }
-}
-@keyframes a {
-  0% {
-    -webkit-clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 50%, 100% 100%, 0 100%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 27% 24%, 40% 66%, 100% 50%, 100% 100%, 0 100%);
-    clip-path: polygon(0 0, 27% 24%, 40% 66%, 100% 50%, 100% 100%, 0 100%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 16%, 19% 54%, 24% 89%, 64% 67%, 100% 100%, 0 100%);
-    clip-path: polygon(0 16%, 19% 54%, 24% 89%, 64% 67%, 100% 100%, 0 100%)
-  }
-  60% {
-    -webkit-clip-path: polygon(0 47%, 9% 70%, 14% 100%, 44% 89%, 89% 100%, 0 100%);
-    clip-path: polygon(0 47%, 9% 70%, 14% 100%, 44% 89%, 89% 100%, 0 100%)
-  }
-  80% {
-    -webkit-clip-path: polygon(0 61%, 6% 89%, 10% 100%, 27% 95%, 87% 100%, 0 100%);
-    clip-path: polygon(0 61%, 6% 89%, 10% 100%, 27% 95%, 87% 100%, 0 100%)
-  }
-  to {
-    -webkit-clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
-    clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%)
-  }
-}
-@-webkit-keyframes b {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 50%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 64% 86%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 64% 86%, 0 100%, 0 50%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 81%, 74% 71%, 19% 89%, 13% 44%);
-    clip-path: polygon(0 0, 100% 0, 100% 81%, 74% 71%, 19% 89%, 13% 44%)
-  }
-  60% {
-    -webkit-clip-path: polygon(21% 0, 100% 0, 100% 58%, 84% 54%, 39% 74%, 40% 29%);
-    clip-path: polygon(21% 0, 100% 0, 100% 58%, 84% 54%, 39% 74%, 40% 29%)
-  }
-  80% {
-    -webkit-clip-path: polygon(46% 0, 100% 0, 100% 31%, 94% 21%, 63% 37%, 62% 8%);
-    clip-path: polygon(46% 0, 100% 0, 100% 31%, 94% 21%, 63% 37%, 62% 8%)
-  }
-  to {
-    -webkit-clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
-    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0)
-  }
-}
-@keyframes b {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%, 0 50%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 64% 86%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 64% 86%, 0 100%, 0 50%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 81%, 74% 71%, 19% 89%, 13% 44%);
-    clip-path: polygon(0 0, 100% 0, 100% 81%, 74% 71%, 19% 89%, 13% 44%)
-  }
-  60% {
-    -webkit-clip-path: polygon(21% 0, 100% 0, 100% 58%, 84% 54%, 39% 74%, 40% 29%);
-    clip-path: polygon(21% 0, 100% 0, 100% 58%, 84% 54%, 39% 74%, 40% 29%)
-  }
-  80% {
-    -webkit-clip-path: polygon(46% 0, 100% 0, 100% 31%, 94% 21%, 63% 37%, 62% 8%);
-    clip-path: polygon(46% 0, 100% 0, 100% 31%, 94% 21%, 63% 37%, 62% 8%)
-  }
-  to {
-    -webkit-clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0);
-    clip-path: polygon(100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0)
-  }
-}
-@-webkit-keyframes c {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 11% 51%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 11% 51%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 92% 40%, 87% 83%, 44% 79%, 19% 36%);
-    clip-path: polygon(0 0, 100% 0, 92% 40%, 87% 83%, 44% 79%, 19% 36%)
-  }
-  60% {
-    -webkit-clip-path: polygon(20% 0, 100% 0, 67% 13%, 70% 50%, 41% 69%, 30% 23%);
-    clip-path: polygon(20% 0, 100% 0, 67% 13%, 70% 50%, 41% 69%, 30% 23%)
-  }
-  80% {
-    -webkit-clip-path: polygon(31% 0, 71% 0, 57% 9%, 54% 30%, 41% 50%, 36% 16%);
-    clip-path: polygon(31% 0, 71% 0, 57% 9%, 54% 30%, 41% 50%, 36% 16%)
-  }
-  to {
-    -webkit-clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
-    clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0)
-  }
-}
-@keyframes c {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%)
-  }
-  20% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 11% 51%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 11% 51%)
-  }
-  40% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 92% 40%, 87% 83%, 44% 79%, 19% 36%);
-    clip-path: polygon(0 0, 100% 0, 92% 40%, 87% 83%, 44% 79%, 19% 36%)
-  }
-  60% {
-    -webkit-clip-path: polygon(20% 0, 100% 0, 67% 13%, 70% 50%, 41% 69%, 30% 23%);
-    clip-path: polygon(20% 0, 100% 0, 67% 13%, 70% 50%, 41% 69%, 30% 23%)
-  }
-  80% {
-    -webkit-clip-path: polygon(31% 0, 71% 0, 57% 9%, 54% 30%, 41% 50%, 36% 16%);
-    clip-path: polygon(31% 0, 71% 0, 57% 9%, 54% 30%, 41% 50%, 36% 16%)
-  }
-  to {
-    -webkit-clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0);
-    clip-path: polygon(50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0)
-  }
-}
-@-webkit-keyframes d {
-  0% {
-    -webkit-clip-path: polygon(99% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 0);
-    clip-path: polygon(99% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 0)
-  }
-  20% {
-    -webkit-clip-path: polygon(88% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 29% 6%);
-    clip-path: polygon(88% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 29% 6%)
-  }
-  40% {
-    -webkit-clip-path: polygon(62% 9%, 75% 48%, 100% 100%, 0 100%, 36% 55%, 43% 24%);
-    clip-path: polygon(62% 9%, 75% 48%, 100% 100%, 0 100%, 36% 55%, 43% 24%)
-  }
-  60% {
-    -webkit-clip-path: polygon(53% 22%, 62% 61%, 85% 100%, 0 100%, 43% 75%, 45% 46%);
-    clip-path: polygon(53% 22%, 62% 61%, 85% 100%, 0 100%, 43% 75%, 45% 46%)
-  }
-  80% {
-    -webkit-clip-path: polygon(49% 43%, 56% 83%, 72% 100%, 29% 100%, 42% 90%, 46% 69%);
-    clip-path: polygon(49% 43%, 56% 83%, 72% 100%, 29% 100%, 42% 90%, 46% 69%)
-  }
-  to {
-    -webkit-clip-path: polygon(50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%);
-    clip-path: polygon(50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)
-  }
-}
-@keyframes d {
-  0% {
-    -webkit-clip-path: polygon(99% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 0);
-    clip-path: polygon(99% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 0 0)
-  }
-  20% {
-    -webkit-clip-path: polygon(88% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 29% 6%);
-    clip-path: polygon(88% 0, 100% 50%, 100% 100%, 0 100%, 0 50%, 29% 6%)
-  }
-  40% {
-    -webkit-clip-path: polygon(62% 9%, 75% 48%, 100% 100%, 0 100%, 36% 55%, 43% 24%);
-    clip-path: polygon(62% 9%, 75% 48%, 100% 100%, 0 100%, 36% 55%, 43% 24%)
-  }
-  60% {
-    -webkit-clip-path: polygon(53% 22%, 62% 61%, 85% 100%, 0 100%, 43% 75%, 45% 46%);
-    clip-path: polygon(53% 22%, 62% 61%, 85% 100%, 0 100%, 43% 75%, 45% 46%)
-  }
-  80% {
-    -webkit-clip-path: polygon(49% 43%, 56% 83%, 72% 100%, 29% 100%, 42% 90%, 46% 69%);
-    clip-path: polygon(49% 43%, 56% 83%, 72% 100%, 29% 100%, 42% 90%, 46% 69%)
-  }
-  to {
-    -webkit-clip-path: polygon(50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%);
-    clip-path: polygon(50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)
-  }
-}
-@-webkit-keyframes e {
-  0% {
-    -webkit-clip-path: polygon(100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0);
-    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0)
-  }
-  20% {
-    -webkit-clip-path: polygon(32% 4%, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0);
-    clip-path: polygon(32% 4%, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0)
-  }
-  40% {
-    -webkit-clip-path: polygon(21% 18%, 100% 50%, 83% 88%, 27% 83%, 0 100%, 0 0);
-    clip-path: polygon(21% 18%, 100% 50%, 83% 88%, 27% 83%, 0 100%, 0 0)
-  }
-  60% {
-    -webkit-clip-path: polygon(12% 32%, 100% 50%, 49% 70%, 11% 71%, 0 85%, 0 0);
-    clip-path: polygon(12% 32%, 100% 50%, 49% 70%, 11% 71%, 0 85%, 0 0)
-  }
-  80% {
-    -webkit-clip-path: polygon(6% 42%, 43% 44%, 20% 59%, 6% 63%, 0 72%, 0 28%);
-    clip-path: polygon(6% 42%, 43% 44%, 20% 59%, 6% 63%, 0 72%, 0 28%)
-  }
-  to {
-    -webkit-clip-path: polygon(0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%);
-    clip-path: polygon(0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%)
-  }
-}
-@keyframes e {
-  0% {
-    -webkit-clip-path: polygon(100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0);
-    clip-path: polygon(100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0)
-  }
-  20% {
-    -webkit-clip-path: polygon(32% 4%, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0);
-    clip-path: polygon(32% 4%, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 0)
-  }
-  40% {
-    -webkit-clip-path: polygon(21% 18%, 100% 50%, 83% 88%, 27% 83%, 0 100%, 0 0);
-    clip-path: polygon(21% 18%, 100% 50%, 83% 88%, 27% 83%, 0 100%, 0 0)
-  }
-  60% {
-    -webkit-clip-path: polygon(12% 32%, 100% 50%, 49% 70%, 11% 71%, 0 85%, 0 0);
-    clip-path: polygon(12% 32%, 100% 50%, 49% 70%, 11% 71%, 0 85%, 0 0)
-  }
-  80% {
-    -webkit-clip-path: polygon(6% 42%, 43% 44%, 20% 59%, 6% 63%, 0 72%, 0 28%);
-    clip-path: polygon(6% 42%, 43% 44%, 20% 59%, 6% 63%, 0 72%, 0 28%)
-  }
-  to {
-    -webkit-clip-path: polygon(0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%);
-    clip-path: polygon(0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%)
-  }
-}
-@-webkit-keyframes f {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%)
-  }
-  20% {
-    -webkit-clip-path: polygon(6% 5%, 75% 11%, 100% 50%, 100% 100%, 9% 95%, 0 50%);
-    clip-path: polygon(6% 5%, 75% 11%, 100% 50%, 100% 100%, 9% 95%, 0 50%)
-  }
-  40% {
-    -webkit-clip-path: polygon(20% 15%, 63% 29%, 80% 50%, 100% 100%, 21% 83%, 0 50%);
-    clip-path: polygon(20% 15%, 63% 29%, 80% 50%, 100% 100%, 21% 83%, 0 50%)
-  }
-  60% {
-    -webkit-clip-path: polygon(31% 30%, 55% 37%, 70% 49%, 88% 91%, 36% 63%, 18% 50%);
-    clip-path: polygon(31% 30%, 55% 37%, 70% 49%, 88% 91%, 36% 63%, 18% 50%)
-  }
-  80% {
-    -webkit-clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%);
-    clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%)
-  }
-  to {
-    -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%)
-  }
-}
-@keyframes f {
-  0% {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%, 0 50%)
-  }
-  20% {
-    -webkit-clip-path: polygon(6% 5%, 75% 11%, 100% 50%, 100% 100%, 9% 95%, 0 50%);
-    clip-path: polygon(6% 5%, 75% 11%, 100% 50%, 100% 100%, 9% 95%, 0 50%)
-  }
-  40% {
-    -webkit-clip-path: polygon(20% 15%, 63% 29%, 80% 50%, 100% 100%, 21% 83%, 0 50%);
-    clip-path: polygon(20% 15%, 63% 29%, 80% 50%, 100% 100%, 21% 83%, 0 50%)
-  }
-  60% {
-    -webkit-clip-path: polygon(31% 30%, 55% 37%, 70% 49%, 88% 91%, 36% 63%, 18% 50%);
-    clip-path: polygon(31% 30%, 55% 37%, 70% 49%, 88% 91%, 36% 63%, 18% 50%)
-  }
-  80% {
-    -webkit-clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%);
-    clip-path: polygon(39% 42%, 50% 50%, 62% 50%, 68% 70%, 45% 56%, 31% 50%)
-
-  }
-  to {
-    -webkit-clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    background-position:0% 50%;
-  }
-}
-@-webkit-keyframes gradient {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    to { background-position: 0% 50% }
-}
-@-moz-keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    to {background-position:0% 50%}
-}
-@keyframes gradient {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    to {background-position:0% 50%}
-}
-html {
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%
-}
 body {
   margin: 0;
-  font: 17px/1.5 Calluna-Regular, serif;
+  padding: 5vh 0 3vw 3vw;
+  line-height: 1.5;
+  font-family: monospace;
   color: #f8f8f6;
   background-color: #222;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
 }
-dd, dl, h1, p {
-  margin: 0;
-  padding: 0
+h1, dt {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: bold;
+  letter-spacing: .03em;
 }
-h1, h2 {
+dt {
+    font-size: 1.25em;
+}
+h1 {
+  font-size: 1.5em;
+}
+.main-section {
+
+}
+section {
+  z-index: 1;
+  width: calc(100vw - 10em);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hero {
+  height: calc(100vh - 2em);
+  width: calc(100vw - 20em);
+}
+.bio {
+  margin-bottom: 2.5em;
+  font-size: 3vw;
+  max-width: 70vw;
+  font-family: serif;
+}
+.writing {
+  max-width: 70vw;
+}
+@media (min-width:1080px) {
+  .bio {
+    font-size:2.5em;
+    max-width: 1100px;
+  }
+  .writing {
+    max-width: 750px;
+  }
+}
+.list {
   margin: 0;
-  font-size: inherit;
-  font-weight: 400;
-  line-height: .8
+}
+.list__item {
+  margin: 0;
+  margin-bottom: 2em;
+  font-size: 1.25em;
+}
+.list__item > p {
+    margin: 1em 0;
+}
+.footer {
+  position: fixed;
+  right: 6em;
+  bottom: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+@media (max-width:1080px) {
+  .footer {
+    right: 3em;
+    bottom: 5em;
+  }
+}
+.footer > a {
+  margin-top: 1em;
+  line-height: 1;
+  font-size: 1.4em;
 }
 a {
   position: relative;
@@ -381,201 +95,44 @@ a:focus, a:hover {
   color: #3d6eff;
   border-bottom: 1px solid #3d6eff
 }
-::-moz-focus-inner {
-  padding: 0;
-  border: 0
-}
-:focus {
-  outline: 0
-}
-::selection {
-  color: #222;
-  text-shadow: none;
-  background: #3d6eff
-}
-::-moz-selection {
-  color: #222;
-  text-shadow: none;
-  background: #3d6eff
-}
-.u-sans {
-  font: 700 17px/1 Oakes-Semi-Bold, sans-serif;
-  letter-spacing: .02em
-}
-.u-sans--small {
-  font-size: 15px
-}
-.section {
-  z-index: 1;
-  position: relative;
-  padding: 96px 0 96px 96px;
-  width: calc(100vw - 96px - 7em);
-  display: -webkit-box;
-  display: flex;
-  box-sizing: border-box;
-  min-height: 100vh
-}
-@media (max-width:1024px) {
-  .section {
-    padding: 48px 0 48px 48px;
-    width: calc(100vw - 48px - 7em)
+@media (max-width:800px) {
+  h1 {
+    line-height: 1em;
   }
-}
-@media (max-width:768px) {
-  .section {
-    padding: 7.5vw;
-    width: 100%
+  body {
+    padding: 1em 1em 1em 2em;
+    flex-flow: column wrap;
   }
-}
-@media (max-width:600px) {
-  .section {
-    display: block;
-    min-height: 0
+  .hero {
+    height: auto;
   }
-}
-.section--column {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column
-}
-@media (max-width:600px) {
-  .section--m-column {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column
-  }
-}
-.section--spread {
-  -webkit-box-pack: justify;
-  justify-content: space-between
-}
-.section__col {
-  width: 100%;
-  max-width: 382px
-}
-@media (max-width:600px) {
-  .section__col {
-    margin-bottom: 15vw
-  }
-}
-.bio {
-  margin-bottom: -.45em;
-  font-size: 24px;
-  font-weight: 100;
-  max-width: 700px
-}
-@media (max-width:600px) {
   .bio {
-    padding-top: 15vw;
-    font-size: 18px
+    font-size: 6vw;
+    margin: 0;
+    min-width: 80vw;
   }
-}
-.list {
-  margin-top: 3.2em
-}
-.list__item {
-  margin-top: .25em;
-  margin-bottom: 2em
-}
-.list__item:last-child {
-  margin-bottom: -.4em
-}
-.poem_block {
-    display: none;
-}
-
-.crumple {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none
-}
-.crumple:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #222;
-}
-.footer {
-  position: fixed;
-  right: 96px;
-  bottom: 92px;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-align: end;
-  align-items: flex-end
-}
-@media (max-width:1024px) {
-  .footer {
-    right: 48px;
-    bottom: 48px
+    .list {
+        margin-top: 1em;
+    }
+  section {
+    padding: 7.5vw;
+    width: 100%;
+    display: table-row;
+    height:auto;
+    min-height: inherit;
   }
-}
-@media (max-width:768px) {
-  .footer {
-    position: relative;
-    right: auto;
+  .dt {
     bottom: auto;
     padding: 0 7.5vw 7.5vw;
     -webkit-box-align: start;
     align-items: flex-start
   }
-}
-.footer__link {
-  margin-top: 1em;
-  line-height: 1
-}
-@media (max-width:768px) {
-  .footer__link {
-    display: inline
+  .footer {
+    position: inherit;
+    align-items: flex-start;
   }
-}
-@media (hover: hover) {
-  .footer__link:nth-child(odd):hover~.crumple {
-    background: linear-gradient(45deg, #69b7eb, #b3dbd3, #f4d6db);
-    background-size: 400% 400%;
-  }
-  .footer__link:nth-child(2n):hover~.crumple {
-    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
-    background-size: 400% 400%;
-  }
-  .footer__link:hover~.crumple {
-      -webkit-animation: gradient 30s ease infinite;
-      animation: gradient 30s ease infinite;
-  }
-
-  .footer__link--email:hover~.crumple:after {
-      -webkit-animation: a 1s .25s linear forwards;
-      animation: a 1s .25s linear forwards
-  }
-  .footer__link--github:hover~.crumple:after {
-    -webkit-animation: b 1s .25s linear forwards;
-    animation: b 1s .25s linear forwards
-  }
-  .footer__link--codepen:hover~.crumple:after {
-    -webkit-animation: c 1s .25s linear forwards;
-    animation: c 1s .25s linear forwards
-  }
-  .footer__link--linkedin:hover~.crumple:after {
-    -webkit-animation: d 1s .25s linear forwards;
-    animation: d 1s .25s linear forwards
-  }
-  .footer__link--twitter:hover~.crumple:after {
-    -webkit-animation: e 1s .25s linear forwards;
-    animation: e 1s .25s linear forwards
-  }
-  .footer__link--instagram:hover~.crumple:after {
-    -webkit-animation: f 1s .25s linear forwards;
-    animation: f 1s .25s linear forwards
+  .footer > a {
+    border: none;
+    text-decoration: underline;
   }
 }
