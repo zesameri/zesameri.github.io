@@ -1,6 +1,6 @@
-@media (max-width:800px) {
+@media (max-width:850px) {
   body {
-    padding: 1em 1em 1em 2em;
+    padding: 7.5vw;
     flex-flow: column wrap;
   }
   .hero {

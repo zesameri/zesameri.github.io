@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 5vh 0 3vw 3vw;
+  padding: 5vh 0 5vw 5vw;
   background-color: #222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,8 +36,8 @@ section {
 }
 .footer {
   position: fixed;
-  right: 6em;
-  bottom: 6em;
+  right: 5em;
+  bottom: 5em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -45,7 +45,7 @@ section {
 
 }
 .footer > a {
-  margin-top: 1em;
+  margin-top: 0.7em;
 }
 a {
   position: relative;
