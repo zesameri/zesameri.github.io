@@ -352,14 +352,14 @@
 @media (hover: hover) {
   .footer > a:nth-child(odd):hover~.crumple {
     background: #6190e8; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #6190e8, #a7bfe8); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(90deg, #6190e8, #a7bfe8);
+    background: -webkit-linear-gradient(45deg, #6190e8, #e0ebff); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #6190e8, #e0ebff);
     background-size: 400% 400%;
   }
   .footer > a:nth-child(2n):hover~.crumple {
     background: #ee5c87; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to top, #ee5c87, #d587b3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
+    background: -webkit-linear-gradient(45deg, #f598a8, #f6edb2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #f598a8, #f6edb2);
     background-size: 400% 400%;
   }
   .footer > a:hover~.crumple {
