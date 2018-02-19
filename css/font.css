@@ -10,6 +10,7 @@ h1, dt, .footer > a {
 }
 dt {
   font-size: 1.25em;
+  padding-top: 2em;
 }
 h1 {
   font-size: 3vw;
