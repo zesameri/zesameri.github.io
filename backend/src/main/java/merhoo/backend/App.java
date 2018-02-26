@@ -1,66 +1,85 @@
-package edu.lehigh.cse216.mfs409.admin;
+package merhoo.backend;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Map;
+// Import the Spark package, so that we can make use of the "get" function to
+// create an HTTP GET route
+import spark.Spark;
+
+// Import Google's JSON library
+import com.google.gson.*;
 
 /**
- * App is our basic admin app.  For now, all it does is connect to the database
- * and then disconnect
+ * For now, our app creates an HTTP server that can only get and add data.
  */
 public class App {
-    /**
-     * The main routine reads arguments from the environment and then uses those
-     * arguments to connect to the database.
-     */
-    public static void main(String[] argv) {
-        // get the Postgres configuration from the environment
-        Map<String, String> env = System.getenv();
-        String ip = env.get("POSTGRES_IP");
-        String port = env.get("POSTGRES_PORT");
-        String user = env.get("POSTGRES_USER");
-        String pass = env.get("POSTGRES_PASS");
+    public static void main(String[] args) {
 
-        // Some students find that they need the following lines
-        // *before DriverManager.getConnection* in order to get the postgres
-        // driver to load
+        // gson provides us with a way to turn JSON into objects, and objects
+        // into JSON.
+        //
+        // NB: it must be final, so that it can be accessed from our lambdas
+        //
+        // NB: Gson is thread-safe.  See
+        // https://stackoverflow.com/questions/10380835/is-it-ok-to-use-gson-instance-as-a-static-field-in-a-model-bean-reuse
+        final Gson gson = new Gson();
 
-        // try {
-        //     Class.forName("org.postgresql.Driver");
-        // } catch (ClassNotFoundException cnfe) {
-        //     System.out.println("Unable to find postgresql driver");
-        //     return;
-        // }
+        // dataStore holds all of the data that has been provided via HTTP
+        // requests
+        //
+        // NB: every time we shut down the server, we will lose all data, and
+        //     every time we start the server, we'll have an empty dataStore,
+        //     with IDs starting over from 0.
+        final DataStore dataStore = new DataStore();
 
-        // conn is a connection to the database.  In this simple example, it is
-        // a local variable, though in a realistic program it might not be
-        Connection conn = null;
+        // GET route that returns all message titles and Ids.  All we do is get
+        // the data, embed it in a StructuredResponse, turn it into JSON, and
+        // return it.  If there's no data, we return "[]", so there's no need
+        // for error handling.
+        Spark.get("/messages", (request, response) -> {
+            // ensure status 200 OK, with a MIME type of JSON
+            response.status(200);
+            response.type("application/json");
+            return gson.toJson(new StructuredResponse("ok", null, dataStore.readAll()));
+        });
 
-        // Connect to the database or fail
-        System.out.print("Connecting to " + ip + ":" + port);
-        try {
-            // Open a connection, fail if we cannot get one
-            conn = DriverManager.getConnection("jdbc:postgresql://" + ip + ":" + port + "/", user, pass);
-            if (conn == null) {
-                System.out.println("\n\tError: DriverManager.getConnection() returned a null object");
-                return;
+        // GET route that returns everything for a single row in the DataStore.
+        // The ":id" suffix in the first parameter to get() becomes
+        // request.params("id"), so that we can get the requested row ID.  If
+        // ":id" isn't a number, Spark will reply with a status 500 Internal
+        // Server Error.  Otherwise, we have an integer, and the only possible
+        // error is that it doesn't correspond to a row with data.
+        Spark.get("/messages/:id", (request, response) -> {
+            int idx = Integer.parseInt(request.params("id"));
+            // ensure status 200 OK, with a MIME type of JSON
+            response.status(200);
+            response.type("application/json");
+            DataRow data = dataStore.readOne(idx);
+            if (data == null) {
+                return gson.toJson(new StructuredResponse("error", idx + " not found", null));
+            } else {
+                return gson.toJson(new StructuredResponse("ok", null, data));
             }
-        } catch (SQLException e) {
-            System.out.println("\n\tError: DriverManager.getConnection() threw a SQLException");
-            e.printStackTrace();
-            return;
-        }
-        System.out.println(" ... successfully connected");
+        });
 
-        System.out.print("Disconnecting from database");
-        try {
-            conn.close();
-        } catch (SQLException e) {
-            System.out.println("\n\tError: close() threw a SQLException");
-            e.printStackTrace();
-            return;
-        }
-        System.out.println(" ...  connection successfully closed");
+        // POST route for adding a new element to the DataStore.  This will read
+        // JSON from the body of the request, turn it into a SimpleRequest
+        // object, extract the title and message, insert them, and return the
+        // ID of the newly created row.
+        Spark.post("/messages", (request, response) -> {
+            // NB: if gson.Json fails, Spark will reply with status 500 Internal
+            // Server Error
+            SimpleRequest req = gson.fromJson(request.body(), SimpleRequest.class);
+            // ensure status 200 OK, with a MIME type of JSON
+            // NB: even on error, we return 200, but with a JSON object that
+            //     describes the error.
+            response.status(200);
+            response.type("application/json");
+            // NB: createEntry checks for null title and message
+            int newId = dataStore.createEntry(req.mTitle, req.mMessage);
+            if (newId == -1) {
+                return gson.toJson(new StructuredResponse("error", "error performing insertion", null));
+            } else {
+                return gson.toJson(new StructuredResponse("ok", "" + newId, null));
+            }
+        });
     }
 }
