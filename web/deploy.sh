@@ -20,6 +20,18 @@ mkdir $TARGETFOLDER/$WEBFOLDERNAME
 # there are many more steps to be done.  For now, we will just copy an HTML file
 cp -r * $TARGETFOLDER/$WEBFOLDERNAME
 rm $TARGETFOLDER/$WEBFOLDERNAME/deploy.sh
-rm -r $TARGETFOLDER/$WEBFOLDERNAME/exper
+# rm -r $TARGETFOLDER/$WEBFOLDERNAME/exper
+
+# step 2: update our npm dependencies
+npm update
+
+# step 3: copy javascript files
+cp node_modules/jquery/dist/jquery.min.js $TARGETFOLDER/$WEBFOLDERNAME
+
+# step 4: compile TypeScript files
+node_modules/typescript/bin/tsc app.ts --strict --outFile $TARGETFOLDER/$WEBFOLDERNAME/app.js
+
+# step 5: copy css files
+cp app.css $TARGETFOLDER/$WEBFOLDERNAME
 
 echo fin
