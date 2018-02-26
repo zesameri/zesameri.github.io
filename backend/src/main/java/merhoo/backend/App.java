@@ -30,6 +30,15 @@ public class App {
         //     with IDs starting over from 0.
         final DataStore dataStore = new DataStore();
 
+        // Set up the location for serving static files
+        Spark.staticFileLocation("/web");
+
+        // Set up a route for serving the main page
+        Spark.get("/", (req, res) -> {
+            res.redirect("/index.html");
+            return "";
+        });
+
         // GET route that returns all message titles and Ids.  All we do is get
         // the data, embed it in a StructuredResponse, turn it into JSON, and
         // return it.  If there's no data, we return "[]", so there's no need
