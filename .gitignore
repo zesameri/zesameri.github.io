@@ -1,1 +1,3 @@
 backend/target/*
+admin/target/*
+backend/src/main/resources/*
