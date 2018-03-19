@@ -3,6 +3,15 @@
  */
 class EditEntryForm {
     /**
+     * The name of the DOM entry associated with ElementList
+     */
+    private static readonly NAME = "EditEntryForm";
+
+    /**
+     * Track if the Singleton has been initialized
+     */
+    private static isInit = false;
+    /**
      * To initialize the object, we say what method of EditEntryForm should be
      * run in response to each of the form's buttons being clicked.
      */
@@ -83,8 +92,8 @@ class EditEntryForm {
         // If we get an "ok" message, clear the form and refresh the main
         // listing of messages
         if (data.mStatus === "ok") {
-            editEntryForm.clearForm();
-            mainList.refresh();
+            this.clearForm();
+            ElementList.refresh();
         }
         // Handle explicit errors with a detailed popup message
         else if (data.mStatus === "error") {
