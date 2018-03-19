@@ -6,14 +6,12 @@
 // "any", so that we can use it anywhere, and assume it has any fields or
 // methods, without the compiler producing an error.
 var $: any;
-
-// a global for the main ElementList of the program.  See newEntryForm for
-// explanation
-var mainList: ElementList;
 // a global for the EditEntryForm of the program.  See newEntryForm for
 // explanation
 var editEntryForm: EditEntryForm;
 
+// Prevent compiler errors when using Handlebars
+let Handlebars: any;
 
 // The 'this' keyword does not behave in JavaScript/TypeScript like it does in
 // Java.  Since there is only one NewEntryForm, we will save it to a global, so
@@ -30,8 +28,8 @@ $(document).ready(function () {
     // Create the object that controls the "Edit Entry" form
     editEntryForm = new EditEntryForm();
 
-    mainList = new ElementList();
-    mainList.refresh();
+    // Populate the Element List Singleton with data from the server
+    ElementList.refresh();
 
     // set up initial UI state
     $("#editElement").hide();

@@ -2,3 +2,5 @@ backend/target/*
 admin/target/*
 backend/src/main/resources/*
 web/node_modules
+charles/node_modules
+charles/secrets/node_modules

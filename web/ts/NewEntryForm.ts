@@ -41,7 +41,7 @@ class NewEntryForm {
             success: newEntryForm.onSubmitResponse
         });
         console.log("Sent.");
-        mainList.refresh();
+        ElementList.refresh();
     }
 
     /**
@@ -54,7 +54,7 @@ class NewEntryForm {
         // If we get an "ok" message, clear the form
         if (data.mStatus === "ok") {
             newEntryForm.clearForm();
-            mainList.refresh();
+            ElementList.refresh();
         }
         // Handle explicit errors with a detailed popup message
         else if (data.mStatus === "error") {
