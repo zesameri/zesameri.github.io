@@ -87,8 +87,3 @@ a:focus, a:hover {
   font-weight: bold;
 
 }
-
-
-.list__item > p {
-  font-size: 1.25em;
-}

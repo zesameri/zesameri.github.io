@@ -75,20 +75,29 @@ a {
   position: relative;
 }
 
-.writing {
-  max-width: 70vw;
-  width: calc(100vw - 20em);
-  padding-top: 5vh;
-  padding-left: 6vw;
-  padding-bottom: 5em;
+.hero-footer > a {
+  position: relative;
+  padding-top: 0.7em;
 }
-.list {
-  margin: 0;
+
+.hero-footer {
+  position: fixed;
+  right: 5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
-.list__item {
-  margin: 0;
-  margin-bottom: 2em;
+
+.menu-footer {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 0.7em;
 }
-.list__item > p {
-    margin: 1em 0;
+
+.menu-footer > a {
+  padding: 0.7em;
 }
