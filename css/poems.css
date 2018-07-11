@@ -1,5 +1,5 @@
 body {
-  background-color: tomato;
+  background-color: lightsalmon;
 }
 
 .footer__link--home:hover~.crumple:after {
@@ -7,5 +7,5 @@ body {
     animation: a 1s .25s linear forwards
 }
 .crumple:after {
-  background-color: tomato;
+  background-color: lightsalmon;
 }
