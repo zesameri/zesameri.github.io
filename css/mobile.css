@@ -31,12 +31,12 @@
     flex-direction: column;
     font-size: 1.5em;
     height: 100vh;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   .menu > div {
     flex-basis: auto;
-    margin: 0;
-    padding: 1em;
+    flex-grow: 1;
+    margin: 0.5em;
   }
   .menu > div > div {
     flex-basis: auto;
@@ -54,12 +54,21 @@
     padding-top: 0.7em;
   }
 }
-@media (min-width:1080px) {
+@media only screen and (min-width:1080px) {
   .bio {
     max-width: 1100px;
   }
   .writing {
     max-width: 750px;
+  }
+  .menu {
+    height: calc(100vh - 2.1em);
+    max-height: calc(100vh - 1.4em);
+    min-height: calc(100vh - 1.4em);
+  }
+  .menu > div {
+    flex-basis: calc(50% - 72px);
+    margin: 36px;
   }
   .footer {
     right: 3em;
