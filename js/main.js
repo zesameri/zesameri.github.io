@@ -5,9 +5,7 @@ $(window).scroll(function() {
   var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
   if(isMobile && !isOtherMediaQuery) {
    // some code..
-   console.log('there');
  } else {
-   console.log('here');
    var hT = $('#menu').offset().top,
        hH = $('#menu').outerHeight(),
        wH = $(window).height(),
@@ -16,11 +14,9 @@ $(window).scroll(function() {
    if (wS > (hT+hH-wH)){
      $('#footer').addClass("menu-footer");
      $('#footer').removeClass("hero-footer");
-     console.log("welp");
    } else {
      $('#footer').addClass("hero-footer");
      $('#footer').removeClass("menu-footer");
-     console.log("welp there");
    }
  }
 });
