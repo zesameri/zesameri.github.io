@@ -1,0 +1,11 @@
+body {
+  background-color: tomato;
+}
+
+.footer__link--home:hover~.crumple:after {
+    -webkit-animation: a 1s .25s linear forwards;
+    animation: a 1s .25s linear forwards
+}
+.crumple:after {
+  background-color: tomato;
+}

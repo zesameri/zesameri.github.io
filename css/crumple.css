@@ -366,7 +366,7 @@
       -webkit-animation: gradient 30s ease infinite;
       animation: gradient 30s ease infinite;
   }
-
+  
   .footer__link--email:hover~.crumple:after {
       -webkit-animation: a 1s .25s linear forwards;
       animation: a 1s .25s linear forwards

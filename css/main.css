@@ -74,9 +74,13 @@ section {
 a {
   position: relative;
 }
-/*
+
 .writing {
   max-width: 70vw;
+  width: calc(100vw - 20em);
+  padding-top: 5vh;
+  padding-left: 6vw;
+  padding-bottom: 5em;
 }
 .list {
   margin: 0;
@@ -88,4 +92,3 @@ a {
 .list__item > p {
     margin: 1em 0;
 }
-*/
