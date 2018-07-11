@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  padding: 5vh 0 5vw 5vw;
   background-color: #222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -8,19 +7,74 @@ body {
 }
 section {
   z-index: 1;
-  width: calc(100vw - 20em);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
 }
 .hero {
-  height: calc(100vh - 2em);
+  width: calc(100vw - 20em);
+  padding-top: 5vh;
+  padding-left: 6vw;
 }
 .bio {
-  margin-bottom: 2.5em;
+  padding-bottom: 10vh;
   max-width: 70vw;
 }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: calc(100vh - 2.1em);
+  max-height: calc(100vh - 2.1em);
+  min-height: calc(100vh - 2.1em);
+}
+.menu > div {
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  background: #282C34;
+}
+.menu > div:nth-child(1) {
+  background:tomato;
+}
+.menu > div:nth-child(2) {
+  background: lightsalmon;
+}
+.menu > div:nth-child(3) {
+  background: plum;
+}
+.menu > div:nth-child(4) {
+  background: mediumslateblue;
+}
+
+.menu > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer {
+  position: fixed;
+  right: 5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+.footer > a {
+  padding-top: 0.7em;
+}
+a {
+  position: relative;
+}
+/*
 .writing {
   max-width: 70vw;
 }
@@ -34,19 +88,4 @@ section {
 .list__item > p {
     margin: 1em 0;
 }
-.footer {
-  position: fixed;
-  right: 5em;
-  bottom: 5em;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-
-}
-.footer > a {
-  margin-top: 0.7em;
-}
-a {
-  position: relative;
-}
+*/

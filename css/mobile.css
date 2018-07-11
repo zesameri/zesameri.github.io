@@ -1,4 +1,4 @@
-@media (max-width:850px) {
+@media only screen and (max-width:850px) {
   body {
     padding: 7.5vw;
     flex-flow: column wrap;
@@ -12,10 +12,10 @@
     padding-bottom: 2em;
   }
   .list {
-      margin-top: 1em;
+    margin-top: 1em;
   }
   section {
-    padding: 7.5vw;
+    /* padding: 7.5vw; */
     width: 100%;
     display: table-row;
     height:auto;
@@ -27,9 +27,31 @@
     -webkit-box-align: start;
     align-items: flex-start
   }
+  .menu {
+    flex-direction: column;
+    font-size: 1.5em;
+    height: 100vh;
+    justify-content: space-around;
+  }
+  .menu > div {
+    flex-basis: auto;
+    margin: 0;
+    padding: 1em;
+  }
+  .menu > div > div {
+    flex-basis: auto;
+  }
   .footer {
+    display: flex;
     position: inherit;
     align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+  }
+  .footer > a {
+    position: relative;
+    padding-top: 0.7em;
   }
 }
 @media (min-width:1080px) {

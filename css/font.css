@@ -19,9 +19,13 @@ h1 {
 .bio {
   font-size: 2.5vw;
 }
-.list__item > p {
-  font-size: 1.25em;
+
+.menu {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-size: 3vw;
 }
+
 .footer > a {
   line-height: 1;
   font-size: 1.4em;
@@ -30,7 +34,7 @@ a, .footer > a {
   border-bottom: 1px solid #f8f8f6;
   color: inherit;
   font-weight: normal;
-  text-decoration: none
+  text-decoration: none;
 }
 a {
   font-family: monospace;
@@ -70,3 +74,9 @@ a:focus, a:hover {
   font-weight: bold;
 
 }
+
+/*
+.list__item > p {
+  font-size: 1.25em;
+}
+*/

@@ -358,8 +358,8 @@
   }
   .footer > a:nth-child(2n):hover~.crumple {
     background: #ee5c87; /* fallback for old browsers */
-    background: -webkit-linear-gradient(45deg, #f598a8, #f6edb2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(45deg, #f598a8, #f6edb2);
+    background: -webkit-linear-gradient(45deg, #66CDAA, #20B2AA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #66CDAA, #20B2AA);
     background-size: 400% 400%;
   }
   .footer > a:hover~.crumple {
