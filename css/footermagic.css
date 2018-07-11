@@ -1,0 +1,27 @@
+
+.hero-footer > a {
+  position: relative;
+  padding-top: 0.7em;
+}
+
+.hero-footer {
+  position: fixed;
+  right: 5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.menu-footer {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 0.7em;
+}
+
+.menu-footer > a {
+  padding: 0.7em;
+}
