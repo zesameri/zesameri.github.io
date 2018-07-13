@@ -36,7 +36,7 @@
   .menu > div {
     flex-basis: auto;
     flex-grow: 1;
-    margin: 0.5em;
+    margin: 0.5em 0;
   }
   .menu > div > div {
     flex-basis: auto;
