@@ -1,0 +1,36 @@
+/* svg {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: 50%;
+  transform: translateX(-50%);
+}
+
+text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: draw 3s forwards;
+  -moz-animation: draw 3s forwards;
+  -o-animation: draw 3s forwards;
+  -ms-animation: draw 3s forwards;
+  animation: draw 3s forwards;
+} */
+
+body {
+  background-color: #222;
+}
+
+.title {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-weight: bold;
+  fill: #f8f8f6;
+
+}
+
+
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
