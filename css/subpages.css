@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  background-color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+}
+section {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.hero {
+  width: calc(100vw - 20em);
+  padding-top: 5vh;
+  padding-left: 6vw;
+}
+.bio {
+  padding-bottom: 10vh;
+  max-width: 70vw;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: calc(100vh - 2.1em);
+  max-height: calc(100vh - 2.1em);
+  min-height: calc(100vh - 2.1em);
+}
+.menu > div {
+  display: flex;
+  flex-basis: calc(50% - 40px);
+  justify-content: center;
+  flex-direction: row;
+  margin: 20px;
+  background: #282C34;
+}
+.menu > div:nth-child(1) {
+  background:tomato;
+}
+.menu > div:nth-child(2) {
+  background: lightsalmon;
+}
+.menu > div:nth-child(3) {
+  background: plum;
+}
+.menu > div:nth-child(4) {
+  background: mediumslateblue;
+}
+
+.menu > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer {
+  position: fixed;
+  right: 5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+}
+.footer > a {
+  padding-top: 0.7em;
+}
+a {
+  position: relative;
+}
+
+.hero-footer > a {
+  position: relative;
+  padding-top: 0.7em;
+}
+
+.hero-footer {
+  position: fixed;
+  right: 5em;
+  bottom: 5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.menu-footer {
+  position: static;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 0.7em;
+}
+
+.menu-footer > a {
+  padding: 0.7em;
+}
+
+.footer__link--home:hover~.crumple:after {
+    -webkit-animation: a 1s .25s linear forwards;
+    animation: a 1s .25s linear forwards
+}
+
+.writing {
+  max-width: 70vw;
+  width: calc(100vw - 20em);
+  padding-top: 5vh;
+  padding-left: 6vw;
+  padding-bottom: 5em;
+}
+.list {
+  margin: 0;
+}
+.list__item {
+  margin: 0;
+  margin-bottom: 2em;
+}
+.list__item > p {
+    margin: 1em 0;
+    font-size: 1.25em;
+}
+/*
+#essays .crumple:after {
+  background-color: tomato;
+}
+
+#essays {
+  background-color: tomato;
+}
+
+#poems .crumple:after {
+  background-color: lightsalmon;
+}
+
+#poems {
+  background-color: lightsalmon;
+}
+
+#journal .crumple:after {
+  background-color: plum;
+}
+
+#journal {
+  background-color: plum;
+}
+*/
