@@ -128,5 +128,5 @@
 
 	const items = Array.from(document.querySelectorAll('.item'));
 	const init = (() => items.forEach(item => new ImgItem(item)))();
-	setTimeout(() => document.body.classList.remove('loading'), 2000);
+	setTimeout(() => document.body.classList.remove('loading'), 500000);
 };
