@@ -53,51 +53,71 @@ a:focus {
 }
 
 .js .loading::after {
-	content: 'Pluto a planet?';
-  font-size: 1.625em;
+	content: '';
+	font-size: .62em;
 	font-weight: 500;
-	line-height: 1.5;
+	line-height: 3.8em;
+	letter-spacing: .62em;
 	margin: 0;
 	padding: 0.5em 0;
-	letter-spacing: 1.62em;
 	text-transform: uppercase;
+	text-align: center;
 
 	position: fixed;
 	z-index: 1001;
 	top: 50%;
 	left: 50%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-content: space-around;
-	width: 62vw;
-	height: 62vw;
-	margin: -31vw 0 0 -31vw;
+	width: 100px;
+	height: 100px;
+	margin: -50px 0 0 -50px;
   border-radius: 50%;
 	pointer-events: none;
-	background: #3F51B5;
-	/*animation: loaderAnim 4s ease-out infinite alternate forwards;*/
-  animation-name: loaderAnim;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: both;
+	animation: loaderAnim 4s ease-in-out infinite normal forwards;
 }
 
 @keyframes loaderAnim {
-	to {
-		transform: scale3d(0.5,0.5,1);
-    background-color:#7670bd;
-    letter-spacing: 1em;
-	}
-  /*
-  0%   {background-color:#366bbd; left:25%; top:25%;}
-  25%  {background-color:#3d8fbd; left:75%; top:25%;}
-  50%  {background-color:#6a7dbd; left:75%; top:75%;}
-  75%  {background-color:#585abc; left:25%; top:75%;}
-  100% {background-color:#7670bd; left:25%; top:25%;}
-  */
+
+	0%  {
+    border-radius:5% 5% 5% 5%;
+    transform:rotate(0deg);
+		background: #3f51b5;
+  }
+  12%  {
+    border-radius:50% 5% 5% 5%;
+    transform:rotate(45deg);
+  }
+  25%  {
+    border-radius:50% 50% 5% 5%;
+    transform:rotate(90deg);
+		background: #2196f3;
+  }
+  37%  {
+    border-radius:50% 50% 50% 5%;
+    transform:rotate(135deg);
+  }
+  50% {
+     border-radius:50%;
+     transform:rotate(180deg);
+ 		 background: #03a9f4;
+  }
+	62%  {
+    border-radius:5% 50% 50% 50%;
+    transform:rotate(225deg);
+  }
+  75%  {
+    border-radius: 5% 5% 50% 50%;
+    transform:rotate(270deg);
+		background: #2196f3;
+  }
+  87%  {
+    border-radius:5% 5% 5% 50%;
+    transform:rotate(315deg);
+  }
+  100%  {
+    border-radius:5% 5% 5% 5%;
+    transform:rotate(360deg);
+		background: #3f51b5;
+  }
 }
 
 main {
@@ -119,7 +139,7 @@ main {
 }
 
 /* Header */
-.codrops-header {
+.header {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -128,7 +148,7 @@ main {
 	padding: 5vw;
 }
 
-.codrops-header__title {
+.header__title {
 	font-size: 1.625em;
 	font-weight: 500;
 	line-height: 1.5;
@@ -251,7 +271,7 @@ main {
 }
 
 @media screen and (max-width: 40em) {
-	.codrops-header__title {
+	.header__title {
 		font-size: 1em;
 	}
 	.content--grid {
