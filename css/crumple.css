@@ -380,8 +380,8 @@
     animation: c 1s .25s linear forwards
   }
   .footer__link--linkedin:hover~.crumple:after {
-    -webkit-animation: d 1s .25s linear forwards;
-    animation: d 1s .25s linear forwards
+    -webkit-animation: e 1s .25s linear forwards;
+    animation: e 1s .25s linear forwards
   }
   .footer__link--twitter:hover~.crumple:after {
     -webkit-animation: e 1s .25s linear forwards;
