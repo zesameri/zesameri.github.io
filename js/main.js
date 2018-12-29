@@ -114,7 +114,7 @@
 				opacity: [
 					{value: 0, duration: 200},
 					{value: 1, duration: 200}
-				]
+				],
 			});
 			anime.remove(this.DOM.subtitle);
 			anime({
@@ -128,7 +128,7 @@
 
 	const items = Array.from(document.querySelectorAll('.item'));
 	const init = (() => items.forEach(item => new ImgItem(item)))();
-	setTimeout(() => document.body.classList.remove('loading'), 5000);
+	setTimeout(() => document.body.classList.remove('loading'), 4000);
 };
 
 $(window).scroll(function() {
