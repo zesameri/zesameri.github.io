@@ -6,3 +6,6 @@ charles/node_modules
 charles/secrets/node_modules
 js/grid.js
 js/zui.js
+js/spiral.js
+js/particle-sandbox.js
+js/rect.js
