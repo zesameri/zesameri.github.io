@@ -29,7 +29,7 @@ for (var r = 0; r < rows; r++) {
   }
 }
 two.update();
-
+// the animation is very heavy will try with css
 // var time = 0;
 // two.bind('update', function(frameCount, timeDelta) {
 //   if (timeDelta) {
