@@ -31,6 +31,7 @@ for (var r = 0; r < rows; r++) {
 
 two.update();
 
+  if (timeDelta) {
 function getBackground() {
   var background = two.makeRectangle(two.width / 2, two.height / 2,
     two.width, two.height);
