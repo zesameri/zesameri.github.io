@@ -4,9 +4,8 @@ var two = new Two({
     autostart: true
 }).appendTo(document.body);;
 
-var rows = Math.floor(two.height / 100);
-var cols = Math.floor(two.width / 100);
 var rows = Math.floor(two.height / 150);
+var cols = Math.floor(two.width / 150);
 var radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 var shapes = makeFlowers();
 var container = two.makeGroup(getBackground());
@@ -29,10 +28,24 @@ for (var r = 0; r < rows; r++) {
     container.add(shape);
   }
 }
-
 two.update();
 
-  if (timeDelta) {
+// var time = 0;
+// two.bind('update', function(frameCount, timeDelta) {
+//   if (timeDelta) {
+//     time += timeDelta;
+//   }
+//   if (time > 1000) {
+//     for (var c in container.children) {
+//       var child = container.children[c];
+//       if (child.name  !== 'background') {
+//         child.rotation += child.step;
+//       }
+//     }
+//   }
+//
+// });
+
 function getBackground() {
   var background = two.makeRectangle(two.width / 2, two.height / 2,
     two.width, two.height);
