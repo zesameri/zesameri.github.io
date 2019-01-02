@@ -6,6 +6,7 @@ var two = new Two({
 
 var rows = Math.floor(two.height / 100);
 var cols = Math.floor(two.width / 100);
+var rows = Math.floor(two.height / 150);
 var radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 var shapes = makeFlowers();
 var container = two.makeGroup(getBackground());
