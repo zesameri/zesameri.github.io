@@ -2,13 +2,15 @@
 var two = new Two({
   fullscreen: true,
     autostart: true
-}).appendTo(document.body);;
+}).appendTo(document.body);
+document.body.style.background = 'black';
 
 var rows = Math.floor(two.height / 150);
 var cols = Math.floor(two.width / 150);
 var radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 var shapes = makeFlowers();
-var container = two.makeGroup(getBackground());
+var container = two.makeGroup();
+
 for (var r = 0; r < rows; r++) {
   // even rows have an offset of 0.5
   var even = !!(r % 2);
@@ -46,14 +48,6 @@ two.update();
 //
 // });
 
-function getBackground() {
-  var background = two.makeRectangle(two.width / 2, two.height / 2,
-    two.width, two.height);
-  background.noStroke();
-  background.fill = 'black';
-  background.name = 'background';
-  return background
-}
 
 function roseMath(v, k, t) {
   v.x = radius * Math.cos(k * t) * Math.cos(t);
