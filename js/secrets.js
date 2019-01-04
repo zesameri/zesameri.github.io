@@ -20,6 +20,7 @@ if(isMobile && !isOtherMediaQuery) {
   radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 }
 var shapes = makeFlowers();
+var flowers = [];
 
 for (var r = 0; r < rows; r++) {
   // even rows have an offset of 0.5
@@ -35,8 +36,10 @@ for (var r = 0; r < rows; r++) {
       }
     }
     var hi = k /(cols -  1);
-    var shape = pickFlower();
+    var shape = pickFlower(shapes);
     shape.translation.set(hi * two.width, vi * two.height);
+    flowers.push(shape);
+    two.add(shape);
   }
 }
 two.update();
@@ -49,7 +52,7 @@ function roseMath(v, k, t) {
 }
 
 function makeFlowers() {
-  var shapes = [];
+  var flowers = [];
   var resolution = 240; // every flower has 240 points
   for (var k = 4; k < 20; k++) {
     var points = [];
@@ -58,26 +61,26 @@ function makeFlowers() {
       roseMath(points[j], k, Math.PI * 2 * j / resolution);
     }
     // Create shape
-    var shape = new Two.Path(points, true, true);
-    shapes.push(shape);
+    var flower = new Two.Path(points, true, true);
+    flowers.push(flower);
   }
-  return shapes;
+  return flowers;
 }
 
-function pickFlower() {
-  var s = Math.floor(Math.random() * shapes.length);
-  var shape = shapes[s].clone();
+function pickFlower(flowers) {
+  var f = Math.floor(Math.random() * flowers.length);
+  var flower = flowers[f].clone();
   // Style the shape
   var colors = ['tomato', 'lightsalmon', 'floralwhite', 'orangered',
     'gold', 'red', 'darkorange'];
   var color = colors[Math.floor(Math.random() * colors.length)];
-  shape.stroke = color;
-  shape.fill = color;
-  shape.linewidth = 4;
-  shape.cap = 'round';
-  shape.rotation = Math.floor(Math.random() * 4) * Math.PI / 2 + Math.PI / 4;
+  flower.stroke = color;
+  flower.fill = color;
+  flower.linewidth = 4;
+  flower.cap = 'round';
+  flower.rotation = Math.floor(Math.random() * 4) * Math.PI / 2 + Math.PI / 4;
   // For animation later on
-  shape.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
-  shape.step *= Math.random() > 0.5 ? - 1 : 1;
-  return shape;
+  flower.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
+  flower.step *= Math.random() > 0.5 ? - 1 : 1;
+  return flower;
 }
