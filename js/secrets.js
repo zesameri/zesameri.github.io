@@ -20,7 +20,6 @@ if(isMobile && !isOtherMediaQuery) {
   radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 }
 var shapes = makeFlowers();
-var container = two.makeGroup();
 
 for (var r = 0; r < rows; r++) {
   // even rows have an offset of 0.5
@@ -38,26 +37,9 @@ for (var r = 0; r < rows; r++) {
     var hi = k /(cols -  1);
     var shape = pickFlower();
     shape.translation.set(hi * two.width, vi * two.height);
-    container.add(shape);
   }
 }
 two.update();
-// the animation is very heavy will try with css
-// var time = 0;
-// two.bind('update', function(frameCount, timeDelta) {
-//   if (timeDelta) {
-//     time += timeDelta;
-//   }
-//   if (time > 1000) {
-//     for (var c in container.children) {
-//       var child = container.children[c];
-//       if (child.name  !== 'background') {
-//         child.rotation += child.step;
-//       }
-//     }
-//   }
-//
-// });
 
 
 function roseMath(v, k, t) {
