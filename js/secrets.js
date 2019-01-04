@@ -5,9 +5,20 @@ var two = new Two({
 }).appendTo(document.body);
 document.body.style.background = 'black';
 
-var rows = Math.floor(two.height / 150);
-var cols = Math.floor(two.width / 150);
-var radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
+
+var radius = 0, rows  = 0, cols = 0;
+var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
+if(isMobile && !isOtherMediaQuery) {
+  rows = Math.floor(two.height / 200);
+  cols = Math.floor(two.width / 200);
+  radius = Math.floor(two.height / rows) * .62;
+} else {
+  rows = Math.floor(two.height / 150);
+  cols = Math.floor(two.width / 150);
+  radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
+}
 var shapes = makeFlowers();
 var container = two.makeGroup();
 
