@@ -44,6 +44,15 @@ for (var r = 0; r < rows; r++) {
 }
 two.update();
 
+for (var f in flowers) {
+  var flower = flowers[f];
+  console.log(flower.id);
+  $(flower._renderer.elem)
+    .click(function(e) {
+      flower.fill = "blue";
+    })
+}
+
 
 function roseMath(v, k, t) {
   v.x = radius * Math.cos(k * t) * Math.cos(t);
