@@ -49,9 +49,9 @@ for (var r = 0; r < rows; r++) {
       height:size + 25
     }).appendTo(document.getElementById(cellId));
 
-    $(cellId).click(function(e) {
-      
-    }
+    // $(cellId).click(function(e) {
+    //   document.getElementById(cellId)
+    // }
 
     two.add(shape);
     two.update();
@@ -59,14 +59,14 @@ for (var r = 0; r < rows; r++) {
   }
 }
 
-
-for (var f in flowers) {
-  var flower = flowers[f];
-  $(flower._renderer.elem)
-    .click(function(e) {
-      flower.fill = "blue";
-    })
-}
+// 
+// for (var f in flowers) {
+//   var flower = flowers[f];
+//   $(flower._renderer.elem)
+//     .click(function(e) {
+//       flower.fill = "blue";
+//     })
+// }
 
 
 function roseMath(v, k, t) {
