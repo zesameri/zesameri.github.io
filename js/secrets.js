@@ -1,5 +1,7 @@
 // Setup the canvas
+var type = /(canvas|webgl)/.test(url.type) ? url.type : 'svg';
 var two = new Two({
+  type: Two.Types[type],
   fullscreen: true,
     autostart: true
 }).appendTo(document.body);
