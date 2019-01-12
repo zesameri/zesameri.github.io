@@ -65,7 +65,7 @@ function roseMath(radius, v, k, t) {
 function makeFlowers(radius) {
   var flowers = [];
   var resolution = 240; // every flower has 240 points
-  for (var k = 4; k < 20; k++) {
+  for (var k = 4; k < 24; k++) {
     var points = [];
     for (var j = 0; j < resolution; j++) {
       points[j] = new Two.Anchor();
@@ -81,17 +81,15 @@ function makeFlowers(radius) {
 function pickFlower(flowers) {
   var f = Math.floor(Math.random() * flowers.length);
   var flower = flowers[f].clone();
-  // Style the shape
   var colors = ['tomato', 'orangered', 'floralwhite',
     'gold', 'red', 'darkorange'];
+  colors = ['DARKMAGENTA', 'REBECCAPURPLE', 'SLATEBLUE', 'ROYALBLUE', '#9c27b0', '#9f9fff',
+    'ALICEBLUE', 'PLUM', 'CORNFLOWERBLUE', 'DARKBLUE', 'MEDIUMBLUE', 'DARKSLATEBLUE'];
   var color = colors[Math.floor(Math.random() * colors.length)];
+  flower.rotation = (Math.PI  / 2) * (Math.floor(Math.random() * 12) / 12);
   flower.stroke = color;
   flower.fill = color;
   flower.linewidth = 4;
   flower.cap = 'round';
-  // flower.rotation = Math.floor(Math.random() * 16) * Math.PI / 8 + Math.PI / 16;
-  // For animation later on
-  flower.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
-  flower.step *= Math.random() > 0.5 ? - 1 : 1;
   return flower;
 }
