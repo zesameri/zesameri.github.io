@@ -5,24 +5,24 @@ var two = new Two({
   fullscreen: true,
     autostart: true
 }).appendTo(document.body);
-document.body.style.background = 'black';
+// document.body.style.background = 'black';
 
 
-var radius = 0, rows  = 0, cols = 0;
+var radius = 0, rows  = 0, cols = 0, size;
 var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
                 /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
 if(isMobile && !isOtherMediaQuery) {
-  rows = Math.floor(two.height / 200);
-  cols = Math.floor(two.width / 200);
-  radius = Math.floor(two.height / rows) * .62;
+  size = 200;
 } else {
-  rows = Math.floor(two.height / 150);
-  cols = Math.floor(two.width / 150);
-  radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
+  size = 150;
 }
-var shapes = makeFlowers();
+rows = Math.floor(two.height / size);
+cols = Math.floor(two.width / size);
+radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
 var flowers = [];
+var shapes = makeFlowers();
+
 
 for (var r = 0; r < rows; r++) {
   // even rows have an offset of 0.5
@@ -77,21 +77,28 @@ function makeFlowers() {
   }
   return flowers;
 }
-
+var f = 0;
 function pickFlower(flowers) {
-  var f = Math.floor(Math.random() * flowers.length);
+  // var f = Math.floor(Math.random() * flowers.length);
+  if (f == flowers.length) {
+    f = 0;
+  }
+  if (typeof flowers[f] === 'undefined') {
+    f++;
+  }
   var flower = flowers[f].clone();
+  f++;
   // Style the shape
-  var colors = ['tomato', 'lightsalmon', 'floralwhite', 'orangered',
-    'gold', 'red', 'darkorange'];
-  var color = colors[Math.floor(Math.random() * colors.length)];
-  flower.stroke = color;
-  flower.fill = color;
+  // var colors = ['tomato', 'lightsalmon', 'floralwhite', 'orangered',
+  //   'gold', 'red', 'darkorange'];
+  // var color = colors[Math.floor(Math.random() * colors.length)];
+  // flower.stroke = color;
+  // flower.fill = color;
   flower.linewidth = 4;
   flower.cap = 'round';
   // flower.rotation = Math.floor(Math.random() * 4) * Math.PI / 2 + Math.PI / 4;
   // For animation later on
-  flower.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
-  flower.step *= Math.random() > 0.5 ? - 1 : 1;
+  // flower.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
+  // flower.step *= Math.random() > 0.5 ? - 1 : 1;
   return flower;
 }
