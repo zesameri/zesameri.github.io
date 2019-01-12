@@ -1,7 +1,13 @@
 var shapes;
-main();
+window.onresize = function() {
+    setup();
+}
 
-function main() {
+$(function() {
+  setup();
+});
+
+function setup() {
   var height = $('body').height();
   var width = $('body').width();
 
