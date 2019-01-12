@@ -10,35 +10,31 @@ $(function() {
 function setup() {
   var height = $('body').height();
   var width = $('body').width();
+  var size = 150;
+  var padding = 20;
 
-  var size = getShapeSize();
+  var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
+                  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
+  if(isMobile && !isOtherMediaQuery) {
+    size = 250;
+    padding = 40;
+  }
+
   var rows = Math.floor(height / size);
   var cols = Math.floor(width / size);
   var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
 
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
-  addSvgsToCells(size);
+  addSvgsToCells(size, padding);
 }
 
-function getShapeSize() {
-  var size;
-  var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
-                  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
-  if(isMobile && !isOtherMediaQuery) {
-    size = 200;
-  } else {
-    size = 150;
-  }
-  return size;
-}
-
-function addSvgsToCells(size) {
+function addSvgsToCells(size, padding) {
   $(".cell").each(function (index, object) {
     var two = new Two({
-      width: size + 20,
-      height:size + 20
+      width: size + padding,
+      height:size + padding
     }).appendTo(object);
     var shape = pickFlower(shapes);
     shape.translation.set(two.width / 2, two.height / 2);
