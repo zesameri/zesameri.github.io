@@ -1,75 +1,73 @@
-var height = $('body').height();
-var width = $('body').width();
-// var mobileSize = 200;
-// var desktopSize = 150;
-var radius = 0, rows  = 0, cols = 0, size = 150;
+var shapes;
+main();
 
-// Define rows, colnums, and shape radius based on document size
-var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
-if(isMobile && !isOtherMediaQuery) {
-  size = 200;
-} else {
-  size = 150;
+function main() {
+  var height = $('body').height();
+  var width = $('body').width();
+
+  var size = getShapeSize();
+  var rows = Math.floor(height / size);
+  var cols = Math.floor(width / size);
+  var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
+
+  makeGrid(rows, cols);
+  shapes = makeFlowers(radius);
+  addSvgsToCells(size);
 }
 
-rows = Math.floor(height / size);
-cols = Math.floor(width / size);
-radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
+function getShapeSize() {
+  var size;
+  var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
+                  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
+  if(isMobile && !isOtherMediaQuery) {
+    size = 200;
+  } else {
+    size = 150;
+  }
+  return size;
+}
 
-console.log(rows);
-console.log(cols);
+function addSvgsToCells(size) {
+  $(".cell").each(function (index, object) {
+    var two = new Two({
+      width: size + 20,
+      height:size + 20
+    }).appendTo(object);
+    var shape = pickFlower(shapes);
+    shape.translation.set(two.width / 2, two.height / 2);
+    two.add(shape);
+    two.update();
+  });
+}
 
-for (var r = 0; r < rows; r++) {
-  var rowId = "row" + r;
-  var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
-  var vi = r / (rows - 1);
-  for (var c = 0; c < cols; c++) {
-    var cellId = "cell" + ((r * rows) + c);
-    $(row).append('<div class="cell" id="' + cellId + '"></div>');
+function makeGrid(rows, cols) {
+  $('body').empty();
+  for (var r = 0; r < rows; r++) {
+    var rowId = "row" + r;
+    var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
+    var vi = r / (rows - 1);
+    for (var c = 0; c < cols; c++) {
+      var cellId = "cell" + ((r * rows) + c);
+      $(row).append('<div class="cell" id="' + cellId + '"></div>');
+    }
   }
 }
 
-
-var flowers = [];
-var shapes = makeFlowers();
-
-$(".cell").each(function (index, object) {
-  var two = new Two({
-    width: size + 20,
-    height:size + 20
-  }).appendTo(object);
-  var shape = pickFlower(shapes);
-  shape.translation.set(two.width / 2, two.height / 2);
-  two.add(shape);
-  two.update();
-  flowers.push(shape);
-});
-
-//
-// for (var f in flowers) {
-//   var flower = flowers[f];
-//   $(flower._renderer.elem)
-//     .click(function(e) {
-//       flower.fill = "blue";
-//     })
-// }
-
-function roseMath(v, k, t) {
+function roseMath(radius, v, k, t) {
   v.x = radius * Math.cos(k * t) * Math.cos(t);
   v.y = radius * Math.cos(k * t) * Math.sin(t);
   return v;
 }
 
-function makeFlowers() {
+function makeFlowers(radius) {
   var flowers = [];
   var resolution = 240; // every flower has 240 points
   for (var k = 4; k < 20; k++) {
     var points = [];
     for (var j = 0; j < resolution; j++) {
       points[j] = new Two.Anchor();
-      roseMath(points[j], k, Math.PI * 2 * j / resolution);
+      roseMath(radius, points[j], k, Math.PI * 2 * j / resolution);
     }
     // Create shape
     var flower = new Two.Path(points, true, true);
