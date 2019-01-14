@@ -22,7 +22,7 @@ function setup() {
   if(isMobile && !isOtherMediaQuery) {
     size = 300;
     padding = 80;
-    radius = Math.floor(height / rows) / 2;
+    radius = Math.floor(height / rows - 3);
   }
 
   console.log(width);
