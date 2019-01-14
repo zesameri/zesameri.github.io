@@ -28,6 +28,7 @@ function setup() {
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
   addSvgsToCells(size, padding);
+  offsetEvenRows(size);
 }
 
 function addSvgsToCells(size, padding) {
@@ -43,13 +44,21 @@ function addSvgsToCells(size, padding) {
   });
 }
 
+function offsetEvenRows(size) {
+  $(".row").each(function (index, object) {
+    if (index % 2) {
+      $(object).css("position", "relative");
+      $(object).css("left", size / 2 * - 1 + "px");
+    }
+  });
+}
+
 function makeGrid(rows, cols) {
   $('body').empty();
   for (var r = 0; r < rows; r++) {
     var rowId = "row" + r;
     var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
-    var vi = r / (rows - 1);
-    for (var c = 0; c < cols; c++) {
+    for (var c = 0; c < cols + 1; c++) {
       var cellId = "cell" + ((r * rows) + c);
       $(row).append('<div class="cell" id="' + cellId + '"></div>');
     }
