@@ -12,29 +12,26 @@ function setup() {
   var width = $('body').width();
   var size = 150;
   var padding = 50;
-  var rows = Math.floor(height / size);
-  var cols = Math.floor(width / size);
-  var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
   var isMobile = window.matchMedia("only screen and (max-width: 450px)").matches ||
                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
   if(isMobile && !isOtherMediaQuery) {
-    size = 300;
-    padding = 80;
-    radius = Math.floor(height / rows - 3);
+    size = 250;
+    padding = 250;
   }
+  var rows = Math.floor(height / size);
+  var cols = Math.floor(width / size);
+  var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
-  console.log(width);
-  console.log(isMobile);
-  console.log(rows);
-  console.log(cols);
-  console.log(radius);
-
+  if(isMobile && !isOtherMediaQuery) {
+    radius = Math.floor(height / (rows + 2));
+  }
+  
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
   addSvgsToCells(size, padding);
-  offsetEvenRows(size);
+  offsetEvenRows(size + padding);
 }
 
 function addSvgsToCells(size, padding) {
@@ -54,7 +51,7 @@ function offsetEvenRows(size) {
   $(".row").each(function (index, object) {
     if (index % 2) {
       $(object).css("position", "relative");
-      $(object).css("left", size / 2 * - 1 + "px");
+      $(object).css("left", size / 2 * -1 + "px");
     }
   });
 }
