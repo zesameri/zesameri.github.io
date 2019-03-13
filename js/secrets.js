@@ -1,28 +1,28 @@
-// Setup the canvas
-var type = /(canvas|webgl)/.test(url.type) ? url.type : 'svg';
-var two = new Two({
-  type: Two.Types[type],
-  fullscreen: true,
-    autostart: true
-}).appendTo(document.body);
-// document.body.style.background = 'black';
-
-
-var radius = 0, rows  = 0, cols = 0, size;
-var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
-                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
-if(isMobile && !isOtherMediaQuery) {
-  size = 200;
-} else {
-  size = 150;
+var shapes;
+window.onresize = function() {
+    setup();
 }
-rows = Math.floor(two.height / size);
-cols = Math.floor(two.width / size);
-radius = Math.floor(Math.max(two.width, two.height) / Math.max(rows, cols)) / 2;
-var flowers = [];
-var shapes = makeFlowers();
 
+$(function() {
+  setup();
+});
+
+function setup() {
+  var height = $('body').height();
+  var width = $('body').width();
+  var size = 150;
+  var padding = 50;
+
+  var isMobile = window.matchMedia("only screen and (max-width: 450px)").matches ||
+                  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
+  if(isMobile && !isOtherMediaQuery) {
+    size = 250;
+    padding = 250;
+  }
+  var rows = Math.floor(height / size);
+  var cols = Math.floor(width / size);
+  var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
 for (var r = 0; r < rows; r++) {
   // even rows have an offset of 0.5
