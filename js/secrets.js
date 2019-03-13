@@ -56,20 +56,20 @@ for (var f in flowers) {
 }
 
 
-function roseMath(v, k, t) {
+function roseMath(radius, v, k, t) {
   v.x = radius * Math.cos(k * t) * Math.cos(t);
   v.y = radius * Math.cos(k * t) * Math.sin(t);
   return v;
 }
 
-function makeFlowers() {
+function makeFlowers(radius) {
   var flowers = [];
   var resolution = 240; // every flower has 240 points
-  for (var k = 4; k < 20; k++) {
+  for (var k = 4; k < 24; k++) {
     var points = [];
     for (var j = 0; j < resolution; j++) {
       points[j] = new Two.Anchor();
-      roseMath(points[j], k, Math.PI * 2 * j / resolution);
+      roseMath(radius, points[j], k, Math.PI * 2 * j / resolution);
     }
     // Create shape
     var flower = new Two.Path(points, true, true);
