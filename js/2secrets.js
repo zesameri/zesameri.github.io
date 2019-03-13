@@ -31,11 +31,11 @@ function setup() {
 }
 
 function addSvgsToCells(size, padding) {
-  $(".cell").each(function (index, object) {
+  $(".cell").each(function (i, o) {
     var two = new Two({
       width: size + padding,
       height:size + padding
-    }).appendTo(object);
+    }).appendTo(o);
     var shape = pickFlower(shapes);
     shape.translation.set(two.width / 2, two.height / 2);
     two.add(shape);
