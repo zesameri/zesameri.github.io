@@ -28,6 +28,8 @@ function setup() {
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
   addSvgsToCells(size, padding);
+  fixCellPosiiton();
+  addOnClickToCells();
 }
 
 function addSvgsToCells(size, padding) {
@@ -40,6 +42,41 @@ function addSvgsToCells(size, padding) {
     shape.translation.set(two.width / 2, two.height / 2);
     two.add(shape);
     two.update();
+  });
+  // get position of cell, set position to fixed  with left and right set
+
+}
+
+function fixCellPosiiton() {
+  $(".cell").each(function (i, o) {
+    $(this).parent().css({position: 'relative'});
+    var top = $(this).offset().top, left = $(this).offset().left;
+    console.log(top);
+    console.log(left);
+    // console.log($(this).offset());
+    $(this).css({top: top, left: left, position:'absolute'});
+    // console.log($(this).offset());
+  });
+  // console.log($("#cell20").offset());
+}
+
+function addOnClickToCells() {
+  $('.cell').click(function () {
+    $(this).css('transition', 'scale()');
+    var kiddo = this.children[0];
+    if (typeof kiddo !== 'undefined') {
+      // Expand child SVG to 200px
+      $(this).animate({width: "200px"}, 500);
+      setTimeout(function() {
+        // 500 ms later, expand height to 800px
+        $(this).animate({height:"800px"}, 500);
+      }, 500);
+      setTimeout(function() {
+        // 1s later show text
+        // object.children.find
+      });
+    }
+
   });
 }
 
