@@ -28,6 +28,7 @@ function setup() {
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
   addSvgsToCells(size, padding);
+  offsetEvenRows(size + padding);
   // fixCellPosiiton();
   // addOnClickToCells();
 }
@@ -77,6 +78,15 @@ function addOnClickToCells() {
       });
     }
 
+  });
+}
+
+function offsetEvenRows(size) {
+  $(".row").each(function (index, object) {
+    if (index % 2) {
+      $(object).css("position", "relative");
+      $(object).css("left", size / 2 * -1 + "px");
+    }
   });
 }
 
