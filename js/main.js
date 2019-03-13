@@ -128,7 +128,6 @@
 
 	const items = Array.from(document.querySelectorAll('.item'));
 	const init = (() => items.forEach(item => new ImgItem(item)))();
-	setTimeout(() => document.body.classList.remove('loading'), 4000);
 };
 
 $(window).scroll(function() {

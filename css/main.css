@@ -72,53 +72,8 @@ a:focus {
 	margin: -50px 0 0 -50px;
   border-radius: 50%;
 	pointer-events: none;
-	animation: loaderAnim 4s ease-in-out infinite normal forwards;
 }
 
-@keyframes loaderAnim {
-
-	0%  {
-    border-radius:5% 5% 5% 5%;
-    transform:rotate(0deg);
-		background: #3f51b5;
-  }
-  12%  {
-    border-radius:50% 5% 5% 5%;
-    transform:rotate(45deg);
-  }
-  25%  {
-    border-radius:50% 50% 5% 5%;
-    transform:rotate(90deg);
-		background: #2196f3;
-  }
-  37%  {
-    border-radius:50% 50% 50% 5%;
-    transform:rotate(135deg);
-  }
-  50% {
-     border-radius:50%;
-     transform:rotate(180deg);
- 		 background: #03a9f4;
-  }
-	62%  {
-    border-radius:5% 50% 50% 50%;
-    transform:rotate(225deg);
-  }
-  75%  {
-    border-radius: 5% 5% 50% 50%;
-    transform:rotate(270deg);
-		background: #2196f3;
-  }
-  87%  {
-    border-radius:5% 5% 5% 50%;
-    transform:rotate(315deg);
-  }
-  100%  {
-    border-radius:5% 5% 5% 5%;
-    transform:rotate(360deg);
-		background: #3f51b5;
-  }
-}
 
 main {
 	overflow: hidden;
