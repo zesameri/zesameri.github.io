@@ -41,6 +41,17 @@ for (var f in flowers) {
     })
 }
 
+function makeGrid(rows, cols) {
+  $('body').empty();
+  for (var r = 0; r < rows; r++) {
+    var rowId = "row" + r;
+    var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
+    for (var c = 0; c < cols + 1; c++) {
+      var cellId = "cell" + ((r * rows) + c);
+      $(row).append('<div class="cell" id="' + cellId + '"></div>');
+    }
+  }
+}
 
 function roseMath(radius, v, k, t) {
   v.x = radius * Math.cos(k * t) * Math.cos(t);
