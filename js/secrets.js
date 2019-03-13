@@ -24,20 +24,6 @@ function setup() {
   var cols = Math.floor(width / size);
   var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
-for (var r = 0; r < rows; r++) {
-  // even rows have an offset of 0.5
-  var even = !!(r % 2);
-  var vi = r / (rows - 1);
-  for (var c = 0; c < cols; c++) {
-    var k = c;
-    if (even) {
-      k += 0.5;
-      // we skip the final col on even rows to avoid overflow
-      if (c  >=  cols -  1) {
-        continue;
-      }
-    }
-    var hi = k /(cols -  1);
     var shape = pickFlower(shapes);
     shape.translation.set(hi * two.width, vi * two.height);
     flowers.push(shape);
