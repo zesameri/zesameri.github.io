@@ -77,28 +77,19 @@ function makeFlowers() {
   }
   return flowers;
 }
-var f = 0;
+
 function pickFlower(flowers) {
-  // var f = Math.floor(Math.random() * flowers.length);
-  if (f == flowers.length) {
-    f = 0;
-  }
-  if (typeof flowers[f] === 'undefined') {
-    f++;
-  }
+  var f = Math.floor(Math.random() * flowers.length);
   var flower = flowers[f].clone();
-  f++;
-  // Style the shape
-  // var colors = ['tomato', 'lightsalmon', 'floralwhite', 'orangered',
-  //   'gold', 'red', 'darkorange'];
-  // var color = colors[Math.floor(Math.random() * colors.length)];
-  // flower.stroke = color;
-  // flower.fill = color;
+  var colors = ['tomato', 'orangered', 'floralwhite',
+    'gold', 'red', 'darkorange'];
+  colors = ['DARKMAGENTA', 'REBECCAPURPLE', 'SLATEBLUE', 'ROYALBLUE', '#9c27b0', '#9f9fff',
+    'ALICEBLUE', 'PLUM', 'CORNFLOWERBLUE', 'DARKBLUE', 'MEDIUMBLUE', 'DARKSLATEBLUE'];
+  var color = colors[Math.floor(Math.random() * colors.length)];
+  flower.rotation = (Math.PI  / 2) * (Math.floor(Math.random() * 12) / 12);
+  flower.stroke = color;
+  flower.fill = color;
   flower.linewidth = 4;
   flower.cap = 'round';
-  // flower.rotation = Math.floor(Math.random() * 4) * Math.PI / 2 + Math.PI / 4;
-  // For animation later on
-  // flower.step = (Math.floor(Math.random() * 8) / 8) * Math.PI / 60;
-  // flower.step *= Math.random() > 0.5 ? - 1 : 1;
   return flower;
 }
