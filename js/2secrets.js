@@ -48,9 +48,8 @@ function makeGrid(rows, cols) {
   for (var r = 0; r < rows; r++) {
     var rowId = "row" + r;
     var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
-    var vi = r / (rows - 1);
     for (var c = 0; c < cols; c++) {
-      var cellId = "cell" + ((r * rows) + c);
+      var cellId = "cell" + ((r * cols) + c);
       $(row).append('<div class="cell" id="' + cellId + '"></div>');
     }
   }
