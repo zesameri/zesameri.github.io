@@ -39,6 +39,13 @@ for (var f in flowers) {
     .click(function(e) {
       flower.fill = "blue";
     })
+function offsetEvenRows(size) {
+  $(".row").each(function (index, object) {
+    if (index % 2) {
+      $(object).css("position", "relative");
+      $(object).css("left", size / 2 * -1 + "px");
+    }
+  });
 }
 
 function makeGrid(rows, cols) {
