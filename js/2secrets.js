@@ -28,8 +28,8 @@ function setup() {
   makeGrid(rows, cols);
   shapes = makeFlowers(radius);
   addSvgsToCells(size, padding);
-  fixCellPosiiton();
-  addOnClickToCells();
+  // fixCellPosiiton();
+  // addOnClickToCells();
 }
 
 function addSvgsToCells(size, padding) {
