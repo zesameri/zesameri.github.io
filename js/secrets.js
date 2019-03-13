@@ -24,21 +24,29 @@ function setup() {
   var cols = Math.floor(width / size);
   var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
-    var shape = pickFlower(shapes);
-    shape.translation.set(hi * two.width, vi * two.height);
-    flowers.push(shape);
-    two.add(shape);
+  if(isMobile && !isOtherMediaQuery) {
+    radius = Math.floor(height / (rows + 2));
   }
+  
+  makeGrid(rows, cols);
+  shapes = makeFlowers(radius);
+  addSvgsToCells(size, padding);
+  offsetEvenRows(size + padding);
 }
-two.update();
 
-for (var f in flowers) {
-  var flower = flowers[f];
-  console.log(flower.id);
-  $(flower._renderer.elem)
-    .click(function(e) {
-      flower.fill = "blue";
-    })
+function addSvgsToCells(size, padding) {
+  $(".cell").each(function (index, object) {
+    var two = new Two({
+      width: size + padding,
+      height:size + padding
+    }).appendTo(object);
+    var shape = pickFlower(shapes);
+    shape.translation.set(two.width / 2, two.height / 2);
+    two.add(shape);
+    two.update();
+  });
+}
+
 function offsetEvenRows(size) {
   $(".row").each(function (index, object) {
     if (index % 2) {
