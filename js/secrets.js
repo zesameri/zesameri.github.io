@@ -10,36 +10,38 @@ $(function() {
 function setup() {
   var height = $('body').height();
   var width = $('body').width();
-  var size = 150;
-  var padding = 50;
+  var svgSize = 150;
+  var padding = 20;
 
-  var isMobile = window.matchMedia("only screen and (max-width: 450px)").matches ||
+  var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
   if(isMobile && !isOtherMediaQuery) {
-    size = 250;
-    padding = 250;
+    svgSize = 250;
+    padding = 40;
   }
-  var rows = Math.floor(height / size);
-  var cols = Math.floor(width / size);
-  var radius = Math.floor(Math.max(width, height) / Math.max(rows - 1, cols - 1)) / 2;
 
   if(isMobile && !isOtherMediaQuery) {
     radius = Math.floor(height / (rows + 2));
   }
   
   makeGrid(rows, cols);
+  var rows = Math.floor(height / svgSize);
+  var cols = Math.floor(width / svgSize);
+  var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
+
   shapes = makeFlowers(radius);
-  addSvgsToCells(size, padding);
-  offsetEvenRows(size + padding);
+  addSvgs(svgSize + padding, rows, cols);
+  var divSize = $("#cell0").outerWidth();
+  positionCells(cols, divSize);
 }
 
-function addSvgsToCells(size, padding) {
-  $(".cell").each(function (index, object) {
+function addSvgs(size, rows, cols) {
+  $(".cell").each(function (i, o) {
     var two = new Two({
-      width: size + padding,
-      height:size + padding
-    }).appendTo(object);
+      width: size,
+      height: size
+    }).appendTo(o);
     var shape = pickFlower(shapes);
     shape.translation.set(two.width / 2, two.height / 2);
     two.add(shape);
