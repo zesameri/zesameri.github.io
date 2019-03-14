@@ -21,11 +21,6 @@ function setup() {
     padding = 40;
   }
 
-  if(isMobile && !isOtherMediaQuery) {
-    radius = Math.floor(height / (rows + 2));
-  }
-  
-  makeGrid(rows, cols);
   var rows = Math.floor(height / svgSize);
   var cols = Math.floor(width / svgSize);
   var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
@@ -37,6 +32,15 @@ function setup() {
 }
 
 function addSvgs(size, rows, cols) {
+  $('body').empty();
+  for (var r = 0; r < rows; r++) {
+    for (var c = 0; c < cols; c++) {
+      var cellId = "cell" + ((r * cols) + c);
+      var cell = $("<div/>").addClass("cell").attr("id", cellId).appendTo('body');
+      $(cell).css({display: "inline-block"});
+    }
+  }
+
   $(".cell").each(function (i, o) {
     var two = new Two({
       width: size,
@@ -49,25 +53,18 @@ function addSvgs(size, rows, cols) {
   });
 }
 
-function offsetEvenRows(size) {
-  $(".row").each(function (index, object) {
-    if (index % 2) {
-      $(object).css("position", "relative");
-      $(object).css("left", size / 2 * -1 + "px");
+function positionCells(cols, size) {
+  $(".cell").each(function (i, o) {
+    var r = Math.floor(i / cols);
+    var c = i % cols;
+    var top = size * r;
+    var left = size * c;
+    // Offset odd rows
+    if (r % 2) {
+      left -= (size/2);
     }
+    $(this).css({top: top, left: left, position:'absolute'});
   });
-}
-
-function makeGrid(rows, cols) {
-  $('body').empty();
-  for (var r = 0; r < rows; r++) {
-    var rowId = "row" + r;
-    var row = $("<div/>").addClass("row").attr("id", rowId).appendTo('body');
-    for (var c = 0; c < cols + 1; c++) {
-      var cellId = "cell" + ((r * rows) + c);
-      $(row).append('<div class="cell" id="' + cellId + '"></div>');
-    }
-  }
 }
 
 function roseMath(radius, v, k, t) {
