@@ -1,11 +1,1 @@
-backend/target/*
-admin/target/*
-backend/src/main/resources/*
-web/node_modules
-charles/node_modules
-charles/secrets/node_modules
-js/grid.js
-js/zui.js
-js/spiral.js
-js/particle-sandbox.js
-js/rect.js
+web/*
