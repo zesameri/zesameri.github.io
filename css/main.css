@@ -4,7 +4,6 @@
   dark: #222, #131314
   grey: #a6a9ac, #dcdcde
   light: #f8f8f6, #efeff2
-
 */
 
 *,
@@ -14,7 +13,7 @@
 }
 
 body {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Varela Round', sans-serif;
 	color: #f8f8f6;
 	background: #222;
 	background-size: 70%;
@@ -41,7 +40,7 @@ a:focus {
 	pointer-events: none;
 }
 
-.js .loading::before {
+/* .js .loading::before {
 	content: '';
 	position: fixed;
 	z-index: 1000;
@@ -72,12 +71,12 @@ a:focus {
 	margin: -50px 0 0 -50px;
   border-radius: 50%;
 	pointer-events: none;
-}
+} */
 
 
-main {
+/* main {
 	overflow: hidden;
-}
+} */
 
 /* Content */
 .content {
