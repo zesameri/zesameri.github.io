@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web Front-End",
   "dependencies": {
-    "handlebars": "^4.0.11",
+    "handlebars": "^4.3.0",
     "jquery": "^3.3.1",
     "typescript": "^2.7.2"
   }
