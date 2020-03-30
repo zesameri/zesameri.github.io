@@ -125,3 +125,11 @@ a {
     margin: 1em 0;
     font-size: 1.25em;
 }
+
+.writing {
+  max-width: 70vw;
+  width: calc(100vw - 20em);
+  padding-top: 5vh;
+  padding-left: 6vw;
+  padding-bottom: 5em;
+}
