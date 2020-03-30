@@ -34,9 +34,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: calc(100vh - 2.1em);
-  max-height: calc(100vh - 2.1em);
-  min-height: calc(100vh - 2.1em);
 }
 .menu > div {
   display: flex;
