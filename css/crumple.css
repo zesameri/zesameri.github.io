@@ -359,7 +359,13 @@
   .footer > a:nth-child(2n):hover~.crumple {
     background: #66CDAA; /* fallback for old browsers */
     background: -webkit-linear-gradient(45deg, #66CDAA, #20B2AA);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(45deg, #66CDAA, #20B2AA);
+    background: linear-gradient(45deg, #19e6a1, #00d1c7);
+    background-size: 400% 400%;
+  }
+  .footer > a:nth-child(3n):hover~.crumple {
+    background: #66CDAA; /* fallback for old browsers */
+    background: -webkit-linear-gradient(45deg, #66CDAA, #20B2AA);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(45deg, #ff6347, #ff4747);
     background-size: 400% 400%;
   }
   .footer > a:hover~.crumple {
