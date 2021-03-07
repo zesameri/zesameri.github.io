@@ -1,11 +1,20 @@
 var shapes;
+
+
+window.addEventListener('load', () => {
+  if (document.readyState === "complete") {
+    setup();
+  }
+});
+
+
 window.onresize = function() {
     setup();
 }
 
-$(function() {
-  setup();
-});
+// $(function() {
+//   setup();
+// });
 
 function setup() {
   var height = $('body').height();
@@ -104,3 +113,23 @@ function pickFlower(flowers) {
   flower.cap = 'round';
   return flower;
 }
+// 
+// function getHeight(element)
+// {
+//     element.style.visibility = "hidden";
+//     document.body.appendChild(element);
+//     var height = element.offsetHeight + 0;
+//     document.body.removeChild(element);
+//     element.style.visibility = "visible";
+//     return height;
+// }
+//
+// function getWidth(element)
+// {
+//     element.style.visibility = "hidden";
+//     document.body.appendChild(element);
+//     var width = element.offsetWidth + 0;
+//     document.body.removeChild(element);
+//     element.style.visibility = "visible";
+//     return width;
+// }

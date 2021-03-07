@@ -62,6 +62,10 @@ section {
   justify-content: center;
 }
 
+.menu > div > div > a {
+  line-height: inherit;
+}
+
 .footer {
   position: fixed;
   right: 5em;
