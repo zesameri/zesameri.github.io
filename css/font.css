@@ -20,6 +20,10 @@ h1 {
   font-size: 2.5vw;
 }
 
+.signoff {
+  font-size: 1vw;
+}
+
 .menu {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   letter-spacing: 2px;
