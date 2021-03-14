@@ -34,6 +34,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  background-color: #222;
 }
 .menu > div {
   display: flex;
