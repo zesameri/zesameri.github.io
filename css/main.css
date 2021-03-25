@@ -121,7 +121,7 @@ a {
 }
 .list__item {
   margin: 0;
-  margin-bottom: 2em;
+  padding-bottom: 3em;
 }
 .list__item > p {
     margin: 1em 0;
