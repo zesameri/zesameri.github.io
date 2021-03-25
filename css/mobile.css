@@ -4,7 +4,9 @@
     flex-flow: column wrap;
   }
   .hero {
-    height: auto;
+    height: 100vh;
+    justify-content: space-between;
+    padding: 0;
   }
   .bio {
     margin: 0;
@@ -15,10 +17,7 @@
     margin-top: 1em;
   }
   section {
-    /* padding: 7.5vw; */
     width: 100%;
-    display: table-row;
-    height:auto;
     min-height: inherit;
   }
   .dt {
@@ -28,9 +27,7 @@
     align-items: flex-start
   }
   .menu {
-    flex-direction: column;
-    font-size: 1.5em;
-    height: 100vh;
+    height: 70vh;
     justify-content: space-evenly;
   }
   .menu > div {
@@ -39,7 +36,12 @@
     margin: 0.5em 0;
   }
   .menu > div > div {
-    flex-basis: auto;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: coral;
   }
   .footer {
     display: flex;
