@@ -347,6 +347,106 @@
   background-color: #222;
 }
 
+.crumple:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+
+@-webkit-keyframes sweep-reveal {
+  0% {
+    -webkit-clip-path: circle(60% at -20% 50%);
+    clip-path: circle(60% at -20% 50%);
+  }
+  100% {
+    -webkit-clip-path: circle(60% at 120% 50%);
+    clip-path: circle(60% at 120% 50%);
+  }
+}
+
+@keyframes sweep-reveal {
+  0% {
+    -webkit-clip-path: circle(60% at -20% 50%);
+    clip-path: circle(60% at -20% 50%);
+  }
+  100% {
+    -webkit-clip-path: circle(60% at 120% 50%);
+    clip-path: circle(60% at 120% 50%);
+  }
+}
+
+@-webkit-keyframes dual-circle {
+  0% {
+    -webkit-clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
+    clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
+  }
+  100% {
+    -webkit-clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
+    clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
+  }
+}
+
+@keyframes dual-circle {
+  0% {
+    -webkit-clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
+    clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
+  }
+  100% {
+    -webkit-clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
+    clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
+  }
+}
+
+@-webkit-keyframes circle-one {
+  0% {
+    -webkit-clip-path: circle(25vh at -25vh 25%);
+    clip-path: circle(25vh at -25vh 25%);
+  }
+  100% {
+    -webkit-clip-path: circle(25vh at calc(100vw + 25vh) 25%);
+    clip-path: circle(25vh at calc(100vw + 25vh) 25%);
+  }
+}
+
+@keyframes circle-one {
+  0% {
+    -webkit-clip-path: circle(25vh at -25vh 25%);
+    clip-path: circle(25vh at -25vh 25%);
+  }
+  100% {
+    -webkit-clip-path: circle(25vh at calc(100vw + 25vh) 25%);
+    clip-path: circle(25vh at calc(100vw + 25vh) 25%);
+  }
+}
+
+@-webkit-keyframes circle-two {
+  0% {
+    -webkit-clip-path: circle(25vh at -25vh 75%);
+    clip-path: circle(25vh at -25vh 75%);
+  }
+  100% {
+    -webkit-clip-path: circle(25vh at calc(100vw + 25vh) 75%);
+    clip-path: circle(25vh at calc(100vw + 25vh) 75%);
+  }
+}
+
+@keyframes circle-two {
+  0% {
+    -webkit-clip-path: circle(25vh at -25vh 75%);
+    clip-path: circle(25vh at -25vh 75%);
+  }
+  100% {
+    -webkit-clip-path: circle(25vh at calc(100vw + 25vh) 75%);
+    clip-path: circle(25vh at calc(100vw + 25vh) 75%);
+  }
+}
+
 @media (hover: hover) {
   .footer > a:nth-child(odd):hover~.crumple {
     background: #1E90FF; /* fallback for old browsers */
@@ -371,9 +471,23 @@
       animation: gradient 30s ease infinite;
   }
 
+  .footer__link--writings:hover~.crumple .crumple__rect {
+    -webkit-animation: rectangle-reveal 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: rectangle-reveal 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
   .footer__link--writings:hover~.crumple:after {
-      -webkit-animation: a 1s .25s linear forwards;
-      animation: a 1s .25s linear forwards
+    -webkit-animation: circle-one 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: circle-one 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    background-color: #222;
+    z-index: 2;
+  }
+
+  .footer__link--writings:hover~.crumple:before {
+    -webkit-animation: circle-two 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: circle-two 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    background-color: #ff6347;
+    z-index: 2;
   }
   .footer__link--github:hover~.crumple:after {
     -webkit-animation: b 1s .25s linear forwards;
@@ -395,4 +509,35 @@
     -webkit-animation: f 1s .25s linear forwards;
     animation: f 1s .25s linear forwards
   }
+}
+
+@-webkit-keyframes rectangle-reveal {
+  0% {
+    -webkit-clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+    clip-path: polygon(0 0, 0 100%, 0 100%, 0 0);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  }
+}
+
+@keyframes rectangle-reveal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.crumple__rect {
+  content: "";
+  position: absolute;
+  left: calc(-25vh);
+  display: block;
+  width: calc(100vw + 50vh);
+  height: 100%;
+  background-color: #19e6a1;
+  z-index: 0;
 }
