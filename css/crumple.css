@@ -541,3 +541,9 @@
   background-color: #19e6a1;
   z-index: 0;
 }
+
+/* Crumple Animation */
+.footer__link--home:hover~.crumple:after {
+  -webkit-animation: a 1s .25s linear forwards;
+  animation: a 1s .25s linear forwards
+}
