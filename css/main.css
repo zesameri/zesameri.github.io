@@ -24,6 +24,9 @@ section {
   width: calc(100vw - 20em);
   padding-top: 5vh;
   padding-left: 6vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 .bio {
   padding-bottom: 10vh;
@@ -134,4 +137,36 @@ a {
   padding-top: 5vh;
   padding-left: 6vw;
   padding-bottom: 5em;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 5em;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.top-nav {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.8em;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
 }
