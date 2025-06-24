@@ -59,6 +59,10 @@ function addSvgs(size, rows, cols) {
     shape.translation.set(two.width / 2, two.height / 2);
     two.add(shape);
     two.update();
+
+    $(o).on("click", function() {
+      toggleSVG($(o), two, shape);
+    });
   });
 }
 
@@ -113,23 +117,64 @@ function pickFlower(flowers) {
   flower.cap = 'round';
   return flower;
 }
-// 
-// function getHeight(element)
-// {
-//     element.style.visibility = "hidden";
-//     document.body.appendChild(element);
-//     var height = element.offsetHeight + 0;
-//     document.body.removeChild(element);
-//     element.style.visibility = "visible";
-//     return height;
-// }
-//
-// function getWidth(element)
-// {
-//     element.style.visibility = "hidden";
-//     document.body.appendChild(element);
-//     var width = element.offsetWidth + 0;
-//     document.body.removeChild(element);
-//     element.style.visibility = "visible";
-//     return width;
-// }
+
+
+function toggleSVG(cell, two, shape) {
+  var isEnlarged = cell.data("isEnlarged");
+
+  if (isEnlarged) {
+    // Shrink back to original size
+    cell.css({
+      position: "absolute",
+      width: two.width,
+      height: two.height,
+      zIndex: 1
+    });
+
+    shape.translation.set(two.width / 2, two.height / 2);
+    shape.scale = 1;
+    // Remove text if it exists
+    var text = shape.children.find(child => child instanceof Two.Text);
+    if (text) {
+      shape.remove(text);
+    }
+    two.update();
+  } else {
+    // Enlarge to cover the entire screen
+    var newWidth = $(window).width();
+    var newHeight = $(window).height();
+    var newCenterX = newWidth / 2;
+    var newCenterY = newHeight / 2;
+    var scaleFactor = Math.max(newWidth / two.width, newHeight / two.height);
+
+    cell.css({
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      zIndex: 9999,
+      transition: "width 1s, height 1s"
+    });
+
+    two.width = newWidth;
+    two.height = newHeight;
+    two.update();
+
+    
+
+    two.bind("update", function() {
+      shape.scale += (scaleFactor - shape.scale) * 0.1;
+      shape.translation.set(newCenterX, newCenterY);
+
+      if (Math.abs(shape.scale - scaleFactor) < 0.01) {
+        shape.scale = scaleFactor;
+        two.unbind("update");
+      }
+    });
+
+    two.play();
+  }
+
+  cell.data("isEnlarged", !isEnlarged);
+}
