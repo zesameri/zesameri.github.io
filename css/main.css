@@ -5,6 +5,8 @@
   grey: #a6a9ac, #dcdcde
   light: #f8f8f6, #efeff2
 */
+
+/* Base Layout */
 body {
   margin: 0;
   background-color: #222;
@@ -12,6 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: block;
 }
+
 section {
   z-index: 1;
   position: relative;
@@ -19,20 +22,51 @@ section {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  padding-top: 6vh;
+  padding-left: 6vw;
 }
+
+/* Hero Section */
 .hero {
   width: calc(100vw - 20em);
-  padding-top: 5vh;
-  padding-left: 6vw;
   display: flex;
   flex-direction: column;
   gap: 2em;
 }
+
 .bio {
   padding-bottom: 10vh;
   max-width: 70vw;
 }
 
+/* Writing Pages */
+.writing {
+  max-width: 70vw;
+  width: calc(100vw - 20em);
+}
+
+.list {
+  margin: 0;
+}
+
+.list__item {
+  margin: 0;
+  padding-bottom: 3em;
+}
+
+.list__item > p {
+  margin: 1em 0;
+  font-size: 1.25em;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* Footer */
 .footer {
   position: fixed;
   right: 5em;
@@ -41,17 +75,9 @@ section {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-
 }
+
 .footer > a {
-  padding-top: 0.7em;
-}
-a {
-  position: relative;
-}
-
-.hero-footer > a {
-  position: relative;
   padding-top: 0.7em;
 }
 
@@ -65,33 +91,13 @@ a {
   align-items: flex-end;
 }
 
-.footer__link--home:hover~.crumple:after {
-    -webkit-animation: a 1s .25s linear forwards;
-    animation: a 1s .25s linear forwards
+.hero-footer > a {
+  position: relative;
+  padding-top: 0.7em;
 }
 
-.list {
-  margin: 0;
-}
-.list__item {
-  margin: 0;
-  padding-bottom: 3em;
-}
-.list__item > p {
-    margin: 1em 0;
-    font-size: 1.25em;
+/* Links */
+a {
+  position: relative;
 }
 
-.writing {
-  max-width: 70vw;
-  width: calc(100vw - 20em);
-  padding-top: 5vh;
-  padding-left: 6vw;
-  padding-bottom: 5em;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
