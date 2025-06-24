@@ -26,9 +26,8 @@ dt {
   line-height: 1em;
 }
 .header-img {
-  vertical-align: middle;
+  vertical-align: text-bottom;
   height: 1em;
-  padding-bottom: .25em;
 }
 .bio {
   font-size: 1.5em;
