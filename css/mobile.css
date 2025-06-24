@@ -1,36 +1,48 @@
+/* Mobile Styles */
 @media only screen and (max-width:850px) {
+  /* Base Layout */
   body {
     padding: 7.5vw;
     flex-flow: column wrap;
   }
+  
+  section {
+    width: 100%;
+    min-height: inherit;
+  }
+  
+  /* Hero Section */
   .hero {
     height: 100vh;
     justify-content: space-between;
     padding: 0;
   }
+  
   .bio {
     margin: 0;
     min-width: 80vw;
     padding-bottom: 2em;
   }
-  .list {
-    margin-top: 1em;
-  }
-  section {
-    width: 100%;
-    min-height: inherit;
-  }
+  
+  /* Writing Pages */
   .writing {
-    width:100%;
+    width: 100%;
     padding: 0;
     max-width: 100vw;
   }
+  
+  .list {
+    margin-top: 1em;
+  }
+  
   .dt {
     bottom: auto;
     padding: 0 7.5vw 7.5vw;
     -webkit-box-align: start;
-    align-items: flex-start
+    align-items: flex-start;
   }
+  
+  /* Footer */
   .footer {
     display: flex;
     position: inherit;
@@ -39,35 +51,33 @@
     justify-content: flex-end;
     padding: 0;
   }
+  
   .footer > a {
     position: relative;
     padding-top: 0.7em;
     border: none;
-    border: none;
     text-decoration: underline;
   }
 }
+
+/* Desktop Styles */
 @media only screen and (min-width:1080px) {
+  /* Hero Section */
   .bio {
     max-width: 1100px;
-    font-size:2em;
+    font-size: 2em;
   }
+  
   .header {
     font-size: 2.5em;
   }
+  
+  /* Writing Pages */
   .writing {
     max-width: 750px;
   }
-  .menu {
-    height: calc(100vh - 2.1em);
-    max-height: calc(100vh - 1.4em);
-    min-height: calc(100vh - 1.4em);
-    font-size: 2.5em;
-  }
-  .menu > div {
-    flex-basis: calc(50% - 72px);
-    margin: 36px;
-  }
+  
+  /* Footer */
   .footer {
     right: 3em;
     bottom: 5em;
