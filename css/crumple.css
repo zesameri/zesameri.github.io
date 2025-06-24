@@ -359,50 +359,6 @@
   z-index: 1;
 }
 
-@-webkit-keyframes sweep-reveal {
-  0% {
-    -webkit-clip-path: circle(60% at -20% 50%);
-    clip-path: circle(60% at -20% 50%);
-  }
-  100% {
-    -webkit-clip-path: circle(60% at 120% 50%);
-    clip-path: circle(60% at 120% 50%);
-  }
-}
-
-@keyframes sweep-reveal {
-  0% {
-    -webkit-clip-path: circle(60% at -20% 50%);
-    clip-path: circle(60% at -20% 50%);
-  }
-  100% {
-    -webkit-clip-path: circle(60% at 120% 50%);
-    clip-path: circle(60% at 120% 50%);
-  }
-}
-
-@-webkit-keyframes dual-circle {
-  0% {
-    -webkit-clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
-    clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
-  }
-  100% {
-    -webkit-clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
-    clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
-  }
-}
-
-@keyframes dual-circle {
-  0% {
-    -webkit-clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
-    clip-path: circle(25% at -25% 50%) circle(25% at -25% 50%);
-  }
-  100% {
-    -webkit-clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
-    clip-path: circle(25% at 125% 50%) circle(25% at 125% 50%);
-  }
-}
-
 @-webkit-keyframes circle-one {
   0% {
     -webkit-clip-path: circle(25vh at -25vh 25%);
