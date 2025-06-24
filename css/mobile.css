@@ -31,23 +31,6 @@
     -webkit-box-align: start;
     align-items: flex-start
   }
-  .menu {
-    height: 70vh;
-    justify-content: space-evenly;
-  }
-  .menu > div {
-    flex-basis: auto;
-    flex-grow: 1;
-    margin: 0.5em 0;
-  }
-  .menu > div > div {
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: coral;
-  }
   .footer {
     display: flex;
     position: inherit;
@@ -62,9 +45,6 @@
     border: none;
     border: none;
     text-decoration: underline;
-  }
-  .menu-footer {
-    display: none;
   }
 }
 @media only screen and (min-width:1080px) {
