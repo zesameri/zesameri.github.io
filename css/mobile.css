@@ -45,7 +45,7 @@
   /* Footer */
   .footer {
     display: flex;
-    position: inherit;
+    position: static;
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-end;
