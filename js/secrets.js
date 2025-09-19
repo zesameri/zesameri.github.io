@@ -1,5 +1,105 @@
 var shapes;
 
+// Personal poems for the secret garden
+var personalPoems = [
+  {
+    title: "dear old lover",
+    text: `I got a message from an old boyfriend, asking me to be penpals, 
+and wishing me well. But dating him was like chasing the wind. 
+
+It's wild that I chased the wind. When I felt like running after 
+something, and something felt like nothing and now nothing keeps 
+trying to play tag.
+
+I know how the wind feels.
+Somedays I think 
+I'll meet you outside my window, 
+but when I look out 
+all I see is rain.`
+  },
+  {
+    title: "tuesday night",
+    text: `Hey I know it's late, but I think I left some of my stuff at your place.
+I think the back of my neck maybe somewhere near your ps3. Or maybe
+by your bong.
+I think I may have left my favorite pair of socks and the 
+small of my back. I mean what really matters is that black dress, 
+I kinda need it this weekend 
+Oh, and also that point when it hurt and I fought back tears. 
+I can wait until the weekend, but if you're home and still up, 
+could I pop in and grab my stuff?`
+  },
+  {
+    title: "bumps",
+    text: `bumps left. bumps right. big hands 
+
+no consent. bumps. brush. coast. wrap. lope. rope. 
+
+no words. no exchange. just bumps and bumps 
+
+gropes and grabs 
+
+unwrapping my presents, tearing paper`
+  },
+  {
+    title: "young drivers",
+    text: `constantly thinking. chaotic.
+i'm constantly thinking. neurotic.
+accelerate. foot's on the gas.
+ready to brake. turn. check the mirror.
+fifteen seconds ahead. flip a switch. switch a lane
+turn. slow down. angle & timing. distance & angle.
+turn the wheel slowly. gradual. smooth. controlled.
+
+what does he think. time ticks. ticks of the signal.
+silence.
+speak. check mirrors.
+fifteen seconds ahead of us.
+fifteen miles of decisions in the rear view of
+my psyche.`
+  },
+  {
+    title: "Untitled Poem #4",
+    text: `There is a glass that separates me from you.
+I can't tell if its visable, if its clear or opaque
+
+There is a glass that separates me from you.
+I think you can see it. I think you know its there.
+Stares. staring at me.
+Or are they staring at the glass.
+
+If they looked away, did they look away from the divide.
+Did they look away from me.
+
+There's a glass that separates me from you.
+Its stiff. Its thick. Its Cold. Like classroom lighting.
+Its enclosing. Its plastic wrap. And I
+don't have enough air to breathe.`
+  },
+  {
+    title: "sensitivity",
+    text: `a blessing and a curse
+imagine too much sensitivity
+couldn't swallow a bite because
+i could feel it too much in my throat.
+place your hand on my shoulder
+slap.
+a rush of electricity upon contact.
+
+like a fox on the highway, dodging
+judgement, anxiety, social disturbance
+speak. check mirrors.
+ten over the speed limit.
+
+wildfire kisses.
+eye contact like splinters.
+but he can't hide a smirk.`
+  }
+];
+
+function getRandomPoem() {
+  return personalPoems[Math.floor(Math.random() * personalPoems.length)];
+}
 
 window.addEventListener('load', () => {
   if (document.readyState === "complete") {
@@ -123,58 +223,39 @@ function toggleSVG(cell, two, shape) {
   var isEnlarged = cell.data("isEnlarged");
 
   if (isEnlarged) {
-    // Shrink back to original size
-    cell.css({
-      position: "absolute",
-      width: two.width,
-      height: two.height,
-      zIndex: 1
-    });
-
-    shape.translation.set(two.width / 2, two.height / 2);
-    shape.scale = 1;
-    // Remove text if it exists
-    var text = shape.children.find(child => child instanceof Two.Text);
-    if (text) {
-      shape.remove(text);
-    }
-    two.update();
+    // Remove poem overlay and return to normal
+    $('.poem-overlay').remove();
+    $('.cell').data("isEnlarged", false);
   } else {
-    // Enlarge to cover the entire screen
-    var newWidth = $(window).width();
-    var newHeight = $(window).height();
-    var newCenterX = newWidth / 2;
-    var newCenterY = newHeight / 2;
-    var scaleFactor = Math.max(newWidth / two.width, newHeight / two.height);
-
-    cell.css({
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100vw",
-      height: "100vh",
-      zIndex: 9999,
-      transition: "width 1s, height 1s"
-    });
-
-    two.width = newWidth;
-    two.height = newHeight;
-    two.update();
-
+    // Show poem overlay without complex animations
+    var poem = getRandomPoem();
+    var poemOverlay = $(`
+      <div class="poem-overlay">
+        <div class="poem-container">
+          <h3 class="poem-title">${poem.title}</h3>
+          <div class="poem-text">${poem.text.replace(/\n/g, '<br>')}</div>
+          <div class="poem-close">click anywhere to close</div>
+        </div>
+      </div>
+    `);
     
-
-    two.bind("update", function() {
-      shape.scale += (scaleFactor - shape.scale) * 0.1;
-      shape.translation.set(newCenterX, newCenterY);
-
-      if (Math.abs(shape.scale - scaleFactor) < 0.01) {
-        shape.scale = scaleFactor;
-        two.unbind("update");
-      }
+    $('body').append(poemOverlay);
+    
+    // Add click handler to close overlay with fade out animation
+    poemOverlay.on('click', function() {
+      var overlay = $(this);
+      overlay.removeClass('visible');
+      setTimeout(() => {
+        overlay.remove();
+        $('.cell').data("isEnlarged", false);
+      }, 800); // Wait for fade out animation to complete
     });
+    
+    // Fade in the poem
+    setTimeout(() => {
+      poemOverlay.addClass('visible');
+    }, 100);
 
-    two.play();
+    $('.cell').data("isEnlarged", true);
   }
-
-  cell.data("isEnlarged", !isEnlarged);
 }
