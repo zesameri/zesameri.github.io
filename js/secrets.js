@@ -119,8 +119,8 @@ window.onresize = function() {
 function setup() {
   var height = $('body').height();
   var width = $('body').width();
-  var svgSize = 150;
-  var padding = 20;
+  var svgSize = 120;
+  var padding = 30;
 
   var isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -130,8 +130,9 @@ function setup() {
     padding = 40;
   }
 
-  var rows = Math.floor(height / svgSize);
-  var cols = Math.floor(width / svgSize);
+  var rows = Math.floor(height / svgSize) + 1.5; // Add 1.5 rows: 1 full + 0.5 for 1/4 cutoff
+  rows = Math.ceil(rows); // Round up to ensure we have enough rows
+  var cols = Math.floor(width / svgSize) + 1; // Add extra column for better coverage
   var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
 
   shapes = makeFlowers(radius);
@@ -167,10 +168,13 @@ function addSvgs(size, rows, cols) {
 }
 
 function positionCells(cols, size) {
+  // Add offset to cut off 1/4 of top row (show 3/4)
+  var verticalOffset = -size / 6;
+  
   $(".cell").each(function (i, o) {
     var r = Math.floor(i / cols);
     var c = i % cols;
-    var top = size * r;
+    var top = (size * r) + verticalOffset;
     var left = size * c;
     // Offset odd rows
     if (r % 2) {
@@ -220,35 +224,53 @@ function pickFlower(flowers) {
 
 
 function toggleSVG(cell, two, shape) {
-  var isEnlarged = cell.data("isEnlarged");
-
-  if (isEnlarged) {
-    // Remove poem overlay and return to normal
-    $('.poem-overlay').remove();
-    $('.cell').data("isEnlarged", false);
+  // Check if any poem is currently open
+  var existingOverlay = $('.poem-overlay');
+  
+  if (existingOverlay.length > 0) {
+    // If poem is open, close it with fade out
+    console.log('Closing existing poem via flower click');
+    
+    // Use CSS transition instead of jQuery fadeOut
+    existingOverlay.removeClass('visible');
+    
+    setTimeout(() => {
+      console.log('Fade out complete, removing element');
+      existingOverlay.remove();
+      $('.cell').data("isEnlarged", false);
+      $(document).off('keydown.poem-overlay');
+    }, 800);
   } else {
-    // Show poem overlay without complex animations
+    // If no poem is open, show a new one
+    console.log('Opening new poem via flower click');
     var poem = getRandomPoem();
     var poemOverlay = $(`
       <div class="poem-overlay">
         <div class="poem-container">
           <h3 class="poem-title">${poem.title}</h3>
           <div class="poem-text">${poem.text.replace(/\n/g, '<br>')}</div>
-          <div class="poem-close">click anywhere to close</div>
+          <div class="poem-close">click any flower to close</div>
         </div>
       </div>
     `);
     
     $('body').append(poemOverlay);
     
-    // Add click handler to close overlay with fade out animation
-    poemOverlay.on('click', function() {
-      var overlay = $(this);
-      overlay.removeClass('visible');
-      setTimeout(() => {
-        overlay.remove();
-        $('.cell').data("isEnlarged", false);
-      }, 800); // Wait for fade out animation to complete
+    // Add ESC key handler
+    $(document).on('keydown.poem-overlay', function(e) {
+      if (e.key === 'Escape' || e.keyCode === 27) {
+        console.log('ESC key pressed, closing overlay');
+        
+        // Use CSS transition instead of jQuery fadeOut
+        poemOverlay.removeClass('visible');
+        
+        setTimeout(() => {
+          console.log('ESC fade out complete, removing element');
+          poemOverlay.remove();
+          $('.cell').data("isEnlarged", false);
+          $(document).off('keydown.poem-overlay');
+        }, 800);
+      }
     });
     
     // Fade in the poem
