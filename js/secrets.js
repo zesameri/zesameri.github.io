@@ -306,6 +306,11 @@ function setup() {
   var rows = Math.floor(height / svgSize) + 1.5; // Add 1.5 rows: 1 full + 0.5 for 1/4 cutoff
   rows = Math.ceil(rows); // Round up to ensure we have enough rows
   var cols = Math.floor(width / svgSize) + 1; // Add extra column for better coverage
+  
+  // Add one more column for mobile devices
+  if(isMobile && !isOtherMediaQuery) {
+    cols += 1;
+  }
   var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
 
   shapes = makeFlowers(radius);
