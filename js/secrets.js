@@ -12,7 +12,6 @@ var lyrics = [
   "when will i",
   "when will i",
   "see you again",
-  "<break>",
   "tell me 'bout your day",
   "give me a call",
   "you tripped me",
@@ -76,6 +75,30 @@ function detectMobile() {
 }
 
 function getMobilePosition() {
+  // Calculate optimal font size based on screen dimensions and number of lyrics
+  var totalLyrics = lyrics.length;
+  var screenHeight = $(window).height();
+  var screenWidth = $(window).width();
+  
+  // Calculate available height (use almost all screen height)
+  var availableHeight = screenHeight * 0.95; // Use 95% of screen height
+  
+  // Minimal padding per lyric
+  var paddingPerLyric = (screenHeight * 0.005); // 0.5vh in pixels (minimal padding)
+  var availableForText = availableHeight - (paddingPerLyric * totalLyrics);
+  
+  // Calculate line height for text only (excluding padding)
+  var optimalLineHeight = availableForText / totalLyrics;
+  
+  // Factor in line-height multiplier and convert to vw
+  var optimalFontSizeVw = ((optimalLineHeight / 1.1) / screenWidth) * 100; // Even less aggressive division
+  
+  // Apply reasonable constraints (allow larger fonts)
+  var optimalFontSize = Math.max(3, Math.min(7, optimalFontSizeVw));
+  
+  // Update CSS custom property for dynamic font sizing
+  document.documentElement.style.setProperty('--mobile-font-size', optimalFontSize + 'vw');
+  
   // Zigzag pattern: left, center, right, center, left...
   var patternIndex = mobileLineIndex % 4;
   
@@ -274,6 +297,32 @@ window.addEventListener('load', () => {
     setup();
   }
 });
+
+// Prevent zoom gestures
+document.addEventListener('gesturestart', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gesturechange', function (e) {
+  e.preventDefault();
+});
+
+document.addEventListener('gestureend', function (e) {
+  e.preventDefault();
+});
+
+// Prevent pinch zoom
+document.addEventListener('touchstart', function (e) {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+document.addEventListener('touchmove', function (e) {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
 
 
 window.onresize = function() {
