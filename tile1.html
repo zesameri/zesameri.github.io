@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islamic Tile Pattern</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #f5e6d3;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const COLORS = {
+            cream: '#f5e6d3',
+            darkBlue: '#4a6b8a',
+            lightBlue: '#6a88a8',
+            darkGreen: '#3d5f52',
+            lightGreen: '#5a7a6a',
+            brown: '#9b7f57',
+            darkBrown: '#6b5738',
+            black: '#2a2a2a',
+            gold: '#c8a870'
+        };
+        
+        const TRIANGLE_COLORS = [
+            COLORS.darkBlue, COLORS.lightBlue, COLORS.darkGreen, 
+            COLORS.lightGreen, COLORS.brown, COLORS.darkBrown, COLORS.black
+        ];
+        
+        const STAR_COLORS = [
+            COLORS.darkBlue, COLORS.lightBlue, COLORS.darkGreen, 
+            COLORS.lightGreen, COLORS.brown, COLORS.gold, COLORS.black
+        ];
+        
+        const TRIANGLE_SIDE_LENGTH = 120;
+        const TRIANGLE_HEIGHT = TRIANGLE_SIDE_LENGTH * Math.sqrt(3) / 2;
+        const HALF_SIDE_LENGTH = TRIANGLE_SIDE_LENGTH / 2;
+        const SEMICIRCLE_AMPLITUDE_FACTOR = 0.7;
+        const SEMICIRCLE_SEGMENTS = 50;
+        const STAR_ROTATION_OFFSET = Math.PI / 6;
+        
+        const INRADIUS = TRIANGLE_SIDE_LENGTH / (2 * Math.sqrt(3));
+        const HEXAGON_RADIUS = INRADIUS * 0.6;
+        const STAR_OUTER_RADIUS = INRADIUS * 0.66;
+        const STAR_INNER_RADIUS = STAR_OUTER_RADIUS * 0.5;
+        
+        const SEMICIRCLE_DIAMETER = TRIANGLE_SIDE_LENGTH / 2;
+        const SEMICIRCLE_RADIUS = SEMICIRCLE_DIAMETER / 2;
+        
+        const TRIANGLE_COLOR_COUNT = TRIANGLE_COLORS.length;
+        const STAR_COLOR_COUNT = STAR_COLORS.length;
+        
+        const precomputedStarAngles = [];
+        const precomputedStarRadii = [];
+        for (let i = 0; i < 12; i++) {
+            precomputedStarAngles[i] = (Math.PI / 6) * i - Math.PI / 2 + STAR_ROTATION_OFFSET;
+            precomputedStarRadii[i] = i % 2 === 0 ? STAR_OUTER_RADIUS : STAR_INNER_RADIUS;
+        }
+        
+        const precomputedHexagonAngles = [];
+        for (let i = 0; i < 6; i++) {
+            precomputedHexagonAngles[i] = (Math.PI / 3) * i;
+        }
+        
+        const precomputedSemicircleProgress = new Float32Array(SEMICIRCLE_SEGMENTS);
+        for (let i = 0; i < SEMICIRCLE_SEGMENTS; i++) {
+            precomputedSemicircleProgress[i] = (i + 1) / SEMICIRCLE_SEGMENTS;
+        }
+        
+        function getDiagonalColorIndex(diagonal, totalColors) {
+            return ((diagonal % totalColors) + totalColors) % totalColors;
+        }
+        
+        function drawSixPointedStar(centerX, centerY, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            
+            let x = centerX + Math.cos(precomputedStarAngles[0]) * precomputedStarRadii[0];
+            let y = centerY + Math.sin(precomputedStarAngles[0]) * precomputedStarRadii[0];
+            ctx.moveTo(x, y);
+            
+            for (let i = 1; i < 12; i++) {
+                x = centerX + Math.cos(precomputedStarAngles[i]) * precomputedStarRadii[i];
+                y = centerY + Math.sin(precomputedStarAngles[i]) * precomputedStarRadii[i];
+                ctx.lineTo(x, y);
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        function drawRegularHexagon(centerX, centerY, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            
+            let x = centerX + Math.cos(precomputedHexagonAngles[0]) * HEXAGON_RADIUS;
+            let y = centerY + Math.sin(precomputedHexagonAngles[0]) * HEXAGON_RADIUS;
+            ctx.moveTo(x, y);
+            
+            for (let i = 1; i < 6; i++) {
+                x = centerX + Math.cos(precomputedHexagonAngles[i]) * HEXAGON_RADIUS;
+                y = centerY + Math.sin(precomputedHexagonAngles[i]) * HEXAGON_RADIUS;
+                ctx.lineTo(x, y);
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        function drawSemiCircularWaveSide(x1, y1, x2, y2) {
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            const invLength = 1 / Math.sqrt(dx * dx + dy * dy);
+            
+            const unitX = dx * invLength;
+            const unitY = dy * invLength;
+            const perpX = -unitY;
+            const perpY = unitX;
+            
+            const midX = (x1 + x2) * 0.5;
+            const midY = (y1 + y2) * 0.5;
+            
+            const halfDx = (midX - x1);
+            const halfDy = (midY - y1);
+            
+            for (let i = 0; i < SEMICIRCLE_SEGMENTS; i++) {
+                const t = precomputedSemicircleProgress[i];
+                
+                let pointX, pointY, height;
+                
+                if (t <= 0.5) {
+                    const s = t * 2;
+                    const alongX = x1 + halfDx * s;
+                    const alongY = y1 + halfDy * s;
+                    const distFromCenter = (s - 0.5) * SEMICIRCLE_DIAMETER;
+                    height = Math.sqrt(SEMICIRCLE_RADIUS * SEMICIRCLE_RADIUS - distFromCenter * distFromCenter) * SEMICIRCLE_AMPLITUDE_FACTOR;
+                    
+                    pointX = alongX + perpX * height;
+                    pointY = alongY + perpY * height;
+                } else {
+                    const s = (t - 0.5) * 2;
+                    const alongX = midX + halfDx * s;
+                    const alongY = midY + halfDy * s;
+                    const distFromCenter = (s - 0.5) * SEMICIRCLE_DIAMETER;
+                    height = Math.sqrt(SEMICIRCLE_RADIUS * SEMICIRCLE_RADIUS - distFromCenter * distFromCenter) * SEMICIRCLE_AMPLITUDE_FACTOR;
+                    
+                    pointX = alongX - perpX * height;
+                    pointY = alongY - perpY * height;
+                }
+                
+                ctx.lineTo(pointX, pointY);
+            }
+        }
+        
+        function drawTriangleWithCurvedSides(x1, y1, x2, y2, x3, y3, color) {
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            drawSemiCircularWaveSide(x1, y1, x2, y2);
+            drawSemiCircularWaveSide(x2, y2, x3, y3);
+            drawSemiCircularWaveSide(x3, y3, x1, y1);
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+        
+        function drawColoredTriangleWithHexagon(baseX, baseY, diagonal) {
+            const x1 = baseX;
+            const y1 = baseY;
+            const x2 = baseX + TRIANGLE_SIDE_LENGTH;
+            const y2 = baseY;
+            const x3 = baseX + HALF_SIDE_LENGTH;
+            const y3 = baseY + TRIANGLE_HEIGHT;
+            
+            const colorIndex = getDiagonalColorIndex(diagonal, TRIANGLE_COLOR_COUNT);
+            drawTriangleWithCurvedSides(x1, y1, x2, y2, x3, y3, TRIANGLE_COLORS[colorIndex]);
+            
+            const centroidX = (x1 + x2 + x3) / 3;
+            const centroidY = (y1 + y2 + y3) / 3;
+            
+            drawRegularHexagon(centroidX, centroidY, COLORS.cream);
+        }
+        
+        function drawWhiteTriangleWithStar(baseX, baseY, diagonal) {
+            const x1 = baseX + HALF_SIDE_LENGTH;
+            const y1 = baseY;
+            const x2 = baseX;
+            const y2 = baseY + TRIANGLE_HEIGHT;
+            const x3 = baseX + TRIANGLE_SIDE_LENGTH;
+            const y3 = baseY + TRIANGLE_HEIGHT;
+            
+            drawTriangleWithCurvedSides(x1, y1, x2, y2, x3, y3, COLORS.cream);
+            
+            const centroidX = (x1 + x2 + x3) / 3;
+            const centroidY = (y1 + y2 + y3) / 3;
+            
+            const starColorIndex = getDiagonalColorIndex(diagonal + 1, STAR_COLOR_COUNT);
+            drawSixPointedStar(centroidX, centroidY, STAR_COLORS[starColorIndex]);
+        }
+        
+        function drawCompletePattern() {
+            ctx.fillStyle = COLORS.cream;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            const columnCount = Math.ceil(canvas.width / TRIANGLE_SIDE_LENGTH) + 2;
+            const rowCount = Math.ceil(canvas.height / TRIANGLE_HEIGHT) + 2;
+            
+            for (let row = -1; row < rowCount; row++) {
+                const horizontalOffset = (row & 1) * HALF_SIDE_LENGTH;
+                const yPosition = row * TRIANGLE_HEIGHT;
+                const diagonal = row;
+                
+                for (let col = -1; col < columnCount; col++) {
+                    const coloredTriangleX = col * TRIANGLE_SIDE_LENGTH + horizontalOffset;
+                    drawColoredTriangleWithHexagon(coloredTriangleX, yPosition, diagonal - col);
+                    
+                    const whiteTriangleX = coloredTriangleX + HALF_SIDE_LENGTH;
+                    drawWhiteTriangleWithStar(whiteTriangleX, yPosition, diagonal - col);
+                }
+            }
+        }
+        
+        function handleResize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawCompletePattern();
+        }
+        
+        drawCompletePattern();
+        window.addEventListener('resize', handleResize);
+    </script>
+</body>
+</html>
