@@ -300,17 +300,12 @@ function setup() {
   var isOtherMediaQuery = window.matchMedia("only screen and (min-width:1080px)").matches;
   if(isMobile && !isOtherMediaQuery) {
     svgSize = 250;
-    padding = 40;
+    padding = 20;
   }
 
   var rows = Math.floor(height / svgSize) + 1.5; // Add 1.5 rows: 1 full + 0.5 for 1/4 cutoff
   rows = Math.ceil(rows); // Round up to ensure we have enough rows
   var cols = Math.floor(width / svgSize) + 1; // Add extra column for better coverage
-  
-  // Add one more column for mobile devices
-  if(isMobile && !isOtherMediaQuery) {
-    cols += 1;
-  }
   var radius = Math.floor(Math.max(width, height) / Math.max(rows, cols)) / 2;
 
   shapes = makeFlowers(radius);
@@ -390,7 +385,7 @@ function pickFlower(flowers) {
   var colors = ['tomato', 'orangered', 'floralwhite',
     'gold', 'red', 'darkorange'];
   colors = ['DARKMAGENTA', 'REBECCAPURPLE', 'SLATEBLUE', 'ROYALBLUE', '#9c27b0', '#9f9fff',
-    'ALICEBLUE', 'PLUM', 'CORNFLOWERBLUE', 'DARKBLUE', 'MEDIUMBLUE', 'DARKSLATEBLUE'];
+    'PLUM', 'CORNFLOWERBLUE', 'DARKBLUE', 'MEDIUMBLUE', 'DARKSLATEBLUE'];
   var color = colors[Math.floor(Math.random() * colors.length)];
   flower.rotation = (Math.PI  / 2) * (Math.floor(Math.random() * 12) / 12);
   flower.stroke = color;
