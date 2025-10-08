@@ -33,6 +33,9 @@ var displayedLyrics = [];
 var pathPositions = [];
 var pathIndex = 0;
 var usedPositions = [];
+var isMobile = false;
+var mobileLineIndex = 0;
+var mobileLineHeight = 200;
 
 function getNextLyric() {
   if (currentLyricIndex >= lyrics.length) {
@@ -53,9 +56,42 @@ function getNextLyric() {
 
 function clearAllLyrics() {
   $('.lyric-line').remove();
+  $('.mobile-lyrics-container').remove();
   displayedLyrics = [];
   pathIndex = 0;
   usedPositions = [];
+  mobileLineIndex = 0;
+}
+
+function detectMobile() {
+  var screenWidth = window.innerWidth;
+  var mediaQueryMatch = window.matchMedia("only screen and (max-width: 850px)").matches;
+  var userAgentMatch = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  
+  isMobile = mediaQueryMatch || userAgentMatch;
+  
+  console.log('Mobile detection - Screen width:', screenWidth, 'Media query match:', mediaQueryMatch, 'User agent match:', userAgentMatch, 'isMobile:', isMobile);
+  
+  return isMobile;
+}
+
+function getMobilePosition() {
+  // Zigzag pattern: left, center, right, center, left...
+  var patternIndex = mobileLineIndex % 4;
+  
+  mobileLineIndex++;
+  
+  return { alignment: getAlignmentFromPattern(patternIndex) };
+}
+
+function getAlignmentFromPattern(patternIndex) {
+  switch (patternIndex) {
+    case 0: return 'left';
+    case 1: return 'center';
+    case 2: return 'right';
+    case 3: return 'center';
+    default: return 'left';
+  }
 }
 
 function generateSpiralPath() {
@@ -246,6 +282,7 @@ window.onresize = function() {
     pathPositions = [];
     pathIndex = 0;
     usedPositions = [];
+    mobileLineIndex = 0;
 }
 
 // $(function() {
@@ -369,20 +406,52 @@ function toggleSVG(cell, two, shape) {
     return;
   }
   
-  // Add new lyric line at predefined path position
-  console.log('Adding new lyric line:', lyricData.text);
-  var position = getNextPosition();
+  // Detect mobile and use appropriate positioning
+  detectMobile();
+  var position;
   
-  // Adjust position to ensure text stays within bounds
-  var adjustedPosition = adjustPositionForText(position, lyricData.text);
-  
-  var lyricLine = $(`
-    <div class="lyric-line" style="left: ${adjustedPosition.x}px; top: ${adjustedPosition.y}px;">
-      ${lyricData.text}
-    </div>
-  `);
-  
-  $('body').append(lyricLine);
+  if (isMobile) {
+    console.log('Using mobile positioning, isMobile:', isMobile);
+    position = getMobilePosition();
+    
+    // Ensure mobile container exists
+    if ($('.mobile-lyrics-container').length === 0) {
+      console.log('Creating mobile container');
+      $('body').append('<div class="mobile-lyrics-container"></div>');
+    }
+    
+    // Apply alignment for mobile
+    var alignmentStyle = '';
+    if (position.alignment === 'left') {
+      alignmentStyle = 'text-align: left;';
+    } else if (position.alignment === 'right') {
+      alignmentStyle = 'text-align: right;';
+  } else {
+      alignmentStyle = 'text-align: center;';
+    }
+    
+    console.log('Adding lyric with alignment:', position.alignment);
+    var lyricLine = $(`
+      <div class="lyric-line mobile" style="${alignmentStyle}">
+        ${lyricData.text}
+      </div>
+    `);
+    
+    $('.mobile-lyrics-container').append(lyricLine);
+  } else {
+    console.log('Using desktop positioning');
+    position = getNextPosition();
+    // Adjust position to ensure text stays within bounds
+    position = adjustPositionForText(position, lyricData.text);
+    
+    var lyricLine = $(`
+      <div class="lyric-line" style="left: ${position.x}px; top: ${position.y}px;">
+        ${lyricData.text}
+      </div>
+    `);
+    
+    $('body').append(lyricLine);
+  }
   
   // Fade in the lyric line
   setTimeout(() => {
