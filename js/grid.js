@@ -2,9 +2,13 @@
 const gridCanvasEl = document.getElementById('gridCanvas');
 const gridCtx = gridCanvasEl.getContext('2d');
 
+// Detect mobile device
+const isMobile = window.matchMedia("only screen and (max-width: 850px)").matches ||
+                 /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const CONFIG = {
-    squareSize: 55,
-    borderWidth: 12,
+    squareSize: isMobile ? 35 : 55, // Smaller for mobile, your value for desktop
+    borderWidth: isMobile ? 6 : 12, // Smaller for mobile, your value for desktop
     borderColor: '#f5e6d3',
     navy: ['#0f1f2f', '#1a2838', '#142430', '#1f3040'],
     green: ['#2d5540', '#3d6a55', '#4a7a65', '#5a8575', '#6a9a8a', '#7aaa9a', '#3a5f4a', '#557f6a'],
