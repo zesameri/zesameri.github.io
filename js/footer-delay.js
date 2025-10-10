@@ -197,7 +197,10 @@ function initFooterDelay() {
         }
         
         if (animationName) {
-          // Create a temporary style to trigger the animation
+          // Add mobile-trigger class for CSS-based animation
+          this.classList.add('mobile-trigger');
+          
+          // Also create a temporary style as fallback
           const style = document.createElement('style');
           let backgroundStyle = '';
           
@@ -220,11 +223,12 @@ function initFooterDelay() {
           `;
           document.head.appendChild(style);
           
-          // Remove the style after animation completes
+          // Remove the style and mobile-trigger class after animation completes
           setTimeout(() => {
             if (style.parentNode) {
               style.parentNode.removeChild(style);
             }
+            this.classList.remove('mobile-trigger');
           }, 1500);
           
           // Show animation indicator

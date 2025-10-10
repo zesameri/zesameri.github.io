@@ -640,16 +640,66 @@ body:has(.footer__link--home:hover) .crumple:after {
   }
 }
 
-/* Mobile Scroll Test - Trigger animations on scroll */
+/* Mobile JavaScript Trigger Support */
 @media (hover: none) and (pointer: coarse) {
-  /* Test if animations work by triggering on scroll */
-  body:has(.footer__link--writings) .crumple {
+  /* Trigger animations via JavaScript-added classes */
+  body:has(.footer__link--home.mobile-trigger) .crumple {
     background: #020121;
     z-index: 0;
   }
   
-  body:has(.footer__link--writings) .crumple:after {
+  body:has(.footer__link--home.mobile-trigger) .crumple:after {
+    -webkit-animation: a 1s .25s linear forwards;
+    animation: a 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--writings.mobile-trigger) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--writings.mobile-trigger) .crumple:after {
     -webkit-animation: e 1s .25s linear forwards;
     animation: e 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--github.mobile-trigger) .crumple {
+    background: #012118;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--github.mobile-trigger) .crumple:after {
+    -webkit-animation: b 1s .25s linear forwards;
+    animation: b 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--playlists.mobile-trigger) .crumple {
+    background: #210120;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--playlists.mobile-trigger) .crumple:after {
+    -webkit-animation: c 1s .25s linear forwards;
+    animation: c 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--instagram.mobile-trigger) .crumple {
+    background: #210120;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--instagram.mobile-trigger) .crumple:after {
+    -webkit-animation: f 1s .25s linear forwards;
+    animation: f 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple:after {
+    -webkit-animation: d 1s .25s linear forwards;
+    animation: d 1s .25s linear forwards;
   }
 }
