@@ -3,7 +3,7 @@ const gridCanvasEl = document.getElementById('gridCanvas');
 const gridCtx = gridCanvasEl.getContext('2d');
 
 const CONFIG = {
-    squareSize: 50,
+    squareSize: 55,
     borderWidth: 12,
     borderColor: '#f5e6d3',
     navy: ['#0f1f2f', '#1a2838', '#142430', '#1f3040'],

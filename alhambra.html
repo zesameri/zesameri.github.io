@@ -104,6 +104,29 @@
         gridCanvas.classList.remove('visible');
         document.querySelector('.bio').style.display = 'block';
       });
+      
+      // Add mobile click functionality
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const pattern = link.getAttribute('data-pattern');
+        
+        if (pattern === 'triangles') {
+          triangleCanvas.classList.add('visible');
+          gridCanvas.classList.remove('visible');
+        } else if (pattern === 'grid') {
+          gridCanvas.classList.add('visible');
+          triangleCanvas.classList.remove('visible');
+        }
+        
+        document.querySelector('.bio').style.display = 'none';
+        
+        // Auto-hide after 3 seconds on mobile
+        setTimeout(() => {
+          triangleCanvas.classList.remove('visible');
+          gridCanvas.classList.remove('visible');
+          document.querySelector('.bio').style.display = 'block';
+        }, 3000);
+      });
     });
   </script>
 </body>
