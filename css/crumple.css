@@ -477,25 +477,25 @@
   
   /* Use body-level selectors to target crumple */
   body:has(.footer > a:nth-child(odd):hover) .crumple {
-    background: #00BFFF;
-    /* background: -webkit-linear-gradient(45deg, #1E90FF, #00BFFF); */
-    /* background: linear-gradient(45deg, #1E90FF, #00BFFF); */
+    background: #020121;
+    /* background: -webkit-linear-gradient(45deg, #020121, #210120); */
+    /* background: linear-gradient(45deg, #020121, #210120); */
     background-size: 400% 400%;
     z-index: 0;
   }
   
   body:has(.footer > a:nth-child(2n):hover) .crumple {
-    background: #66CDAA;
-    background: -webkit-linear-gradient(45deg, #66CDAA, #20B2AA);
-    background: linear-gradient(45deg, #19e6a1, #00d1c7);
+    background: #012118;
+    background: -webkit-linear-gradient(45deg, #012118, #012118);
+    background: linear-gradient(45deg, #012118, #012118);
     background-size: 400% 400%;
     z-index: 0;
   }
   
   body:has(.footer > a:nth-child(3n):hover) .crumple {
-    background: #66CDAA;
-    background: -webkit-linear-gradient(45deg, #66CDAA, #20B2AA);
-    background: linear-gradient(45deg, #ff6347, #ff4747);
+    background: #210120;
+    background: -webkit-linear-gradient(45deg, #210120, #210120);
+    background: linear-gradient(45deg, #210120, #210120);
     background-size: 400% 400%;
     z-index: 0;
   }
@@ -506,9 +506,9 @@
   }
 
   body:has(.footer__link--writings:hover) .crumple {
-    background: #00BFFF;
-    /* background: -webkit-linear-gradient(45deg, #1E90FF, #00BFFF); */
-    /* background: linear-gradient(45deg, #1E90FF, #00BFFF); */
+    background: #020121;
+    /* background: -webkit-linear-gradient(45deg, #020121, #210120); */
+    /* background: linear-gradient(45deg, #020121, #210120); */
     background-size: 400% 400%;
     z-index: 0;
   }
@@ -528,7 +528,7 @@
   body:has(.footer__link--writings:hover) .crumple .shapes-container .circle-one {
     -webkit-animation: circle-one 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation: circle-one 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    background-color: #00BFFF;
+    background-color: #020121;
   }
 
   body:has(.footer__link--writings:hover) .crumple .shapes-container .circle-two {
@@ -542,7 +542,7 @@
     -webkit-animation: circle-three 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     animation: circle-three 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     /* background-color: #eaff47; */
-    background-color: #00BFFF;
+    background-color: #020121;
   }
   
   body:has(.footer__link--writings:hover) .crumple .shapes-container .circle-four {
