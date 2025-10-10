@@ -199,10 +199,23 @@ function initFooterDelay() {
         if (animationName) {
           // Create a temporary style to trigger the animation
           const style = document.createElement('style');
+          let backgroundStyle = '';
+          
+          // Set background color based on link type
+          if (linkClass.includes('footer__link--writings')) {
+            backgroundStyle = 'background: #020121; z-index: 0;';
+          } else if (linkClass.includes('footer__link--alhambra')) {
+            backgroundStyle = 'background: #020121; z-index: 0;';
+          }
+          
           style.textContent = `
+            .crumple {
+              ${backgroundStyle}
+            }
             .crumple:after {
               -webkit-animation: ${animationName} 1s .25s linear forwards;
               animation: ${animationName} 1s .25s linear forwards;
+              background-color: #222;
             }
           `;
           document.head.appendChild(style);

@@ -639,3 +639,17 @@ body:has(.footer__link--home:hover) .crumple:after {
     animation: d 1s .25s linear forwards;
   }
 }
+
+/* Mobile Scroll Test - Trigger animations on scroll */
+@media (hover: none) and (pointer: coarse) {
+  /* Test if animations work by triggering on scroll */
+  body:has(.footer__link--writings) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--writings) .crumple:after {
+    -webkit-animation: e 1s .25s linear forwards;
+    animation: e 1s .25s linear forwards;
+  }
+}
