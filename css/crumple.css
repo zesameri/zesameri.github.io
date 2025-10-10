@@ -575,3 +575,67 @@ body:has(.footer__link--home:hover) .crumple:after {
   -webkit-animation: a 1s .25s linear forwards;
   animation: a 1s .25s linear forwards
 }
+
+/* Mobile Touch/Click Support */
+@media (hover: none) and (pointer: coarse) {
+  /* Mobile devices - trigger on touch/click */
+  body:has(.footer__link--home:active) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--home:active) .crumple:after {
+    -webkit-animation: a 1s .25s linear forwards;
+    animation: a 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--writings:active) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--writings:active) .crumple:after {
+    -webkit-animation: e 1s .25s linear forwards;
+    animation: e 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--github:active) .crumple {
+    background: #012118;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--github:active) .crumple:after {
+    -webkit-animation: b 1s .25s linear forwards;
+    animation: b 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--playlists:active) .crumple {
+    background: #210120;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--playlists:active) .crumple:after {
+    -webkit-animation: c 1s .25s linear forwards;
+    animation: c 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--instagram:active) .crumple {
+    background: #210120;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--instagram:active) .crumple:after {
+    -webkit-animation: f 1s .25s linear forwards;
+    animation: f 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--alhambra:active) .crumple {
+    background: #020121;
+    z-index: 0;
+  }
+  
+  body:has(.footer__link--alhambra:active) .crumple:after {
+    -webkit-animation: d 1s .25s linear forwards;
+    animation: d 1s .25s linear forwards;
+  }
+}
