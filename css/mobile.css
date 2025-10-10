@@ -10,10 +10,12 @@
     width: 100%;
     min-height: inherit;
   }
-  
-  /* Hero Section */
+
+  .content-wrapper {
+    height: 95vh;
+  }
+
   .hero {
-    height: 80vh;
     padding: 0;
   }
   
