@@ -50,10 +50,30 @@ function initFooterDelay() {
   `;
   document.body.appendChild(debugIndicator);
   
-  // Remove debug indicator after 3 seconds
+  // Add touch capability indicator
+  const touchIndicator = document.createElement('div');
+  touchIndicator.innerHTML = '👆 Touch events enabled';
+  touchIndicator.style.cssText = `
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,100,100,0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    font-family: monospace;
+  `;
+  document.body.appendChild(touchIndicator);
+  
+  // Remove debug indicators after 3 seconds
   setTimeout(() => {
     if (debugIndicator.parentNode) {
       debugIndicator.parentNode.removeChild(debugIndicator);
+    }
+    if (touchIndicator.parentNode) {
+      touchIndicator.parentNode.removeChild(touchIndicator);
     }
   }, 3000);
   
@@ -82,7 +102,8 @@ function initFooterDelay() {
   }, 2000);
   
   footerLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    // Add both click and touchstart events for mobile
+    const handleInteraction = function(e) {
       // Show click indicator
       const clickIndicator = document.createElement('div');
       clickIndicator.innerHTML = `👆 Clicked: ${this.getAttribute('href')}`;
@@ -243,6 +264,14 @@ function initFooterDelay() {
         
         window.location.href = href;
       }, 800); // 800ms delay
+    };
+    
+    // Add both click and touch events
+    link.addEventListener('click', handleInteraction);
+    link.addEventListener('touchstart', function(e) {
+      // Prevent default touch behavior and call our handler
+      e.preventDefault();
+      handleInteraction.call(this, e);
     });
   });
 }
