@@ -7,7 +7,7 @@ const isMobile = window.matchMedia("only screen and (max-width: 850px)").matches
                  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 const CONFIG = {
-    squareSize: isMobile ? 35 : 55, // Smaller for mobile, your value for desktop
+    squareSize: isMobile ? 20 : 55, // Smaller for mobile, your value for desktop
     borderWidth: isMobile ? 6 : 12, // Smaller for mobile, your value for desktop
     borderColor: '#f5e6d3',
     navy: ['#0f1f2f', '#1a2838', '#142430', '#1f3040'],
