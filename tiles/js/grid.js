@@ -1,6 +1,6 @@
 
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const gridCanvasEl = document.getElementById('gridCanvas');
+const gridCtx = gridCanvasEl.getContext('2d');
 
 const CONFIG = {
     squareSize: 50,
@@ -14,14 +14,14 @@ const CONFIG = {
 
 function resizeCanvas() {
     const diagonal = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
-    canvas.width = diagonal;
-    canvas.height = diagonal;
+    gridCanvasEl.width = diagonal;
+    gridCanvasEl.height = diagonal;
 }
 
 function calculateGridDimensions() {
     return {
-        cols: Math.ceil(canvas.width / CONFIG.squareSize) + 1,
-        rows: Math.ceil(canvas.height / CONFIG.squareSize) + 1
+        cols: Math.ceil(gridCanvasEl.width / CONFIG.squareSize) + 1,
+        rows: Math.ceil(gridCanvasEl.height / CONFIG.squareSize) + 1
     };
 }
 
@@ -74,14 +74,14 @@ function determineSquareColor(row, col) {
 }
 
 function fillSquare(x, y, color) {
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, CONFIG.squareSize, CONFIG.squareSize);
+    gridCtx.fillStyle = color;
+    gridCtx.fillRect(x, y, CONFIG.squareSize, CONFIG.squareSize);
 }
 
 function strokeSquareBorder(x, y) {
-    ctx.strokeStyle = CONFIG.borderColor;
-    ctx.lineWidth = CONFIG.borderWidth;
-    ctx.strokeRect(x, y, CONFIG.squareSize, CONFIG.squareSize);
+    gridCtx.strokeStyle = CONFIG.borderColor;
+    gridCtx.lineWidth = CONFIG.borderWidth;
+    gridCtx.strokeRect(x, y, CONFIG.squareSize, CONFIG.squareSize);
 }
 
 function getAllColors() {
@@ -104,8 +104,8 @@ function drawEightPointedStar(centerX, centerY, outerRadius, innerRadius, color)
     const points = 8;
     const totalPoints = points * 2;
     
-    ctx.fillStyle = color;
-    ctx.beginPath();
+    gridCtx.fillStyle = color;
+    gridCtx.beginPath();
     
     for (let i = 0; i < totalPoints; i++) {
         const angle = (i * Math.PI) / points - Math.PI / 2;
@@ -114,14 +114,14 @@ function drawEightPointedStar(centerX, centerY, outerRadius, innerRadius, color)
         const y = centerY + radius * Math.sin(angle);
         
         if (i === 0) {
-            ctx.moveTo(x, y);
+            gridCtx.moveTo(x, y);
         } else {
-            ctx.lineTo(x, y);
+            gridCtx.lineTo(x, y);
         }
     }
     
-    ctx.closePath();
-    ctx.fill();
+    gridCtx.closePath();
+    gridCtx.fill();
 }
 
 function renderSquare(row, col) {
@@ -170,10 +170,11 @@ function initializeCanvas() {
     renderGrid();
 }
 
-function handleResize() {
+function handleGridResize() {
     resizeCanvas();
     renderGrid();
 }
 
 initializeCanvas();
-window.addEventListener('resize', handleResize);
+window.addEventListener('resize', handleGridResize);
+

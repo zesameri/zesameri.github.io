@@ -1,5 +1,5 @@
 
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById('triangleCanvas');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
@@ -222,3 +222,4 @@ function handleResize() {
 
 drawCompletePattern();
 window.addEventListener('resize', handleResize);
+
