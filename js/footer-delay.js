@@ -10,167 +10,24 @@ function initFooterDelay() {
   
   if (!isMobile) {
     // Show desktop indicator
-    const desktopIndicator = document.createElement('div');
-    desktopIndicator.innerHTML = '🖥️ Desktop - no delay';
-    desktopIndicator.style.cssText = `
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,100,0,0.8);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 4px;
-      font-size: 12px;
-      z-index: 9999;
-      font-family: monospace;
-    `;
-    document.body.appendChild(desktopIndicator);
-    setTimeout(() => {
-      if (desktopIndicator.parentNode) {
-        desktopIndicator.parentNode.removeChild(desktopIndicator);
-      }
-    }, 2000);
     return;
   }
   
-  // Add visual debug indicator for mobile
-  const debugIndicator = document.createElement('div');
-  debugIndicator.innerHTML = '📱 Mobile delay active';
-  debugIndicator.style.cssText = `
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: rgba(0,0,0,0.8);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    z-index: 9999;
-    font-family: monospace;
-  `;
-  document.body.appendChild(debugIndicator);
-  
-  // Add touch capability indicator
-  const touchIndicator = document.createElement('div');
-  touchIndicator.innerHTML = '👆 Touch events enabled';
-  touchIndicator.style.cssText = `
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background: rgba(0,100,100,0.8);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    z-index: 9999;
-    font-family: monospace;
-  `;
-  document.body.appendChild(touchIndicator);
-  
-  // Remove debug indicators after 3 seconds
-  setTimeout(() => {
-    if (debugIndicator.parentNode) {
-      debugIndicator.parentNode.removeChild(debugIndicator);
-    }
-    if (touchIndicator.parentNode) {
-      touchIndicator.parentNode.removeChild(touchIndicator);
-    }
-  }, 3000);
   
   const footerLinks = document.querySelectorAll('.footer a[href]');
-  
-  // Show footer links count
-  const linksIndicator = document.createElement('div');
-  linksIndicator.innerHTML = `🔗 Found ${footerLinks.length} footer links`;
-  linksIndicator.style.cssText = `
-    position: fixed;
-    top: 50px;
-    right: 10px;
-    background: rgba(0,0,100,0.8);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    z-index: 9999;
-    font-family: monospace;
-  `;
-  document.body.appendChild(linksIndicator);
-  setTimeout(() => {
-    if (linksIndicator.parentNode) {
-      linksIndicator.parentNode.removeChild(linksIndicator);
-    }
-  }, 2000);
   
   footerLinks.forEach(link => {
     // Add both click and touchstart events for mobile
     const handleInteraction = function(e) {
-      // Show click indicator
-      const clickIndicator = document.createElement('div');
-      clickIndicator.innerHTML = `👆 Clicked: ${this.getAttribute('href')}`;
-      clickIndicator.style.cssText = `
-        position: fixed;
-        top: 90px;
-        right: 10px;
-        background: rgba(100,0,0,0.8);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        z-index: 9999;
-        font-family: monospace;
-      `;
-      document.body.appendChild(clickIndicator);
-      setTimeout(() => {
-        if (clickIndicator.parentNode) {
-          clickIndicator.parentNode.removeChild(clickIndicator);
-        }
-      }, 1000);
-      
       // Don't delay if it's the same page or a hash link
       if (this.getAttribute('href').startsWith('#') || 
           this.getAttribute('href') === window.location.pathname) {
-        const samePageIndicator = document.createElement('div');
-        samePageIndicator.innerHTML = '🚫 Same page - no delay';
-        samePageIndicator.style.cssText = `
-          position: fixed;
-          top: 130px;
-          right: 10px;
-          background: rgba(100,100,0,0.8);
-          color: white;
-          padding: 8px 12px;
-          border-radius: 4px;
-          font-size: 12px;
-          z-index: 9999;
-          font-family: monospace;
-        `;
-        document.body.appendChild(samePageIndicator);
-        setTimeout(() => {
-          if (samePageIndicator.parentNode) {
-            samePageIndicator.parentNode.removeChild(samePageIndicator);
-          }
-        }, 1000);
         return;
       }
       
       e.preventDefault();
       const href = this.getAttribute('href');
       
-      // Show delay indicator
-      const delayIndicator = document.createElement('div');
-      delayIndicator.innerHTML = `⏳ Delaying to: ${href}`;
-      delayIndicator.style.cssText = `
-        position: fixed;
-        top: 130px;
-        right: 10px;
-        background: rgba(0,100,100,0.8);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 12px;
-        z-index: 9999;
-        font-family: monospace;
-      `;
-      document.body.appendChild(delayIndicator);
       
       // Trigger crumple animation manually
       const crumple = document.querySelector('.crumple');
@@ -231,56 +88,13 @@ function initFooterDelay() {
             this.classList.remove('mobile-trigger');
           }, 1500);
           
-          // Show animation indicator
-          const animationIndicator = document.createElement('div');
-          animationIndicator.innerHTML = `🎨 Animation: ${animationName}`;
-          animationIndicator.style.cssText = `
-            position: fixed;
-            top: 170px;
-            right: 10px;
-            background: rgba(100,0,100,0.8);
-            color: white;
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 12px;
-            z-index: 9999;
-            font-family: monospace;
-          `;
-          document.body.appendChild(animationIndicator);
-          setTimeout(() => {
-            if (animationIndicator.parentNode) {
-              animationIndicator.parentNode.removeChild(animationIndicator);
-            }
-          }, 1000);
         }
       }
       
-      // Add a small delay to show the crumple animation
+      // Delay navigation to match crumple animation duration
       setTimeout(() => {
-        // Show navigation indicator
-        const navIndicator = document.createElement('div');
-        navIndicator.innerHTML = `🚀 Navigating to: ${href}`;
-        navIndicator.style.cssText = `
-          position: fixed;
-          top: 210px;
-          right: 10px;
-          background: rgba(0,100,0,0.8);
-          color: white;
-          padding: 8px 12px;
-          border-radius: 4px;
-          font-size: 12px;
-          z-index: 9999;
-          font-family: monospace;
-        `;
-        document.body.appendChild(navIndicator);
-        setTimeout(() => {
-          if (navIndicator.parentNode) {
-            navIndicator.parentNode.removeChild(navIndicator);
-          }
-        }, 500);
-        
         window.location.href = href;
-      }, 800); // 800ms delay
+      }, 1500); // 1.5 second delay to match crumple animation
     };
     
     // Add both click and touch events
