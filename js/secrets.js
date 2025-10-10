@@ -6,25 +6,16 @@ var lyrics = [
   "when you talk in your sleep",
   "the way that you drool",
   "all over the sheets",
-  "i think over",
-  "and over",
-  "and over again",
-  "when will i",
-  "when will i",
-  "see you again",
+  "i think over and over and over again",
+  "when will i see you again",
   "tell me 'bout your day",
   "give me a call",
   "you tripped me",
   "i fell",
   "i fall and i fall",
-  "i fall over",
-  "and over",
-  "and over again",
+  "i fall over and over and over again",
   "the push and the pull",
-  "of the dance that we're in",
-  "when will i",
-  "when will i",
-  "when will i see you again"
+  "of the dance that we're in"
 ];
 
 var currentLyricIndex = 0;
