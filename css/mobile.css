@@ -13,7 +13,7 @@
   
   /* Hero Section */
   .hero {
-    height: 100vh;
+    height: 90vh;
     justify-content: space-between;
     padding: 0;
   }
@@ -21,7 +21,7 @@
   .bio {
     margin: 0;
     min-width: 80vw;
-    padding-bottom: 2vh;
+    padding-bottom: 2em;
   }
   
   /* Writing Pages */
