@@ -18,7 +18,7 @@
     <meta property="og:description" content="It's whatever you want to make of it.">
     <meta property="og:url" content="http://zesameri.github.io">
     <meta property="og:type" content="website">
-    <meta name="theme-color" content="#222">
+    <meta name="theme-color" content="#111">
     <!-- Styles -->
     <link href="./css/main.css" rel="stylesheet">
     <link href="./css/crumple.css" rel="stylesheet">
@@ -34,8 +34,19 @@
   
   <!-- Footer Link Delay Script -->
   <script src="./js/footer-delay.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const video = document.querySelector('.video-background');
+      if (video) {
+        video.playbackRate = 0.25;
+      }
+    });
+  </script>
 </head>
 <body>
+  <video autoplay muted loop playsinline class="video-background">
+    <source src="./assets/videos/super 8.mp4" type="video/mp4">
+  </video>
   <div class="content-wrapper">
     <section class="hero">
       <div class="top-bar">

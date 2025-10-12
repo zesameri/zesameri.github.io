@@ -1,7 +1,7 @@
 /*
  Main.css
  Color Profile:
-  dark: #222, #131314
+  dark: #111, #131314
   grey: #a6a9ac, #dcdcde
   light: #f8f8f6, #efeff2
 */
@@ -9,7 +9,7 @@
 /* Base Layout */
 body {
   margin: 0;
-  background-color: #222;
+  background-color: #111;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block;
@@ -108,5 +108,29 @@ section {
 /* Links */
 a {
   position: relative;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.3; /* Adjust this to control video visibility (0.2-0.5 works well) */
+}
+
+/* Optional: Add overlay for better text readability */
+.video-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(34, 34, 34, 0.5); /* Matches your #111 background with transparency */
+  z-index: 1;
 }
 
