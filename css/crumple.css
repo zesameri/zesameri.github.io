@@ -335,7 +335,7 @@
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  background: transparent;
+  background: #111; /* Changed from transparent - acts as fallback */
 }
 .crumple:after {
   content: "";
@@ -347,6 +347,7 @@
   height: 100%;
   background-color: #111;
   z-index: 1;
+  clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%); /* Start hidden for reversed animations */
 }
 
 .crumple:before {
@@ -472,70 +473,70 @@
 
 @media (hover: hover) {
   .footer:hover ~ .crumple {
-    z-index: 0;
+    z-index: 2;
   }
   
   /* Use body-level selectors to target crumple */
   body:has(.footer > a:nth-child(odd):hover) .crumple {
-    background: #020121;
-    /* background: -webkit-linear-gradient(45deg, #020121, #210120); */
-    /* background: linear-gradient(45deg, #020121, #210120); */
-    background-size: 400% 400%;
-    z-index: 0;
+    background: transparent;
+    z-index: 2;
+  }
+  
+  body:has(.footer > a:nth-child(odd):hover) .crumple:after {
+    background-color: #020121;
   }
   
   body:has(.footer > a:nth-child(2n):hover) .crumple {
-    background: #012118;
-    background: -webkit-linear-gradient(45deg, #012118, #012118);
-    background: linear-gradient(45deg, #012118, #012118);
-    background-size: 400% 400%;
-    z-index: 0;
+    background: transparent;
+    z-index: 2;
+  }
+  
+  body:has(.footer > a:nth-child(2n):hover) .crumple:after {
+    background-color: #012118;
   }
   
   body:has(.footer > a:nth-child(3n):hover) .crumple {
-    background: #210120;
-    background: -webkit-linear-gradient(45deg, #210120, #210120);
-    background: linear-gradient(45deg, #210120, #210120);
-    background-size: 400% 400%;
-    z-index: 0;
+    background: transparent;
+    z-index: 2;
   }
   
-  body:has(.footer > a:hover) .crumple {
-      -webkit-animation: gradient 30s ease infinite;
-      animation: gradient 30s ease infinite;
+  body:has(.footer > a:nth-child(3n):hover) .crumple:after {
+    background-color: #210120;
   }
-
+  
   body:has(.footer__link--writings:hover) .crumple {
-    background: #020121;
-    /* background: -webkit-linear-gradient(45deg, #020121, #210120); */
-    /* background: linear-gradient(45deg, #020121, #210120); */
-    background-size: 400% 400%;
-    z-index: 0;
+    background: transparent;
+    z-index: 2;
   }
-
+  
   body:has(.footer__link--writings:hover) .crumple:after {
-    -webkit-animation: e 1s .25s linear forwards;
-    animation: e 1s .25s linear forwards
+    background-color: #020121;
+    -webkit-animation: e 1s 0s linear reverse forwards; /* Changed .25s to 0s */
+    animation: e 1s 0s linear reverse forwards;
   }
   
   body:has(.footer__link--github:hover) .crumple:after {
-    -webkit-animation: b 1s .25s linear forwards;
-    animation: b 1s .25s linear forwards
+    background-color: #012118;
+    -webkit-animation: b 1s .25s linear reverse forwards;
+    animation: b 1s .25s linear reverse forwards;
   }
   
   body:has(.footer__link--playlists:hover) .crumple:after {
-    -webkit-animation: c 1s .25s linear forwards;
-    animation: c 1s .25s linear forwards
+    background-color: #210120;
+    -webkit-animation: c 1s .25s linear reverse forwards;
+    animation: c 1s .25s linear reverse forwards;
   }
   
   body:has(.footer__link--instagram:hover) .crumple:after {
-    -webkit-animation: f 1s .25s linear forwards;
-    animation: f 1s .25s linear forwards
+    background-color: #210120;
+    -webkit-animation: f 1s .25s linear reverse forwards;
+    animation: f 1s .25s linear reverse forwards;
   }
   
   body:has(.footer__link--alhambra:hover) .crumple:after {
-    -webkit-animation: d 1s .25s linear forwards;
-    animation: d 1s .25s linear forwards
+    background-color: #020121;
+    -webkit-animation: d 1s .25s linear reverse forwards;
+    animation: d 1s .25s linear reverse forwards;
   }
 }
 
@@ -572,21 +573,19 @@
 
 /* Crumple Animation */
 body:has(.footer__link--home:hover) .crumple:after {
-  -webkit-animation: a 1s .25s linear forwards;
-  animation: a 1s .25s linear forwards
+  -webkit-animation: a 1s .25s linear reverse forwards;
+  animation: a 1s .25s linear reverse forwards
 }
 
-/* Mobile Touch/Click Support */
 @media (hover: none) and (pointer: coarse) {
-  /* Mobile devices - trigger on touch/click */
   body:has(.footer__link--home:active) .crumple {
     background: #020121;
     z-index: 0;
   }
   
   body:has(.footer__link--home:active) .crumple:after {
-    -webkit-animation: a 1s .25s linear forwards;
-    animation: a 1s .25s linear forwards;
+    -webkit-animation: a 1s .25s linear reverse forwards;
+    animation: a 1s .25s linear reverse forwards;
   }
   
   body:has(.footer__link--writings:active) .crumple {
@@ -640,17 +639,15 @@ body:has(.footer__link--home:hover) .crumple:after {
   }
 }
 
-/* Mobile JavaScript Trigger Support */
 @media (hover: none) and (pointer: coarse) {
-  /* Trigger animations via JavaScript-added classes */
   body:has(.footer__link--home.mobile-trigger) .crumple {
     background: #020121;
     z-index: 0;
   }
   
   body:has(.footer__link--home.mobile-trigger) .crumple:after {
-    -webkit-animation: a 1s .25s linear forwards;
-    animation: a 1s .25s linear forwards;
+    -webkit-animation: a 1s .25s linear reverse forwards;
+    animation: a 1s .25s linear reverse forwards;
   }
   
   body:has(.footer__link--writings.mobile-trigger) .crumple {

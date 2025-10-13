@@ -9,10 +9,23 @@
 /* Base Layout */
 body {
   margin: 0;
-  background-color: #111;
+  background-color: transparent; /* Transparent for pages with video/images */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: block;
+}
+
+/* Fallback background for pages without video background */
+body#trash,
+body#essays,
+body:not(:has(.video-background)):not(:has(.image-background)):not(:has(.background-images)) {
+  background-color: #111;
+}
+
+/* Or more simply, target specific page IDs */
+body#trash,
+body#essays {
+  background-color: #111;
 }
 
 .content-wrapper {
@@ -119,18 +132,6 @@ a {
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.3; /* Adjust this to control video visibility (0.2-0.5 works well) */
-}
-
-/* Optional: Add overlay for better text readability */
-.video-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(34, 34, 34, 0.5); /* Matches your #111 background with transparency */
-  z-index: 1;
+  opacity: 1; /* Increase this so video is more visible */
 }
 
