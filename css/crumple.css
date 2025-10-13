@@ -362,6 +362,38 @@
   z-index: 2;
 }
 
+.crumple-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 0;
+  clip-path: polygon(0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%);
+}
+
+.crumple-video--writings {
+  z-index: 1;
+}
+
+.crumple-video--alhambra {
+  z-index: 1;
+}
+
+.crumple-video--playlists {
+  z-index: 1;
+}
+
+.crumple-video--instagram {
+  z-index: 1;
+}
+
+.crumple-video--github {
+  z-index: 1;
+}
+
 @-webkit-keyframes circle-one {
   0% {
     -webkit-clip-path: circle(12.5vh at -12.5vh 12.5vh);
@@ -509,34 +541,77 @@
     z-index: 2;
   }
   
-  body:has(.footer__link--writings:hover) .crumple:after {
-    background-color: #020121;
-    -webkit-animation: e 1s 0s linear reverse forwards; /* Changed .25s to 0s */
+  body:has(.footer__link--writings:hover) .crumple-video--writings {
+    opacity: 1;
+    -webkit-animation: e 1s 0s linear reverse forwards;
     animation: e 1s 0s linear reverse forwards;
   }
   
-  body:has(.footer__link--github:hover) .crumple:after {
+  /* Videos for home page only */
+  body:not(#trash):not(#essays):has(.footer__link--github:hover) .crumple-video--github {
+    opacity: 1;
+    -webkit-animation: b 1s .25s linear reverse forwards;
+    animation: b 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):has(.footer__link--playlists:hover) .crumple-video--playlists {
+    opacity: 1;
+    -webkit-animation: c 1s .25s linear reverse forwards;
+    animation: c 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):has(.footer__link--instagram:hover) .crumple-video--instagram {
+    opacity: 1;
+    -webkit-animation: f 1s .25s linear reverse forwards;
+    animation: f 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
+    opacity: 1;
+    -webkit-animation: d 1s .25s linear reverse forwards;
+    animation: d 1s .25s linear reverse forwards;
+  }
+  
+  /* Colors for other pages (trash, writings) */
+  body#trash:has(.footer__link--github:hover) .crumple:after,
+  body#essays:has(.footer__link--github:hover) .crumple:after {
     background-color: #012118;
     -webkit-animation: b 1s .25s linear reverse forwards;
     animation: b 1s .25s linear reverse forwards;
   }
   
-  body:has(.footer__link--playlists:hover) .crumple:after {
+  body#trash:has(.footer__link--playlists:hover) .crumple:after,
+  body#essays:has(.footer__link--playlists:hover) .crumple:after {
     background-color: #210120;
     -webkit-animation: c 1s .25s linear reverse forwards;
     animation: c 1s .25s linear reverse forwards;
   }
   
-  body:has(.footer__link--instagram:hover) .crumple:after {
+  body#trash:has(.footer__link--instagram:hover) .crumple:after,
+  body#essays:has(.footer__link--instagram:hover) .crumple:after {
     background-color: #210120;
     -webkit-animation: f 1s .25s linear reverse forwards;
     animation: f 1s .25s linear reverse forwards;
   }
   
-  body:has(.footer__link--alhambra:hover) .crumple:after {
+  body#trash:has(.footer__link--alhambra:hover) .crumple:after,
+  body#essays:has(.footer__link--alhambra:hover) .crumple:after {
     background-color: #020121;
     -webkit-animation: d 1s .25s linear reverse forwards;
     animation: d 1s .25s linear reverse forwards;
+  }
+  
+  body#trash:has(.footer__link--home:hover) .crumple:after,
+  body#essays:has(.footer__link--home:hover) .crumple:after {
+    background-color: #020121;
+    -webkit-animation: a 1s .25s linear reverse forwards;
+    animation: a 1s .25s linear reverse forwards;
+  }
+  
+  /* Z-index for non-home pages */
+  body#trash:has(.footer > a:hover) .crumple,
+  body#essays:has(.footer > a:hover) .crumple {
+    z-index: 2;
   }
 }
 
@@ -589,53 +664,78 @@ body:has(.footer__link--home:hover) .crumple:after {
   }
   
   body:has(.footer__link--writings:active) .crumple {
-    background: #020121;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--writings:active) .crumple:after {
+  body:has(.footer__link--writings:active) .crumple-video--writings {
+    opacity: 1;
     -webkit-animation: e 1s .25s linear forwards;
     animation: e 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--writings:active) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--github:active) .crumple {
-    background: #012118;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--github:active) .crumple:after {
+  body:has(.footer__link--github:active) .crumple-video--github {
+    opacity: 1;
     -webkit-animation: b 1s .25s linear forwards;
     animation: b 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--github:active) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--playlists:active) .crumple {
-    background: #210120;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--playlists:active) .crumple:after {
+  body:has(.footer__link--playlists:active) .crumple-video--playlists {
+    opacity: 1;
     -webkit-animation: c 1s .25s linear forwards;
     animation: c 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--playlists:active) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--instagram:active) .crumple {
-    background: #210120;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--instagram:active) .crumple:after {
+  body:has(.footer__link--instagram:active) .crumple-video--instagram {
+    opacity: 1;
     -webkit-animation: f 1s .25s linear forwards;
     animation: f 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--instagram:active) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--alhambra:active) .crumple {
-    background: #020121;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--alhambra:active) .crumple:after {
+  body:has(.footer__link--alhambra:active) .crumple-video--alhambra {
+    opacity: 1;
     -webkit-animation: d 1s .25s linear forwards;
     animation: d 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--alhambra:active) .crumple:after {
+    background-image: none;
   }
 }
 
@@ -651,52 +751,77 @@ body:has(.footer__link--home:hover) .crumple:after {
   }
   
   body:has(.footer__link--writings.mobile-trigger) .crumple {
-    background: #020121;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--writings.mobile-trigger) .crumple:after {
+  body:has(.footer__link--writings.mobile-trigger) .crumple-video--writings {
+    opacity: 1;
     -webkit-animation: e 1s .25s linear forwards;
     animation: e 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--writings.mobile-trigger) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--github.mobile-trigger) .crumple {
-    background: #012118;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--github.mobile-trigger) .crumple:after {
+  body:has(.footer__link--github.mobile-trigger) .crumple-video--github {
+    opacity: 1;
     -webkit-animation: b 1s .25s linear forwards;
     animation: b 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--github.mobile-trigger) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--playlists.mobile-trigger) .crumple {
-    background: #210120;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--playlists.mobile-trigger) .crumple:after {
+  body:has(.footer__link--playlists.mobile-trigger) .crumple-video--playlists {
+    opacity: 1;
     -webkit-animation: c 1s .25s linear forwards;
     animation: c 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--playlists.mobile-trigger) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--instagram.mobile-trigger) .crumple {
-    background: #210120;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--instagram.mobile-trigger) .crumple:after {
+  body:has(.footer__link--instagram.mobile-trigger) .crumple-video--instagram {
+    opacity: 1;
     -webkit-animation: f 1s .25s linear forwards;
     animation: f 1s .25s linear forwards;
   }
   
+  body:has(.footer__link--instagram.mobile-trigger) .crumple:after {
+    background-image: none;
+  }
+  
   body:has(.footer__link--alhambra.mobile-trigger) .crumple {
-    background: #020121;
+    background: transparent;
     z-index: 0;
   }
   
-  body:has(.footer__link--alhambra.mobile-trigger) .crumple:after {
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple-video--alhambra {
+    opacity: 1;
     -webkit-animation: d 1s .25s linear forwards;
     animation: d 1s .25s linear forwards;
+  }
+  
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple:after {
+    background-image: none;
   }
 }
