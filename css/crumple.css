@@ -536,82 +536,105 @@
     background-color: #210120;
   }
   
-  body:has(.footer__link--writings:hover) .crumple {
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple {
     background: transparent;
     z-index: 2;
   }
   
-  body:has(.footer__link--writings:hover) .crumple-video--writings {
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple-video--writings {
     opacity: 1;
     -webkit-animation: e 1s 0s linear reverse forwards;
     animation: e 1s 0s linear reverse forwards;
   }
   
   /* Videos for home page only */
-  body:not(#trash):not(#essays):has(.footer__link--github:hover) .crumple-video--github {
-    opacity: 1;
-    -webkit-animation: b 1s .25s linear reverse forwards;
-    animation: b 1s .25s linear reverse forwards;
-  }
-  
-  body:not(#trash):not(#essays):has(.footer__link--playlists:hover) .crumple-video--playlists {
-    opacity: 1;
-    -webkit-animation: c 1s .25s linear reverse forwards;
-    animation: c 1s .25s linear reverse forwards;
-  }
-  
-  body:not(#trash):not(#essays):has(.footer__link--instagram:hover) .crumple-video--instagram {
-    opacity: 1;
-    -webkit-animation: f 1s .25s linear reverse forwards;
-    animation: f 1s .25s linear reverse forwards;
-  }
-  
-  body:not(#trash):not(#essays):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
-    opacity: 1;
-    -webkit-animation: d 1s .25s linear reverse forwards;
-    animation: d 1s .25s linear reverse forwards;
-  }
-  
-  /* Colors for other pages (trash, writings) */
-  body#trash:has(.footer__link--github:hover) .crumple:after,
-  body#essays:has(.footer__link--github:hover) .crumple:after {
-    background-color: #012118;
-    -webkit-animation: b 1s .25s linear reverse forwards;
-    animation: b 1s .25s linear reverse forwards;
-  }
-  
-  body#trash:has(.footer__link--playlists:hover) .crumple:after,
-  body#essays:has(.footer__link--playlists:hover) .crumple:after {
-    background-color: #210120;
-    -webkit-animation: c 1s .25s linear reverse forwards;
-    animation: c 1s .25s linear reverse forwards;
-  }
-  
-  body#trash:has(.footer__link--instagram:hover) .crumple:after,
-  body#essays:has(.footer__link--instagram:hover) .crumple:after {
-    background-color: #210120;
-    -webkit-animation: f 1s .25s linear reverse forwards;
-    animation: f 1s .25s linear reverse forwards;
-  }
-  
-  body#trash:has(.footer__link--alhambra:hover) .crumple:after,
-  body#essays:has(.footer__link--alhambra:hover) .crumple:after {
-    background-color: #020121;
-    -webkit-animation: d 1s .25s linear reverse forwards;
-    animation: d 1s .25s linear reverse forwards;
-  }
-  
-  body#trash:has(.footer__link--home:hover) .crumple:after,
-  body#essays:has(.footer__link--home:hover) .crumple:after {
-    background-color: #020121;
-    -webkit-animation: a 1s .25s linear reverse forwards;
-    animation: a 1s .25s linear reverse forwards;
-  }
-  
-  /* Z-index for non-home pages */
-  body#trash:has(.footer > a:hover) .crumple,
-  body#essays:has(.footer > a:hover) .crumple {
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple {
     z-index: 2;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple-video--github {
+    opacity: 1;
+    -webkit-animation: b 1s .25s linear reverse forwards;
+    animation: b 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple-video--playlists {
+    opacity: 1;
+    -webkit-animation: c 1s .25s linear reverse forwards;
+    animation: c 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple-video--instagram {
+    opacity: 1;
+    -webkit-animation: f 1s .25s linear reverse forwards;
+    animation: f 1s .25s linear reverse forwards;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
+    opacity: 1;
+    -webkit-animation: d 1s .25s linear reverse forwards;
+    animation: d 1s .25s linear reverse forwards;
+  }
+  
+  /* Colors for other pages (trash, writings, poems) */
+  /* First link (blue) - using nth-child(3n+1) */
+  body#trash:has(.footer > a:nth-child(3n+1):hover) .crumple,
+  body#essays:has(.footer > a:nth-child(3n+1):hover) .crumple,
+  body#poems:has(.footer > a:nth-child(3n+1):hover) .crumple {
+    z-index: 2;
+  }
+  
+  body#trash:has(.footer > a:nth-child(3n+1):hover) .crumple:after,
+  body#essays:has(.footer > a:nth-child(3n+1):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(3n+1):hover) .crumple:after {
+    background-color: #020121;
+    opacity: 1;
+    -webkit-animation: e 1s 0s linear reverse forwards;
+    animation: e 1s 0s linear reverse forwards;
+  }
+  
+  /* Second link (green) - using nth-child(3n+2) */
+  body#trash:has(.footer > a:nth-child(3n+2):hover) .crumple,
+  body#essays:has(.footer > a:nth-child(3n+2):hover) .crumple,
+  body#poems:has(.footer > a:nth-child(3n+2):hover) .crumple {
+    z-index: 2;
+  }
+  
+  body#trash:has(.footer > a:nth-child(3n+2):hover) .crumple:after,
+  body#essays:has(.footer > a:nth-child(3n+2):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(3n+2):hover) .crumple:after {
+    background-color: #012118;
+    opacity: 1;
+    -webkit-animation: b 1s 0s linear reverse forwards;
+    animation: b 1s 0s linear reverse forwards;
+  }
+  
+  /* Third link (purple) - using nth-child(3n) */
+  body#trash:has(.footer > a:nth-child(3n):hover) .crumple,
+  body#essays:has(.footer > a:nth-child(3n):hover) .crumple,
+  body#poems:has(.footer > a:nth-child(3n):hover) .crumple {
+    z-index: 2;
+  }
+  
+  body#trash:has(.footer > a:nth-child(3n):hover) .crumple:after,
+  body#essays:has(.footer > a:nth-child(3n):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(3n):hover) .crumple:after {
+    background-color: #210120;
+    opacity: 1;
+    -webkit-animation: c 1s 0s linear reverse forwards;
+    animation: c 1s 0s linear reverse forwards;
   }
 }
 

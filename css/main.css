@@ -18,13 +18,15 @@ body {
 /* Fallback background for pages without video background */
 body#trash,
 body#essays,
+body#poems,
 body:not(:has(.video-background)):not(:has(.image-background)):not(:has(.background-images)) {
   background-color: #111;
 }
 
 /* Or more simply, target specific page IDs */
 body#trash,
-body#essays {
+body#essays,
+body#poems {
   background-color: #111;
 }
 
