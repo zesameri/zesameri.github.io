@@ -135,3 +135,16 @@ a {
   opacity: 1; /* Increase this so video is more visible */
 }
 
+/* Rotate video 90 degrees clockwise in portrait mode */
+@media (orientation: portrait) {
+  .video-background {
+    transform: rotate(90deg);
+    width: 100vh;
+    height: 100vw;
+    top: 50%;
+    left: 50%;
+    margin-left: -50vh;
+    margin-top: -50vw;
+  }
+}
+
