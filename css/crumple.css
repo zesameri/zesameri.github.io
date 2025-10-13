@@ -536,56 +536,61 @@
     background-color: #210120;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple {
+  /* Videos for home page only (desktop with hover) */
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple {
     background: transparent;
     z-index: 2;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple-video--writings {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple-video--writings {
     opacity: 1;
     -webkit-animation: e 1s 0s linear reverse forwards;
     animation: e 1s 0s linear reverse forwards;
   }
   
-  /* Videos for home page only */
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple {
     z-index: 2;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple-video--github {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple-video--github {
     opacity: 1;
     -webkit-animation: b 1s .25s linear reverse forwards;
     animation: b 1s .25s linear reverse forwards;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple {
     z-index: 2;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple-video--playlists {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple-video--playlists {
     opacity: 1;
     -webkit-animation: c 1s .25s linear reverse forwards;
     animation: c 1s .25s linear reverse forwards;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple {
     z-index: 2;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple-video--instagram {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple-video--instagram {
     opacity: 1;
     -webkit-animation: f 1s .25s linear reverse forwards;
     animation: f 1s .25s linear reverse forwards;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
     z-index: 2;
   }
   
-  body:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
     opacity: 1;
     -webkit-animation: d 1s .25s linear reverse forwards;
     animation: d 1s .25s linear reverse forwards;
+  }
+  
+  /* Mobile fallback: hide videos, use colors for home page */
+  body.no-hover .crumple-video {
+    display: none;
   }
   
   /* Colors for other pages (trash, writings, poems) */
@@ -635,6 +640,67 @@
     opacity: 1;
     -webkit-animation: c 1s 0s linear reverse forwards;
     animation: c 1s 0s linear reverse forwards;
+  }
+  
+  /* Mobile home page: use colors instead of videos */
+  /* First link (blue) - writing */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--writings:hover) .crumple:after {
+    background-color: #020121;
+    opacity: 1;
+    -webkit-animation: e 1s 0s linear reverse forwards;
+    animation: e 1s 0s linear reverse forwards;
+  }
+  
+  /* Second link (green) - alhambra */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple:after {
+    background-color: #012118;
+    opacity: 1;
+    -webkit-animation: b 1s 0s linear reverse forwards;
+    animation: b 1s 0s linear reverse forwards;
+  }
+  
+  /* Third link (purple) - muze */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--playlists:hover) .crumple:after {
+    background-color: #210120;
+    opacity: 1;
+    -webkit-animation: c 1s 0s linear reverse forwards;
+    animation: c 1s 0s linear reverse forwards;
+  }
+  
+  /* Fourth link (blue) - instagram */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--instagram:hover) .crumple:after {
+    background-color: #020121;
+    opacity: 1;
+    -webkit-animation: e 1s 0s linear reverse forwards;
+    animation: e 1s 0s linear reverse forwards;
+  }
+  
+  /* Fifth link (green) - github */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple {
+    z-index: 2;
+  }
+  
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--github:hover) .crumple:after {
+    background-color: #012118;
+    opacity: 1;
+    -webkit-animation: b 1s 0s linear reverse forwards;
+    animation: b 1s 0s linear reverse forwards;
   }
 }
 
