@@ -30,20 +30,14 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <!-- Jquery Min Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
-  <!-- <script src="./js/main.js" defer></script> -->
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const video = document.querySelector('.video-background');
-      if (video) {
-        video.playbackRate = 0.25;
-      }
-    });
-  </script>
+  <!-- Lazy Video Loader -->
+  <script src="./js/lazy-video-loader.js" defer></script>
+  <!-- Crumple Hover Effects -->
+  <script src="./js/crumple-hover.js" defer></script>
 </head>
 <body>
-  <video autoplay muted loop playsinline class="video-background">
-    <source src="./assets/videos/super 8.mp4" type="video/mp4">
+  <video muted loop playsinline class="video-background" preload="none" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3Crect fill='%23111' width='1' height='1'/%3E%3C/svg%3E">
+    <source data-src="./assets/videos/super 8.mp4" type="video/mp4">
   </video>
   <div class="content-wrapper">
     <section class="hero">
@@ -77,46 +71,21 @@
 
   <div class="crumple" aria-hidden="">
     <video class="crumple-video crumple-video--writings" muted loop playsinline preload="none">
-      <source src="./assets/videos/PXL_20220605_192330465.mp4" type="video/mp4">
+      <source data-src="./assets/videos/PXL_20220605_192330465.mp4" type="video/mp4">
     </video>
     <video class="crumple-video crumple-video--alhambra" muted loop playsinline preload="none">
-      <source src="./assets/videos/IMG_4943.MOV" type="video/mp4">
+      <source data-src="./assets/videos/IMG_4943.MOV" type="video/mp4">
     </video>
     <video class="crumple-video crumple-video--playlists" muted loop playsinline preload="none">
-      <source src="./assets/videos/20180226_180744.mp4" type="video/mp4">
+      <source data-src="./assets/videos/20180226_180744.mp4" type="video/mp4">
     </video>
     <video class="crumple-video crumple-video--instagram" muted loop playsinline preload="none">
-      <source src="./assets/videos/IMG_1624.MOV" type="video/mp4">
+      <source data-src="./assets/videos/IMG_1624.MOV" type="video/mp4">
     </video>
     <video class="crumple-video crumple-video--github" muted loop playsinline preload="none">
-      <source src="./assets/videos/IMG_7555.MOV" type="video/mp4">
+      <source data-src="./assets/videos/IMG_7555.MOV" type="video/mp4">
     </video>
   </div>
 
-  <script>
-    // Only enable video crumples on devices with hover capability (desktop)
-    // On mobile/touch devices, fall back to color-based crumples
-    if (window.matchMedia('(hover: hover)').matches) {
-      document.body.classList.add('has-hover');
-      
-      // Play videos on hover to save bandwidth
-      const footerLinks = document.querySelectorAll('.footer a');
-      const videos = document.querySelectorAll('.crumple-video');
-      
-      footerLinks.forEach((link, index) => {
-        const videoClass = link.className.replace('footer__link--', 'crumple-video--');
-        const video = document.querySelector('.' + videoClass);
-        
-        if (video) {
-          link.addEventListener('mouseenter', () => {
-            video.play().catch(e => console.log('Video play failed:', e));
-          });
-        }
-      });
-    } else {
-      // Mobile: Use color-based crumples instead
-      document.body.classList.add('no-hover');
-    }
-  </script>
 </body>
 </html>

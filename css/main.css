@@ -6,6 +6,33 @@
   light: #f8f8f6, #efeff2
 */
 
+/* Video Loading States */
+.video-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(17, 17, 17, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(248, 248, 246, 0.3);
+  border-radius: 50%;
+  border-top-color: #f8f8f6;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Base Layout */
 body {
   margin: 0;
