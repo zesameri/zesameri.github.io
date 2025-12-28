@@ -9,10 +9,14 @@
   section {
     width: 100%;
     min-height: inherit;
+    flex: 1;
   }
 
   .content-wrapper {
-    height: 95vh;
+    min-height: 95vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .hero {
@@ -30,10 +34,15 @@
     width: 100%;
     padding: 0;
     max-width: 100vw;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
   
   .list {
     margin-top: 1em;
+    flex: 1;
+    margin-bottom: 2em;
   }
   
   .dt {
@@ -43,14 +52,19 @@
     align-items: flex-start;
   }
   
-  /* Footer */
-  .footer {
-    display: flex;
-    position: static;
+  /* Footer - Force static positioning on mobile for all pages */
+  .footer,
+  .hero-footer,
+  footer {
+    display: flex !important;
+    position: static !important;
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-end;
     padding: 0;
+    right: auto !important;
+    bottom: auto !important;
+    margin-top: 2em;
   }
   
   .footer > a {
@@ -58,6 +72,13 @@
     padding-top: 0.7em;
     border: none;
     text-decoration: underline;
+  }
+
+  /* Ensure footer is always at bottom on mobile */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 }
 
