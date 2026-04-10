@@ -162,7 +162,8 @@
   .tag-bush  { background: #0000AA; color: #fff; }
   .tag-mht   { background: plum; color: #fff; }
   .tag-ktown { background: salmon; color: #333; }
-  .tag-xtra  { background: #ffdead; color: #333; }
+  .tag-xtra    { background: #ffdead; color: #333; }
+  .tag-fashion { background: #2a2a2a; color: #fff; }
 
   /* ── Subsections ── */
   .subsection-label {
