@@ -13,6 +13,48 @@
     padding: 0 0.2em;
   }
 
+  /* Table of Contents */
+  .toc {
+    margin-bottom: 2rem;
+  }
+  .toc h2 {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: lowercase;
+    letter-spacing: 3px;
+    color: #f8f8f6;
+    margin-bottom: 0.5rem;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+  }
+  .toc li {
+    margin-bottom: 0.25rem;
+    position: relative;
+    padding-left: 2em;
+  }
+  .toc li::before {
+    content: "✿";
+    position: absolute;
+    left: 0;
+  }
+  .toc li:nth-child(2)::before { content: "❀"; }
+  .toc li:nth-child(3)::before { content: "✾"; }
+  .toc li:nth-child(4)::before { content: "❁"; }
+  .toc li:nth-child(5)::before { content: "✽"; }
+  .toc li:nth-child(6)::before { content: "✻"; }
+  .toc li:nth-child(7)::before { content: "❋"; }
+  .toc a {
+    color: #dbeafe;
+    text-decoration: none;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+  }
+  .toc a:hover {
+    text-decoration: underline;
+  }
+
   /* ── Layout ── */
   .page {
     max-width: 960px;
