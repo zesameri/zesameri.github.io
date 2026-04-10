@@ -1,0 +1,213 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f5f4f0;
+  }
+
+  /* ── Layout ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1.5rem;
+  }
+  .site-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+  }
+  .site-header p {
+    color: #666;
+    font-size: 14px;
+  }
+
+  /* ── Map embed ── */
+  .map-section {
+    margin-bottom: 2.5rem;
+  }
+  .map-section h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #888;
+    margin-bottom: 0.75rem;
+  }
+  .map-embed {
+    width: 100%;
+    height: 420px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #eee;
+  }
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #888;
+    font-size: 14px;
+    text-align: center;
+    padding: 2rem;
+  }
+  .map-placeholder .icon {
+    font-size: 32px;
+    opacity: 0.4;
+  }
+  .map-placeholder a {
+    color: #1a73e8;
+    font-weight: 500;
+  }
+
+  /* ── Section headers ── */
+  .section {
+    margin-bottom: 2rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #e0ddd8;
+  }
+  .section-header h2 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 99px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* tag colors */
+  .tag-stay  { background: #e6f4d7; color: #2e6b11; }
+  .tag-gp    { background: #ede9fd; color: #4a33b5; }
+  .tag-dtbk  { background: #dbeafe; color: #1d4ed8; }
+  .tag-bush  { background: #fde8e0; color: #992d1b; }
+  .tag-mht   { background: #d9f5ec; color: #0e6b50; }
+  .tag-ktown { background: #fef0d4; color: #7c4a0a; }
+  .tag-xtra  { background: #eeeceb; color: #4a4947; }
+
+  /* ── Subsections ── */
+  .subsection-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #999;
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  /* ── Cards grid ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e4e2dd;
+    border-radius: 10px;
+    padding: 11px 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: border-color 0.15s;
+  }
+  .card:hover { border-color: #bbb; }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a73e8;
+    text-decoration: none;
+  }
+  .card-name:hover { text-decoration: underline; }
+
+  .card-type {
+    font-size: 11.5px;
+    color: #888;
+    margin-top: 1px;
+  }
+
+  .card-note {
+    font-size: 12.5px;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  .card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 2px;
+  }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 99px;
+    border: 1px solid transparent;
+  }
+  .badge-res     { background: #e6f4d7; color: #2e6b11; border-color: #b4daa0; }
+  .badge-walkin  { background: #f0efed; color: #5a5855; border-color: #d4d2ce; }
+  .badge-early   { background: #fde8e0; color: #992d1b; border-color: #f5bfae; }
+  .badge-cash    { background: #fef0d4; color: #7c4a0a; border-color: #f9d498; }
+  .badge-tickets { background: #ede9fd; color: #4a33b5; border-color: #c9bef8; }
+
+  /* ── Intro note ── */
+  .intro-note {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    padding: 10px 14px;
+    background: #fff;
+    border: 1px solid #e4e2dd;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .intro-note .badge { display: inline-flex; vertical-align: middle; }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+    font-size: 12px;
+    color: #999;
+  }
+
+  @media (max-width: 600px) {
+    .site-header h1 { font-size: 22px; }
+    .cards { grid-template-columns: 1fr; }
+  }
