@@ -26,7 +26,7 @@
   <link href="./css/font.css" rel="stylesheet">
   <link href="./css/mobile.css" rel="stylesheet">
   <style>
-    body { padding: 16px; }
+    body { padding: 16px; background-color: #111; }
     .tables-side {
       display: flex;
       flex-wrap: wrap;
@@ -35,20 +35,20 @@
     }
     .tables-side table { flex-shrink: 0; }
     table { border-collapse: collapse; }
-    td { width: 20px; height: 20px; border: 0px; }
+    td { width: 22px; height: 22px; border: 0px; }
     .silver { background-color: #C0C0C0; }
   </style>
 </head>
 <body id="art">
-  <div>
-    <div class="top-bar">
-      <h1 class="header">
-        <a href="./secrets.html" class="simple-link"><img class="header-img" src="assets/images/flower.svg"></a>
-        <a href="./art.html" class="simple-link">art</a>
-      </h1>
-    </div>
-  </div>
-  <div class="tables-side">
+  <div class="content-wrapper">
+    <section class="art">
+      <div class="top-bar">
+        <h1 class="header">
+          <a href="./secrets.html" class="simple-link"><img class="header-img" src="assets/images/flower.svg"></a>
+          <a href="./art.html" class="simple-link">art</a>
+        </h1>
+      </div>
+      <div class="tables-side">
   <table id="grid">
     <tbody><tr>
       <td class="silver"></td><td class="silver"></td><td class="silver"></td><td class="silver"></td>
@@ -1570,16 +1570,16 @@
     </tr>
   </tbody></table>
   </div>
+    </section>
+  </div>
+  
 
-  <div class="content-wrapper">
-    <footer class="footer" id="footer">
+  <footer class="footer" id="footer">
     <a class="footer__link--home" href=".">home</a>
     <a class="footer__link--writings" href="./writings.html">words</a>
     <a class="footer__link--playlists" href="https://open.spotify.com/user/1286649958" target="_blank" rel="noopener noreferrer">muze</a>
     <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">trash</a>
     <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">code</a>
-    </footer>
-  </div>
+  </footer>
   <div class="crumple" aria-hidden=""></div>
-</body>
-</html>
+</body></html>
