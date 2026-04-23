@@ -596,53 +596,62 @@
     display: none;
   }
   
-  /* Colors for other pages (trash, writings, poems) */
-  /* First link (blue) - using nth-child(3n+1) */
-  body#trash:has(.footer > a:nth-child(3n+1):hover) .crumple,
-  body#essays:has(.footer > a:nth-child(3n+1):hover) .crumple,
-  body#poems:has(.footer > a:nth-child(3n+1):hover) .crumple {
+  /* Per-page nav colors — set --c1 through --c5 per body id */
+  body#essays { --c1: #ab2439; --c2: #5a82b3; --c3: #a36aa5; --c4: #d8a37b; --c5: #e0b3b6; }
+  body#art    { --c1: #c7d14f; --c2: #00b49b; --c3: #96d1aa; --c4: #78cdd0; --c5: #97acc8; }
+  body#trash  { --c1: #020121; --c2: #012118; --c3: #210120; --c4: #020121; --c5: #012118; }
+  body#poems  { --c1: #020121; --c2: #012118; --c3: #210120; --c4: #020121; --c5: #012118; }
+
+  body#essays:has(.footer > a:hover) .crumple,
+  body#art:has(.footer > a:hover) .crumple,
+  body#trash:has(.footer > a:hover) .crumple,
+  body#poems:has(.footer > a:hover) .crumple {
     z-index: 2;
   }
-  
-  body#trash:has(.footer > a:nth-child(3n+1):hover) .crumple:after,
-  body#essays:has(.footer > a:nth-child(3n+1):hover) .crumple:after,
-  body#poems:has(.footer > a:nth-child(3n+1):hover) .crumple:after {
-    background-color: #020121;
-    opacity: 1;
+
+  body#essays:has(.footer > a:nth-child(1):hover) .crumple:after,
+  body#art:has(.footer > a:nth-child(1):hover) .crumple:after,
+  body#trash:has(.footer > a:nth-child(1):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(1):hover) .crumple:after {
+    background-color: var(--c1); opacity: 1;
     -webkit-animation: e 1s 0s linear reverse forwards;
     animation: e 1s 0s linear reverse forwards;
   }
-  
-  /* Second link (green) - using nth-child(3n+2) */
-  body#trash:has(.footer > a:nth-child(3n+2):hover) .crumple,
-  body#essays:has(.footer > a:nth-child(3n+2):hover) .crumple,
-  body#poems:has(.footer > a:nth-child(3n+2):hover) .crumple {
-    z-index: 2;
-  }
-  
-  body#trash:has(.footer > a:nth-child(3n+2):hover) .crumple:after,
-  body#essays:has(.footer > a:nth-child(3n+2):hover) .crumple:after,
-  body#poems:has(.footer > a:nth-child(3n+2):hover) .crumple:after {
-    background-color: #012118;
-    opacity: 1;
+
+  body#essays:has(.footer > a:nth-child(2):hover) .crumple:after,
+  body#art:has(.footer > a:nth-child(2):hover) .crumple:after,
+  body#trash:has(.footer > a:nth-child(2):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(2):hover) .crumple:after {
+    background-color: var(--c2); opacity: 1;
     -webkit-animation: b 1s 0s linear reverse forwards;
     animation: b 1s 0s linear reverse forwards;
   }
-  
-  /* Third link (purple) - using nth-child(3n) */
-  body#trash:has(.footer > a:nth-child(3n):hover) .crumple,
-  body#essays:has(.footer > a:nth-child(3n):hover) .crumple,
-  body#poems:has(.footer > a:nth-child(3n):hover) .crumple {
-    z-index: 2;
-  }
-  
-  body#trash:has(.footer > a:nth-child(3n):hover) .crumple:after,
-  body#essays:has(.footer > a:nth-child(3n):hover) .crumple:after,
-  body#poems:has(.footer > a:nth-child(3n):hover) .crumple:after {
-    background-color: #210120;
-    opacity: 1;
+
+  body#essays:has(.footer > a:nth-child(3):hover) .crumple:after,
+  body#art:has(.footer > a:nth-child(3):hover) .crumple:after,
+  body#trash:has(.footer > a:nth-child(3):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(3):hover) .crumple:after {
+    background-color: var(--c3); opacity: 1;
     -webkit-animation: c 1s 0s linear reverse forwards;
     animation: c 1s 0s linear reverse forwards;
+  }
+
+  body#essays:has(.footer > a:nth-child(4):hover) .crumple:after,
+  body#art:has(.footer > a:nth-child(4):hover) .crumple:after,
+  body#trash:has(.footer > a:nth-child(4):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(4):hover) .crumple:after {
+    background-color: var(--c4); opacity: 1;
+    -webkit-animation: e 1s 0s linear reverse forwards;
+    animation: e 1s 0s linear reverse forwards;
+  }
+
+  body#essays:has(.footer > a:nth-child(5):hover) .crumple:after,
+  body#art:has(.footer > a:nth-child(5):hover) .crumple:after,
+  body#trash:has(.footer > a:nth-child(5):hover) .crumple:after,
+  body#poems:has(.footer > a:nth-child(5):hover) .crumple:after {
+    background-color: var(--c5); opacity: 1;
+    -webkit-animation: b 1s 0s linear reverse forwards;
+    animation: b 1s 0s linear reverse forwards;
   }
   
   /* Mobile home page: use colors instead of videos */
