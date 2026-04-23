@@ -378,7 +378,8 @@
   z-index: 1;
 }
 
-.crumple-video--alhambra {
+.crumple-video--alhambra,
+.crumple-video--art {
   z-index: 1;
 }
 
@@ -578,11 +579,13 @@
     animation: f 1s .25s linear reverse forwards;
   }
   
-  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple,
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--art:hover) .crumple {
     z-index: 2;
   }
-  
-  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple-video--alhambra {
+
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple-video--alhambra,
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--art:hover) .crumple-video--art {
     opacity: 1;
     -webkit-animation: d 1s .25s linear reverse forwards;
     animation: d 1s .25s linear reverse forwards;
@@ -655,12 +658,14 @@
     animation: e 1s 0s linear reverse forwards;
   }
   
-  /* Second link (green) - alhambra */
-  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple {
+  /* Second link (green) - alhambra / art */
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple,
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--art:hover) .crumple {
     z-index: 2;
   }
-  
-  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple:after {
+
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--alhambra:hover) .crumple:after,
+  body.no-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--art:hover) .crumple:after {
     background-color: #012118;
     opacity: 1;
     -webkit-animation: b 1s 0s linear reverse forwards;
@@ -812,18 +817,21 @@ body:has(.footer__link--home:hover) .crumple:after {
     background-image: none;
   }
   
-  body:has(.footer__link--alhambra:active) .crumple {
+  body:has(.footer__link--alhambra:active) .crumple,
+  body:has(.footer__link--art:active) .crumple {
     background: transparent;
     z-index: 0;
   }
-  
-  body:has(.footer__link--alhambra:active) .crumple-video--alhambra {
+
+  body:has(.footer__link--alhambra:active) .crumple-video--alhambra,
+  body:has(.footer__link--art:active) .crumple-video--art {
     opacity: 1;
     -webkit-animation: d 1s .25s linear forwards;
     animation: d 1s .25s linear forwards;
   }
-  
-  body:has(.footer__link--alhambra:active) .crumple:after {
+
+  body:has(.footer__link--alhambra:active) .crumple:after,
+  body:has(.footer__link--art:active) .crumple:after {
     background-image: none;
   }
 }
@@ -899,18 +907,21 @@ body:has(.footer__link--home:hover) .crumple:after {
     background-image: none;
   }
   
-  body:has(.footer__link--alhambra.mobile-trigger) .crumple {
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple,
+  body:has(.footer__link--art.mobile-trigger) .crumple {
     background: transparent;
     z-index: 0;
   }
-  
-  body:has(.footer__link--alhambra.mobile-trigger) .crumple-video--alhambra {
+
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple-video--alhambra,
+  body:has(.footer__link--art.mobile-trigger) .crumple-video--art {
     opacity: 1;
     -webkit-animation: d 1s .25s linear forwards;
     animation: d 1s .25s linear forwards;
   }
-  
-  body:has(.footer__link--alhambra.mobile-trigger) .crumple:after {
+
+  body:has(.footer__link--alhambra.mobile-trigger) .crumple:after,
+  body:has(.footer__link--art.mobile-trigger) .crumple:after {
     background-image: none;
   }
 }
