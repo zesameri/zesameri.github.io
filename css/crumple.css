@@ -598,9 +598,9 @@
   
   /* Per-page nav colors — set --c1 through --c5 per body id */
   body#essays { --c1: #ab2439; --c2: #5a82b3; --c3: #a36aa5; --c4: #d8a37b; --c5: #e0b3b6; }
-  body#art    { --c1: #c7d14f; --c2: #00b49b; --c3: #96d1aa; --c4: #78cdd0; --c5: #97acc8; }
+  body#art    { --c1: #c7d14f; --c2: #00b49b; --c3: #96d1aa; --c4: #78cdd0; --c5: #b73f74; }
   body#trash  { --c1: #020121; --c2: #012118; --c3: #210120; --c4: #020121; --c5: #012118; }
-  body#poems  { --c1: #020121; --c2: #012118; --c3: #210120; --c4: #020121; --c5: #012118; }
+  body#poems  { --c1: #c1c494; --c2: #bce4e5; --c3: #97acc8; --c4: #099197; --c5: #ebd3a2; --c6: #a5c8d1; }
 
   body#essays:has(.footer > a:hover) .crumple,
   body#art:has(.footer > a:hover) .crumple,
