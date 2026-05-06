@@ -395,6 +395,10 @@
   z-index: 1;
 }
 
+.crumple-video--flix {
+  z-index: 1;
+}
+
 @-webkit-keyframes circle-one {
   0% {
     -webkit-clip-path: circle(12.5vh at -12.5vh 12.5vh);
@@ -589,6 +593,16 @@
     opacity: 1;
     -webkit-animation: d 1s .25s linear reverse forwards;
     animation: d 1s .25s linear reverse forwards;
+  }
+
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--flix:hover) .crumple {
+    z-index: 2;
+  }
+
+  body.has-hover:not(#trash):not(#essays):not(#poems):has(.footer__link--flix:hover) .crumple-video--flix {
+    opacity: 1;
+    -webkit-animation: a 1s .25s linear reverse forwards;
+    animation: a 1s .25s linear reverse forwards;
   }
   
   /* Mobile fallback: hide videos, use colors for home page */
