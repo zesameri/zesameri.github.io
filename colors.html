@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>color proof — zesameri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+  <style>
+    :root {
+      --paper: #f3efe6;
+      --ink: #111;
+      --ink-soft: #5a5751;
+      --rule: rgba(17, 17, 17, 0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+      padding: 36px 44px;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* paper grain */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 4px 4px, 7px 7px;
+      background-position: 0 0, 2px 3px;
+      mix-blend-mode: multiply;
+      z-index: 50;
+    }
+
+    /* corner crop marks */
+    .crop {
+      position: fixed;
+      width: 22px;
+      height: 22px;
+      border-color: var(--ink);
+      border-style: solid;
+      border-width: 0;
+      z-index: 100;
+    }
+    .crop--tl { top: 12px; left: 12px; border-top-width: 1px; border-left-width: 1px; }
+    .crop--tr { top: 12px; right: 12px; border-top-width: 1px; border-right-width: 1px; }
+    .crop--bl { bottom: 12px; left: 12px; border-bottom-width: 1px; border-left-width: 1px; }
+    .crop--br { bottom: 12px; right: 12px; border-bottom-width: 1px; border-right-width: 1px; }
+
+    /* registration crosshair targets */
+    .reg {
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      z-index: 100;
+    }
+    .reg--top { top: 14px; left: 50%; transform: translateX(-50%); }
+    .reg--bot { bottom: 14px; left: 50%; transform: translateX(-50%); }
+
+    .sheet {
+      max-width: 1040px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* job card */
+    .job-card {
+      border: 1px solid var(--ink);
+      margin-bottom: 28px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .job-row {
+      display: flex;
+      border-bottom: 1px solid var(--ink);
+    }
+    .job-row:last-child { border-bottom: 0; }
+    .job-row > span {
+      flex: 1;
+      padding: 7px 11px;
+      border-right: 1px solid var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .job-row > span:last-child { border-right: 0; }
+    .job-row b {
+      display: inline-block;
+      margin-right: 7px;
+      color: var(--ink-soft);
+      font-weight: normal;
+    }
+
+    /* sections */
+    .section {
+      margin-bottom: 32px;
+      page-break-inside: avoid;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 10px;
+    }
+    .section-head .title {
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+    .section-head .source { color: var(--ink-soft); }
+
+    /* master color bar */
+    .master-bar {
+      height: 22px;
+      display: flex;
+      border: 1px solid var(--ink);
+    }
+    .master-bar > span { flex: 1; }
+
+    /* swatch grid */
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+      gap: 12px;
+    }
+    .swatch {
+      border: 1px solid var(--ink);
+      background: #fff;
+      position: relative;
+    }
+    .swatch--flix {
+      box-shadow: 0 0 0 2px var(--paper), 0 0 0 3px var(--ink);
+    }
+    .swatch-block {
+      height: 96px;
+      position: relative;
+    }
+    .swatch-tag {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 2px 6px;
+      font-size: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .swatch-tag--related {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+    .swatch-meta {
+      border-top: 1px solid var(--ink);
+      padding: 6px 8px 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      font-size: 10px;
+    }
+    .swatch-name {
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-soft);
+      font-size: 9px;
+      min-height: 12px;
+    }
+    .swatch-hex {
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      font-size: 11px;
+    }
+
+    /* density wedge — printer's tone strip */
+    .density {
+      display: flex;
+      height: 10px;
+      border-top: 1px solid var(--ink);
+    }
+    .density > i {
+      flex: 1;
+      display: block;
+      position: relative;
+    }
+    .density > i::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--paper);
+    }
+    .density > i:nth-child(1)::after { opacity: 0; }
+    .density > i:nth-child(2)::after { opacity: 0.25; }
+    .density > i:nth-child(3)::after { opacity: 0.5; }
+    .density > i:nth-child(4)::after { opacity: 0.75; }
+    .density > i:nth-child(5)::after { opacity: 0.9; }
+
+    /* placeholder pattern for TBD */
+    .placeholder {
+      background-color: #fff;
+      background-image:
+        repeating-linear-gradient(45deg,
+          transparent 0,
+          transparent 7px,
+          rgba(0,0,0,0.18) 7px,
+          rgba(0,0,0,0.18) 14px);
+    }
+
+    /* candidate strip */
+    .candidates {
+      margin-top: 14px;
+      border: 1px dashed var(--ink);
+      padding: 10px 12px 12px;
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .candidates-head {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .candidate-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(98px, 1fr));
+      gap: 6px;
+    }
+    .cand {
+      border: 1px solid var(--ink);
+      font-size: 9px;
+      background: #fff;
+    }
+    .cand-block { height: 52px; }
+    .cand-meta {
+      border-top: 1px solid var(--ink);
+      padding: 3px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .cand-source { color: var(--ink-soft); }
+    .cand-hex {
+      font-weight: bold;
+      letter-spacing: 0.04em;
+    }
+
+    /* notes */
+    .note {
+      font-size: 9px;
+      color: var(--ink-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 10px 0 0;
+    }
+
+    /* asset list (home) */
+    .assets {
+      border: 1px solid var(--ink);
+      padding: 0;
+      font-size: 10px;
+    }
+    .assets-row {
+      display: flex;
+      border-bottom: 1px solid var(--ink);
+    }
+    .assets-row:last-child { border-bottom: 0; }
+    .assets-row > span {
+      padding: 6px 10px;
+      border-right: 1px solid var(--ink);
+      flex: 1;
+    }
+    .assets-row > span:last-child { border-right: 0; }
+    .assets-row > .col-link { flex: 0 0 80px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+    .assets-row > .col-file { font-family: 'Courier New', monospace; }
+    .assets-row > .col-anim { flex: 0 0 70px; text-align: center; }
+
+    /* footer */
+    .sheet-foot {
+      margin-top: 36px;
+      padding-top: 10px;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-soft);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 28px 18px; font-size: 10px; }
+      .job-row { flex-direction: column; }
+      .job-row > span { border-right: 0; border-bottom: 1px solid var(--ink); }
+      .job-row > span:last-child { border-bottom: 0; }
+      .swatches { grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); }
+      .candidate-row { grid-template-columns: repeat(auto-fill, minmax(82px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <span class="crop crop--tl"></span>
+  <span class="crop crop--tr"></span>
+  <span class="crop crop--bl"></span>
+  <span class="crop crop--br"></span>
+
+  <svg class="reg reg--top" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="#111" stroke-width="0.6"/>
+    <circle cx="12" cy="12" r="4.5" fill="none" stroke="#111" stroke-width="0.6"/>
+    <line x1="12" y1="0" x2="12" y2="24" stroke="#111" stroke-width="0.6"/>
+    <line x1="0" y1="12" x2="24" y2="12" stroke="#111" stroke-width="0.6"/>
+  </svg>
+  <svg class="reg reg--bot" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="10" fill="none" stroke="#111" stroke-width="0.6"/>
+    <circle cx="12" cy="12" r="4.5" fill="none" stroke="#111" stroke-width="0.6"/>
+    <line x1="12" y1="0" x2="12" y2="24" stroke="#111" stroke-width="0.6"/>
+    <line x1="0" y1="12" x2="24" y2="12" stroke="#111" stroke-width="0.6"/>
+  </svg>
+
+  <main class="sheet">
+
+    <header class="job-card">
+      <div class="job-row">
+        <span><b>JOB</b>ZESAMERI / WEB / NAV PALETTE</span>
+        <span><b>SHEET</b>01 OF 01</span>
+        <span><b>DATE</b>2026.05.05</span>
+        <span><b>OP</b>K.HOO</span>
+      </div>
+      <div class="job-row">
+        <span><b>SOURCE</b>WADA SANZO · DICTIONARY OF COLOR COMBINATIONS</span>
+        <span><b>STOCK</b>SCREEN / sRGB</span>
+        <span><b>REV</b>02</span>
+        <span><b>STATUS</b>FLIX TBD · 3/5</span>
+      </div>
+    </header>
+
+    <!-- MASTER STRIP -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">master strip</span>
+        <span class="source">all confirmed nav inks · top → bottom of site</span>
+      </div>
+      <div class="master-bar">
+        <span style="background:#ab2439"></span>
+        <span style="background:#5a82b3"></span>
+        <span style="background:#a36aa5"></span>
+        <span style="background:#d8a37b"></span>
+        <span style="background:#e0b3b6"></span>
+        <span style="background:#b6bfc1"></span>
+        <span style="background:#c7d14f"></span>
+        <span style="background:#00b49b"></span>
+        <span style="background:#96d1aa"></span>
+        <span style="background:#78cdd0"></span>
+        <span style="background:#b73f74"></span>
+        <span style="background:#020121"></span>
+        <span style="background:#012118"></span>
+        <span style="background:#210120"></span>
+        <span style="background:#c1c494"></span>
+        <span style="background:#bce4e5"></span>
+        <span style="background:#97acc8"></span>
+        <span style="background:#099197"></span>
+        <span style="background:#ebd3a2"></span>
+        <span style="background:#a5c8d1"></span>
+      </div>
+    </section>
+
+    <!-- WRITINGS -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">writings · body#essays</span>
+        <span class="source">wada sanzo classic #324 + related</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#ab2439"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">pompeian red · #324</span>
+            <span class="swatch-hex">#ab2439</span>
+          </div>
+          <div class="density" style="background:#ab2439"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#5a82b3"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">olympic blue · #324</span>
+            <span class="swatch-hex">#5a82b3</span>
+          </div>
+          <div class="density" style="background:#5a82b3"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#a36aa5"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">aconite violet · #324</span>
+            <span class="swatch-hex">#a36aa5</span>
+          </div>
+          <div class="density" style="background:#a36aa5"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#d8a37b">
+            <span class="swatch-tag swatch-tag--related">rel</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">peach · related set</span>
+            <span class="swatch-hex">#d8a37b</span>
+          </div>
+          <div class="density" style="background:#d8a37b"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#e0b3b6">
+            <span class="swatch-tag swatch-tag--related">rel</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">pink · related set</span>
+            <span class="swatch-hex">#e0b3b6</span>
+          </div>
+          <div class="density" style="background:#e0b3b6"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch swatch--flix">
+          <div class="swatch-block" style="background:#b6bfc1">
+            <span class="swatch-tag">flix</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">neutral gray · #324</span>
+            <span class="swatch-hex">#b6bfc1</span>
+          </div>
+          <div class="density" style="background:#b6bfc1"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+      <p class="note">— combo #324: pompeian red · olympic blue · aconite violet · neutral gray. peach + pink pulled from related sets.</p>
+    </section>
+
+    <!-- ART -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">art · body#art</span>
+        <span class="source">wada sanzo classic #291 + related · flix tbd</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#c7d14f"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">light green yellow · #291</span>
+            <span class="swatch-hex">#c7d14f</span>
+          </div>
+          <div class="density" style="background:#c7d14f"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#00b49b"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">sea green · #291</span>
+            <span class="swatch-hex">#00b49b</span>
+          </div>
+          <div class="density" style="background:#00b49b"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#96d1aa"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">cobalt green · #291</span>
+            <span class="swatch-hex">#96d1aa</span>
+          </div>
+          <div class="density" style="background:#96d1aa"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#78cdd0"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">calamine blue · #291</span>
+            <span class="swatch-hex">#78cdd0</span>
+          </div>
+          <div class="density" style="background:#78cdd0"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#b73f74">
+            <span class="swatch-tag swatch-tag--related">rel</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">magenta · related set</span>
+            <span class="swatch-hex">#b73f74</span>
+          </div>
+          <div class="density" style="background:#b73f74"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch swatch--flix">
+          <div class="swatch-block placeholder">
+            <span class="swatch-tag">flix</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">tbd · pick from below</span>
+            <span class="swatch-hex">— —</span>
+          </div>
+          <div class="density"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="candidates">
+        <div class="candidates-head">
+          <span>flix candidates · related combos sharing existing colors</span>
+          <span>12 options</span>
+        </div>
+        <div class="candidate-row">
+          <div class="cand"><div class="cand-block" style="background:#6d7e77"></div><div class="cand-meta"><span class="cand-source">#346</span><span class="cand-hex">#6d7e77</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#b5decc"></div><div class="cand-meta"><span class="cand-source">#346</span><span class="cand-hex">#b5decc</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#007190"></div><div class="cand-meta"><span class="cand-source">#355</span><span class="cand-hex">#007190</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#4b3317"></div><div class="cand-meta"><span class="cand-source">#355</span><span class="cand-hex">#4b3317</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#0d1c43"></div><div class="cand-meta"><span class="cand-source">#277</span><span class="cand-hex">#0d1c43</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#837e31"></div><div class="cand-meta"><span class="cand-source">#277</span><span class="cand-hex">#837e31</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#f27291"></div><div class="cand-meta"><span class="cand-source">#277</span><span class="cand-hex">#f27291</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#59256a"></div><div class="cand-meta"><span class="cand-source">#170</span><span class="cand-hex">#59256a</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#fcb315"></div><div class="cand-meta"><span class="cand-source">#170</span><span class="cand-hex">#fcb315</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#111314"></div><div class="cand-meta"><span class="cand-source">#144</span><span class="cand-hex">#111314</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#f37420"></div><div class="cand-meta"><span class="cand-source">#144</span><span class="cand-hex">#f37420</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#005b8d"></div><div class="cand-meta"><span class="cand-source">#48</span><span class="cand-hex">#005b8d</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRASH -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">trash · body#trash</span>
+        <span class="source">custom darks · not from wada sanzo · flix tbd</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#020121"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">deep purple-black</span>
+            <span class="swatch-hex">#020121</span>
+          </div>
+          <div class="density" style="background:#020121"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#012118"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">deep teal-black</span>
+            <span class="swatch-hex">#012118</span>
+          </div>
+          <div class="density" style="background:#012118"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#210120"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">deep wine-black</span>
+            <span class="swatch-hex">#210120</span>
+          </div>
+          <div class="density" style="background:#210120"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch swatch--flix">
+          <div class="swatch-block placeholder">
+            <span class="swatch-tag">flix</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">tbd · pick from below</span>
+            <span class="swatch-hex">— —</span>
+          </div>
+          <div class="density"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="candidates">
+        <div class="candidates-head">
+          <span>flix candidates · suggested dark riffs in your trash style</span>
+          <span>6 options</span>
+        </div>
+        <div class="candidate-row">
+          <div class="cand"><div class="cand-block" style="background:#1a0220"></div><div class="cand-meta"><span class="cand-source">wine</span><span class="cand-hex">#1a0220</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#02211a"></div><div class="cand-meta"><span class="cand-source">forest</span><span class="cand-hex">#02211a</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#021a21"></div><div class="cand-meta"><span class="cand-source">teal</span><span class="cand-hex">#021a21</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#1a1a02"></div><div class="cand-meta"><span class="cand-source">olive</span><span class="cand-hex">#1a1a02</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#21020a"></div><div class="cand-meta"><span class="cand-source">crimson</span><span class="cand-hex">#21020a</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#0a0221"></div><div class="cand-meta"><span class="cand-source">navy</span><span class="cand-hex">#0a0221</span></div></div>
+        </div>
+      </div>
+      <p class="note">— trash existing palette is custom (not in wada sanzo classic 1–360). suggestions above echo your existing dark style; substitute any hex you prefer.</p>
+    </section>
+
+    <!-- POEMS -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">poems · body#poems</span>
+        <span class="source">wada sanzo classic #330 + related · flix tbd</span>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#c1c494"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">olive buff · #330</span>
+            <span class="swatch-hex">#c1c494</span>
+          </div>
+          <div class="density" style="background:#c1c494"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#bce4e5"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">nile blue · #330</span>
+            <span class="swatch-hex">#bce4e5</span>
+          </div>
+          <div class="density" style="background:#bce4e5"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#97acc8"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">salvia blue · #330</span>
+            <span class="swatch-hex">#97acc8</span>
+          </div>
+          <div class="density" style="background:#97acc8"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#099197"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">green blue · #330</span>
+            <span class="swatch-hex">#099197</span>
+          </div>
+          <div class="density" style="background:#099197"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#ebd3a2">
+            <span class="swatch-tag swatch-tag--related">rel</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">cream · related set</span>
+            <span class="swatch-hex">#ebd3a2</span>
+          </div>
+          <div class="density" style="background:#ebd3a2"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#a5c8d1">
+            <span class="swatch-tag swatch-tag--related">rel</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">sky-blue · related set</span>
+            <span class="swatch-hex">#a5c8d1</span>
+          </div>
+          <div class="density" style="background:#a5c8d1"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch swatch--flix">
+          <div class="swatch-block placeholder">
+            <span class="swatch-tag">flix</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">tbd · pick from below</span>
+            <span class="swatch-hex">— —</span>
+          </div>
+          <div class="density"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="candidates">
+        <div class="candidates-head">
+          <span>flix candidates · related combos sharing existing colors</span>
+          <span>11 options</span>
+        </div>
+        <div class="candidate-row">
+          <div class="cand"><div class="cand-block" style="background:#1c4286"></div><div class="cand-meta"><span class="cand-source">#126</span><span class="cand-hex">#1c4286</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#e2b540"></div><div class="cand-meta"><span class="cand-source">#126</span><span class="cand-hex">#e2b540</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#f99d1b"></div><div class="cand-meta"><span class="cand-source">#209</span><span class="cand-hex">#f99d1b</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#40456a"></div><div class="cand-meta"><span class="cand-source">#339</span><span class="cand-hex">#40456a</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#d96629"></div><div class="cand-meta"><span class="cand-source">#339</span><span class="cand-hex">#d96629</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#253122"></div><div class="cand-meta"><span class="cand-source">#341</span><span class="cand-hex">#253122</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#437742"></div><div class="cand-meta"><span class="cand-source">#341</span><span class="cand-hex">#437742</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#f48067"></div><div class="cand-meta"><span class="cand-source">#341</span><span class="cand-hex">#f48067</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#34454c"></div><div class="cand-meta"><span class="cand-source">#357</span><span class="cand-hex">#34454c</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#9a72aa"></div><div class="cand-meta"><span class="cand-source">#357</span><span class="cand-hex">#9a72aa</span></div></div>
+          <div class="cand"><div class="cand-block" style="background:#cab356"></div><div class="cand-meta"><span class="cand-source">#357</span><span class="cand-hex">#cab356</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOME -->
+    <section class="section">
+      <div class="section-head">
+        <span class="title">home · index</span>
+        <span class="source">video crumples · mobile color fallbacks below</span>
+      </div>
+      <div class="assets">
+        <div class="assets-row">
+          <span class="col-link">link</span>
+          <span class="col-file">video asset</span>
+          <span class="col-anim">anim</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">words</span>
+          <span class="col-file">PXL_20220605_192330465.mp4</span>
+          <span class="col-anim">e</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">art</span>
+          <span class="col-file">IMG_4943.MOV</span>
+          <span class="col-anim">d</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">muze</span>
+          <span class="col-file">IMG_6003.MOV</span>
+          <span class="col-anim">c</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">trash</span>
+          <span class="col-file">IMG_5997.MOV</span>
+          <span class="col-anim">f</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">flix</span>
+          <span class="col-file">PXL_20220514_180803738.mp4</span>
+          <span class="col-anim">a</span>
+        </div>
+        <div class="assets-row">
+          <span class="col-link">code</span>
+          <span class="col-file">sunset.m4v</span>
+          <span class="col-anim">b</span>
+        </div>
+      </div>
+
+      <p class="note">— mobile / no-hover fallback colors (shown below) render briefly when video can't autoplay on touch.</p>
+
+      <div class="swatches" style="margin-top:8px">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#020121"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">words / trash fallback</span>
+            <span class="swatch-hex">#020121</span>
+          </div>
+          <div class="density" style="background:#020121"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#012118"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">art / code fallback</span>
+            <span class="swatch-hex">#012118</span>
+          </div>
+          <div class="density" style="background:#012118"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#210120"></div>
+          <div class="swatch-meta">
+            <span class="swatch-name">muze fallback</span>
+            <span class="swatch-hex">#210120</span>
+          </div>
+          <div class="density" style="background:#210120"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="swatch swatch--flix">
+          <div class="swatch-block placeholder">
+            <span class="swatch-tag">flix</span>
+          </div>
+          <div class="swatch-meta">
+            <span class="swatch-name">flix fallback · tbd</span>
+            <span class="swatch-hex">— —</span>
+          </div>
+          <div class="density"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="sheet-foot">
+      <span>END OF SHEET · DO NOT BLEED</span>
+      <span>zesameri.github.io / colors.html</span>
+    </footer>
+
+  </main>
+</body>
+</html>
