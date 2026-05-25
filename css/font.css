@@ -71,6 +71,7 @@ dt {
   color: inherit;
   text-decoration: none;
   border: none;
+  font-weight: inherit;
 }
 
 .simple-link focus, .simple-link :hover {

@@ -155,14 +155,15 @@
     text-transform: uppercase;
   }
 
-  /* tag colors */
-  .tag-stay  { background: #E1904E; color: #fff; }
-  .tag-gp    { background: #900000; color: #fff; }
-  .tag-dtbk  { background: #136B66; color: #fff; }
-  .tag-bush  { background: #0000AA; color: #fff; }
-  .tag-mht   { background: plum; color: #fff; }
-  .tag-ktown { background: salmon; color: #333; }
-  .tag-xtra  { background: #ffdead; color: #333; }
+  /* tag colors — boroughs: #f5ecc2 Manhattan, #f15a30 Brooklyn */
+  .tag-stay    { background: #f5ecc2; color: #333; }
+  .tag-gp      { background: #f15a30; color: #fff; }
+  .tag-dtbk    { background: #f15a30; color: #fff; }
+  .tag-bush    { background: #f15a30; color: #fff; }
+  .tag-mht     { background: #f5ecc2; color: #333; }
+  .tag-ktown   { background: #f5ecc2; color: #333; }
+  .tag-xtra    { background: #f5ecc2; color: #333; }
+  .tag-fashion { background: #87c540; color: #333; }
 
   /* ── Subsections ── */
   .subsection-label {
@@ -230,11 +231,38 @@
     border-radius: 99px;
     border: 1px solid transparent;
   }
-  .badge-res     { background: #E1904E; color: #fff; border-color: #c67a3d; }
-  .badge-walkin  { background: #900000; color: #fff; border-color: #660000; }
-  .badge-early   { background: #136B66; color: #fff; border-color: #0d4f4a; }
-  .badge-cash    { background: #0000AA; color: #fff; border-color: #000080; }
-  .badge-tickets { background: plum; color: #fff; border-color: #dda0dd; }
+  .badge-res     { background: #709390; color: #fff;  border-color: #567572; }
+  .badge-walkin  { background: #87c540; color: #333;  border-color: #6aa030; }
+  .badge-early   { background: #87c540; color: #333;  border-color: #6aa030; }
+  .badge-cash    { background: #00b49b; color: #fff;  border-color: #008f7c; }
+  .badge-tickets { background: #a7d4e4; color: #333;  border-color: #7ab4cc; }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .legend-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a6a9ac;
+    width: 60px;
+    flex-shrink: 0;
+  }
 
   /* ── Intro note ── */
   .intro-note {
