@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title> Color Grid - zesameri</title>
+  <title>grid</title>
   <meta name="description" content="Paint a 24×24 grid with Wada Sanzo colors.">
-  <meta property="og:title" content="24x24 grid">
+  <meta property="og:title" content="24x24 paint grid">
   <meta property="og:url" content="http://zesameri.github.io/grid.html">
   <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link href="./css/grid.css" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -20,773 +21,136 @@
       } catch (e) {}
     })();
   </script>
-  <style>
-    :root {
-      --bg: #f8f8f8;
-      --text: #111;
-      --muted: #555;
-      --link: #334466;
-      --panel-bg: #fff;
-      --panel-border: #ddd;
-      --label: #333;
-      --input-bg: #fff;
-      --input-border: #ddd;
-      --tool-bg: #fff;
-      --tool-border: #aaa;
-      --tool-hover: #eee;
-      --tool-active-bg: #333;
-      --tool-active-fg: #fff;
-      --swatch-border: #333;
-      --cell-border: #bbb;
-      --select-outline: #000;
-      --heading: #666;
-      --placeholder: #aaa;
-      --faint: #888;
-      --grid-bg: #fff;
-      --grid-border: #ddd;
-      --swatch-item-border: rgba(0,0,0,.12);
-    }
-    [data-theme="dark"] {
-      --bg: #141414;
-      --text: #f0f0f0;
-      --muted: #aaa;
-      --link: #9ab4d0;
-      --panel-bg: #222;
-      --panel-border: #444;
-      --label: #ddd;
-      --input-bg: #1a1a1a;
-      --input-border: #555;
-      --tool-bg: #2a2a2a;
-      --tool-border: #555;
-      --tool-hover: #333;
-      --tool-active-bg: #e8e8e8;
-      --tool-active-fg: #111;
-      --swatch-border: #ccc;
-      --cell-border: #555;
-      --select-outline: #fff;
-      --heading: #999;
-      --placeholder: #666;
-      --faint: #777;
-      --grid-bg: #1a1a1a;
-      --grid-border: #444;
-      --swatch-item-border: rgba(255,255,255,.15);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 16px;
-      padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
-        max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-      font-family: 'Roboto Slab', serif;
-      line-height: 1.5;
-      background: var(--bg);
-      color: var(--text);
-    }
-    button, input, label, select {
-      font-family: inherit;
-    }
-    h1, h2 {
-      font-family: "Trebuchet MS", Helvetica, sans-serif;
-      font-weight: bold;
-    }
-    h1 {
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-      margin: 0 0 8px;
-    }
-    .hint {
-      color: var(--muted);
-      font-size: 13px;
-      margin: 0 0 12px;
-      max-width: 40em;
-    }
-    .hint a { color: var(--link); }
-    .workspace {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: flex-start;
-    }
-    .grid-column {
-      flex: 0 1 auto;
-      width: min(100%, 528px);
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .controls-bar {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .controls-bar .current { margin-bottom: 12px; }
-    .controls-bar .picker-row { margin-bottom: 14px; }
-    .controls-bar .tool-row { margin-bottom: 0; }
-    .grid-wrap {
-      width: 100%;
-      aspect-ratio: 1;
-      padding: 0;
-      background: var(--grid-bg);
-      border: 1px solid var(--grid-border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    table {
-      width: 100%;
-      height: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-      touch-action: none;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-    tr {
-      height: calc(100% / 24);
-    }
-    td {
-      width: calc(100% / 24);
-      padding: 0;
-      border: 1px solid var(--cell-border);
-      cursor: crosshair;
-    }
-    td.silver:not(.filled) { background-color: #c0c0c0; }
-    td.silver { cursor: default; }
-    .grid-wrap.no-borders td { border-color: transparent; }
-    .tools {
-      flex: 1 1 260px;
-      min-width: 0;
-      max-width: 400px;
-    }
-    .current {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-    .current-swatch {
-      width: 40px;
-      height: 40px;
-      border: 2px solid var(--swatch-border);
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    .current-label {
-      font-size: 13px;
-      color: var(--label);
-      word-break: break-all;
-    }
-    .tool-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-    button.tool {
-      font: inherit;
-      font-size: 13px;
-      letter-spacing: 2px;
-      padding: 8px 12px;
-      border: 1px solid var(--tool-border);
-      border-radius: 4px;
-      background: var(--tool-bg);
-      color: var(--text);
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-    button.tool:hover { background: var(--tool-hover); }
-    button.tool[aria-pressed="true"] {
-      background: var(--tool-active-bg);
-      color: var(--tool-active-fg);
-      border-color: var(--tool-active-bg);
-    }
-    .picker-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-      padding: 8px 10px;
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-border);
-      border-radius: 4px;
-    }
-    .picker-row label {
-      font-size: 13px;
-      color: var(--label);
-      flex: 1;
-    }
-    #colorPicker {
-      width: 48px;
-      height: 36px;
-      padding: 0;
-      border: 1px solid #888;
-      border-radius: 4px;
-      cursor: pointer;
-      background: transparent;
-    }
-    .palette-scroll {
-      max-height: min(50vh, 480px);
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 4px;
-      border: 1px solid var(--panel-border);
-      border-radius: 4px;
-      background: var(--panel-bg);
-    }
-    .color-group { margin-bottom: 14px; }
-    .color-group:last-child { margin-bottom: 0; }
-    .color-group h2 {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--heading);
-      margin: 0 0 6px;
-      padding: 0 2px;
-      position: sticky;
-      top: 0;
-      background: var(--panel-bg);
-      z-index: 1;
-    }
-    .palette {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(28px, 1fr));
-      gap: 4px;
-    }
-    .palette button {
-      width: 100%;
-      aspect-ratio: 1;
-      border: 1px solid var(--swatch-item-border);
-      border-radius: 3px;
-      padding: 0;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-    .palette button[aria-selected="true"] {
-      outline: 2px solid var(--select-outline);
-      outline-offset: 2px;
-    }
-    .recent-section {
-      margin-bottom: 14px;
-    }
-    .recent-section h2 {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--heading);
-      margin: 0 0 6px;
-      padding: 0 2px;
-    }
-    .recent {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      min-height: 32px;
-      padding: 6px;
-      border: 1px solid var(--panel-border);
-      border-radius: 4px;
-      background: var(--panel-bg);
-    }
-    .recent:empty::before,
-    .recent-empty {
-      font-size: 12px;
-      color: var(--placeholder);
-      padding: 4px 2px;
-    }
-    .recent button {
-      width: 32px;
-      height: 32px;
-      flex-shrink: 0;
-      border: 1px solid var(--swatch-item-border);
-      border-radius: 3px;
-      padding: 0;
-      cursor: pointer;
-      touch-action: manipulation;
-    }
-    .recent button[aria-selected="true"] {
-      outline: 2px solid var(--select-outline);
-      outline-offset: 2px;
-    }
-    .loading-palette {
-      font-size: 13px;
-      color: var(--faint);
-      padding: 8px;
-    }
-    @media (orientation: landscape) and (min-height: 420px) {
-      .workspace {
-        flex-wrap: nowrap;
-        align-items: flex-start;
-      }
-      .grid-column {
-        flex: 0 0 auto;
-        width: min(42vw, 528px);
-      }
-      .tools {
-        flex: 1 1 0;
-        min-width: 200px;
-        max-width: none;
-      }
-      .palette-scroll {
-        max-height: calc(100vh - 48px);
-      }
-    }
-    @media (max-width: 720px) {
-      .workspace { flex-direction: column; }
-      .grid-column { width: 100%; max-width: 100%; }
-      .tools {
-        width: 100%;
-        max-width: 100%;
-        flex: 1 1 auto;
-      }
-      .palette-scroll {
-        max-height: none;
-        width: 100%;
-      }
-      .palette {
-        grid-template-columns: repeat(auto-fill, minmax(11vw, 1fr));
-        gap: clamp(4px, 1.2vw, 8px);
-      }
-      .recent button {
-        width: clamp(36px, 10vw, 52px);
-        height: clamp(36px, 10vw, 52px);
-      }
-    }
-    @media (hover: hover) {
-      .palette button:hover { transform: scale(1.1); z-index: 1; position: relative; }
-    }
-  </style>
 </head>
 <body>
-  <h1>Color Grid</h1>
-  <p class="hint">
-    Tap to fill cells.
-    Colors from <a href="./wada-colors.html">Wada Sanzo</a>.
-  </p>
-  <div class="workspace">
-    <div class="grid-column">
-      <div class="grid-wrap no-borders">
-        <table id="grid" aria-label="24 by 24 paint grid"></table>
-      </div>
-      <div class="controls-bar">
-        <div class="current">
-          <div class="current-swatch" id="currentSwatch"></div>
-          <span class="current-label" id="currentLabel">Brush</span>
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon-sprite" aria-hidden="true">
+    <symbol id="icon-paintbrush" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m14.622 17.897-10.68-2.913"/>
+      <path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/>
+      <path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/>
+    </symbol>
+    <symbol id="icon-pipette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 9-8.414 8.414A2 2 0 0 0 3 18.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 3.828 21h1.344a2 2 0 0 0 1.414-.586L15 12"/>
+      <path d="m18 9 .4.4a1 1 0 1 1-3 3l-3.8-3.8a1 1 0 1 1 3-3l.4.4 3.4-3.4a1 1 0 1 1 3 3z"/>
+      <path d="m2 22 .414-.414"/>
+    </symbol>
+    <symbol id="icon-eraser" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21"/>
+      <path d="m5.082 11.09 8.828 8.828"/>
+    </symbol>
+    <symbol id="icon-trash-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 11v6"/>
+      <path d="M14 11v6"/>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
+      <path d="M3 6h18"/>
+      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+    </symbol>
+    <symbol id="icon-square" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="18" height="18" x="3" y="3" rx="2"/>
+    </symbol>
+    <symbol id="icon-save" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+      <path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/>
+      <path d="M7 3v4a1 1 0 0 0 1 1h7"/>
+    </symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2"/>
+      <path d="M12 20v2"/>
+      <path d="m4.93 4.93 1.41 1.41"/>
+      <path d="m17.66 17.66 1.41 1.41"/>
+      <path d="M2 12h2"/>
+      <path d="M20 12h2"/>
+      <path d="m6.34 17.66-1.41 1.41"/>
+      <path d="m19.07 4.93-1.41 1.41"/>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
+    </symbol>
+  </svg>
+  <button type="button" class="tool tool-icon theme-toggle" id="themeBtn" aria-pressed="true" aria-label="Switch to light mode">
+    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><use href="#icon-sun"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"/></svg>
+  </button>
+  <div class="page">
+    <header class="page-head">
+      <h1>Color Grid</h1>
+      <p class="hint">
+        Tap to fill cells.
+        Colors from <a href="./wada-colors.html">Wada Sanzo</a>.
+      </p>
+    </header>
+    <main class="workspace">
+      <section class="grid-panel">
+        <div class="grid-stage">
+          <div class="grid-wrap no-borders">
+            <table id="grid" aria-label="24 by 24 paint grid"></table>
+          </div>
         </div>
-        <div class="picker-row">
-          <label for="colorPicker">Color picker</label>
-          <input type="color" id="colorPicker" value="#f58e84" title="Choose any color">
-        </div>
-        <div class="tool-row">
-          <button type="button" class="tool" id="brushBtn" aria-pressed="true">Brush</button>
-          <button type="button" class="tool" id="eraserBtn" aria-pressed="false">Eraser</button>
-          <button type="button" class="tool" id="clearBtn">Clear all</button>
-          <button type="button" class="tool" id="bordersBtn" aria-pressed="false">Borders</button>
-          <button type="button" class="tool" id="saveBtn">Save image</button>
-          <button type="button" class="tool" id="themeBtn" aria-pressed="true">Light</button>
-        </div>
-      </div>
-    </div>
-    <div class="tools">
-      <section class="recent-section" aria-label="Recently used colors">
-        <h2>Recently used</h2>
-        <div class="recent" id="recentPalette" role="listbox">
-          <span class="recent-empty" id="recentEmpty">Paint to fill this list</span>
+        <div class="paint-controls">
+          <div class="current">
+            <div class="current-swatch" id="currentSwatch"></div>
+            <span class="current-label" id="currentLabel">Brush</span>
+          </div>
+          <div class="tool-row">
+              <button type="button" class="tool tool-icon" id="brushBtn" aria-pressed="true" aria-label="Brush" title="Brush">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paintbrush"/></svg>
+              </button>
+              <button type="button" class="tool tool-icon" id="dropperBtn" aria-label="Pick color" title="Pick color" aria-expanded="false" aria-haspopup="dialog">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pipette"/></svg>
+              </button>
+              <button type="button" class="tool tool-icon" id="eraserBtn" aria-pressed="false" aria-label="Eraser" title="Eraser">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eraser"/></svg>
+              </button>
+              <button type="button" class="tool tool-icon" id="clearBtn" aria-label="Clear all" title="Clear all">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-trash-2"/></svg>
+              </button>
+              <button type="button" class="tool tool-icon" id="bordersBtn" aria-pressed="false" aria-label="Borders" title="Borders">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-square"/></svg>
+              </button>
+              <button type="button" class="tool tool-icon" id="saveBtn" aria-label="Save image" title="Save image">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-save"/></svg>
+              </button>
+          </div>
         </div>
       </section>
-      <div class="palette-scroll" id="paletteScroll">
-        <p class="loading-palette" id="paletteLoading">Loading colors…</p>
-      </div>
+      <section class="palette-panel">
+        <section class="recent-section" aria-label="Recently used colors">
+          <h2>Recently used</h2>
+          <div class="recent" id="recentPalette" role="listbox">
+            <span class="recent-empty" id="recentEmpty">Paint to fill this list</span>
+          </div>
+        </section>
+        <div class="palette-scroll" id="paletteScroll">
+          <p class="loading-palette" id="paletteLoading">Loading colors…</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer" id="footer">
+    <a class="footer__link--home" href=".">home</a>
+    <a class="footer__link--writings" href="./writings.html">words</a>
+    <a class="footer__link--art" href="./art.html">art</a>
+    <a class="footer__link--playlists" href="https://open.spotify.com/user/1286649958" target="_blank" rel="noopener noreferrer">muze</a>
+    <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">trash</a>
+    <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">code</a>
+  </footer>
+  <div id="colorPickerBackdrop" class="color-picker-backdrop" hidden></div>
+  <div id="colorPickerPopover" class="color-picker-popover" role="dialog" aria-label="Pick color" hidden>
+    <div class="color-picker-sv" id="colorPickerSv">
+      <div class="color-picker-sv-white"></div>
+      <div class="color-picker-sv-black"></div>
+      <div class="color-picker-sv-cursor" id="colorPickerSvCursor"></div>
+    </div>
+    <input type="range" id="colorPickerHue" class="color-picker-slider color-picker-hue" min="0" max="360" value="0" aria-label="Hue">
+    <input type="range" id="colorPickerSat" class="color-picker-slider color-picker-sat" min="0" max="100" value="100" aria-label="Saturation">
+    <input type="range" id="colorPickerVal" class="color-picker-slider color-picker-val" min="0" max="100" value="100" aria-label="Brightness">
+    <div class="color-picker-hex-row">
+      <div class="color-picker-preview" id="colorPickerPreview" aria-hidden="true"></div>
+      <input type="text" id="colorPickerHex" class="color-picker-hex" maxlength="7" spellcheck="false" aria-label="Hex color" inputmode="text" autocomplete="off">
     </div>
   </div>
   <script src="./js/paint-palette-data.js"></script>
-  <script>
-    (function () {
-      var SILVER_INDICES = new Set([0, 2, 4, 6, 8, 10, 13, 15, 17, 19, 21, 23]);
-      var SILVER_HEX = '#c0c0c0';
-      var mode = 'brush';
-      var currentColor = '#f58e84';
-      var painting = false;
-      var showBorders = false;
-      var cells = [];
-      var selectedBtn = null;
-      var currentLabel = '';
-      var colorNames = {};
-      var recentColors = [];
-      var MAX_RECENT = 10;
-      var strokeColor = null;
-
-      function isSilverCell(r, c) {
-        return SILVER_INDICES.has(r) || SILVER_INDICES.has(c);
-      }
-
-      function buildGrid() {
-        var table = document.getElementById('grid');
-        cells = [];
-        for (var r = 0; r < 24; r++) {
-          var tr = document.createElement('tr');
-          var row = [];
-          for (var c = 0; c < 24; c++) {
-            var td = document.createElement('td');
-            td.dataset.r = r;
-            td.dataset.c = c;
-            if (isSilverCell(r, c)) td.classList.add('silver');
-            tr.appendChild(td);
-            row.push(td);
-          }
-          table.appendChild(tr);
-          cells.push(row);
-        }
-      }
-
-      function getCellFill(td) {
-        if (td.classList.contains('filled') && td.style.background) {
-          return td.style.background;
-        }
-        if (td.classList.contains('silver')) return SILVER_HEX;
-        return '#ffffff';
-      }
-
-      function pushRecent(hex, name) {
-        hex = hex.toLowerCase();
-        recentColors = recentColors.filter(function (e) { return e.hex !== hex; });
-        recentColors.unshift({ hex: hex, name: name || hex });
-        if (recentColors.length > MAX_RECENT) recentColors.length = MAX_RECENT;
-        renderRecent();
-      }
-
-      function renderRecent() {
-        var container = document.getElementById('recentPalette');
-        var empty = document.getElementById('recentEmpty');
-        container.querySelectorAll('button').forEach(function (b) { b.remove(); });
-        if (!recentColors.length) {
-          empty.hidden = false;
-          return;
-        }
-        empty.hidden = true;
-        recentColors.forEach(function (entry) {
-          var btn = document.createElement('button');
-          btn.type = 'button';
-          btn.style.background = entry.hex;
-          btn.title = entry.name + ' · ' + entry.hex;
-          btn.setAttribute('role', 'option');
-          btn.setAttribute('aria-selected', entry.hex === currentColor && mode === 'brush' ? 'true' : 'false');
-          btn.addEventListener('click', function () {
-            selectColor(entry.hex, btn, entry.name);
-          });
-          container.appendChild(btn);
-        });
-      }
-
-      function paintCell(td) {
-        if (td.classList.contains('silver')) return;
-        if (mode === 'eraser') {
-          td.style.background = '';
-          td.classList.remove('filled');
-          return;
-        }
-        td.style.background = currentColor;
-        td.classList.add('filled');
-        if (strokeColor !== currentColor) {
-          strokeColor = currentColor;
-          pushRecent(currentColor, currentLabel);
-        }
-      }
-
-      function cellFromEvent(e) {
-        var el = document.elementFromPoint(e.clientX, e.clientY);
-        return el && el.tagName === 'TD' ? el : null;
-      }
-
-      function onPointerDown(e) {
-        if (e.button > 0) return;
-        e.preventDefault();
-        painting = true;
-        strokeColor = null;
-        var td = e.target.closest('td');
-        if (td) paintCell(td);
-      }
-
-      function onPointerMove(e) {
-        if (!painting) return;
-        var td = cellFromEvent(e);
-        if (td) paintCell(td);
-      }
-
-      function stopPainting() {
-        painting = false;
-        strokeColor = null;
-      }
-
-      function slugify(name) {
-        return name.toLowerCase()
-          .replace(/[^a-z0-9]+/g, '-')
-          .replace(/^-+|-+$/g, '');
-      }
-
-      function suggestFilename() {
-        var counts = {};
-        cells.forEach(function (row) {
-          row.forEach(function (td) {
-            if (!td.classList.contains('filled')) return;
-            var hex = (td.style.background || '').toLowerCase();
-            if (!hex) return;
-            counts[hex] = (counts[hex] || 0) + 1;
-          });
-        });
-        var topHex = null;
-        var topCount = 0;
-        Object.keys(counts).forEach(function (h) {
-          if (counts[h] > topCount) {
-            topCount = counts[h];
-            topHex = h;
-          }
-        });
-        if (topHex && colorNames[topHex]) {
-          return 'souvenir-' + slugify(colorNames[topHex]);
-        }
-        if (topHex) {
-          return 'souvenir-' + topHex.replace('#', '');
-        }
-        return 'souvenir';
-      }
-
-      function sanitizeFilename(name) {
-        var base = (name || '').trim().replace(/\.png$/i, '');
-        base = base.replace(/[^\w.\-]+/g, '-').replace(/-+/g, '-').replace(/^-+|-+$/g, '');
-        return (base || 'souvenir').toLowerCase();
-      }
-
-      function clearSwatchSelection() {
-        document.querySelectorAll('.palette button, .recent button').forEach(function (b) {
-          b.setAttribute('aria-selected', 'false');
-        });
-        selectedBtn = null;
-      }
-
-      function updateCurrentUI(label) {
-        var sw = document.getElementById('currentSwatch');
-        var lab = document.getElementById('currentLabel');
-        var picker = document.getElementById('colorPicker');
-        if (mode === 'eraser') {
-          sw.style.background = 'repeating-linear-gradient(45deg, #ccc, #ccc 4px, #fff 4px, #fff 8px)';
-          lab.textContent = 'Eraser';
-          return;
-        }
-        sw.style.background = currentColor;
-        lab.textContent = (label || currentColor) + ' · ' + currentColor;
-        if (picker.value.toLowerCase() !== currentColor.toLowerCase()) {
-          picker.value = currentColor;
-        }
-      }
-
-      function selectColor(hex, btn, label) {
-        currentColor = hex.toLowerCase();
-        currentLabel = label || hex;
-        mode = 'brush';
-        document.getElementById('brushBtn').setAttribute('aria-pressed', 'true');
-        document.getElementById('eraserBtn').setAttribute('aria-pressed', 'false');
-        clearSwatchSelection();
-        if (btn) {
-          btn.setAttribute('aria-selected', 'true');
-          selectedBtn = btn;
-        }
-        document.getElementById('colorPicker').value = currentColor;
-        updateCurrentUI(currentLabel);
-        renderRecent();
-      }
-
-      function makeSwatch(entry) {
-        var btn = document.createElement('button');
-        btn.type = 'button';
-        btn.style.background = entry.hex;
-        btn.title = entry.name + ' · ' + entry.hex;
-        btn.setAttribute('role', 'option');
-        btn.setAttribute('aria-selected', 'false');
-        btn.addEventListener('click', function () {
-          selectColor(entry.hex, btn, entry.name);
-        });
-        return btn;
-      }
-
-      function renderGroupedPalette(data) {
-        colorNames = {};
-        data.groups.forEach(function (group) {
-          (data.colors[group.id] || []).forEach(function (entry) {
-            colorNames[entry.hex.toLowerCase()] = entry.name;
-          });
-        });
-        var scroll = document.getElementById('paletteScroll');
-        scroll.innerHTML = '';
-        var firstBtn = null;
-        data.groups.forEach(function (group) {
-          var list = data.colors[group.id];
-          if (!list || !list.length) return;
-          var section = document.createElement('section');
-          section.className = 'color-group';
-          var heading = document.createElement('h2');
-          heading.textContent = group.label;
-          section.appendChild(heading);
-          var grid = document.createElement('div');
-          grid.className = 'palette';
-          grid.setAttribute('role', 'group');
-          grid.setAttribute('aria-label', group.label);
-          list.forEach(function (entry) {
-            var btn = makeSwatch(entry);
-            if (!firstBtn) firstBtn = btn;
-            grid.appendChild(btn);
-          });
-          section.appendChild(grid);
-          scroll.appendChild(section);
-        });
-        if (firstBtn) {
-          var first = data.colors[data.groups[0].id][0];
-          selectColor(first.hex, firstBtn, first.name);
-        }
-      }
-
-      function clearAll() {
-        cells.forEach(function (row) {
-          row.forEach(function (td) {
-            td.style.background = '';
-            td.classList.remove('filled');
-          });
-        });
-      }
-
-      function setMode(next) {
-        mode = next;
-        document.getElementById('brushBtn').setAttribute('aria-pressed', next === 'brush');
-        document.getElementById('eraserBtn').setAttribute('aria-pressed', next === 'eraser');
-        updateCurrentUI();
-      }
-
-      function setBorders(on) {
-        showBorders = on;
-        document.getElementById('bordersBtn').setAttribute('aria-pressed', on ? 'true' : 'false');
-        document.querySelector('.grid-wrap').classList.toggle('no-borders', !on);
-      }
-
-      function saveImage() {
-        var cellPx = 20;
-        var gridPx = 24 * cellPx;
-        var borderPx = 32;
-        var text = 'thanks for coming ❋ z e s a m e r i';
-        var textGap = 36;
-        var textSize = 16;
-
-        var canvas = document.createElement('canvas');
-        var ctx = canvas.getContext('2d');
-        canvas.width = gridPx + borderPx * 2;
-        canvas.height = gridPx + borderPx * 2 + textGap + textSize + borderPx;
-
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        for (var r = 0; r < 24; r++) {
-          for (var c = 0; c < 24; c++) {
-            var x = borderPx + c * cellPx;
-            var y = borderPx + r * cellPx;
-            ctx.fillStyle = getCellFill(cells[r][c]);
-            ctx.fillRect(x, y, cellPx, cellPx);
-            if (showBorders) {
-              ctx.strokeStyle = '#bbbbbb';
-              ctx.lineWidth = 1;
-              ctx.strokeRect(x + 0.5, y + 0.5, cellPx - 1, cellPx - 1);
-            }
-          }
-        }
-
-        function finishSave() {
-          ctx.fillStyle = '#333333';
-          ctx.font = textSize + 'px "Roboto Slab", serif';
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillText(
-            text,
-            canvas.width / 2,
-            borderPx + gridPx + borderPx + textGap / 2 + textSize / 2
-          );
-
-          var link = document.createElement('a');
-          link.download = sanitizeFilename(suggestFilename()) + '.png';
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-        }
-
-        if (document.fonts && document.fonts.load) {
-          document.fonts.load(textSize + 'px "Roboto Slab"').then(finishSave).catch(finishSave);
-        } else {
-          finishSave();
-        }
-      }
-
-      document.getElementById('brushBtn').addEventListener('click', function () { setMode('brush'); });
-      document.getElementById('eraserBtn').addEventListener('click', function () { setMode('eraser'); });
-      document.getElementById('clearBtn').addEventListener('click', clearAll);
-      document.getElementById('bordersBtn').addEventListener('click', function () {
-        setBorders(!showBorders);
-      });
-      document.getElementById('saveBtn').addEventListener('click', saveImage);
-
-      function setTheme(theme) {
-        var isDark = theme === 'dark';
-        if (isDark) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-        try { localStorage.setItem('grid-theme', theme); } catch (e) {}
-        var btn = document.getElementById('themeBtn');
-        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-        btn.textContent = isDark ? 'Light' : 'Dark';
-      }
-
-      document.getElementById('themeBtn').addEventListener('click', function () {
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        setTheme(isDark ? 'light' : 'dark');
-      });
-
-      setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
-      document.getElementById('colorPicker').addEventListener('input', function (e) {
-        clearSwatchSelection();
-        currentColor = e.target.value.toLowerCase();
-        currentLabel = 'Custom';
-        mode = 'brush';
-        document.getElementById('brushBtn').setAttribute('aria-pressed', 'true');
-        document.getElementById('eraserBtn').setAttribute('aria-pressed', 'false');
-        updateCurrentUI(currentLabel);
-        renderRecent();
-      });
-
-      var table = document.getElementById('grid');
-      table.addEventListener('pointerdown', onPointerDown);
-      table.addEventListener('pointermove', onPointerMove);
-      window.addEventListener('pointerup', stopPainting);
-      window.addEventListener('pointercancel', stopPainting);
-
-      buildGrid();
-      setBorders(false);
-      updateCurrentUI();
-
-      function loadPalette() {
-        if (window.PAINT_PALETTE) {
-          renderGroupedPalette(window.PAINT_PALETTE);
-          return;
-        }
-        fetch('./data/paint-palette.json')
-          .then(function (r) {
-            if (!r.ok) throw new Error('palette missing');
-            return r.json();
-          })
-          .then(renderGroupedPalette)
-          .catch(function () {
-            document.getElementById('paletteLoading').textContent =
-              'Palette not found. Run: python3 scripts/build_paint_palette.py';
-          });
-      }
-      loadPalette();
-    })();
-  </script>
+  <script src="./js/grid.js" defer></script>
 </body>
 </html>
