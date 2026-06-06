@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,10 +8,13 @@
   <meta property="og:title" content="24x24 grid">
   <meta property="og:url" content="http://zesameri.github.io/grid.html">
   <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <script>
     (function () {
       try {
-        if (localStorage.getItem('grid-theme') === 'dark') {
+        if (localStorage.getItem('grid-theme') === 'light') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
           document.documentElement.setAttribute('data-theme', 'dark');
         }
       } catch (e) {}
@@ -74,13 +77,21 @@
       padding: 16px;
       padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
         max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-      font-family: system-ui, sans-serif;
+      font-family: 'Roboto Slab', serif;
+      line-height: 1.5;
       background: var(--bg);
       color: var(--text);
     }
+    button, input, label, select {
+      font-family: inherit;
+    }
+    h1, h2 {
+      font-family: "Trebuchet MS", Helvetica, sans-serif;
+      font-weight: bold;
+    }
     h1 {
       font-size: 1.1rem;
-      font-weight: 600;
+      letter-spacing: 2px;
       margin: 0 0 8px;
     }
     .hint {
@@ -174,6 +185,7 @@
     button.tool {
       font: inherit;
       font-size: 13px;
+      letter-spacing: 2px;
       padding: 8px 12px;
       border: 1px solid var(--tool-border);
       border-radius: 4px;
@@ -227,7 +239,7 @@
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 2px;
       color: var(--heading);
       margin: 0 0 6px;
       padding: 0 2px;
@@ -346,16 +358,14 @@
   </style>
 </head>
 <body>
-  <h1>24×24 grid</h1>
+  <h1>Color Grid</h1>
   <p class="hint">
-    Tap or drag to fill cells. Silver frame from
-    <a href="./24x24%20Grid.html">24×24 Grid</a>.
-    Colors from <a href="./wada-colors.html">Wada Sanzo</a> and
-    <a href="./24x24%20Grid.html">24×24 Grid</a> patterns.
+    Tap to fill cells.
+    Colors from <a href="./wada-colors.html">Wada Sanzo</a>.
   </p>
   <div class="workspace">
     <div class="grid-column">
-      <div class="grid-wrap">
+      <div class="grid-wrap no-borders">
         <table id="grid" aria-label="24 by 24 paint grid"></table>
       </div>
       <div class="controls-bar">
@@ -371,9 +381,9 @@
           <button type="button" class="tool" id="brushBtn" aria-pressed="true">Brush</button>
           <button type="button" class="tool" id="eraserBtn" aria-pressed="false">Eraser</button>
           <button type="button" class="tool" id="clearBtn">Clear all</button>
-          <button type="button" class="tool" id="bordersBtn" aria-pressed="true">Borders</button>
+          <button type="button" class="tool" id="bordersBtn" aria-pressed="false">Borders</button>
           <button type="button" class="tool" id="saveBtn">Save image</button>
-          <button type="button" class="tool" id="themeBtn" aria-pressed="false">Dark</button>
+          <button type="button" class="tool" id="themeBtn" aria-pressed="true">Light</button>
         </div>
       </div>
     </div>
@@ -397,7 +407,7 @@
       var mode = 'brush';
       var currentColor = '#f58e84';
       var painting = false;
-      var showBorders = true;
+      var showBorders = false;
       var cells = [];
       var selectedBtn = null;
       var currentLabel = '';
@@ -687,20 +697,28 @@
           }
         }
 
-        ctx.fillStyle = '#333333';
-        ctx.font = textSize + 'px system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(
-          text,
-          canvas.width / 2,
-          borderPx + gridPx + borderPx + textGap / 2 + textSize / 2
-        );
+        function finishSave() {
+          ctx.fillStyle = '#333333';
+          ctx.font = textSize + 'px "Roboto Slab", serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(
+            text,
+            canvas.width / 2,
+            borderPx + gridPx + borderPx + textGap / 2 + textSize / 2
+          );
 
-        var link = document.createElement('a');
-        link.download = sanitizeFilename(suggestFilename()) + '.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
+          var link = document.createElement('a');
+          link.download = sanitizeFilename(suggestFilename()) + '.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        }
+
+        if (document.fonts && document.fonts.load) {
+          document.fonts.load(textSize + 'px "Roboto Slab"').then(finishSave).catch(finishSave);
+        } else {
+          finishSave();
+        }
       }
 
       document.getElementById('brushBtn').addEventListener('click', function () { setMode('brush'); });
@@ -748,6 +766,7 @@
       window.addEventListener('pointercancel', stopPainting);
 
       buildGrid();
+      setBorders(false);
       updateCurrentUI();
 
       function loadPalette() {
