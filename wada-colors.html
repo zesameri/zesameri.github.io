@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wada Sanzo Colors — zesameri</title>
+  <meta name="description" content="171 colors from Wada Sanzo's Dictionary of Color Combinations (via wada-sanzo-colors.com).">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+      font-family: system-ui, sans-serif;
+    }
+    #palette {
+      display: grid;
+      width: 100vw;
+      height: 100vh;
+      grid-template-columns: repeat(var(--cols), 1fr);
+      grid-template-rows: repeat(var(--rows), 1fr);
+    }
+    .swatch {
+      min-width: 0;
+      min-height: 0;
+      cursor: default;
+    }
+    #tooltip {
+      position: fixed;
+      left: 12px;
+      bottom: 12px;
+      padding: 8px 12px;
+      background: rgba(0,0,0,.75);
+      color: #f5f5f5;
+      font-size: 13px;
+      border-radius: 4px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    #tooltip.visible { opacity: 1; }
+    a.home {
+      position: fixed;
+      top: 10px;
+      right: 12px;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      text-decoration: none;
+      z-index: 2;
+    }
+    a.home:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <a class="home" href="./grid-wada.html">pattern grids →</a>
+  <div id="palette" role="list" aria-label="Wada Sanzo color swatches">
+    <div class="swatch" style="background:#fde2dd" title="Pale Purplish Vinaceous" data-hex="#fde2dd" data-name="Pale Purplish Vinaceous"></div>
+    <div class="swatch" style="background:#f9c1ce" title="Hermosa Pink" data-hex="#f9c1ce" data-name="Hermosa Pink"></div>
+    <div class="swatch" style="background:#f8b6ba" title="Corinthian Pink" data-hex="#f8b6ba" data-name="Corinthian Pink"></div>
+    <div class="swatch" style="background:#e0b3b6" title="Cameo Pink" data-hex="#e0b3b6" data-name="Cameo Pink"></div>
+    <div class="swatch" style="background:#f4deca" title="Pale Cinammon-Pink" data-hex="#f4deca" data-name="Pale Cinammon-Pink"></div>
+    <div class="swatch" style="background:#d1b0a7" title="Fawn" data-hex="#d1b0a7" data-name="Fawn"></div>
+    <div class="swatch" style="background:#c5b7b0" title="Pale Ecru-Drab" data-hex="#c5b7b0" data-name="Pale Ecru-Drab"></div>
+    <div class="swatch" style="background:#b59392" title="Light Brown Drab" data-hex="#b59392" data-name="Light Brown Drab"></div>
+    <div class="swatch" style="background:#f58e84" title="Coral Red" data-hex="#f58e84" data-name="Coral Red"></div>
+    <div class="swatch" style="background:#f6917e" title="Fresh Color" data-hex="#f6917e" data-name="Fresh Color"></div>
+    <div class="swatch" style="background:#f48067" title="Grenadine Pink" data-hex="#f48067" data-name="Grenadine Pink"></div>
+    <div class="swatch" style="background:#f37f94" title="Eosine Pink" data-hex="#f37f94" data-name="Eosine Pink"></div>
+    <div class="swatch" style="background:#f27291" title="Spinel Red" data-hex="#f27291" data-name="Spinel Red"></div>
+    <div class="swatch" style="background:#d46d7a" title="Old Rose" data-hex="#d46d7a" data-name="Old Rose"></div>
+    <div class="swatch" style="background:#e2625e" title="Eugenia Red 1" data-hex="#e2625e" data-name="Eugenia Red 1"></div>
+    <div class="swatch" style="background:#da525d" title="Eugenia Red 2" data-hex="#da525d" data-name="Eugenia Red 2"></div>
+    <div class="swatch" style="background:#bb7125" title="Raw Sienna" data-hex="#bb7125" data-name="Raw Sienna"></div>
+    <div class="swatch" style="background:#c56127" title="Vinaceous Tawny" data-hex="#c56127" data-name="Vinaceous Tawny"></div>
+    <div class="swatch" style="background:#eb5324" title="Jasper Red" data-hex="#eb5324" data-name="Jasper Red"></div>
+    <div class="swatch" style="background:#e31f26" title="Spectrum Red" data-hex="#e31f26" data-name="Spectrum Red"></div>
+    <div class="swatch" style="background:#dd4027" title="Red Orange" data-hex="#dd4027" data-name="Red Orange"></div>
+    <div class="swatch" style="background:#c55347" title="Etruscan Red" data-hex="#c55347" data-name="Etruscan Red"></div>
+    <div class="swatch" style="background:#ae5224" title="Burnt Sienna" data-hex="#ae5224" data-name="Burnt Sienna"></div>
+    <div class="swatch" style="background:#ab544d" title="Ocher Red" data-hex="#ab544d" data-name="Ocher Red"></div>
+    <div class="swatch" style="background:#cb2f43" title="Scarlet" data-hex="#cb2f43" data-name="Scarlet"></div>
+    <div class="swatch" style="background:#cc1236" title="Carmine" data-hex="#cc1236" data-name="Carmine"></div>
+    <div class="swatch" style="background:#c53c69" title="Indian Lake" data-hex="#c53c69" data-name="Indian Lake"></div>
+    <div class="swatch" style="background:#b73f74" title="Rosolanc Purple" data-hex="#b73f74" data-name="Rosolanc Purple"></div>
+    <div class="swatch" style="background:#b71f57" title="Pomegranate Purple" data-hex="#b71f57" data-name="Pomegranate Purple"></div>
+    <div class="swatch" style="background:#a94151" title="Hydrangea Red" data-hex="#a94151" data-name="Hydrangea Red"></div>
+    <div class="swatch" style="background:#a84222" title="Brick Red" data-hex="#a84222" data-name="Brick Red"></div>
+    <div class="swatch" style="background:#a62c37" title="Carmine Red" data-hex="#a62c37" data-name="Carmine Red"></div>
+    <div class="swatch" style="background:#ab2439" title="Pompeian Red" data-hex="#ab2439" data-name="Pompeian Red"></div>
+    <div class="swatch" style="background:#a72144" title="Red" data-hex="#a72144" data-name="Red"></div>
+    <div class="swatch" style="background:#7c4226" title="Brown" data-hex="#7c4226" data-name="Brown"></div>
+    <div class="swatch" style="background:#793327" title="Hay&#x27;s Russet" data-hex="#793327" data-name="Hay&#x27;s Russet"></div>
+    <div class="swatch" style="background:#82241f" title="Vandyke Red" data-hex="#82241f" data-name="Vandyke Red"></div>
+    <div class="swatch" style="background:#7d133a" title="Pansy Purple" data-hex="#7d133a" data-name="Pansy Purple"></div>
+    <div class="swatch" style="background:#802626" title="Pale Burnt Lake" data-hex="#802626" data-name="Pale Burnt Lake"></div>
+    <div class="swatch" style="background:#642d5e" title="Violet Red" data-hex="#642d5e" data-name="Violet Red"></div>
+    <div class="swatch" style="background:#6d4145" title="Vistoris Lake" data-hex="#6d4145" data-name="Vistoris Lake"></div>
+    <div class="swatch" style="background:#f5ecc2" title="Sulphur Yellow" data-hex="#f5ecc2" data-name="Sulphur Yellow"></div>
+    <div class="swatch" style="background:#f0e6be" title="Sea-foam Yellow" data-hex="#f0e6be" data-name="Sea-foam Yellow"></div>
+    <div class="swatch" style="background:#ffefae" title="Pale Lemon Yellow" data-hex="#ffefae" data-name="Pale Lemon Yellow"></div>
+    <div class="swatch" style="background:#fbe6a0" title="Naples Yellow" data-hex="#fbe6a0" data-name="Naples Yellow"></div>
+    <div class="swatch" style="background:#ebd3a2" title="Ivory Buff" data-hex="#ebd3a2" data-name="Ivory Buff"></div>
+    <div class="swatch" style="background:#fdd4bd" title="Seashell Pink" data-hex="#fdd4bd" data-name="Seashell Pink"></div>
+    <div class="swatch" style="background:#fcc79b" title="Light Pinkish Cinnamon" data-hex="#fcc79b" data-name="Light Pinkish Cinnamon"></div>
+    <div class="swatch" style="background:#eeb480" title="Pinkish Cinnamon" data-hex="#eeb480" data-name="Pinkish Cinnamon"></div>
+    <div class="swatch" style="background:#fdc57e" title="Cinnamon Buff" data-hex="#fdc57e" data-name="Cinnamon Buff"></div>
+    <div class="swatch" style="background:#fdbf68" title="Cream Yellow" data-hex="#fdbf68" data-name="Cream Yellow"></div>
+    <div class="swatch" style="background:#f3a257" title="Golden Yellow" data-hex="#f3a257" data-name="Golden Yellow"></div>
+    <div class="swatch" style="background:#eea78c" title="Vinaceous Cinnamon" data-hex="#eea78c" data-name="Vinaceous Cinnamon"></div>
+    <div class="swatch" style="background:#d8a37b" title="Ochraceous Salmon" data-hex="#d8a37b" data-name="Ochraceous Salmon"></div>
+    <div class="swatch" style="background:#c5a56e" title="Isabella Color" data-hex="#c5a56e" data-name="Isabella Color"></div>
+    <div class="swatch" style="background:#c59f6b" title="Maple" data-hex="#c59f6b" data-name="Maple"></div>
+    <div class="swatch" style="background:#c1c494" title="Olive Buff" data-hex="#c1c494" data-name="Olive Buff"></div>
+    <div class="swatch" style="background:#c2ae93" title="Ecru" data-hex="#c2ae93" data-name="Ecru"></div>
+    <div class="swatch" style="background:#fff200" title="Yellow" data-hex="#fff200" data-name="Yellow"></div>
+    <div class="swatch" style="background:#f8ed43" title="Lemon Yellow" data-hex="#f8ed43" data-name="Lemon Yellow"></div>
+    <div class="swatch" style="background:#ffdd00" title="Apricot Yellow" data-hex="#ffdd00" data-name="Apricot Yellow"></div>
+    <div class="swatch" style="background:#cab356" title="Pyrite Yellow" data-hex="#cab356" data-name="Pyrite Yellow"></div>
+    <div class="swatch" style="background:#d6b43e" title="Olive Ocher" data-hex="#d6b43e" data-name="Olive Ocher"></div>
+    <div class="swatch" style="background:#e2b540" title="Yellow Ocher" data-hex="#e2b540" data-name="Yellow Ocher"></div>
+    <div class="swatch" style="background:#fcb315" title="Orange Yellow" data-hex="#fcb315" data-name="Orange Yellow"></div>
+    <div class="swatch" style="background:#f99d1b" title="Yellow Orange" data-hex="#f99d1b" data-name="Yellow Orange"></div>
+    <div class="swatch" style="background:#f68c50" title="Apricot Orange" data-hex="#f68c50" data-name="Apricot Orange"></div>
+    <div class="swatch" style="background:#f37420" title="Orange" data-hex="#f37420" data-name="Orange"></div>
+    <div class="swatch" style="background:#f15a30" title="Peach Red" data-hex="#f15a30" data-name="Peach Red"></div>
+    <div class="swatch" style="background:#d96629" title="English Red" data-hex="#d96629" data-name="English Red"></div>
+    <div class="swatch" style="background:#c27544" title="Cinnamon Rufous" data-hex="#c27544" data-name="Cinnamon Rufous"></div>
+    <div class="swatch" style="background:#c16b27" title="Orange Rufous" data-hex="#c16b27" data-name="Orange Rufous"></div>
+    <div class="swatch" style="background:#c19f2c" title="Sulphine Yellow" data-hex="#c19f2c" data-name="Sulphine Yellow"></div>
+    <div class="swatch" style="background:#bc892b" title="Khaki / Tawny Olive" data-hex="#bc892b" data-name="Khaki / Tawny Olive"></div>
+    <div class="swatch" style="background:#b2b73e" title="Citron Yellow" data-hex="#b2b73e" data-name="Citron Yellow"></div>
+    <div class="swatch" style="background:#a49531" title="Citrine" data-hex="#a49531" data-name="Citrine"></div>
+    <div class="swatch" style="background:#96874d" title="Dull Citrine" data-hex="#96874d" data-name="Dull Citrine"></div>
+    <div class="swatch" style="background:#96874d" title="Buffy Citrine" data-hex="#96874d" data-name="Buffy Citrine"></div>
+    <div class="swatch" style="background:#8b835b" title="Dark Citrine" data-hex="#8b835b" data-name="Dark Citrine"></div>
+    <div class="swatch" style="background:#848061" title="Light Grayish Olive" data-hex="#848061" data-name="Light Grayish Olive"></div>
+    <div class="swatch" style="background:#84875e" title="Kronbergs Green" data-hex="#84875e" data-name="Kronbergs Green"></div>
+    <div class="swatch" style="background:#837e31" title="Olive" data-hex="#837e31" data-name="Olive"></div>
+    <div class="swatch" style="background:#986f2d" title="Orange Citrine" data-hex="#986f2d" data-name="Orange Citrine"></div>
+    <div class="swatch" style="background:#a36752" title="Sudan Brown" data-hex="#a36752" data-name="Sudan Brown"></div>
+    <div class="swatch" style="background:#6b7140" title="Olive Green" data-hex="#6b7140" data-name="Olive Green"></div>
+    <div class="swatch" style="background:#806e4b" title="Light Brownish Olive" data-hex="#806e4b" data-name="Light Brownish Olive"></div>
+    <div class="swatch" style="background:#635a3a" title="Deep Grayish Olive" data-hex="#635a3a" data-name="Deep Grayish Olive"></div>
+    <div class="swatch" style="background:#71502f" title="Pale Raw Umber" data-hex="#71502f" data-name="Pale Raw Umber"></div>
+    <div class="swatch" style="background:#644b1e" title="Sepia" data-hex="#644b1e" data-name="Sepia"></div>
+    <div class="swatch" style="background:#762c19" title="Madder Brown" data-hex="#762c19" data-name="Madder Brown"></div>
+    <div class="swatch" style="background:#653514" title="Mars Brown Tobacco" data-hex="#653514" data-name="Mars Brown Tobacco"></div>
+    <div class="swatch" style="background:#4b3317" title="Vandyke Brown" data-hex="#4b3317" data-name="Vandyke Brown"></div>
+    <div class="swatch" style="background:#b5decc" title="Turquoise Green" data-hex="#b5decc" data-name="Turquoise Green"></div>
+    <div class="swatch" style="background:#b4cdc2" title="Glaucous Green" data-hex="#b4cdc2" data-name="Glaucous Green"></div>
+    <div class="swatch" style="background:#b7c2a9" title="Dark Greenish Glaucous" data-hex="#b7c2a9" data-name="Dark Greenish Glaucous"></div>
+    <div class="swatch" style="background:#c3cd9d" title="Pale Turtle Green" data-hex="#c3cd9d" data-name="Pale Turtle Green"></div>
+    <div class="swatch" style="background:#afd472" title="Yellow Green" data-hex="#afd472" data-name="Yellow Green"></div>
+    <div class="swatch" style="background:#c7d14f" title="Light Green Yellow" data-hex="#c7d14f" data-name="Light Green Yellow"></div>
+    <div class="swatch" style="background:#87c540" title="Light Green" data-hex="#87c540" data-name="Light Green"></div>
+    <div class="swatch" style="background:#a6a159" title="Olive Yellow" data-hex="#a6a159" data-name="Olive Yellow"></div>
+    <div class="swatch" style="background:#709390" title="Artemisia Green" data-hex="#709390" data-name="Artemisia Green"></div>
+    <div class="swatch" style="background:#6d7e77" title="Andover Green" data-hex="#6d7e77" data-name="Andover Green"></div>
+    <div class="swatch" style="background:#788860" title="Rainette Green" data-hex="#788860" data-name="Rainette Green"></div>
+    <div class="swatch" style="background:#719470" title="Chromium Green" data-hex="#719470" data-name="Chromium Green"></div>
+    <div class="swatch" style="background:#648f7b" title="Pistachio Green" data-hex="#648f7b" data-name="Pistachio Green"></div>
+    <div class="swatch" style="background:#00b49b" title="Sea Green" data-hex="#00b49b" data-name="Sea Green"></div>
+    <div class="swatch" style="background:#00978d" title="Benzol Green" data-hex="#00978d" data-name="Benzol Green"></div>
+    <div class="swatch" style="background:#00908a" title="Light Porcelain Green" data-hex="#00908a" data-name="Light Porcelain Green"></div>
+    <div class="swatch" style="background:#489b6e" title="Green" data-hex="#489b6e" data-name="Green"></div>
+    <div class="swatch" style="background:#009465" title="Dull Viridian Green" data-hex="#009465" data-name="Dull Viridian Green"></div>
+    <div class="swatch" style="background:#819238" title="Oil Green" data-hex="#819238" data-name="Oil Green"></div>
+    <div class="swatch" style="background:#a2a865" title="Grape Green" data-hex="#a2a865" data-name="Grape Green"></div>
+    <div class="swatch" style="background:#008842" title="Diamine Green" data-hex="#008842" data-name="Diamine Green"></div>
+    <div class="swatch" style="background:#437742" title="Cossack Green" data-hex="#437742" data-name="Cossack Green"></div>
+    <div class="swatch" style="background:#555832" title="Lincoln Green" data-hex="#555832" data-name="Lincoln Green"></div>
+    <div class="swatch" style="background:#42533e" title="Blackish Olive" data-hex="#42533e" data-name="Blackish Olive"></div>
+    <div class="swatch" style="background:#253122" title="Deep Slate Olive" data-hex="#253122" data-name="Deep Slate Olive"></div>
+    <div class="swatch" style="background:#f0f3e7" title="Pale King&#x27;s Blue 1" data-hex="#f0f3e7" data-name="Pale King&#x27;s Blue 1"></div>
+    <div class="swatch" style="background:#bce4e5" title="Nile Blue" data-hex="#bce4e5" data-name="Nile Blue"></div>
+    <div class="swatch" style="background:#a7d4e4" title="Pale King&#x27;s Blue 2" data-hex="#a7d4e4" data-name="Pale King&#x27;s Blue 2"></div>
+    <div class="swatch" style="background:#a5c8d1" title="Light Glaucous Blue" data-hex="#a5c8d1" data-name="Light Glaucous Blue"></div>
+    <div class="swatch" style="background:#97acc8" title="Salvia Blue" data-hex="#97acc8" data-name="Salvia Blue"></div>
+    <div class="swatch" style="background:#96d1aa" title="Cobalt Green" data-hex="#96d1aa" data-name="Cobalt Green"></div>
+    <div class="swatch" style="background:#78cdd0" title="Calamine Blue" data-hex="#78cdd0" data-name="Calamine Blue"></div>
+    <div class="swatch" style="background:#62c6bf" title="Venice Green" data-hex="#62c6bf" data-name="Venice Green"></div>
+    <div class="swatch" style="background:#54afb4" title="Pale Methyl Blue" data-hex="#54afb4" data-name="Pale Methyl Blue"></div>
+    <div class="swatch" style="background:#0093a5" title="Cerulean Blue" data-hex="#0093a5" data-name="Cerulean Blue"></div>
+    <div class="swatch" style="background:#00939b" title="Peacock Blue" data-hex="#00939b" data-name="Peacock Blue"></div>
+    <div class="swatch" style="background:#099197" title="Green Blue" data-hex="#099197" data-name="Green Blue"></div>
+    <div class="swatch" style="background:#5a82b3" title="Olympic Blue" data-hex="#5a82b3" data-name="Olympic Blue"></div>
+    <div class="swatch" style="background:#006eb8" title="Blue" data-hex="#006eb8" data-name="Blue"></div>
+    <div class="swatch" style="background:#007190" title="Antwarp Blue" data-hex="#007190" data-name="Antwarp Blue"></div>
+    <div class="swatch" style="background:#005b8d" title="Helvetia Blue" data-hex="#005b8d" data-name="Helvetia Blue"></div>
+    <div class="swatch" style="background:#547076" title="Dark Medici Blue" data-hex="#547076" data-name="Dark Medici Blue"></div>
+    <div class="swatch" style="background:#004f46" title="Dusky Green" data-hex="#004f46" data-name="Dusky Green"></div>
+    <div class="swatch" style="background:#1c4286" title="Deep Lyons Blue" data-hex="#1c4286" data-name="Deep Lyons Blue"></div>
+    <div class="swatch" style="background:#40456a" title="Violet Blue" data-hex="#40456a" data-name="Violet Blue"></div>
+    <div class="swatch" style="background:#064f6e" title="Vandar Poel&#x27;s Blue" data-hex="#064f6e" data-name="Vandar Poel&#x27;s Blue"></div>
+    <div class="swatch" style="background:#12354e" title="Dark Tyrian Blue" data-hex="#12354e" data-name="Dark Tyrian Blue"></div>
+    <div class="swatch" style="background:#0d1c43" title="Dull Violet Black" data-hex="#0d1c43" data-name="Dull Violet Black"></div>
+    <div class="swatch" style="background:#051230" title="Deep Indigo" data-hex="#051230" data-name="Deep Indigo"></div>
+    <div class="swatch" style="background:#112f2c" title="Deep Slate Green" data-hex="#112f2c" data-name="Deep Slate Green"></div>
+    <div class="swatch" style="background:#b5b1d8" title="Grayish Lavender 1" data-hex="#b5b1d8" data-name="Grayish Lavender 1"></div>
+    <div class="swatch" style="background:#c0a9b3" title="Grayish Lavender 2" data-hex="#c0a9b3" data-name="Grayish Lavender 2"></div>
+    <div class="swatch" style="background:#ca92a8" title="Laelia Pink" data-hex="#ca92a8" data-name="Laelia Pink"></div>
+    <div class="swatch" style="background:#b984af" title="Lilac" data-hex="#b984af" data-name="Lilac"></div>
+    <div class="swatch" style="background:#bf5892" title="Eupatorium Purple" data-hex="#bf5892" data-name="Eupatorium Purple"></div>
+    <div class="swatch" style="background:#9a72aa" title="Light Mauve" data-hex="#9a72aa" data-name="Light Mauve"></div>
+    <div class="swatch" style="background:#a36aa5" title="Aconite Violet" data-hex="#a36aa5" data-name="Aconite Violet"></div>
+    <div class="swatch" style="background:#80719e" title="Dull Blue Violet" data-hex="#80719e" data-name="Dull Blue Violet"></div>
+    <div class="swatch" style="background:#66629c" title="Dark Soft Violet" data-hex="#66629c" data-name="Dark Soft Violet"></div>
+    <div class="swatch" style="background:#6450a1" title="Blue Violet" data-hex="#6450a1" data-name="Blue Violet"></div>
+    <div class="swatch" style="background:#522e91" title="Violet Ultramarine" data-hex="#522e91" data-name="Violet Ultramarine"></div>
+    <div class="swatch" style="background:#84565b" title="Purple Drab" data-hex="#84565b" data-name="Purple Drab"></div>
+    <div class="swatch" style="background:#70727c" title="Deep Violet Plumbeous" data-hex="#70727c" data-name="Deep Violet Plumbeous"></div>
+    <div class="swatch" style="background:#8c4c62" title="Vernonia Purple" data-hex="#8c4c62" data-name="Vernonia Purple"></div>
+    <div class="swatch" style="background:#704357" title="Dark Slate Purple" data-hex="#704357" data-name="Dark Slate Purple"></div>
+    <div class="swatch" style="background:#7a4456" title="Taupe Brown" data-hex="#7a4456" data-name="Taupe Brown"></div>
+    <div class="swatch" style="background:#713b4c" title="Violet Carmine" data-hex="#713b4c" data-name="Violet Carmine"></div>
+    <div class="swatch" style="background:#4f4086" title="Violet" data-hex="#4f4086" data-name="Violet"></div>
+    <div class="swatch" style="background:#59256a" title="Red Violet" data-hex="#59256a" data-name="Red Violet"></div>
+    <div class="swatch" style="background:#501345" title="Cotinga Purple" data-hex="#501345" data-name="Cotinga Purple"></div>
+    <div class="swatch" style="background:#4e1d4c" title="Dusky Madder Violet" data-hex="#4e1d4c" data-name="Dusky Madder Violet"></div>
+    <div class="swatch" style="background:#542e36" title="Dark Perilla Purple" data-hex="#542e36" data-name="Dark Perilla Purple"></div>
+    <div class="swatch" style="background:#443b35" title="Dull Purplish Black" data-hex="#443b35" data-name="Dull Purplish Black"></div>
+    <div class="swatch" style="background:#ffffff" title="White" data-hex="#ffffff" data-name="White"></div>
+    <div class="swatch" style="background:#b6bfc1" title="Neutral Gray" data-hex="#b6bfc1" data-name="Neutral Gray"></div>
+    <div class="swatch" style="background:#a2b0ad" title="Mineral Gray" data-hex="#a2b0ad" data-name="Mineral Gray"></div>
+    <div class="swatch" style="background:#a1a39a" title="Warm Gray" data-hex="#a1a39a" data-name="Warm Gray"></div>
+    <div class="swatch" style="background:#34454c" title="Slate Color" data-hex="#34454c" data-name="Slate Color"></div>
+    <div class="swatch" style="background:#111314" title="Black" data-hex="#111314" data-name="Black"></div>
+  </div>
+  <div id="tooltip" aria-live="polite"></div>
+  <script>
+    (function () {
+      var n = 171;
+      var palette = document.getElementById('palette');
+      var tip = document.getElementById('tooltip');
+      function layout() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var cols = Math.max(1, Math.ceil(Math.sqrt(n * w / h)));
+        var rows = Math.ceil(n / cols);
+        palette.style.setProperty('--cols', cols);
+        palette.style.setProperty('--rows', rows);
+      }
+      layout();
+      window.addEventListener('resize', layout);
+      palette.addEventListener('mouseover', function (e) {
+        var el = e.target.closest('.swatch');
+        if (!el) return;
+        tip.textContent = el.dataset.name + ' · ' + el.dataset.hex;
+        tip.classList.add('visible');
+      });
+      palette.addEventListener('mouseout', function () {
+        tip.classList.remove('visible');
+      });
+    })();
+  </script>
+</body>
+</html>

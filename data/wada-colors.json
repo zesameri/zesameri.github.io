@@ -1,0 +1,861 @@
+{
+  "source": "https://www.wada-sanzo-colors.com/colors",
+  "count": 171,
+  "colors": [
+    {
+      "slug": "pale-purplish-vinaceous",
+      "hex": "#fde2dd",
+      "name": "Pale Purplish Vinaceous"
+    },
+    {
+      "slug": "hermosa-pink",
+      "hex": "#f9c1ce",
+      "name": "Hermosa Pink"
+    },
+    {
+      "slug": "corinthian-pink",
+      "hex": "#f8b6ba",
+      "name": "Corinthian Pink"
+    },
+    {
+      "slug": "cameo-pink",
+      "hex": "#e0b3b6",
+      "name": "Cameo Pink"
+    },
+    {
+      "slug": "pale-cinammon-pink",
+      "hex": "#f4deca",
+      "name": "Pale Cinammon-Pink"
+    },
+    {
+      "slug": "fawn",
+      "hex": "#d1b0a7",
+      "name": "Fawn"
+    },
+    {
+      "slug": "pale-ecru-drab",
+      "hex": "#c5b7b0",
+      "name": "Pale Ecru-Drab"
+    },
+    {
+      "slug": "light-brown-drab",
+      "hex": "#b59392",
+      "name": "Light Brown Drab"
+    },
+    {
+      "slug": "coral-red",
+      "hex": "#f58e84",
+      "name": "Coral Red"
+    },
+    {
+      "slug": "fresh-color",
+      "hex": "#f6917e",
+      "name": "Fresh Color"
+    },
+    {
+      "slug": "grenadine-pink",
+      "hex": "#f48067",
+      "name": "Grenadine Pink"
+    },
+    {
+      "slug": "eosine-pink",
+      "hex": "#f37f94",
+      "name": "Eosine Pink"
+    },
+    {
+      "slug": "spinel-red",
+      "hex": "#f27291",
+      "name": "Spinel Red"
+    },
+    {
+      "slug": "old-rose",
+      "hex": "#d46d7a",
+      "name": "Old Rose"
+    },
+    {
+      "slug": "eugenia-red-1",
+      "hex": "#e2625e",
+      "name": "Eugenia Red 1"
+    },
+    {
+      "slug": "eugenia-red-2",
+      "hex": "#da525d",
+      "name": "Eugenia Red 2"
+    },
+    {
+      "slug": "raw-sienna",
+      "hex": "#bb7125",
+      "name": "Raw Sienna"
+    },
+    {
+      "slug": "vinaceous-tawny",
+      "hex": "#c56127",
+      "name": "Vinaceous Tawny"
+    },
+    {
+      "slug": "jasper-red",
+      "hex": "#eb5324",
+      "name": "Jasper Red"
+    },
+    {
+      "slug": "spectrum-red",
+      "hex": "#e31f26",
+      "name": "Spectrum Red"
+    },
+    {
+      "slug": "red-orange",
+      "hex": "#dd4027",
+      "name": "Red Orange"
+    },
+    {
+      "slug": "etruscan-red",
+      "hex": "#c55347",
+      "name": "Etruscan Red"
+    },
+    {
+      "slug": "burnt-sienna",
+      "hex": "#ae5224",
+      "name": "Burnt Sienna"
+    },
+    {
+      "slug": "ocher-red",
+      "hex": "#ab544d",
+      "name": "Ocher Red"
+    },
+    {
+      "slug": "scarlet",
+      "hex": "#cb2f43",
+      "name": "Scarlet"
+    },
+    {
+      "slug": "carmine",
+      "hex": "#cc1236",
+      "name": "Carmine"
+    },
+    {
+      "slug": "indian-lake",
+      "hex": "#c53c69",
+      "name": "Indian Lake"
+    },
+    {
+      "slug": "rosolanc-purple",
+      "hex": "#b73f74",
+      "name": "Rosolanc Purple"
+    },
+    {
+      "slug": "pomegranite-purple",
+      "hex": "#b71f57",
+      "name": "Pomegranate Purple"
+    },
+    {
+      "slug": "hydrangea-red",
+      "hex": "#a94151",
+      "name": "Hydrangea Red"
+    },
+    {
+      "slug": "brick-red",
+      "hex": "#a84222",
+      "name": "Brick Red"
+    },
+    {
+      "slug": "carmine-red",
+      "hex": "#a62c37",
+      "name": "Carmine Red"
+    },
+    {
+      "slug": "pompeian-red",
+      "hex": "#ab2439",
+      "name": "Pompeian Red"
+    },
+    {
+      "slug": "red",
+      "hex": "#a72144",
+      "name": "Red"
+    },
+    {
+      "slug": "brown",
+      "hex": "#7c4226",
+      "name": "Brown"
+    },
+    {
+      "slug": "hay&#x27;s-russet",
+      "hex": "#793327",
+      "name": "Hay&#x27;s Russet"
+    },
+    {
+      "slug": "vandyke-red",
+      "hex": "#82241f",
+      "name": "Vandyke Red"
+    },
+    {
+      "slug": "pansy-purple",
+      "hex": "#7d133a",
+      "name": "Pansy Purple"
+    },
+    {
+      "slug": "pale-burnt-lake",
+      "hex": "#802626",
+      "name": "Pale Burnt Lake"
+    },
+    {
+      "slug": "violet-red",
+      "hex": "#642d5e",
+      "name": "Violet Red"
+    },
+    {
+      "slug": "vistoris-lake",
+      "hex": "#6d4145",
+      "name": "Vistoris Lake"
+    },
+    {
+      "slug": "sulphur-yellow",
+      "hex": "#f5ecc2",
+      "name": "Sulphur Yellow"
+    },
+    {
+      "slug": "sea-foam-yellow",
+      "hex": "#f0e6be",
+      "name": "Sea-foam Yellow"
+    },
+    {
+      "slug": "pale-lemon-yellow",
+      "hex": "#ffefae",
+      "name": "Pale Lemon Yellow"
+    },
+    {
+      "slug": "naples-yellow",
+      "hex": "#fbe6a0",
+      "name": "Naples Yellow"
+    },
+    {
+      "slug": "ivory-buff",
+      "hex": "#ebd3a2",
+      "name": "Ivory Buff"
+    },
+    {
+      "slug": "seashell-pink",
+      "hex": "#fdd4bd",
+      "name": "Seashell Pink"
+    },
+    {
+      "slug": "light-pinkish-cinnamon",
+      "hex": "#fcc79b",
+      "name": "Light Pinkish Cinnamon"
+    },
+    {
+      "slug": "pinkish-cinnamon",
+      "hex": "#eeb480",
+      "name": "Pinkish Cinnamon"
+    },
+    {
+      "slug": "cinnamon-buff",
+      "hex": "#fdc57e",
+      "name": "Cinnamon Buff"
+    },
+    {
+      "slug": "cream-yellow",
+      "hex": "#fdbf68",
+      "name": "Cream Yellow"
+    },
+    {
+      "slug": "golden-yellow",
+      "hex": "#f3a257",
+      "name": "Golden Yellow"
+    },
+    {
+      "slug": "vinaceous-cinnamon",
+      "hex": "#eea78c",
+      "name": "Vinaceous Cinnamon"
+    },
+    {
+      "slug": "ochraceous-salmon",
+      "hex": "#d8a37b",
+      "name": "Ochraceous Salmon"
+    },
+    {
+      "slug": "isabella-color",
+      "hex": "#c5a56e",
+      "name": "Isabella Color"
+    },
+    {
+      "slug": "maple",
+      "hex": "#c59f6b",
+      "name": "Maple"
+    },
+    {
+      "slug": "olive-buff",
+      "hex": "#c1c494",
+      "name": "Olive Buff"
+    },
+    {
+      "slug": "ecru",
+      "hex": "#c2ae93",
+      "name": "Ecru"
+    },
+    {
+      "slug": "yellow",
+      "hex": "#fff200",
+      "name": "Yellow"
+    },
+    {
+      "slug": "lemon-yellow",
+      "hex": "#f8ed43",
+      "name": "Lemon Yellow"
+    },
+    {
+      "slug": "apricot-yellow",
+      "hex": "#ffdd00",
+      "name": "Apricot Yellow"
+    },
+    {
+      "slug": "pyrite-yellow",
+      "hex": "#cab356",
+      "name": "Pyrite Yellow"
+    },
+    {
+      "slug": "olive-ocher",
+      "hex": "#d6b43e",
+      "name": "Olive Ocher"
+    },
+    {
+      "slug": "yellow-ocher",
+      "hex": "#e2b540",
+      "name": "Yellow Ocher"
+    },
+    {
+      "slug": "orange-yellow",
+      "hex": "#fcb315",
+      "name": "Orange Yellow"
+    },
+    {
+      "slug": "yellow-orange",
+      "hex": "#f99d1b",
+      "name": "Yellow Orange"
+    },
+    {
+      "slug": "apricot-orange",
+      "hex": "#f68c50",
+      "name": "Apricot Orange"
+    },
+    {
+      "slug": "orange",
+      "hex": "#f37420",
+      "name": "Orange"
+    },
+    {
+      "slug": "peach-red",
+      "hex": "#f15a30",
+      "name": "Peach Red"
+    },
+    {
+      "slug": "english-red",
+      "hex": "#d96629",
+      "name": "English Red"
+    },
+    {
+      "slug": "cinnamon-rufous",
+      "hex": "#c27544",
+      "name": "Cinnamon Rufous"
+    },
+    {
+      "slug": "orange-rufous",
+      "hex": "#c16b27",
+      "name": "Orange Rufous"
+    },
+    {
+      "slug": "sulphine-yellow",
+      "hex": "#c19f2c",
+      "name": "Sulphine Yellow"
+    },
+    {
+      "slug": "khaki-tawny-olive",
+      "hex": "#bc892b",
+      "name": "Khaki / Tawny Olive"
+    },
+    {
+      "slug": "citron-yellow",
+      "hex": "#b2b73e",
+      "name": "Citron Yellow"
+    },
+    {
+      "slug": "citrine",
+      "hex": "#a49531",
+      "name": "Citrine"
+    },
+    {
+      "slug": "dull-citrine",
+      "hex": "#96874d",
+      "name": "Dull Citrine"
+    },
+    {
+      "slug": "buffy-citrine",
+      "hex": "#96874d",
+      "name": "Buffy Citrine"
+    },
+    {
+      "slug": "dark-citrine",
+      "hex": "#8b835b",
+      "name": "Dark Citrine"
+    },
+    {
+      "slug": "light-grayish-olive",
+      "hex": "#848061",
+      "name": "Light Grayish Olive"
+    },
+    {
+      "slug": "kronbergs-green",
+      "hex": "#84875e",
+      "name": "Kronbergs Green"
+    },
+    {
+      "slug": "olive",
+      "hex": "#837e31",
+      "name": "Olive"
+    },
+    {
+      "slug": "orange-citrine",
+      "hex": "#986f2d",
+      "name": "Orange Citrine"
+    },
+    {
+      "slug": "sudan-brown",
+      "hex": "#a36752",
+      "name": "Sudan Brown"
+    },
+    {
+      "slug": "olive-green",
+      "hex": "#6b7140",
+      "name": "Olive Green"
+    },
+    {
+      "slug": "light-brownish-olive",
+      "hex": "#806e4b",
+      "name": "Light Brownish Olive"
+    },
+    {
+      "slug": "deep-grayish-olive",
+      "hex": "#635a3a",
+      "name": "Deep Grayish Olive"
+    },
+    {
+      "slug": "pale-raw-umber",
+      "hex": "#71502f",
+      "name": "Pale Raw Umber"
+    },
+    {
+      "slug": "sepia",
+      "hex": "#644b1e",
+      "name": "Sepia"
+    },
+    {
+      "slug": "madder-brown",
+      "hex": "#762c19",
+      "name": "Madder Brown"
+    },
+    {
+      "slug": "mars-brown-tobacco",
+      "hex": "#653514",
+      "name": "Mars Brown Tobacco"
+    },
+    {
+      "slug": "vandyke-brown",
+      "hex": "#4b3317",
+      "name": "Vandyke Brown"
+    },
+    {
+      "slug": "turquoise-green",
+      "hex": "#b5decc",
+      "name": "Turquoise Green"
+    },
+    {
+      "slug": "glaucous-green",
+      "hex": "#b4cdc2",
+      "name": "Glaucous Green"
+    },
+    {
+      "slug": "dark-greenish-glaucous",
+      "hex": "#b7c2a9",
+      "name": "Dark Greenish Glaucous"
+    },
+    {
+      "slug": "pale-turtle-green",
+      "hex": "#c3cd9d",
+      "name": "Pale Turtle Green"
+    },
+    {
+      "slug": "yellow-green",
+      "hex": "#afd472",
+      "name": "Yellow Green"
+    },
+    {
+      "slug": "light-green-yellow",
+      "hex": "#c7d14f",
+      "name": "Light Green Yellow"
+    },
+    {
+      "slug": "light-green",
+      "hex": "#87c540",
+      "name": "Light Green"
+    },
+    {
+      "slug": "olive-yellow",
+      "hex": "#a6a159",
+      "name": "Olive Yellow"
+    },
+    {
+      "slug": "artemesia-green",
+      "hex": "#709390",
+      "name": "Artemisia Green"
+    },
+    {
+      "slug": "andover-green",
+      "hex": "#6d7e77",
+      "name": "Andover Green"
+    },
+    {
+      "slug": "rainette-green",
+      "hex": "#788860",
+      "name": "Rainette Green"
+    },
+    {
+      "slug": "chromium-green",
+      "hex": "#719470",
+      "name": "Chromium Green"
+    },
+    {
+      "slug": "pistachio-green",
+      "hex": "#648f7b",
+      "name": "Pistachio Green"
+    },
+    {
+      "slug": "sea-green",
+      "hex": "#00b49b",
+      "name": "Sea Green"
+    },
+    {
+      "slug": "benzol-green",
+      "hex": "#00978d",
+      "name": "Benzol Green"
+    },
+    {
+      "slug": "light-porcelain-green",
+      "hex": "#00908a",
+      "name": "Light Porcelain Green"
+    },
+    {
+      "slug": "green",
+      "hex": "#489b6e",
+      "name": "Green"
+    },
+    {
+      "slug": "dull-viridian-green",
+      "hex": "#009465",
+      "name": "Dull Viridian Green"
+    },
+    {
+      "slug": "oil-green",
+      "hex": "#819238",
+      "name": "Oil Green"
+    },
+    {
+      "slug": "grape-green",
+      "hex": "#a2a865",
+      "name": "Grape Green"
+    },
+    {
+      "slug": "diamine-green",
+      "hex": "#008842",
+      "name": "Diamine Green"
+    },
+    {
+      "slug": "cossack-green",
+      "hex": "#437742",
+      "name": "Cossack Green"
+    },
+    {
+      "slug": "lincoln-green",
+      "hex": "#555832",
+      "name": "Lincoln Green"
+    },
+    {
+      "slug": "blackish-olive",
+      "hex": "#42533e",
+      "name": "Blackish Olive"
+    },
+    {
+      "slug": "deep-slate-olive",
+      "hex": "#253122",
+      "name": "Deep Slate Olive"
+    },
+    {
+      "slug": "pale-king&#x27;s-blue-1",
+      "hex": "#f0f3e7",
+      "name": "Pale King&#x27;s Blue 1"
+    },
+    {
+      "slug": "nile-blue",
+      "hex": "#bce4e5",
+      "name": "Nile Blue"
+    },
+    {
+      "slug": "pale-king&#x27;s-blue-2",
+      "hex": "#a7d4e4",
+      "name": "Pale King&#x27;s Blue 2"
+    },
+    {
+      "slug": "light-glaucous-blue",
+      "hex": "#a5c8d1",
+      "name": "Light Glaucous Blue"
+    },
+    {
+      "slug": "salvia-blue",
+      "hex": "#97acc8",
+      "name": "Salvia Blue"
+    },
+    {
+      "slug": "cobalt-green",
+      "hex": "#96d1aa",
+      "name": "Cobalt Green"
+    },
+    {
+      "slug": "calamine-blue",
+      "hex": "#78cdd0",
+      "name": "Calamine Blue"
+    },
+    {
+      "slug": "venice-green",
+      "hex": "#62c6bf",
+      "name": "Venice Green"
+    },
+    {
+      "slug": "pale-methyl-blue",
+      "hex": "#54afb4",
+      "name": "Pale Methyl Blue"
+    },
+    {
+      "slug": "cerulean-blue",
+      "hex": "#0093a5",
+      "name": "Cerulean Blue"
+    },
+    {
+      "slug": "peacock-blue",
+      "hex": "#00939b",
+      "name": "Peacock Blue"
+    },
+    {
+      "slug": "green-blue",
+      "hex": "#099197",
+      "name": "Green Blue"
+    },
+    {
+      "slug": "olympic-blue",
+      "hex": "#5a82b3",
+      "name": "Olympic Blue"
+    },
+    {
+      "slug": "blue",
+      "hex": "#006eb8",
+      "name": "Blue"
+    },
+    {
+      "slug": "antwarp-blue",
+      "hex": "#007190",
+      "name": "Antwarp Blue"
+    },
+    {
+      "slug": "helvetia-blue",
+      "hex": "#005b8d",
+      "name": "Helvetia Blue"
+    },
+    {
+      "slug": "dark-medici-blue",
+      "hex": "#547076",
+      "name": "Dark Medici Blue"
+    },
+    {
+      "slug": "dusky-green",
+      "hex": "#004f46",
+      "name": "Dusky Green"
+    },
+    {
+      "slug": "deep-lyons-blue",
+      "hex": "#1c4286",
+      "name": "Deep Lyons Blue"
+    },
+    {
+      "slug": "violet-blue",
+      "hex": "#40456a",
+      "name": "Violet Blue"
+    },
+    {
+      "slug": "vander-poel&#x27;s-blue",
+      "hex": "#064f6e",
+      "name": "Vandar Poel&#x27;s Blue"
+    },
+    {
+      "slug": "dark-tyrian-blue",
+      "hex": "#12354e",
+      "name": "Dark Tyrian Blue"
+    },
+    {
+      "slug": "dull-violet-black",
+      "hex": "#0d1c43",
+      "name": "Dull Violet Black"
+    },
+    {
+      "slug": "deep-indigo",
+      "hex": "#051230",
+      "name": "Deep Indigo"
+    },
+    {
+      "slug": "deep-slate-green",
+      "hex": "#112f2c",
+      "name": "Deep Slate Green"
+    },
+    {
+      "slug": "grayish-lavender-1",
+      "hex": "#b5b1d8",
+      "name": "Grayish Lavender 1"
+    },
+    {
+      "slug": "grayish-lavender-2",
+      "hex": "#c0a9b3",
+      "name": "Grayish Lavender 2"
+    },
+    {
+      "slug": "laelia-pink",
+      "hex": "#ca92a8",
+      "name": "Laelia Pink"
+    },
+    {
+      "slug": "lilac",
+      "hex": "#b984af",
+      "name": "Lilac"
+    },
+    {
+      "slug": "eupatorium-purple",
+      "hex": "#bf5892",
+      "name": "Eupatorium Purple"
+    },
+    {
+      "slug": "light-mauve",
+      "hex": "#9a72aa",
+      "name": "Light Mauve"
+    },
+    {
+      "slug": "aconite-violet",
+      "hex": "#a36aa5",
+      "name": "Aconite Violet"
+    },
+    {
+      "slug": "dull-blue-violet",
+      "hex": "#80719e",
+      "name": "Dull Blue Violet"
+    },
+    {
+      "slug": "dark-soft-violet",
+      "hex": "#66629c",
+      "name": "Dark Soft Violet"
+    },
+    {
+      "slug": "blue-violet",
+      "hex": "#6450a1",
+      "name": "Blue Violet"
+    },
+    {
+      "slug": "violet-ultramarine",
+      "hex": "#522e91",
+      "name": "Violet Ultramarine"
+    },
+    {
+      "slug": "purple-drab",
+      "hex": "#84565b",
+      "name": "Purple Drab"
+    },
+    {
+      "slug": "deep-violet-plumbeous",
+      "hex": "#70727c",
+      "name": "Deep Violet Plumbeous"
+    },
+    {
+      "slug": "vernonia-purple",
+      "hex": "#8c4c62",
+      "name": "Vernonia Purple"
+    },
+    {
+      "slug": "dark-slate-purple",
+      "hex": "#704357",
+      "name": "Dark Slate Purple"
+    },
+    {
+      "slug": "taupe-brown",
+      "hex": "#7a4456",
+      "name": "Taupe Brown"
+    },
+    {
+      "slug": "violet-carmine",
+      "hex": "#713b4c",
+      "name": "Violet Carmine"
+    },
+    {
+      "slug": "violet",
+      "hex": "#4f4086",
+      "name": "Violet"
+    },
+    {
+      "slug": "red-violet",
+      "hex": "#59256a",
+      "name": "Red Violet"
+    },
+    {
+      "slug": "cotinga-purple",
+      "hex": "#501345",
+      "name": "Cotinga Purple"
+    },
+    {
+      "slug": "dusky-madder-violet",
+      "hex": "#4e1d4c",
+      "name": "Dusky Madder Violet"
+    },
+    {
+      "slug": "dark-perilla-purple",
+      "hex": "#542e36",
+      "name": "Dark Perilla Purple"
+    },
+    {
+      "slug": "dull-purplish-black",
+      "hex": "#443b35",
+      "name": "Dull Purplish Black"
+    },
+    {
+      "slug": "white",
+      "hex": "#ffffff",
+      "name": "White"
+    },
+    {
+      "slug": "neutral-gray",
+      "hex": "#b6bfc1",
+      "name": "Neutral Gray"
+    },
+    {
+      "slug": "mineral-gray",
+      "hex": "#a2b0ad",
+      "name": "Mineral Gray"
+    },
+    {
+      "slug": "warm-gray",
+      "hex": "#a1a39a",
+      "name": "Warm Gray"
+    },
+    {
+      "slug": "slate-color",
+      "hex": "#34454c",
+      "name": "Slate Color"
+    },
+    {
+      "slug": "black",
+      "hex": "#111314",
+      "name": "Black"
+    }
+  ]
+}

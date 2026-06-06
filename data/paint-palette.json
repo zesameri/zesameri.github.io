@@ -1,0 +1,1353 @@
+{
+  "groups": [
+    {
+      "id": "reds",
+      "label": "Reds & pinks"
+    },
+    {
+      "id": "oranges-yellows",
+      "label": "Oranges & yellows"
+    },
+    {
+      "id": "greens",
+      "label": "Greens"
+    },
+    {
+      "id": "blues",
+      "label": "Blues & turquoise"
+    },
+    {
+      "id": "purples",
+      "label": "Purples & violets"
+    },
+    {
+      "id": "browns-earth",
+      "label": "Browns & earth"
+    },
+    {
+      "id": "neutrals",
+      "label": "Neutrals"
+    }
+  ],
+  "colors": {
+    "reds": [
+      {
+        "hex": "#f00000",
+        "name": "Vivid Spectrum Red",
+        "source": "grid"
+      },
+      {
+        "hex": "#c00000",
+        "name": "Bright Carmine",
+        "source": "grid"
+      },
+      {
+        "hex": "#802626",
+        "name": "Pale Burnt Lake",
+        "wadaName": "Pale Burnt Lake",
+        "source": "wada"
+      },
+      {
+        "hex": "#900000",
+        "name": "Deep Burnt Lake",
+        "source": "grid"
+      },
+      {
+        "hex": "#600000",
+        "name": "Dark Lake Red",
+        "source": "grid"
+      },
+      {
+        "hex": "#300000",
+        "name": "Blackish Red",
+        "source": "grid"
+      },
+      {
+        "hex": "#e2625e",
+        "name": "Eugenia Red 1",
+        "wadaName": "Eugenia Red 1",
+        "source": "wada"
+      },
+      {
+        "hex": "#82241f",
+        "name": "Vandyke Red",
+        "wadaName": "Vandyke Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#ab544d",
+        "name": "Ocher Red",
+        "wadaName": "Ocher Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#f58e84",
+        "name": "Coral Red",
+        "wadaName": "Coral Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#c55347",
+        "name": "Etruscan Red",
+        "wadaName": "Etruscan Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#fa8072",
+        "name": "salmon",
+        "source": "grid"
+      },
+      {
+        "hex": "#dd4027",
+        "name": "Red Orange",
+        "wadaName": "Red Orange",
+        "source": "wada"
+      },
+      {
+        "hex": "#3e2723",
+        "name": "Dark Russet Brown",
+        "source": "grid"
+      },
+      {
+        "hex": "#f15a30",
+        "name": "Peach Red",
+        "wadaName": "Peach Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#eb5324",
+        "name": "Jasper Red",
+        "wadaName": "Jasper Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#a84222",
+        "name": "Brick Red",
+        "wadaName": "Brick Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#d96629",
+        "name": "English Red",
+        "wadaName": "English Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#c27544",
+        "name": "Cinnamon Rufous",
+        "wadaName": "Cinnamon Rufous",
+        "source": "wada"
+      },
+      {
+        "hex": "#c16b27",
+        "name": "Orange Rufous",
+        "wadaName": "Orange Rufous",
+        "source": "wada"
+      },
+      {
+        "hex": "#59256a",
+        "name": "Red Violet",
+        "wadaName": "Red Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#dda0dd",
+        "name": "plum",
+        "source": "grid"
+      },
+      {
+        "hex": "#642d5e",
+        "name": "Violet Red",
+        "wadaName": "Violet Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#b71f57",
+        "name": "Pomegranate Purple",
+        "wadaName": "Pomegranate Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#c53c69",
+        "name": "Indian Lake",
+        "wadaName": "Indian Lake",
+        "source": "wada"
+      },
+      {
+        "hex": "#713b4c",
+        "name": "Violet Carmine",
+        "wadaName": "Violet Carmine",
+        "source": "wada"
+      },
+      {
+        "hex": "#a72144",
+        "name": "Red",
+        "wadaName": "Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#f27291",
+        "name": "Spinel Red",
+        "wadaName": "Spinel Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#cc1236",
+        "name": "Carmine",
+        "wadaName": "Carmine",
+        "source": "wada"
+      },
+      {
+        "hex": "#ab2439",
+        "name": "Pompeian Red",
+        "wadaName": "Pompeian Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#a94151",
+        "name": "Hydrangea Red",
+        "wadaName": "Hydrangea Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#cb2f43",
+        "name": "Scarlet",
+        "wadaName": "Scarlet",
+        "source": "wada"
+      },
+      {
+        "hex": "#6d4145",
+        "name": "Vistoris Lake",
+        "wadaName": "Vistoris Lake",
+        "source": "wada"
+      },
+      {
+        "hex": "#a62c37",
+        "name": "Carmine Red",
+        "wadaName": "Carmine Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#da525d",
+        "name": "Eugenia Red 2",
+        "wadaName": "Eugenia Red 2",
+        "source": "wada"
+      },
+      {
+        "hex": "#e31f26",
+        "name": "Spectrum Red",
+        "wadaName": "Spectrum Red",
+        "source": "wada"
+      },
+      {
+        "hex": "#fde2dd",
+        "name": "Pale Purplish Vinaceous",
+        "wadaName": "Pale Purplish Vinaceous",
+        "source": "wada"
+      },
+      {
+        "hex": "#f6917e",
+        "name": "Fresh Color",
+        "wadaName": "Fresh Color",
+        "source": "wada"
+      },
+      {
+        "hex": "#f48067",
+        "name": "Grenadine Pink",
+        "wadaName": "Grenadine Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#fdd4bd",
+        "name": "Seashell Pink",
+        "wadaName": "Seashell Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#fcc79b",
+        "name": "Light Pinkish Cinnamon",
+        "wadaName": "Light Pinkish Cinnamon",
+        "source": "wada"
+      },
+      {
+        "hex": "#eeb480",
+        "name": "Pinkish Cinnamon",
+        "wadaName": "Pinkish Cinnamon",
+        "source": "wada"
+      },
+      {
+        "hex": "#f4deca",
+        "name": "Pale Cinammon-Pink",
+        "wadaName": "Pale Cinammon-Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#ca92a8",
+        "name": "Laelia Pink",
+        "wadaName": "Laelia Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#f9c1ce",
+        "name": "Hermosa Pink",
+        "wadaName": "Hermosa Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#f37f94",
+        "name": "Eosine Pink",
+        "wadaName": "Eosine Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#d46d7a",
+        "name": "Old Rose",
+        "wadaName": "Old Rose",
+        "source": "wada"
+      },
+      {
+        "hex": "#e0b3b6",
+        "name": "Cameo Pink",
+        "wadaName": "Cameo Pink",
+        "source": "wada"
+      },
+      {
+        "hex": "#f8b6ba",
+        "name": "Corinthian Pink",
+        "wadaName": "Corinthian Pink",
+        "source": "wada"
+      }
+    ],
+    "oranges-yellows": [
+      {
+        "hex": "#ff6b35",
+        "name": "Flame Orange",
+        "source": "grid"
+      },
+      {
+        "hex": "#eea78c",
+        "name": "Vinaceous Cinnamon",
+        "wadaName": "Vinaceous Cinnamon",
+        "source": "wada"
+      },
+      {
+        "hex": "#f68c50",
+        "name": "Apricot Orange",
+        "wadaName": "Apricot Orange",
+        "source": "wada"
+      },
+      {
+        "hex": "#f37420",
+        "name": "Orange",
+        "wadaName": "Orange",
+        "source": "wada"
+      },
+      {
+        "hex": "#d2691e",
+        "name": "chocolate",
+        "source": "grid"
+      },
+      {
+        "hex": "#d8a37b",
+        "name": "Ochraceous Salmon",
+        "wadaName": "Ochraceous Salmon",
+        "source": "wada"
+      },
+      {
+        "hex": "#e1904e",
+        "name": "Ochraceous Orange",
+        "source": "grid"
+      },
+      {
+        "hex": "#f7931e",
+        "name": "Golden Orange",
+        "source": "grid"
+      },
+      {
+        "hex": "#ffdead",
+        "name": "navajowhite",
+        "source": "grid"
+      },
+      {
+        "hex": "#ffebcd",
+        "name": "blanchedalmond",
+        "source": "grid"
+      },
+      {
+        "hex": "#f5deb3",
+        "name": "wheat",
+        "source": "grid"
+      },
+      {
+        "hex": "#daa520",
+        "name": "goldenrod",
+        "source": "grid"
+      },
+      {
+        "hex": "#96874d",
+        "name": "Dull Citrine",
+        "wadaName": "Dull Citrine",
+        "source": "wada"
+      },
+      {
+        "hex": "#f3a257",
+        "name": "Golden Yellow",
+        "wadaName": "Golden Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#f0b77d",
+        "name": "Light Cinnamon Buff",
+        "source": "grid"
+      },
+      {
+        "hex": "#f6c790",
+        "name": "Pale Maple",
+        "source": "grid"
+      },
+      {
+        "hex": "#fdc57e",
+        "name": "Cinnamon Buff",
+        "wadaName": "Cinnamon Buff",
+        "source": "wada"
+      },
+      {
+        "hex": "#c59f6b",
+        "name": "Maple",
+        "wadaName": "Maple",
+        "source": "wada"
+      },
+      {
+        "hex": "#fdbf68",
+        "name": "Cream Yellow",
+        "wadaName": "Cream Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#f99d1b",
+        "name": "Yellow Orange",
+        "wadaName": "Yellow Orange",
+        "source": "wada"
+      },
+      {
+        "hex": "#c5a56e",
+        "name": "Isabella Color",
+        "wadaName": "Isabella Color",
+        "source": "wada"
+      },
+      {
+        "hex": "#ebd3a2",
+        "name": "Ivory Buff",
+        "wadaName": "Ivory Buff",
+        "source": "wada"
+      },
+      {
+        "hex": "#fcb315",
+        "name": "Orange Yellow",
+        "wadaName": "Orange Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#e2b540",
+        "name": "Yellow Ocher",
+        "wadaName": "Yellow Ocher",
+        "source": "wada"
+      },
+      {
+        "hex": "#d4a017",
+        "name": "Deep Golden Ocher",
+        "source": "grid"
+      },
+      {
+        "hex": "#fbe6a0",
+        "name": "Naples Yellow",
+        "wadaName": "Naples Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#c19f2c",
+        "name": "Sulphine Yellow",
+        "wadaName": "Sulphine Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#d6b43e",
+        "name": "Olive Ocher",
+        "wadaName": "Olive Ocher",
+        "source": "wada"
+      },
+      {
+        "hex": "#f0e6be",
+        "name": "Sea-foam Yellow",
+        "wadaName": "Sea-foam Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#cab356",
+        "name": "Pyrite Yellow",
+        "wadaName": "Pyrite Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#ffefae",
+        "name": "Pale Lemon Yellow",
+        "wadaName": "Pale Lemon Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#f5ecc2",
+        "name": "Sulphur Yellow",
+        "wadaName": "Sulphur Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#ffdd00",
+        "name": "Apricot Yellow",
+        "wadaName": "Apricot Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#f8ed43",
+        "name": "Lemon Yellow",
+        "wadaName": "Lemon Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#fff200",
+        "name": "Yellow",
+        "wadaName": "Yellow",
+        "source": "wada"
+      }
+    ],
+    "greens": [
+      {
+        "hex": "#c7d14f",
+        "name": "Light Green Yellow",
+        "wadaName": "Light Green Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#afd472",
+        "name": "Yellow Green",
+        "wadaName": "Yellow Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#c1c494",
+        "name": "Olive Buff",
+        "wadaName": "Olive Buff",
+        "source": "wada"
+      },
+      {
+        "hex": "#b2b73e",
+        "name": "Citron Yellow",
+        "wadaName": "Citron Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#a6a159",
+        "name": "Olive Yellow",
+        "wadaName": "Olive Yellow",
+        "source": "wada"
+      },
+      {
+        "hex": "#a49531",
+        "name": "Citrine",
+        "wadaName": "Citrine",
+        "source": "wada"
+      },
+      {
+        "hex": "#8b835b",
+        "name": "Dark Citrine",
+        "wadaName": "Dark Citrine",
+        "source": "wada"
+      },
+      {
+        "hex": "#806e4b",
+        "name": "Light Brownish Olive",
+        "wadaName": "Light Brownish Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#837e31",
+        "name": "Olive",
+        "wadaName": "Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#84875e",
+        "name": "Kronbergs Green",
+        "wadaName": "Kronbergs Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#555832",
+        "name": "Lincoln Green",
+        "wadaName": "Lincoln Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#a2a865",
+        "name": "Grape Green",
+        "wadaName": "Grape Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#6b7140",
+        "name": "Olive Green",
+        "wadaName": "Olive Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#819238",
+        "name": "Oil Green",
+        "wadaName": "Oil Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#c3cd9d",
+        "name": "Pale Turtle Green",
+        "wadaName": "Pale Turtle Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#788860",
+        "name": "Rainette Green",
+        "wadaName": "Rainette Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#b7c2a9",
+        "name": "Dark Greenish Glaucous",
+        "wadaName": "Dark Greenish Glaucous",
+        "source": "wada"
+      },
+      {
+        "hex": "#87c540",
+        "name": "Light Green",
+        "wadaName": "Light Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#253122",
+        "name": "Deep Slate Olive",
+        "wadaName": "Deep Slate Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#719470",
+        "name": "Chromium Green",
+        "wadaName": "Chromium Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#437742",
+        "name": "Cossack Green",
+        "wadaName": "Cossack Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#96d1aa",
+        "name": "Cobalt Green",
+        "wadaName": "Cobalt Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#489b6e",
+        "name": "Green",
+        "wadaName": "Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#008842",
+        "name": "Diamine Green",
+        "wadaName": "Diamine Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#648f7b",
+        "name": "Pistachio Green",
+        "wadaName": "Pistachio Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#b4cdc2",
+        "name": "Glaucous Green",
+        "wadaName": "Glaucous Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#b5decc",
+        "name": "Turquoise Green",
+        "wadaName": "Turquoise Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#2d4a3e",
+        "name": "Deep Grayish Olive",
+        "source": "grid"
+      },
+      {
+        "hex": "#6d7e77",
+        "name": "Andover Green",
+        "wadaName": "Andover Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#3d6b5a",
+        "name": "Medium Sea Glaucous",
+        "source": "grid"
+      },
+      {
+        "hex": "#7fffd4",
+        "name": "aquamarine",
+        "source": "grid"
+      },
+      {
+        "hex": "#009465",
+        "name": "Dull Viridian Green",
+        "wadaName": "Dull Viridian Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#1a3a30",
+        "name": "Blackish Olive",
+        "source": "grid"
+      },
+      {
+        "hex": "#00b49b",
+        "name": "Sea Green",
+        "wadaName": "Sea Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#004f46",
+        "name": "Dusky Green",
+        "wadaName": "Dusky Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#112f2c",
+        "name": "Deep Slate Green",
+        "wadaName": "Deep Slate Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#709390",
+        "name": "Artemisia Green",
+        "wadaName": "Artemisia Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#62c6bf",
+        "name": "Venice Green",
+        "wadaName": "Venice Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#00978d",
+        "name": "Benzol Green",
+        "wadaName": "Benzol Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#00908a",
+        "name": "Light Porcelain Green",
+        "wadaName": "Light Porcelain Green",
+        "source": "wada"
+      },
+      {
+        "hex": "#099197",
+        "name": "Green Blue",
+        "wadaName": "Green Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#a5c8d1",
+        "name": "Light Glaucous Blue",
+        "wadaName": "Light Glaucous Blue",
+        "source": "wada"
+      }
+    ],
+    "blues": [
+      {
+        "hex": "#1e90ff",
+        "name": "dodgerblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#78bcff",
+        "name": "Pale Cerulean Blue",
+        "source": "grid"
+      },
+      {
+        "hex": "#f0f3e7",
+        "name": "Pale King&#x27;s Blue 1",
+        "wadaName": "Pale King&#x27;s Blue 1",
+        "source": "wada"
+      },
+      {
+        "hex": "#1b5e4a",
+        "name": "Deep Sea Green",
+        "source": "grid"
+      },
+      {
+        "hex": "#062422",
+        "name": "Blackish Slate Green",
+        "source": "grid"
+      },
+      {
+        "hex": "#79d1cc",
+        "name": "Pale Turquoise Green",
+        "source": "grid"
+      },
+      {
+        "hex": "#136b66",
+        "name": "Deep Peacock Blue",
+        "source": "grid"
+      },
+      {
+        "hex": "#20b2aa",
+        "name": "lightseagreen",
+        "source": "grid"
+      },
+      {
+        "hex": "#e0ffff",
+        "name": "lightcyan",
+        "source": "grid"
+      },
+      {
+        "hex": "#afeeee",
+        "name": "paleturquoise",
+        "source": "grid"
+      },
+      {
+        "hex": "#0a4a4a",
+        "name": "Dark Cyan Green",
+        "source": "grid"
+      },
+      {
+        "hex": "#004d4d",
+        "name": "Deep Turquoise Green",
+        "source": "grid"
+      },
+      {
+        "hex": "#bce4e5",
+        "name": "Nile Blue",
+        "wadaName": "Nile Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#78cdd0",
+        "name": "Calamine Blue",
+        "wadaName": "Calamine Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#00939b",
+        "name": "Peacock Blue",
+        "wadaName": "Peacock Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#54afb4",
+        "name": "Pale Methyl Blue",
+        "wadaName": "Pale Methyl Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#0093a5",
+        "name": "Cerulean Blue",
+        "wadaName": "Cerulean Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#b0e0e6",
+        "name": "powderblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#547076",
+        "name": "Dark Medici Blue",
+        "wadaName": "Dark Medici Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#007190",
+        "name": "Antwarp Blue",
+        "wadaName": "Antwarp Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#00bfff",
+        "name": "deepskyblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#a7d4e4",
+        "name": "Pale King&#x27;s Blue 2",
+        "wadaName": "Pale King&#x27;s Blue 2",
+        "source": "wada"
+      },
+      {
+        "hex": "#87ceeb",
+        "name": "skyblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#064f6e",
+        "name": "Vandar Poel&#x27;s Blue",
+        "wadaName": "Vandar Poel&#x27;s Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#005b8d",
+        "name": "Helvetia Blue",
+        "wadaName": "Helvetia Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#006eb8",
+        "name": "Blue",
+        "wadaName": "Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#12354e",
+        "name": "Dark Tyrian Blue",
+        "wadaName": "Dark Tyrian Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#5a82b3",
+        "name": "Olympic Blue",
+        "wadaName": "Olympic Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#97acc8",
+        "name": "Salvia Blue",
+        "wadaName": "Salvia Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#1c4286",
+        "name": "Deep Lyons Blue",
+        "wadaName": "Deep Lyons Blue",
+        "source": "wada"
+      },
+      {
+        "hex": "#051230",
+        "name": "Deep Indigo",
+        "wadaName": "Deep Indigo",
+        "source": "wada"
+      },
+      {
+        "hex": "#40456a",
+        "name": "Violet Blue",
+        "wadaName": "Violet Blue",
+        "source": "wada"
+      }
+    ],
+    "purples": [
+      {
+        "hex": "#6450a1",
+        "name": "Blue Violet",
+        "wadaName": "Blue Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#80719e",
+        "name": "Dull Blue Violet",
+        "wadaName": "Dull Blue Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#4169e1",
+        "name": "royalblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#70727c",
+        "name": "Deep Violet Plumbeous",
+        "wadaName": "Deep Violet Plumbeous",
+        "source": "wada"
+      },
+      {
+        "hex": "#ccccff",
+        "name": "Pale Periwinkle",
+        "source": "grid"
+      },
+      {
+        "hex": "#6666ff",
+        "name": "Light Violet Blue",
+        "source": "grid"
+      },
+      {
+        "hex": "#0000aa",
+        "name": "Deep Medici Blue",
+        "source": "grid"
+      },
+      {
+        "hex": "#191970",
+        "name": "midnightblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#000080",
+        "name": "navy",
+        "source": "grid"
+      },
+      {
+        "hex": "#000055",
+        "name": "Dark Indigo Blue",
+        "source": "grid"
+      },
+      {
+        "hex": "#66629c",
+        "name": "Dark Soft Violet",
+        "wadaName": "Dark Soft Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#7b68ee",
+        "name": "mediumslateblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#4f4086",
+        "name": "Violet",
+        "wadaName": "Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#9370db",
+        "name": "mediumpurple",
+        "source": "grid"
+      },
+      {
+        "hex": "#5c4d7a",
+        "name": "Slate Purple",
+        "source": "grid"
+      },
+      {
+        "hex": "#b19cd9",
+        "name": "Light Lilac",
+        "source": "grid"
+      },
+      {
+        "hex": "#522e91",
+        "name": "Violet Ultramarine",
+        "wadaName": "Violet Ultramarine",
+        "source": "wada"
+      },
+      {
+        "hex": "#663399",
+        "name": "rebeccapurple",
+        "source": "grid"
+      },
+      {
+        "hex": "#4b0082",
+        "name": "indigo",
+        "source": "grid"
+      },
+      {
+        "hex": "#290146",
+        "name": "Blackish Violet",
+        "source": "grid"
+      },
+      {
+        "hex": "#9a72aa",
+        "name": "Light Mauve",
+        "wadaName": "Light Mauve",
+        "source": "wada"
+      },
+      {
+        "hex": "#a36aa5",
+        "name": "Aconite Violet",
+        "wadaName": "Aconite Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#4e1d4c",
+        "name": "Dusky Madder Violet",
+        "wadaName": "Dusky Madder Violet",
+        "source": "wada"
+      },
+      {
+        "hex": "#501345",
+        "name": "Cotinga Purple",
+        "wadaName": "Cotinga Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#b984af",
+        "name": "Lilac",
+        "wadaName": "Lilac",
+        "source": "wada"
+      },
+      {
+        "hex": "#bf5892",
+        "name": "Eupatorium Purple",
+        "wadaName": "Eupatorium Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#704357",
+        "name": "Dark Slate Purple",
+        "wadaName": "Dark Slate Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#b73f74",
+        "name": "Rosolanc Purple",
+        "wadaName": "Rosolanc Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#7d133a",
+        "name": "Pansy Purple",
+        "wadaName": "Pansy Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#8c4c62",
+        "name": "Vernonia Purple",
+        "wadaName": "Vernonia Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#542e36",
+        "name": "Dark Perilla Purple",
+        "wadaName": "Dark Perilla Purple",
+        "source": "wada"
+      },
+      {
+        "hex": "#84565b",
+        "name": "Purple Drab",
+        "wadaName": "Purple Drab",
+        "source": "wada"
+      }
+    ],
+    "browns-earth": [
+      {
+        "hex": "#bc892b",
+        "name": "Khaki / Tawny Olive",
+        "wadaName": "Khaki / Tawny Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#8b6914",
+        "name": "Dark Golden Ocher",
+        "source": "grid"
+      },
+      {
+        "hex": "#7e3f12",
+        "name": "Burnt Umber Brown",
+        "source": "grid"
+      },
+      {
+        "hex": "#986f2d",
+        "name": "Orange Citrine",
+        "wadaName": "Orange Citrine",
+        "source": "wada"
+      },
+      {
+        "hex": "#c56127",
+        "name": "Vinaceous Tawny",
+        "wadaName": "Vinaceous Tawny",
+        "source": "wada"
+      },
+      {
+        "hex": "#cccccc",
+        "name": "Light Drab",
+        "source": "grid"
+      },
+      {
+        "hex": "#b59392",
+        "name": "Light Brown Drab",
+        "wadaName": "Light Brown Drab",
+        "source": "wada"
+      },
+      {
+        "hex": "#793327",
+        "name": "Hay&#x27;s Russet",
+        "wadaName": "Hay&#x27;s Russet",
+        "source": "wada"
+      },
+      {
+        "hex": "#762c19",
+        "name": "Madder Brown",
+        "wadaName": "Madder Brown",
+        "source": "wada"
+      },
+      {
+        "hex": "#d1b0a7",
+        "name": "Fawn",
+        "wadaName": "Fawn",
+        "source": "wada"
+      },
+      {
+        "hex": "#a36752",
+        "name": "Sudan Brown",
+        "wadaName": "Sudan Brown",
+        "source": "wada"
+      },
+      {
+        "hex": "#7c4226",
+        "name": "Brown",
+        "wadaName": "Brown",
+        "source": "wada"
+      },
+      {
+        "hex": "#c5b7b0",
+        "name": "Pale Ecru-Drab",
+        "wadaName": "Pale Ecru-Drab",
+        "source": "wada"
+      },
+      {
+        "hex": "#ae5224",
+        "name": "Burnt Sienna",
+        "wadaName": "Burnt Sienna",
+        "source": "wada"
+      },
+      {
+        "hex": "#653514",
+        "name": "Mars Brown Tobacco",
+        "wadaName": "Mars Brown Tobacco",
+        "source": "wada"
+      },
+      {
+        "hex": "#71502f",
+        "name": "Pale Raw Umber",
+        "wadaName": "Pale Raw Umber",
+        "source": "wada"
+      },
+      {
+        "hex": "#bb7125",
+        "name": "Raw Sienna",
+        "wadaName": "Raw Sienna",
+        "source": "wada"
+      },
+      {
+        "hex": "#4b3317",
+        "name": "Vandyke Brown",
+        "wadaName": "Vandyke Brown",
+        "source": "wada"
+      },
+      {
+        "hex": "#c2ae93",
+        "name": "Ecru",
+        "wadaName": "Ecru",
+        "source": "wada"
+      },
+      {
+        "hex": "#644b1e",
+        "name": "Sepia",
+        "wadaName": "Sepia",
+        "source": "wada"
+      },
+      {
+        "hex": "#7a4456",
+        "name": "Taupe Brown",
+        "wadaName": "Taupe Brown",
+        "source": "wada"
+      }
+    ],
+    "neutrals": [
+      {
+        "hex": "#ffffff",
+        "name": "white",
+        "wadaName": "White",
+        "source": "wada"
+      },
+      {
+        "hex": "#f0f8ff",
+        "name": "aliceblue",
+        "source": "grid"
+      },
+      {
+        "hex": "#b5b1d8",
+        "name": "Grayish Lavender 1",
+        "wadaName": "Grayish Lavender 1",
+        "source": "wada"
+      },
+      {
+        "hex": "#b6bfc1",
+        "name": "Neutral Gray",
+        "wadaName": "Neutral Gray",
+        "source": "wada"
+      },
+      {
+        "hex": "#c0a9b3",
+        "name": "Grayish Lavender 2",
+        "wadaName": "Grayish Lavender 2",
+        "source": "wada"
+      },
+      {
+        "hex": "#a2b0ad",
+        "name": "Mineral Gray",
+        "wadaName": "Mineral Gray",
+        "source": "wada"
+      },
+      {
+        "hex": "#a1a39a",
+        "name": "Warm Gray",
+        "wadaName": "Warm Gray",
+        "source": "wada"
+      },
+      {
+        "hex": "#848061",
+        "name": "Light Grayish Olive",
+        "wadaName": "Light Grayish Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#635a3a",
+        "name": "Deep Grayish Olive",
+        "wadaName": "Deep Grayish Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#42533e",
+        "name": "Blackish Olive",
+        "wadaName": "Blackish Olive",
+        "source": "wada"
+      },
+      {
+        "hex": "#34454c",
+        "name": "Slate Color",
+        "wadaName": "Slate Color",
+        "source": "wada"
+      },
+      {
+        "hex": "#443b35",
+        "name": "Dull Purplish Black",
+        "wadaName": "Dull Purplish Black",
+        "source": "wada"
+      },
+      {
+        "hex": "#2f2f2f",
+        "name": "Dark Mineral Gray",
+        "source": "grid"
+      },
+      {
+        "hex": "#0d1c43",
+        "name": "Dull Violet Black",
+        "wadaName": "Dull Violet Black",
+        "source": "wada"
+      },
+      {
+        "hex": "#1c1c1c",
+        "name": "Deep Slate Color",
+        "source": "grid"
+      },
+      {
+        "hex": "#111314",
+        "name": "Black",
+        "wadaName": "Black",
+        "source": "wada"
+      }
+    ]
+  }
+}
