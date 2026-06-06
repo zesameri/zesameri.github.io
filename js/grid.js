@@ -274,7 +274,7 @@
     var cellPx = 20;
     var gridPx = 24 * cellPx;
     var borderPx = 32;
-    var text = 'thanks for coming ❋ z e s a m e r i';
+    var text = 'thanks for coming ❋ zesameri';
     var textGap = 36;
     var textSize = 16;
 
