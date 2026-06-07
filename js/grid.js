@@ -2,6 +2,8 @@
   var SILVER_INDICES = new Set([0, 2, 4, 6, 8, 10, 13, 15, 17, 19, 21, 23]);
   var SILVER_HEX = '#c0c0c0';
   var BLACK_HEX = '#000000';
+  var WHITE_HEX = '#ffffff';
+  var rampTarget = 'black';
   var RAMP_STEPS = 5;
   var mode = 'brush';
   var rampStartTd = null;
@@ -15,8 +17,7 @@
   var recentColors = [];
   var MAX_RECENT = 10;
   var strokeColor = null;
-  var silverColWeight = 1;
-  var silverRowWeight = 1;
+  var silverWeight = 1;
 
   function isSilverIndex(i) {
     return SILVER_INDICES.has(i);
@@ -27,11 +28,11 @@
   }
 
   function colWeight(c) {
-    return isSilverIndex(c) ? silverColWeight : 1;
+    return isSilverIndex(c) ? silverWeight : 1;
   }
 
   function rowWeight(r) {
-    return isSilverIndex(r) ? silverRowWeight : 1;
+    return isSilverIndex(r) ? silverWeight : 1;
   }
 
   function axisWeights(count, weightFn) {
@@ -45,9 +46,16 @@
   }
 
   function applyGridSizing() {
+    var wrap = document.querySelector('.grid-wrap');
     var table = document.getElementById('grid');
-    var cols = axisWeights(24, colWeight);
-    var rows = axisWeights(24, rowWeight);
+    if (!wrap || !table.rows.length) return;
+    var rect = wrap.getBoundingClientRect();
+    var w = Math.round(rect.width);
+    var h = Math.round(rect.height);
+    if (w < 1 || h < 1) return;
+
+    var colSizes = axisPixelSizes(w, 24, colWeight);
+    var rowSizes = axisPixelSizes(h, 24, rowWeight);
     var colgroup = table.querySelector('colgroup');
     if (!colgroup) {
       colgroup = document.createElement('colgroup');
@@ -56,12 +64,51 @@
       }
       table.insertBefore(colgroup, table.firstChild);
     }
+    table.style.width = w + 'px';
+    table.style.height = h + 'px';
     colgroup.querySelectorAll('col').forEach(function (col, c) {
-      col.style.width = (cols.weights[c] / cols.total * 100) + '%';
+      col.style.width = colSizes[c] + 'px';
     });
     for (var r = 0; r < 24; r++) {
-      table.rows[r].style.height = (rows.weights[r] / rows.total * 100) + '%';
+      table.rows[r].style.height = rowSizes[r] + 'px';
     }
+  }
+
+  var sizingAttempts = 0;
+
+  function gridIsSized() {
+    var wrap = document.querySelector('.grid-wrap');
+    var table = document.getElementById('grid');
+    if (!wrap || !table || !table.rows.length) return false;
+    var wrapRect = wrap.getBoundingClientRect();
+    var tableRect = table.getBoundingClientRect();
+    if (wrapRect.width < 1 || wrapRect.height < 1) return false;
+    return tableRect.width >= wrapRect.width - 2 && tableRect.height >= wrapRect.height - 2;
+  }
+
+  function scheduleGridSizing() {
+    applyGridSizing();
+    if (gridIsSized()) return;
+    if (sizingAttempts++ > 120) return;
+    requestAnimationFrame(scheduleGridSizing);
+  }
+
+  function watchGridResize() {
+    var wrap = document.querySelector('.grid-wrap');
+    var stage = document.querySelector('.grid-stage');
+    if (!wrap) return;
+    var onResize = function () { applyGridSizing(); };
+    if (window.ResizeObserver) {
+      var observer = new ResizeObserver(onResize);
+      observer.observe(wrap);
+      if (stage) observer.observe(stage);
+    }
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', function () {
+      sizingAttempts = 0;
+      setTimeout(scheduleGridSizing, 50);
+    });
+    window.addEventListener('load', onResize);
   }
 
   function axisPixelSizes(totalPx, count, weightFn) {
@@ -116,25 +163,61 @@
     }).join('');
   }
 
-  function buildBlackRamp(hex, steps) {
+  function rampEndRgb(target) {
+    return target === 'white' ? { r: 255, g: 255, b: 255 } : { r: 0, g: 0, b: 0 };
+  }
+
+  function rampEndHex(target) {
+    return target === 'white' ? WHITE_HEX : BLACK_HEX;
+  }
+
+  function buildToneRamp(hex, steps, target) {
     var start = hexToRgb(hex);
+    var end = rampEndRgb(target);
     var ramp = [];
     for (var i = 0; i <= steps; i++) {
       var t = i / steps;
       ramp.push(rgbToHex(
-        start.r * (1 - t),
-        start.g * (1 - t),
-        start.b * (1 - t)
+        start.r + (end.r - start.r) * t,
+        start.g + (end.g - start.g) * t,
+        start.b + (end.b - start.b) * t
       ));
     }
     return ramp;
+  }
+
+  function rampTargetLabel() {
+    return rampTarget === 'white' ? 'To white' : 'To black';
+  }
+
+  function updateRampTargetUI() {
+    var label = document.getElementById('toneRampLabel');
+    var ramp = document.getElementById('toneRamp');
+    if (label) {
+      label.textContent = rampTargetLabel();
+      label.setAttribute('aria-pressed', rampTarget === 'white' ? 'true' : 'false');
+    }
+    if (ramp) {
+      ramp.setAttribute('aria-label', 'Five steps from color to ' + rampTarget);
+    }
+    var rampBtn = document.getElementById('rampBtn');
+    if (rampBtn) {
+      rampBtn.setAttribute('aria-label', 'Ramp to ' + rampTarget);
+      rampBtn.title = 'Ramp to ' + rampTarget + ' — drag on grid';
+    }
+  }
+
+  function toggleRampTarget() {
+    rampTarget = rampTarget === 'black' ? 'white' : 'black';
+    updateRampTargetUI();
+    updateCurrentUI();
   }
 
   function renderToneRamp() {
     var container = document.getElementById('toneRamp');
     container.innerHTML = '';
     if (mode === 'eraser') return;
-    var ramp = buildBlackRamp(currentColor, RAMP_STEPS);
+    var ramp = buildToneRamp(currentColor, RAMP_STEPS, rampTarget);
     ramp.forEach(function (hex, i) {
       var btn = document.createElement('button');
       btn.type = 'button';
@@ -161,7 +244,7 @@
     var c0 = +fromTd.dataset.c;
     var r1 = +toTd.dataset.r;
     var c1 = +toTd.dataset.c;
-    var ramp = buildBlackRamp(currentColor, RAMP_STEPS);
+    var ramp = buildToneRamp(currentColor, RAMP_STEPS, rampTarget);
     var dr = r1 - r0;
     var dc = c1 - c0;
 
@@ -334,7 +417,7 @@
       return;
     }
     if (mode === 'ramp') {
-      sw.style.background = 'linear-gradient(to right, ' + currentColor + ', ' + BLACK_HEX + ')';
+      sw.style.background = 'linear-gradient(to right, ' + currentColor + ', ' + rampEndHex(rampTarget) + ')';
       lab.textContent = 'Ramp';
       renderToneRamp();
       return;
@@ -490,10 +573,29 @@
         borderPx + gridPx + borderPx + textGap / 2 + textSize / 2
       );
 
+      var filename = sanitizeFilename(suggestFilename()) + '.png';
+      if (canvas.toBlob) {
+        canvas.toBlob(function (blob) {
+          if (!blob) return;
+          var url = URL.createObjectURL(blob);
+          var link = document.createElement('a');
+          link.download = filename;
+          link.href = url;
+          link.style.display = 'none';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        }, 'image/png');
+        return;
+      }
       var link = document.createElement('a');
-      link.download = sanitizeFilename(suggestFilename()) + '.png';
+      link.download = filename;
       link.href = canvas.toDataURL('image/png');
+      link.style.display = 'none';
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     }
 
     if (document.fonts && document.fonts.load) {
@@ -651,6 +753,7 @@
 
   document.getElementById('brushBtn').addEventListener('click', function () { setMode('brush'); });
   document.getElementById('rampBtn').addEventListener('click', function () { setMode('ramp'); });
+  document.getElementById('toneRampLabel').addEventListener('click', toggleRampTarget);
   dropperBtn.addEventListener('click', function () {
     if (colorPickerPopover.hidden) openColorPicker();
     else closeColorPicker();
@@ -756,12 +859,35 @@
     return (Math.round(value * 100) / 100).toString().replace(/\.?0+$/, '') + '×';
   }
 
-  function bindSilverSizing(inputId, outputId, onChange) {
+  function formatBandUnit(value) {
+    return (Math.round(value * 10) / 10).toString().replace(/\.0$/, '');
+  }
+
+  var AXIS_UNITS = 96;
+
+  function bandWidthsOnAxis(weight) {
+    var silverCount = 12;
+    var paintCount = 12;
+    var totalWeight = silverCount * weight + paintCount;
+    return {
+      silver: (AXIS_UNITS * weight) / totalWeight,
+      paint: AXIS_UNITS / totalWeight
+    };
+  }
+
+  function formatBandWidths(weight) {
+    var widths = bandWidthsOnAxis(weight);
+    return formatBandUnit(widths.silver) + ' silver · ' + formatBandUnit(widths.paint) + ' paint';
+  }
+
+  function bindSilverSizing(inputId, outputId, unitsId, onChange) {
     var input = document.getElementById(inputId);
     var output = document.getElementById(outputId);
+    var units = document.getElementById(unitsId);
     function update() {
       var value = Number(input.value);
       output.textContent = formatWeight(value);
+      if (units) units.textContent = formatBandWidths(value);
       input.setAttribute('aria-valuenow', String(value));
       onChange(value);
       applyGridSizing();
@@ -771,9 +897,10 @@
   }
 
   buildGrid();
-  applyGridSizing();
-  bindSilverSizing('silverColSize', 'silverColSizeVal', function (v) { silverColWeight = v; });
-  bindSilverSizing('silverRowSize', 'silverRowSizeVal', function (v) { silverRowWeight = v; });
+  watchGridResize();
+  scheduleGridSizing();
+  bindSilverSizing('silverSize', 'silverSizeVal', 'silverSizeUnits', function (v) { silverWeight = v; });
+  updateRampTargetUI();
   setBorders(false);
   updateCurrentUI();
 
