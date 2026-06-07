@@ -1,5 +1,10 @@
 (function () {
-  var SILVER_INDICES = new Set([0, 2, 4, 6, 8, 10, 13, 15, 17, 19, 21, 23]);
+  var GRID_FULL = 24;
+  var GRID_COMPACT = 23;
+  var MIDDLE_SKIP = 11;
+  var SILVER_SPLIT = [0, 2, 4, 6, 8, 10, 13, 15, 17, 19, 21, 23];
+  var compactGrid = false;
+  var silverIndices = new Set(SILVER_SPLIT);
   var SILVER_HEX = '#c0c0c0';
   var BLACK_HEX = '#000000';
   var WHITE_HEX = '#ffffff';
@@ -19,8 +24,81 @@
   var strokeColor = null;
   var silverWeight = 1;
 
+  function gridSize() {
+    return compactGrid ? GRID_COMPACT : GRID_FULL;
+  }
+
+  function paintBandCount() {
+    return compactGrid ? 11 : 12;
+  }
+
+  function buildCompactSilverIndices() {
+    var indices = [];
+    for (var i = 0; i < GRID_COMPACT; i += 2) indices.push(i);
+    return indices;
+  }
+
+  function updateSilverIndices() {
+    silverIndices = new Set(compactGrid ? buildCompactSilverIndices() : SILVER_SPLIT);
+  }
+
   function isSilverIndex(i) {
-    return SILVER_INDICES.has(i);
+    return silverIndices.has(i);
+  }
+
+  function copyCellFill(srcTd, destTd) {
+    if (!srcTd || destTd.classList.contains('silver')) return;
+    if (srcTd.classList.contains('filled') && srcTd.style.background && !srcTd.classList.contains('silver')) {
+      destTd.style.background = srcTd.style.background;
+      destTd.classList.add('filled');
+    }
+  }
+
+  function rebuildGrid() {
+    var oldCells = cells;
+    var size = gridSize();
+    var table = document.getElementById('grid');
+    table.innerHTML = '';
+    cells = [];
+
+    for (var r = 0; r < size; r++) {
+      var tr = document.createElement('tr');
+      var row = [];
+      for (var c = 0; c < size; c++) {
+        var td = document.createElement('td');
+        td.dataset.r = r;
+        td.dataset.c = c;
+        if (isSilverCell(r, c)) td.classList.add('silver');
+
+        if (oldCells.length) {
+          var srcTd = null;
+          if (compactGrid && oldCells.length === GRID_FULL) {
+            srcTd = oldCells[r < MIDDLE_SKIP ? r : r + 1][c < MIDDLE_SKIP ? c : c + 1];
+          } else if (!compactGrid && oldCells.length === GRID_COMPACT) {
+            if (r !== MIDDLE_SKIP && c !== MIDDLE_SKIP) {
+              srcTd = oldCells[r < MIDDLE_SKIP ? r : r - 1][c < MIDDLE_SKIP ? c : c - 1];
+            }
+          } else {
+            srcTd = oldCells[r][c];
+          }
+          copyCellFill(srcTd, td);
+        }
+
+        tr.appendChild(td);
+        row.push(td);
+      }
+      table.appendChild(tr);
+      cells.push(row);
+    }
+    sizingAttempts = 0;
+    scheduleGridSizing();
+  }
+
+  function setCompactGrid(on) {
+    if (compactGrid === on) return;
+    compactGrid = on;
+    updateSilverIndices();
+    rebuildGrid();
   }
 
   function isSilverCell(r, c) {
@@ -54,12 +132,17 @@
     var h = Math.round(rect.height);
     if (w < 1 || h < 1) return;
 
-    var colSizes = axisPixelSizes(w, 24, colWeight);
-    var rowSizes = axisPixelSizes(h, 24, rowWeight);
+    var size = gridSize();
+    var colSizes = axisPixelSizes(w, size, colWeight);
+    var rowSizes = axisPixelSizes(h, size, rowWeight);
     var colgroup = table.querySelector('colgroup');
+    if (colgroup && colgroup.children.length !== size) {
+      colgroup.remove();
+      colgroup = null;
+    }
     if (!colgroup) {
       colgroup = document.createElement('colgroup');
-      for (var c = 0; c < 24; c++) {
+      for (var c = 0; c < size; c++) {
         colgroup.appendChild(document.createElement('col'));
       }
       table.insertBefore(colgroup, table.firstChild);
@@ -69,7 +152,7 @@
     colgroup.querySelectorAll('col').forEach(function (col, c) {
       col.style.width = colSizes[c] + 'px';
     });
-    for (var r = 0; r < 24; r++) {
+    for (var r = 0; r < size; r++) {
       table.rows[r].style.height = rowSizes[r] + 'px';
     }
   }
@@ -127,22 +210,7 @@
   }
 
   function buildGrid() {
-    var table = document.getElementById('grid');
-    cells = [];
-    for (var r = 0; r < 24; r++) {
-      var tr = document.createElement('tr');
-      var row = [];
-      for (var c = 0; c < 24; c++) {
-        var td = document.createElement('td');
-        td.dataset.r = r;
-        td.dataset.c = c;
-        if (isSilverCell(r, c)) td.classList.add('silver');
-        tr.appendChild(td);
-        row.push(td);
-      }
-      table.appendChild(tr);
-      cells.push(row);
-    }
+    rebuildGrid();
   }
 
   function hexToRgb(hex) {
@@ -529,8 +597,9 @@
 
   function saveImage() {
     var gridPx = 480;
-    var colSizes = axisPixelSizes(gridPx, 24, colWeight);
-    var rowSizes = axisPixelSizes(gridPx, 24, rowWeight);
+    var size = gridSize();
+    var colSizes = axisPixelSizes(gridPx, size, colWeight);
+    var rowSizes = axisPixelSizes(gridPx, size, rowWeight);
     var borderPx = 32;
     var text = 'thanks for coming ❋ zesameri';
     var textGap = 36;
@@ -545,10 +614,10 @@
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     var rowY = borderPx;
-    for (var r = 0; r < 24; r++) {
+    for (var r = 0; r < size; r++) {
       var colX = borderPx;
       var cellH = rowSizes[r];
-      for (var c = 0; c < 24; c++) {
+      for (var c = 0; c < size; c++) {
         var cellW = colSizes[c];
         ctx.fillStyle = getCellFill(cells[r][c]);
         ctx.fillRect(colX, rowY, cellW, cellH);
@@ -867,7 +936,7 @@
 
   function bandWidthsOnAxis(weight) {
     var silverCount = 12;
-    var paintCount = 12;
+    var paintCount = paintBandCount();
     var totalWeight = silverCount * weight + paintCount;
     return {
       silver: (AXIS_UNITS * weight) / totalWeight,
@@ -900,6 +969,10 @@
   watchGridResize();
   scheduleGridSizing();
   bindSilverSizing('silverSize', 'silverSizeVal', 'silverSizeUnits', function (v) { silverWeight = v; });
+  document.getElementById('compactGridToggle').addEventListener('change', function (e) {
+    setCompactGrid(e.target.checked);
+    document.getElementById('silverSizeUnits').textContent = formatBandWidths(silverWeight);
+  });
   updateRampTargetUI();
   setBorders(false);
   updateCurrentUI();

@@ -225,6 +225,21 @@ h1 {
   color: var(--muted);
   white-space: nowrap;
 }
+.grid-sizing-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--label);
+  cursor: pointer;
+  user-select: none;
+}
+.grid-sizing-toggle input {
+  margin: 0;
+  accent-color: #c0c0c0;
+  cursor: pointer;
+}
 .grid-wrap {
   position: relative;
   width: 100%;
@@ -718,14 +733,17 @@ button.tool[aria-pressed="true"] {
     width: 100%;
     max-width: 100%;
     flex-shrink: 0;
-    max-height: min(72dvh, 100%);
+    overflow: visible;
   }
   .grid-stage {
+    flex: 0 0 auto;
     width: 100%;
-    container-type: size;
+    min-height: auto;
   }
   .grid-stage .grid-wrap {
-    width: min(100cqw, 100cqh);
+    width: 100%;
+    height: auto;
+    max-height: none;
   }
   .palette-panel {
     width: 100%;
