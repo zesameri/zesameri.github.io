@@ -58,6 +58,22 @@ function initCrumpleHover() {
   } else {
     // Mobile: Use color-based crumples instead, no video loading
     document.body.classList.add('no-hover');
+
+    // Tap plays the color crumple, then navigates once the reveal is nearly done.
+    // External links open in a new tab, so they navigate immediately and the
+    // animation plays out on the page left behind.
+    const NAV_DELAY = 950;
+    document.querySelectorAll('.footer a[href]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (link.classList.contains('mobile-trigger')) return;
+        link.classList.add('mobile-trigger');
+        if (link.target === '_blank') return;
+        e.preventDefault();
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, NAV_DELAY);
+      });
+    });
   }
 }
 

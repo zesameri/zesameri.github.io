@@ -55,7 +55,7 @@
 </head>
 <body>
   <a class="home" href="./grid-wada.html">图案网格 →</a>
-  <div class="lang-switcher"><a href="../wada-colors.html">EN</a> · <a href="../es/wada-colors.html">ES</a> · <a href="../uk/wada-colors.html">УКР</a> · 中文</div>
+  <div class="lang-switcher"><a class="lang-en" href="../wada-colors.html">en</a> · <a class="lang-es" href="../es/wada-colors.html">es</a> · <a class="lang-uk" href="../uk/wada-colors.html">укр</a> · 中文</div>
   <style>
     .lang-switcher {
       position: fixed;
@@ -65,8 +65,11 @@
       font-size: 12px;
       z-index: 2;
     }
-    .lang-switcher a { color: rgba(255,255,255,.7); text-decoration: none; }
-    .lang-switcher a:hover { color: #fff; }
+    .lang-switcher a, .lang-switcher a:hover { text-decoration: none; border-bottom: none; }
+    .lang-en { color: #e3f0e2; }
+    .lang-es { color: #f5eed6; }
+    .lang-uk { color: #dfe8f5; }
+    .lang-zh { color: #f6e0e6; }
   </style>
   <div id="palette" role="list" aria-label="Wada Sanzo 色卡">
     <div class="swatch" style="background:#fde2dd" title="Pale Purplish Vinaceous" data-hex="#fde2dd" data-name="Pale Purplish Vinaceous"></div>

@@ -131,8 +131,27 @@ section {
   padding-top: 0.7em;
 }
 
-.bio-link {
+.bio-link,
+.bio-link:focus,
+.bio-link:hover {
   text-decoration: none;
+  border-bottom: none;
+}
+
+.lang-en, .lang-en:focus, .lang-en:hover {
+  color: #e3f0e2; /* off-white pastel green */
+}
+
+.lang-es, .lang-es:focus, .lang-es:hover {
+  color: #f5eed6; /* off-white butter */
+}
+
+.lang-uk, .lang-uk:focus, .lang-uk:hover {
+  color: #dfe8f5; /* off-white pastel blue */
+}
+
+.lang-zh, .lang-zh:focus, .lang-zh:hover {
+  color: #f6e0e6; /* off-white pink */
 }
 
 .lang-switcher {
@@ -142,12 +161,11 @@ section {
   z-index: 5;
 }
 
-.lang-switcher a {
-  text-decoration: none;
-}
-
+.lang-switcher a,
+.lang-switcher a:focus,
 .lang-switcher a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom: none;
 }
 
 @media only screen and (max-width: 850px) {

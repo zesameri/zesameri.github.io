@@ -293,9 +293,17 @@
     z-index: 5;
   }
 
-  .lang-switcher a {
-    color: inherit;
+  .lang-switcher a,
+  .lang-switcher a:focus,
+  .lang-switcher a:hover {
+    text-decoration: none;
+    border-bottom: none;
   }
+
+  .lang-en, .lang-en:focus, .lang-en:hover { color: #e3f0e2; }
+  .lang-es, .lang-es:focus, .lang-es:hover { color: #f5eed6; }
+  .lang-uk, .lang-uk:focus, .lang-uk:hover { color: #dfe8f5; }
+  .lang-zh, .lang-zh:focus, .lang-zh:hover { color: #f6e0e6; }
 
   @media (max-width: 600px) {
     .lang-switcher {

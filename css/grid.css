@@ -623,15 +623,17 @@ button.tool[aria-pressed="true"] {
   color: var(--text);
 }
 
-.lang-switcher a {
-  color: var(--text);
-  text-decoration: underline;
-}
-
+.lang-switcher a,
 .lang-switcher a:focus,
 .lang-switcher a:hover {
-  color: var(--link);
+  text-decoration: none;
+  border-bottom: none;
 }
+
+.lang-en, .lang-en:focus, .lang-en:hover { color: #e3f0e2; }
+.lang-es, .lang-es:focus, .lang-es:hover { color: #f5eed6; }
+.lang-uk, .lang-uk:focus, .lang-uk:hover { color: #dfe8f5; }
+.lang-zh, .lang-zh:focus, .lang-zh:hover { color: #f6e0e6; }
 
 @media (max-width: 850px) {
   .lang-switcher {
