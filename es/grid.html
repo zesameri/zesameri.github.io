@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>grid</title>
-  <meta name="description" content="Paint a 24×24 grid with Wada Sanzo colors.">
-  <meta property="og:title" content="24x24 paint grid">
+  <meta name="description" content="Pinta una cuadrícula de 24×24 con colores de Wada Sanzo.">
+  <meta property="og:title" content="cuadrícula de pintura 24x24">
   <meta property="og:url" content="http://zesameri.github.io/grid.html">
-  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+  <link rel="shortcut icon" href="../assets/images/icon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link href="./css/grid.css" rel="stylesheet">
+  <link href="../css/grid.css" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -73,109 +73,109 @@
       <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
     </symbol>
   </svg>
-  <button type="button" class="tool tool-icon theme-toggle" id="themeBtn" aria-pressed="true" aria-label="Switch to light mode">
+  <button type="button" class="tool tool-icon theme-toggle" id="themeBtn" aria-pressed="true" aria-label="Cambiar a modo claro">
     <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><use href="#icon-sun"/></svg>
     <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"/></svg>
   </button>
   <div class="page">
     <header class="page-head">
-      <h1>Color Grid</h1>
+      <h1>Cuadrícula de color</h1>
       <p class="hint">
-        Tap to fill cells.
-        Colors from <a href="./wada-colors.html">Wada Sanzo</a>.
+        Toca para rellenar celdas.
+        Colores de <a href="./wada-colors.html">Wada Sanzo</a>.
       </p>
     </header>
     <main class="workspace">
       <section class="grid-panel">
         <div class="grid-stage">
           <div class="grid-wrap no-borders">
-            <table id="grid" aria-label="24 by 24 paint grid"></table>
+            <table id="grid" aria-label="cuadrícula de pintura de 24 por 24"></table>
           </div>
         </div>
         <div class="paint-controls">
           <div class="current">
             <div class="current-swatch" id="currentSwatch"></div>
-            <span class="current-label" id="currentLabel">Brush</span>
+            <span class="current-label" id="currentLabel">Pincel</span>
           </div>
           <div class="tool-row">
-              <button type="button" class="tool tool-icon" id="brushBtn" aria-pressed="true" aria-label="Brush" title="Brush">
+              <button type="button" class="tool tool-icon" id="brushBtn" aria-pressed="true" aria-label="Pincel" title="Pincel">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paintbrush"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="dropperBtn" aria-label="Pick color" title="Pick color" aria-expanded="false" aria-haspopup="dialog">
+              <button type="button" class="tool tool-icon" id="dropperBtn" aria-label="Elegir color" title="Elegir color" aria-expanded="false" aria-haspopup="dialog">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pipette"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="rampBtn" aria-pressed="false" aria-label="Ramp to black" title="Ramp to black — drag on grid">
+              <button type="button" class="tool tool-icon" id="rampBtn" aria-pressed="false" aria-label="Degradado a negro" title="Degradado a negro — arrastra sobre la cuadrícula">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-ramp"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="eraserBtn" aria-pressed="false" aria-label="Eraser" title="Eraser">
+              <button type="button" class="tool tool-icon" id="eraserBtn" aria-pressed="false" aria-label="Borrador" title="Borrador">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eraser"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="clearBtn" aria-label="Clear all" title="Clear all">
+              <button type="button" class="tool tool-icon" id="clearBtn" aria-label="Borrar todo" title="Borrar todo">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-trash-2"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="bordersBtn" aria-pressed="false" aria-label="Borders" title="Borders">
+              <button type="button" class="tool tool-icon" id="bordersBtn" aria-pressed="false" aria-label="Bordes" title="Bordes">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-square"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="saveBtn" aria-label="Save image" title="Save image">
+              <button type="button" class="tool tool-icon" id="saveBtn" aria-label="Guardar imagen" title="Guardar imagen">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-save"/></svg>
               </button>
           </div>
         </div>
         <div class="tone-ramp-wrap">
-          <button type="button" class="tone-ramp-label" id="toneRampLabel" aria-pressed="false">To black</button>
-          <div class="tone-ramp" id="toneRamp" role="listbox" aria-label="Five steps from color to black"></div>
+          <button type="button" class="tone-ramp-label" id="toneRampLabel" aria-pressed="false">A negro</button>
+          <div class="tone-ramp" id="toneRamp" role="listbox" aria-label="Cinco pasos del color al negro"></div>
         </div>
-        <div class="grid-sizing" aria-label="Silver grid sizing">
+        <div class="grid-sizing" aria-label="Tamaño de cuadrícula plateada">
           <label class="grid-sizing-label">
-            <span>Silver bands</span>
+            <span>Bandas plateadas</span>
             <input type="range" id="silverSize" min="0.25" max="2" step="0.05" value="1" aria-valuemin="0.25" aria-valuemax="2" aria-valuenow="1">
             <output id="silverSizeVal" for="silverSize">1×</output>
           </label>
-          <p class="grid-sizing-units" id="silverSizeUnits" aria-live="polite" title="Band width on a 96-unit axis">4 silver · 4 paint</p>
+          <p class="grid-sizing-units" id="silverSizeUnits" aria-live="polite" title="Ancho de banda en un eje de 96 unidades">4 plata · 4 pintura</p>
           <label class="grid-sizing-toggle">
             <input type="checkbox" id="compactGridToggle">
-            <span>Drop center row &amp; column</span>
+            <span>Quitar fila y columna centrales</span>
           </label>
         </div>
       </section>
       <section class="palette-panel">
-        <section class="recent-section" aria-label="Recently used colors">
-          <h2>Recently used</h2>
+        <section class="recent-section" aria-label="Colores usados recientemente">
+          <h2>Usados recientemente</h2>
           <div class="recent" id="recentPalette" role="listbox">
-            <span class="recent-empty" id="recentEmpty">Paint to fill this list</span>
+            <span class="recent-empty" id="recentEmpty">Pinta para llenar esta lista</span>
           </div>
         </section>
         <div class="palette-scroll" id="paletteScroll">
-          <p class="loading-palette" id="paletteLoading">Loading colors…</p>
+          <p class="loading-palette" id="paletteLoading">Cargando colores…</p>
         </div>
       </section>
     </main>
   </div>
   <footer class="site-footer" id="footer">
-    <a class="footer__link--home" href=".">home</a>
-    <a class="footer__link--writings" href="./writings.html">words</a>
-    <a class="footer__link--art" href="./art.html">art</a>
+    <a class="footer__link--home" href="../">inicio</a>
+    <a class="footer__link--writings" href="./writings.html">palabras</a>
+    <a class="footer__link--art" href="./art.html">arte</a>
     <a class="footer__link--playlists" href="https://open.spotify.com/user/1286649958" target="_blank" rel="noopener noreferrer">muze</a>
-    <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">trash</a>
-    <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">code</a>
-    <div class="lang-switcher">EN · <a href="./es/grid.html">ES</a> · <a href="./uk/grid.html">UK</a> · <a href="./zh/grid.html">中文</a></div>
+    <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">basura</a>
+    <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">código</a>
+    <div class="lang-switcher"><a href="../grid.html">EN</a> · ES · <a href="../uk/grid.html">UK</a> · <a href="../zh/grid.html">中文</a></div>
   </footer>
   <div id="colorPickerBackdrop" class="color-picker-backdrop" hidden></div>
-  <div id="colorPickerPopover" class="color-picker-popover" role="dialog" aria-label="Pick color" hidden>
+  <div id="colorPickerPopover" class="color-picker-popover" role="dialog" aria-label="Elegir color" hidden>
     <div class="color-picker-sv" id="colorPickerSv">
       <div class="color-picker-sv-white"></div>
       <div class="color-picker-sv-black"></div>
       <div class="color-picker-sv-cursor" id="colorPickerSvCursor"></div>
     </div>
-    <input type="range" id="colorPickerHue" class="color-picker-slider color-picker-hue" min="0" max="360" value="0" aria-label="Hue">
-    <input type="range" id="colorPickerSat" class="color-picker-slider color-picker-sat" min="0" max="100" value="100" aria-label="Saturation">
-    <input type="range" id="colorPickerVal" class="color-picker-slider color-picker-val" min="0" max="100" value="100" aria-label="Brightness">
+    <input type="range" id="colorPickerHue" class="color-picker-slider color-picker-hue" min="0" max="360" value="0" aria-label="Tono">
+    <input type="range" id="colorPickerSat" class="color-picker-slider color-picker-sat" min="0" max="100" value="100" aria-label="Saturación">
+    <input type="range" id="colorPickerVal" class="color-picker-slider color-picker-val" min="0" max="100" value="100" aria-label="Brillo">
     <div class="color-picker-hex-row">
       <div class="color-picker-preview" id="colorPickerPreview" aria-hidden="true"></div>
-      <input type="text" id="colorPickerHex" class="color-picker-hex" maxlength="7" spellcheck="false" aria-label="Hex color" inputmode="text" autocomplete="off">
+      <input type="text" id="colorPickerHex" class="color-picker-hex" maxlength="7" spellcheck="false" aria-label="Color hex" inputmode="text" autocomplete="off">
     </div>
   </div>
-  <script src="./js/paint-palette-data.js"></script>
-  <script src="./js/grid.js?v=10" defer></script>
+  <script src="../js/paint-palette-data.js"></script>
+  <script src="../js/grid.js?v=10" defer></script>
 </body>
 </html>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="zh" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>grid</title>
-  <meta name="description" content="Paint a 24×24 grid with Wada Sanzo colors.">
-  <meta property="og:title" content="24x24 paint grid">
+  <title>网格</title>
+  <meta name="description" content="用 Wada Sanzo 的颜色涂画一个 24×24 网格。">
+  <meta property="og:title" content="24x24 涂色网格">
   <meta property="og:url" content="http://zesameri.github.io/grid.html">
-  <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+  <link rel="shortcut icon" href="../assets/images/icon.png" type="image/png">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link href="./css/grid.css" rel="stylesheet">
+  <link href="../css/grid.css" rel="stylesheet">
   <script>
     (function () {
       try {
@@ -73,109 +73,109 @@
       <path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>
     </symbol>
   </svg>
-  <button type="button" class="tool tool-icon theme-toggle" id="themeBtn" aria-pressed="true" aria-label="Switch to light mode">
+  <button type="button" class="tool tool-icon theme-toggle" id="themeBtn" aria-pressed="true" aria-label="切换到浅色模式">
     <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" hidden><use href="#icon-sun"/></svg>
     <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"/></svg>
   </button>
   <div class="page">
     <header class="page-head">
-      <h1>Color Grid</h1>
+      <h1>色彩网格</h1>
       <p class="hint">
-        Tap to fill cells.
-        Colors from <a href="./wada-colors.html">Wada Sanzo</a>.
+        点击填充格子。
+        颜色来自 <a href="./wada-colors.html">Wada Sanzo</a>。
       </p>
     </header>
     <main class="workspace">
       <section class="grid-panel">
         <div class="grid-stage">
           <div class="grid-wrap no-borders">
-            <table id="grid" aria-label="24 by 24 paint grid"></table>
+            <table id="grid" aria-label="24 乘 24 涂色网格"></table>
           </div>
         </div>
         <div class="paint-controls">
           <div class="current">
             <div class="current-swatch" id="currentSwatch"></div>
-            <span class="current-label" id="currentLabel">Brush</span>
+            <span class="current-label" id="currentLabel">画笔</span>
           </div>
           <div class="tool-row">
-              <button type="button" class="tool tool-icon" id="brushBtn" aria-pressed="true" aria-label="Brush" title="Brush">
+              <button type="button" class="tool tool-icon" id="brushBtn" aria-pressed="true" aria-label="画笔" title="画笔">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paintbrush"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="dropperBtn" aria-label="Pick color" title="Pick color" aria-expanded="false" aria-haspopup="dialog">
+              <button type="button" class="tool tool-icon" id="dropperBtn" aria-label="选取颜色" title="选取颜色" aria-expanded="false" aria-haspopup="dialog">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pipette"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="rampBtn" aria-pressed="false" aria-label="Ramp to black" title="Ramp to black — drag on grid">
+              <button type="button" class="tool tool-icon" id="rampBtn" aria-pressed="false" aria-label="渐变到黑" title="渐变到黑——在网格上拖动">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-ramp"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="eraserBtn" aria-pressed="false" aria-label="Eraser" title="Eraser">
+              <button type="button" class="tool tool-icon" id="eraserBtn" aria-pressed="false" aria-label="橡皮擦" title="橡皮擦">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-eraser"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="clearBtn" aria-label="Clear all" title="Clear all">
+              <button type="button" class="tool tool-icon" id="clearBtn" aria-label="全部清除" title="全部清除">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-trash-2"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="bordersBtn" aria-pressed="false" aria-label="Borders" title="Borders">
+              <button type="button" class="tool tool-icon" id="bordersBtn" aria-pressed="false" aria-label="边框" title="边框">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-square"/></svg>
               </button>
-              <button type="button" class="tool tool-icon" id="saveBtn" aria-label="Save image" title="Save image">
+              <button type="button" class="tool tool-icon" id="saveBtn" aria-label="保存图片" title="保存图片">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-save"/></svg>
               </button>
           </div>
         </div>
         <div class="tone-ramp-wrap">
-          <button type="button" class="tone-ramp-label" id="toneRampLabel" aria-pressed="false">To black</button>
-          <div class="tone-ramp" id="toneRamp" role="listbox" aria-label="Five steps from color to black"></div>
+          <button type="button" class="tone-ramp-label" id="toneRampLabel" aria-pressed="false">渐黑</button>
+          <div class="tone-ramp" id="toneRamp" role="listbox" aria-label="从颜色到黑色的五个梯度"></div>
         </div>
-        <div class="grid-sizing" aria-label="Silver grid sizing">
+        <div class="grid-sizing" aria-label="银色网格尺寸">
           <label class="grid-sizing-label">
-            <span>Silver bands</span>
+            <span>银色条带</span>
             <input type="range" id="silverSize" min="0.25" max="2" step="0.05" value="1" aria-valuemin="0.25" aria-valuemax="2" aria-valuenow="1">
             <output id="silverSizeVal" for="silverSize">1×</output>
           </label>
-          <p class="grid-sizing-units" id="silverSizeUnits" aria-live="polite" title="Band width on a 96-unit axis">4 silver · 4 paint</p>
+          <p class="grid-sizing-units" id="silverSizeUnits" aria-live="polite" title="96 单位轴上的条带宽度">4 银色 · 4 涂色</p>
           <label class="grid-sizing-toggle">
             <input type="checkbox" id="compactGridToggle">
-            <span>Drop center row &amp; column</span>
+            <span>去掉中心行和列</span>
           </label>
         </div>
       </section>
       <section class="palette-panel">
-        <section class="recent-section" aria-label="Recently used colors">
-          <h2>Recently used</h2>
+        <section class="recent-section" aria-label="最近使用的颜色">
+          <h2>最近使用</h2>
           <div class="recent" id="recentPalette" role="listbox">
-            <span class="recent-empty" id="recentEmpty">Paint to fill this list</span>
+            <span class="recent-empty" id="recentEmpty">涂色后会显示在这里</span>
           </div>
         </section>
         <div class="palette-scroll" id="paletteScroll">
-          <p class="loading-palette" id="paletteLoading">Loading colors…</p>
+          <p class="loading-palette" id="paletteLoading">正在加载颜色……</p>
         </div>
       </section>
     </main>
   </div>
   <footer class="site-footer" id="footer">
-    <a class="footer__link--home" href=".">home</a>
-    <a class="footer__link--writings" href="./writings.html">words</a>
-    <a class="footer__link--art" href="./art.html">art</a>
+    <a class="footer__link--home" href="../">首页</a>
+    <a class="footer__link--writings" href="./writings.html">文字</a>
+    <a class="footer__link--art" href="./art.html">艺术</a>
     <a class="footer__link--playlists" href="https://open.spotify.com/user/1286649958" target="_blank" rel="noopener noreferrer">muze</a>
-    <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">trash</a>
-    <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">code</a>
-    <div class="lang-switcher">EN · <a href="./es/grid.html">ES</a> · <a href="./uk/grid.html">UK</a> · <a href="./zh/grid.html">中文</a></div>
+    <a class="footer__link--instagram" href="https://www.instagram.com/eww.york/" target="_blank" rel="noopener noreferrer">垃圾</a>
+    <a class="footer__link--github" href="https://github.com/zesameri" target="_blank" rel="noopener noreferrer">代码</a>
+    <div class="lang-switcher"><a href="../grid.html">EN</a> · <a href="../es/grid.html">ES</a> · <a href="../uk/grid.html">UK</a> · 中文</div>
   </footer>
   <div id="colorPickerBackdrop" class="color-picker-backdrop" hidden></div>
-  <div id="colorPickerPopover" class="color-picker-popover" role="dialog" aria-label="Pick color" hidden>
+  <div id="colorPickerPopover" class="color-picker-popover" role="dialog" aria-label="选取颜色" hidden>
     <div class="color-picker-sv" id="colorPickerSv">
       <div class="color-picker-sv-white"></div>
       <div class="color-picker-sv-black"></div>
       <div class="color-picker-sv-cursor" id="colorPickerSvCursor"></div>
     </div>
-    <input type="range" id="colorPickerHue" class="color-picker-slider color-picker-hue" min="0" max="360" value="0" aria-label="Hue">
-    <input type="range" id="colorPickerSat" class="color-picker-slider color-picker-sat" min="0" max="100" value="100" aria-label="Saturation">
-    <input type="range" id="colorPickerVal" class="color-picker-slider color-picker-val" min="0" max="100" value="100" aria-label="Brightness">
+    <input type="range" id="colorPickerHue" class="color-picker-slider color-picker-hue" min="0" max="360" value="0" aria-label="色相">
+    <input type="range" id="colorPickerSat" class="color-picker-slider color-picker-sat" min="0" max="100" value="100" aria-label="饱和度">
+    <input type="range" id="colorPickerVal" class="color-picker-slider color-picker-val" min="0" max="100" value="100" aria-label="亮度">
     <div class="color-picker-hex-row">
       <div class="color-picker-preview" id="colorPickerPreview" aria-hidden="true"></div>
-      <input type="text" id="colorPickerHex" class="color-picker-hex" maxlength="7" spellcheck="false" aria-label="Hex color" inputmode="text" autocomplete="off">
+      <input type="text" id="colorPickerHex" class="color-picker-hex" maxlength="7" spellcheck="false" aria-label="Hex 颜色" inputmode="text" autocomplete="off">
     </div>
   </div>
-  <script src="./js/paint-palette-data.js"></script>
-  <script src="./js/grid.js?v=10" defer></script>
+  <script src="../js/paint-palette-data.js"></script>
+  <script src="../js/grid.js?v=10" defer></script>
 </body>
 </html>

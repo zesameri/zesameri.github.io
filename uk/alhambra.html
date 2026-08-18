@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72294820-1"></script>
@@ -15,13 +15,13 @@
     <meta name="author" content="kvitka">
     <meta name="theme-color" content="#111">
     <!-- Styles -->
-    <link href="./css/main.css" rel="stylesheet">
-    <link href="./css/crumple.css" rel="stylesheet">
-    <link href="./css/font.css" rel="stylesheet">
-    <link href="./css/mobile.css" rel="stylesheet">
-    <link href="./css/alhambra.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/crumple.css" rel="stylesheet">
+    <link href="../css/font.css" rel="stylesheet">
+    <link href="../css/mobile.css" rel="stylesheet">
+    <link href="../css/alhambra.css" rel="stylesheet">
     <!-- Webpage Icon -->
-    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+    <link rel="shortcut icon" href="../assets/images/icon.png" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
@@ -33,29 +33,29 @@
     <section class="hero">
       <div class="top-bar">
         <h1 class="header">
-          <a class="simple-link" href="./art.html"> art </a>
-          <img class="header-img" src="assets/images/flower.svg" alt="Flower">
+          <a class="simple-link" href="./art.html"> мистецтво </a>
+          <img class="header-img" src="../assets/images/flower.svg" alt="Квітка">
         </h1>
       </div>
       <div class="bio">
         <p>
-            I visited the Nasrid Palaces of the Alhambra this past summer. 
-            After staying up late to secure an early ticket, 
-            I woke before dawn to climb to the estate's entrance. 
-            Like reaching to Allah, it felt sacred. 
-            As a child, I wanted to become a mosaicist, 
-            shaping glass squares into flowing forms. 
-            I rekindled that wonder through reconstructing these patterns. 
-            Centuries of geometry unravelling, I can feel their devotion.
+            Минулого літа я відвідала Насридські палаци Альгамбри. 
+            Довго не спавши, щоб дістати ранній квиток, 
+            я прокинулася до світанку, щоб піднятися до входу в маєток. 
+            Ніби потягнувшись до Аллаха, це відчувалося сакрально. 
+            У дитинстві я хотіла стати мозаїчисткою, 
+            складаючи скляні квадратики в плинні форми. 
+            Я повернула той захват, реконструюючи ці візерунки. 
+            Віки геометрії розгортаються — я відчуваю їхню відданість.
 
         </p>
       </div>
     </section>
     <footer class="footer" id="footer">
-      <a href=".">home</a>
-      <a data-pattern="triangle">starry night</a>
-      <a data-pattern="grid">diamonds</a>
-      <div class="lang-switcher">EN · <a href="./es/alhambra.html">ES</a> · <a href="./uk/alhambra.html">UK</a> · <a href="./zh/alhambra.html">中文</a></div>
+      <a href="../">додому</a>
+      <a data-pattern="triangle">зоряна ніч</a>
+      <a data-pattern="grid">діаманти</a>
+      <div class="lang-switcher"><a href="../alhambra.html">EN</a> · <a href="../es/alhambra.html">ES</a> · UK · <a href="../zh/alhambra.html">中文</a></div>
     </footer>
   </div>
   
@@ -67,11 +67,11 @@
     
     // Load triangle pattern
     const triangleScript = document.createElement('script');
-    triangleScript.src = './js/triangle.js';
+    triangleScript.src = '../js/triangle.js';
     
     // Load grid pattern
     const gridScript = document.createElement('script');
-    gridScript.src = './js/alhambra-grid.js';
+    gridScript.src = '../js/alhambra-grid.js';
     
     document.body.appendChild(triangleScript);
     document.body.appendChild(gridScript);

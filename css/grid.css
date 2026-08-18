@@ -611,6 +611,24 @@ button.tool[aria-pressed="true"] {
 .site-footer > a:hover {
   color: var(--link);
 }
+
+.lang-switcher {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 0.95em;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+.lang-switcher a {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.lang-switcher a:focus,
+.lang-switcher a:hover {
+  color: var(--link);
+}
 @media (orientation: landscape) {
   :root {
     --footer-bar: calc(2.75rem + env(safe-area-inset-bottom, 0px));

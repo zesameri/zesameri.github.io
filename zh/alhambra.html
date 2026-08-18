@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72294820-1"></script>
@@ -9,19 +9,19 @@
       gtag('js', new Date());
       gtag('config', 'UA-72294820-1');
     </script>
-    <title>alhambra - zesameri</title>
+    <title>阿尔罕布拉 - zesameri</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1">
     <meta name="author" content="kvitka">
     <meta name="theme-color" content="#111">
     <!-- Styles -->
-    <link href="./css/main.css" rel="stylesheet">
-    <link href="./css/crumple.css" rel="stylesheet">
-    <link href="./css/font.css" rel="stylesheet">
-    <link href="./css/mobile.css" rel="stylesheet">
-    <link href="./css/alhambra.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/crumple.css" rel="stylesheet">
+    <link href="../css/font.css" rel="stylesheet">
+    <link href="../css/mobile.css" rel="stylesheet">
+    <link href="../css/alhambra.css" rel="stylesheet">
     <!-- Webpage Icon -->
-    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/png">
+    <link rel="shortcut icon" href="../assets/images/icon.png" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
@@ -33,29 +33,29 @@
     <section class="hero">
       <div class="top-bar">
         <h1 class="header">
-          <a class="simple-link" href="./art.html"> art </a>
-          <img class="header-img" src="assets/images/flower.svg" alt="Flower">
+          <a class="simple-link" href="./art.html"> 艺术 </a>
+          <img class="header-img" src="../assets/images/flower.svg" alt="Flower">
         </h1>
       </div>
       <div class="bio">
         <p>
-            I visited the Nasrid Palaces of the Alhambra this past summer. 
-            After staying up late to secure an early ticket, 
-            I woke before dawn to climb to the estate's entrance. 
-            Like reaching to Allah, it felt sacred. 
-            As a child, I wanted to become a mosaicist, 
-            shaping glass squares into flowing forms. 
-            I rekindled that wonder through reconstructing these patterns. 
-            Centuries of geometry unravelling, I can feel their devotion.
+            去年夏天，我参观了阿尔罕布拉宫的纳斯里德宫殿。
+            为了抢到一张早场票熬到深夜，
+            我在黎明前醒来，爬上宫殿的入口。
+            那一刻仿佛伸手触向真主，神圣至极。
+            小时候，我想成为一名马赛克镶嵌师，
+            把玻璃方块塑成流动的形态。
+            通过重建这些图案，我重新点燃了那份惊奇。
+            数百年的几何在眼前铺展，我能感受到他们的虔诚。
 
         </p>
       </div>
     </section>
     <footer class="footer" id="footer">
-      <a href=".">home</a>
-      <a data-pattern="triangle">starry night</a>
-      <a data-pattern="grid">diamonds</a>
-      <div class="lang-switcher">EN · <a href="./es/alhambra.html">ES</a> · <a href="./uk/alhambra.html">UK</a> · <a href="./zh/alhambra.html">中文</a></div>
+      <a href="../">首页</a>
+      <a data-pattern="triangle">星夜</a>
+      <a data-pattern="grid">钻石</a>
+      <div class="lang-switcher"><a href="../alhambra.html">EN</a> · <a href="../es/alhambra.html">ES</a> · <a href="../uk/alhambra.html">UK</a> · 中文</div>
     </footer>
   </div>
   
@@ -67,11 +67,11 @@
     
     // Load triangle pattern
     const triangleScript = document.createElement('script');
-    triangleScript.src = './js/triangle.js';
+    triangleScript.src = '../js/triangle.js';
     
     // Load grid pattern
     const gridScript = document.createElement('script');
-    gridScript.src = './js/alhambra-grid.js';
+    gridScript.src = '../js/alhambra-grid.js';
     
     document.body.appendChild(triangleScript);
     document.body.appendChild(gridScript);

@@ -131,6 +131,18 @@ section {
   padding-top: 0.7em;
 }
 
+.lang-switcher {
+  padding-top: 0.7em;
+}
+
+.lang-switcher a {
+  text-decoration: none;
+}
+
+.lang-switcher a:hover {
+  text-decoration: underline;
+}
+
 .hero-footer {
   position: fixed;
   right: 5em;

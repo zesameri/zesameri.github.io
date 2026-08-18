@@ -286,6 +286,10 @@
     color: #a6a9ac;
   }
 
+  .lang-switcher a {
+    color: inherit;
+  }
+
   @media (max-width: 600px) {
     .site-header h1 { font-size: 22px; }
     .cards { grid-template-columns: 1fr; }
