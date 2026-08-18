@@ -1,7 +1,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+    font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif !important;
     font-size: 15px;
     line-height: 1.6;
     color: #f8f8f6;
@@ -286,8 +286,21 @@
     color: #a6a9ac;
   }
 
+  .lang-switcher {
+    position: fixed;
+    top: 1.5em;
+    right: 2em;
+    z-index: 5;
+  }
+
   .lang-switcher a {
     color: inherit;
+  }
+
+  @media (max-width: 600px) {
+    .lang-switcher {
+      position: static;
+    }
   }
 
   @media (max-width: 600px) {

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wada Sanzo 24×24 网格</title>
   <style>
-    body { padding: 16px; font-family: system-ui, sans-serif; }
+    body { padding: 16px; font-family: system-ui, 'Noto Sans SC', sans-serif; }
     .tables-side {
       display: flex;
       flex-wrap: wrap;
@@ -23,7 +23,17 @@
       margin: 0 0 12px;
     }
     .caption a { color: #336; }
+    p.lang-switcher {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      max-width: none;
+    }
+    @media (max-width: 850px) {
+      p.lang-switcher { position: static; }
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <p class="caption">
@@ -31,7 +41,7 @@
     <a href="https://www.wada-sanzo-colors.com/colors" target="_blank" rel="noopener noreferrer">Wada Sanzo</a>
     的配色重新上色 · <a href="./wada-colors.html">所有色卡</a>
   </p>
-  <p class="caption lang-switcher"><a href="../grid-wada.html">EN</a> · <a href="../es/grid-wada.html">ES</a> · <a href="../uk/grid-wada.html">UK</a> · 中文</p>
+  <p class="caption lang-switcher"><a href="../grid-wada.html">EN</a> · <a href="../es/grid-wada.html">ES</a> · <a href="../uk/grid-wada.html">УКР</a> · 中文</p>
   <div class="tables-side">
   <table id="grid">
     <tbody><tr>

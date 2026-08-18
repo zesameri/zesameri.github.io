@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Сітки 24×24 Wada Sanzo</title>
   <style>
-    body { padding: 16px; font-family: system-ui, sans-serif; }
+    body { padding: 16px; font-family: system-ui, 'Noto Sans SC', sans-serif; }
     .tables-side {
       display: flex;
       flex-wrap: wrap;
@@ -23,6 +23,15 @@
       margin: 0 0 12px;
     }
     .caption a { color: #336; }
+    p.lang-switcher {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      max-width: none;
+    }
+    @media (max-width: 850px) {
+      p.lang-switcher { position: static; }
+    }
   </style>
 </head>
 <body>
@@ -31,7 +40,7 @@
     <a href="https://www.wada-sanzo-colors.com/colors" target="_blank" rel="noopener noreferrer">Wada Sanzo</a>
     · <a href="./wada-colors.html">усі кольори</a>
   </p>
-  <p class="caption lang-switcher"><a href="../grid-wada.html">EN</a> · <a href="../es/grid-wada.html">ES</a> · UK · <a href="../zh/grid-wada.html">中文</a></p>
+  <p class="caption lang-switcher"><a href="../grid-wada.html">EN</a> · <a href="../es/grid-wada.html">ES</a> · УКР · <a href="../zh/grid-wada.html">中文</a></p>
   <div class="tables-side">
   <table id="grid">
     <tbody><tr>

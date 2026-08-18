@@ -55,7 +55,7 @@ body {
   padding: 16px;
   padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right))
     max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', 'Noto Sans SC', serif;
   line-height: 1.5;
   background: var(--bg);
   color: var(--text);
@@ -64,7 +64,7 @@ button, input, label, select {
   font-family: inherit;
 }
 h1, h2 {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   font-weight: bold;
 }
 h1 {
@@ -597,7 +597,7 @@ button.tool[aria-pressed="true"] {
   flex-shrink: 0;
 }
 .site-footer > a {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   font-size: 1.1em;
   font-weight: normal;
   letter-spacing: 2px;
@@ -613,11 +613,14 @@ button.tool[aria-pressed="true"] {
 }
 
 .lang-switcher {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  position: fixed;
+  top: 3.5em;
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 5;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   font-size: 0.95em;
   letter-spacing: 2px;
   color: var(--text);
-  margin-top: 8px;
 }
 
 .lang-switcher a {
@@ -628,6 +631,13 @@ button.tool[aria-pressed="true"] {
 .lang-switcher a:focus,
 .lang-switcher a:hover {
   color: var(--link);
+}
+
+@media (max-width: 850px) {
+  .lang-switcher {
+    position: static;
+    margin-top: 8px;
+  }
 }
 @media (orientation: landscape) {
   :root {

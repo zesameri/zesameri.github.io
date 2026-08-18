@@ -131,8 +131,15 @@ section {
   padding-top: 0.7em;
 }
 
+.bio-link {
+  text-decoration: none;
+}
+
 .lang-switcher {
-  padding-top: 0.7em;
+  position: fixed;
+  top: 1.5em;
+  right: 2em;
+  z-index: 5;
 }
 
 .lang-switcher a {
@@ -141,6 +148,13 @@ section {
 
 .lang-switcher a:hover {
   text-decoration: underline;
+}
+
+@media only screen and (max-width: 850px) {
+  .lang-switcher {
+    position: static;
+    margin-top: 0.7em;
+  }
 }
 
 .hero-footer {

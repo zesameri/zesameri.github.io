@@ -5,14 +5,14 @@
 
 /* Base Typography */
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto Slab', 'Noto Sans SC', serif;
   line-height: 1.5;
   color: #f8f8f6;
 }
 
 /* Headers */
 h1, dt, .footer > a {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   letter-spacing: 2px;
   font-weight: bold;
 }
@@ -22,7 +22,7 @@ h1, dt, .footer > a {
   letter-spacing: 5px;
   text-align: left;
   text-decoration: none;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   line-height: 1em;
 }
 
@@ -33,7 +33,7 @@ h1, dt, .footer > a {
 
 /* Writing Page Typography */
 .section-title {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   font-size: 2em;
   letter-spacing: 3px;
   margin-top: 2em;
@@ -47,12 +47,12 @@ dt {
 }
 
 .list__link {
-  font-family: monospace;
+  font-family: monospace, "Noto Sans SC", sans-serif;
 }
 
 .reference {
   font-style: italic;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   letter-spacing: 2px;
   font-weight: bold;
 }
