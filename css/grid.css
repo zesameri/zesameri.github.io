@@ -614,9 +614,12 @@ button.tool[aria-pressed="true"] {
 
 .lang-switcher {
   position: fixed;
-  top: 3.5em;
-  right: max(16px, env(safe-area-inset-right));
-  z-index: 5;
+  top: max(16px, env(safe-area-inset-top));
+  right: calc(max(16px, env(safe-area-inset-right)) + 52px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  height: 40px; /* vertically centered with the 40px theme toggle */
   font-family: "Trebuchet MS", Helvetica, "Noto Sans SC", sans-serif;
   font-size: 0.95em;
   letter-spacing: 2px;
@@ -635,9 +638,28 @@ button.tool[aria-pressed="true"] {
 .lang-uk, .lang-uk:focus, .lang-uk:hover { color: #dfe8f5; }
 .lang-zh, .lang-zh:focus, .lang-zh:hover { color: #f6e0e6; }
 
+/* Light/day mode: saturated variants so the pastels don't vanish on white */
+:root:not([data-theme="dark"]) .lang-en,
+:root:not([data-theme="dark"]) .lang-en:focus,
+:root:not([data-theme="dark"]) .lang-en:hover { color: #2f9e44; }
+
+:root:not([data-theme="dark"]) .lang-es,
+:root:not([data-theme="dark"]) .lang-es:focus,
+:root:not([data-theme="dark"]) .lang-es:hover { color: #c99700; }
+
+:root:not([data-theme="dark"]) .lang-uk,
+:root:not([data-theme="dark"]) .lang-uk:focus,
+:root:not([data-theme="dark"]) .lang-uk:hover { color: #2f6fd0; }
+
+:root:not([data-theme="dark"]) .lang-zh,
+:root:not([data-theme="dark"]) .lang-zh:focus,
+:root:not([data-theme="dark"]) .lang-zh:hover { color: #d6336c; }
+
 @media (max-width: 850px) {
   .lang-switcher {
     position: static;
+    display: block;
+    height: auto;
     margin-top: 8px;
   }
 }

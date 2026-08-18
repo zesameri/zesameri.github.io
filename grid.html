@@ -125,13 +125,7 @@
           <button type="button" class="tone-ramp-label" id="toneRampLabel" aria-pressed="false">To black</button>
           <div class="tone-ramp" id="toneRamp" role="listbox" aria-label="Five steps from color to black"></div>
         </div>
-        <div class="grid-sizing" aria-label="Silver grid sizing">
-          <label class="grid-sizing-label">
-            <span>Silver bands</span>
-            <input type="range" id="silverSize" min="0.25" max="2" step="0.05" value="1" aria-valuemin="0.25" aria-valuemax="2" aria-valuenow="1">
-            <output id="silverSizeVal" for="silverSize">1×</output>
-          </label>
-          <p class="grid-sizing-units" id="silverSizeUnits" aria-live="polite" title="Band width on a 96-unit axis">4 silver · 4 paint</p>
+        <div class="grid-sizing">
           <label class="grid-sizing-toggle">
             <input type="checkbox" id="compactGridToggle">
             <span>Drop center row &amp; column</span>
@@ -176,6 +170,6 @@
     </div>
   </div>
   <script src="./js/paint-palette-data.js"></script>
-  <script src="./js/grid.js?v=10" defer></script>
+  <script src="./js/grid.js?v=12" defer></script>
 </body>
 </html>

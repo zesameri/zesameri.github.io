@@ -22,14 +22,34 @@
   var recentColors = [];
   var MAX_RECENT = 10;
   var strokeColor = null;
-  var silverWeight = 1;
+  // Locked ratio: 12 paint cells at 4.5 units each, 12 silver grid lines at 3.5 units
+  var silverWeight = 7 / 9;
+
+  // UI strings — translated pages can override via window.GRID_STRINGS (loaded before this file)
+  var STR = Object.assign({
+    toBlack: 'To black',
+    toWhite: 'To white',
+    black: 'black',
+    white: 'white',
+    fiveStepsTo: function (t) { return 'Five steps from color to ' + t; },
+    rampTo: function (t) { return 'Ramp to ' + t + ' — drag on grid'; },
+    eraser: 'Eraser',
+    ramp: 'Ramp',
+    switchToLight: 'Switch to light mode',
+    switchToDark: 'Switch to dark mode',
+    lightMode: 'Light mode',
+    darkMode: 'Dark mode',
+    silver: 'silver',
+    paint: 'paint',
+    paletteNotFound: 'Palette not found. Run: python3 scripts/build_paint_palette.py'
+  }, window.GRID_STRINGS || {});
+
+  function targetName(t) {
+    return t === 'white' ? STR.white : STR.black;
+  }
 
   function gridSize() {
     return compactGrid ? GRID_COMPACT : GRID_FULL;
-  }
-
-  function paintBandCount() {
-    return compactGrid ? 11 : 12;
   }
 
   function buildCompactSilverIndices() {
@@ -255,7 +275,7 @@
   }
 
   function rampTargetLabel() {
-    return rampTarget === 'white' ? 'To white' : 'To black';
+    return rampTarget === 'white' ? STR.toWhite : STR.toBlack;
   }
 
   function updateRampTargetUI() {
@@ -266,12 +286,12 @@
       label.setAttribute('aria-pressed', rampTarget === 'white' ? 'true' : 'false');
     }
     if (ramp) {
-      ramp.setAttribute('aria-label', 'Five steps from color to ' + rampTarget);
+      ramp.setAttribute('aria-label', STR.fiveStepsTo(targetName(rampTarget)));
     }
     var rampBtn = document.getElementById('rampBtn');
     if (rampBtn) {
-      rampBtn.setAttribute('aria-label', 'Ramp to ' + rampTarget);
-      rampBtn.title = 'Ramp to ' + rampTarget + ' — drag on grid';
+      rampBtn.setAttribute('aria-label', STR.rampTo(targetName(rampTarget)));
+      rampBtn.title = STR.rampTo(targetName(rampTarget));
     }
   }
 
@@ -480,13 +500,13 @@
     var lab = document.getElementById('currentLabel');
     if (mode === 'eraser') {
       sw.style.background = 'repeating-linear-gradient(45deg, #ccc, #ccc 4px, #fff 4px, #fff 8px)';
-      lab.textContent = 'Eraser';
+      lab.textContent = STR.eraser;
       renderToneRamp();
       return;
     }
     if (mode === 'ramp') {
       sw.style.background = 'linear-gradient(to right, ' + currentColor + ', ' + rampEndHex(rampTarget) + ')';
-      lab.textContent = 'Ramp';
+      lab.textContent = STR.ramp;
       renderToneRamp();
       return;
     }
@@ -898,8 +918,8 @@
     try { localStorage.setItem('grid-theme', theme); } catch (e) {}
     var btn = document.getElementById('themeBtn');
     btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-    btn.title = isDark ? 'Light mode' : 'Dark mode';
+    btn.setAttribute('aria-label', isDark ? STR.switchToLight : STR.switchToDark);
+    btn.title = isDark ? STR.lightMode : STR.darkMode;
     var sun = btn.querySelector('.icon-sun');
     var moon = btn.querySelector('.icon-moon');
     if (isDark) {
@@ -924,62 +944,33 @@
   window.addEventListener('pointerup', stopPainting);
   window.addEventListener('pointercancel', stopPainting);
 
-  function formatWeight(value) {
-    return (Math.round(value * 100) / 100).toString().replace(/\.?0+$/, '') + '×';
-  }
-
-  function formatBandUnit(value) {
-    return (Math.round(value * 10) / 10).toString().replace(/\.0$/, '');
-  }
-
-  var AXIS_UNITS = 96;
-
-  function bandWidthsOnAxis(weight) {
-    var silverCount = 12;
-    var paintCount = paintBandCount();
-    var totalWeight = silverCount * weight + paintCount;
-    return {
-      silver: (AXIS_UNITS * weight) / totalWeight,
-      paint: AXIS_UNITS / totalWeight
-    };
-  }
-
-  function formatBandWidths(weight) {
-    var widths = bandWidthsOnAxis(weight);
-    return formatBandUnit(widths.silver) + ' silver · ' + formatBandUnit(widths.paint) + ' paint';
-  }
-
-  function bindSilverSizing(inputId, outputId, unitsId, onChange) {
-    var input = document.getElementById(inputId);
-    var output = document.getElementById(outputId);
-    var units = document.getElementById(unitsId);
-    function update() {
-      var value = Number(input.value);
-      output.textContent = formatWeight(value);
-      if (units) units.textContent = formatBandWidths(value);
-      input.setAttribute('aria-valuenow', String(value));
-      onChange(value);
-      applyGridSizing();
-    }
-    input.addEventListener('input', update);
-    update();
-  }
-
   buildGrid();
   watchGridResize();
   scheduleGridSizing();
-  bindSilverSizing('silverSize', 'silverSizeVal', 'silverSizeUnits', function (v) { silverWeight = v; });
   document.getElementById('compactGridToggle').addEventListener('change', function (e) {
     setCompactGrid(e.target.checked);
-    document.getElementById('silverSizeUnits').textContent = formatBandWidths(silverWeight);
   });
   updateRampTargetUI();
   setBorders(false);
   updateCurrentUI();
 
+  // Translated pages can provide window.PAINT_PALETTE_I18N (name → translated name)
+  // and window.PAINT_PALETTE_GROUP_I18N (group id → translated label)
+  function localizePalette(data) {
+    var names = window.PAINT_PALETTE_I18N || {};
+    var groupLabels = window.PAINT_PALETTE_GROUP_I18N || {};
+    data.groups.forEach(function (group) {
+      if (groupLabels[group.id]) group.label = groupLabels[group.id];
+      (data.colors[group.id] || []).forEach(function (entry) {
+        if (names[entry.name]) entry.name = names[entry.name];
+      });
+    });
+    return data;
+  }
+
   function loadPalette() {
     if (window.PAINT_PALETTE) {
-      renderGroupedPalette(window.PAINT_PALETTE);
+      renderGroupedPalette(localizePalette(window.PAINT_PALETTE));
       return;
     }
     fetch('./data/paint-palette.json')
@@ -987,10 +978,9 @@
         if (!r.ok) throw new Error('palette missing');
         return r.json();
       })
-      .then(renderGroupedPalette)
+      .then(function (json) { renderGroupedPalette(localizePalette(json)); })
       .catch(function () {
-        document.getElementById('paletteLoading').textContent =
-          'Palette not found. Run: python3 scripts/build_paint_palette.py';
+        document.getElementById('paletteLoading').textContent = STR.paletteNotFound;
       });
   }
   loadPalette();
