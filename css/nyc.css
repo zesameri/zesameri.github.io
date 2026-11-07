@@ -286,31 +286,6 @@
     color: #a6a9ac;
   }
 
-  .lang-switcher {
-    position: fixed;
-    top: 1.5em;
-    right: 2em;
-    z-index: 5;
-  }
-
-  .lang-switcher a,
-  .lang-switcher a:focus,
-  .lang-switcher a:hover {
-    text-decoration: none;
-    border-bottom: none;
-  }
-
-  .lang-en, .lang-en:focus, .lang-en:hover { color: #e3f0e2; }
-  .lang-es, .lang-es:focus, .lang-es:hover { color: #f5eed6; }
-  .lang-uk, .lang-uk:focus, .lang-uk:hover { color: #dfe8f5; }
-  .lang-zh, .lang-zh:focus, .lang-zh:hover { color: #f6e0e6; }
-
-  @media (max-width: 600px) {
-    .lang-switcher {
-      position: static;
-    }
-  }
-
   @media (max-width: 600px) {
     .site-header h1 { font-size: 22px; }
     .cards { grid-template-columns: 1fr; }

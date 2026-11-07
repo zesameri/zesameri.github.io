@@ -6,17 +6,11 @@
   var compactGrid = false;
   var silverIndices = new Set(SILVER_SPLIT);
   var SILVER_HEX = '#c0c0c0';
-  var BLACK_HEX = '#000000';
-  var WHITE_HEX = '#ffffff';
-  var rampTarget = 'black';
-  var RAMP_STEPS = 5;
   var mode = 'brush';
-  var rampStartTd = null;
   var currentColor = '#f58e84';
   var painting = false;
   var showBorders = false;
   var cells = [];
-  var selectedBtn = null;
   var currentLabel = '';
   var colorNames = {};
   var recentColors = [];
@@ -32,9 +26,7 @@
     black: 'black',
     white: 'white',
     fiveStepsTo: function (t) { return 'Five steps from color to ' + t; },
-    rampTo: function (t) { return 'Ramp to ' + t + ' — drag on grid'; },
     eraser: 'Eraser',
-    ramp: 'Ramp',
     switchToLight: 'Switch to light mode',
     switchToDark: 'Switch to dark mode',
     lightMode: 'Light mode',
@@ -43,10 +35,6 @@
     paint: 'paint',
     paletteNotFound: 'Palette not found. Run: python3 scripts/build_paint_palette.py'
   }, window.GRID_STRINGS || {});
-
-  function targetName(t) {
-    return t === 'white' ? STR.white : STR.black;
-  }
 
   function gridSize() {
     return compactGrid ? GRID_COMPACT : GRID_FULL;
@@ -233,129 +221,11 @@
     rebuildGrid();
   }
 
-  function hexToRgb(hex) {
-    hex = hex.replace('#', '');
-    if (hex.length === 3) {
-      hex = hex.split('').map(function (c) { return c + c; }).join('');
-    }
-    return {
-      r: parseInt(hex.slice(0, 2), 16),
-      g: parseInt(hex.slice(2, 4), 16),
-      b: parseInt(hex.slice(4, 6), 16)
-    };
-  }
-
-  function rgbToHex(r, g, b) {
-    return '#' + [r, g, b].map(function (x) {
-      return clamp(Math.round(x), 0, 255).toString(16).padStart(2, '0');
-    }).join('');
-  }
-
-  function rampEndRgb(target) {
-    return target === 'white' ? { r: 255, g: 255, b: 255 } : { r: 0, g: 0, b: 0 };
-  }
-
-  function rampEndHex(target) {
-    return target === 'white' ? WHITE_HEX : BLACK_HEX;
-  }
-
-  function buildToneRamp(hex, steps, target) {
-    var start = hexToRgb(hex);
-    var end = rampEndRgb(target);
-    var ramp = [];
-    for (var i = 0; i <= steps; i++) {
-      var t = i / steps;
-      ramp.push(rgbToHex(
-        start.r + (end.r - start.r) * t,
-        start.g + (end.g - start.g) * t,
-        start.b + (end.b - start.b) * t
-      ));
-    }
-    return ramp;
-  }
-
-  function rampTargetLabel() {
-    return rampTarget === 'white' ? STR.toWhite : STR.toBlack;
-  }
-
-  function updateRampTargetUI() {
-    var label = document.getElementById('toneRampLabel');
-    var ramp = document.getElementById('toneRamp');
-    if (label) {
-      label.textContent = rampTargetLabel();
-      label.setAttribute('aria-pressed', rampTarget === 'white' ? 'true' : 'false');
-    }
-    if (ramp) {
-      ramp.setAttribute('aria-label', STR.fiveStepsTo(targetName(rampTarget)));
-    }
-    var rampBtn = document.getElementById('rampBtn');
-    if (rampBtn) {
-      rampBtn.setAttribute('aria-label', STR.rampTo(targetName(rampTarget)));
-      rampBtn.title = STR.rampTo(targetName(rampTarget));
-    }
-  }
-
-  function toggleRampTarget() {
-    rampTarget = rampTarget === 'black' ? 'white' : 'black';
-    updateRampTargetUI();
-    updateCurrentUI();
-  }
-
-  function renderToneRamp() {
-    var container = document.getElementById('toneRamp');
-    container.innerHTML = '';
-    if (mode === 'eraser') return;
-    var ramp = buildToneRamp(currentColor, RAMP_STEPS, rampTarget);
-    ramp.forEach(function (hex, i) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.style.background = hex;
-      btn.title = hex;
-      btn.setAttribute('role', 'option');
-      btn.setAttribute('aria-selected', hex === currentColor && mode === 'brush' ? 'true' : 'false');
-      btn.addEventListener('click', function () {
-        selectColor(hex, null, hex);
-      });
-      container.appendChild(btn);
-    });
-  }
 
   function fillCell(td, hex) {
     if (td.classList.contains('silver')) return;
     td.style.background = hex;
     td.classList.add('filled');
-  }
-
-  function paintRampLine(fromTd, toTd) {
-    if (!fromTd || !toTd) return;
-    var r0 = +fromTd.dataset.r;
-    var c0 = +fromTd.dataset.c;
-    var r1 = +toTd.dataset.r;
-    var c1 = +toTd.dataset.c;
-    var ramp = buildToneRamp(currentColor, RAMP_STEPS, rampTarget);
-    var dr = r1 - r0;
-    var dc = c1 - c0;
-
-    if (Math.abs(dc) >= Math.abs(dr)) {
-      var minC = Math.min(c0, c1);
-      var maxC = Math.max(c0, c1);
-      var span = maxC - minC;
-      for (var c = minC; c <= maxC; c++) {
-        var t = span === 0 ? 0 : (c - minC) / span;
-        if (c0 > c1) t = 1 - t;
-        fillCell(cells[r0][c], ramp[Math.round(t * RAMP_STEPS)]);
-      }
-      return;
-    }
-
-    var minR = Math.min(r0, r1);
-    var maxR = Math.max(r0, r1);
-    var rowSpan = maxR - minR;
-    for (var r = minR; r <= maxR; r++) {
-      var rowT = rowSpan === 0 ? 0 : (r - minR) / rowSpan;
-      if (r0 > r1) rowT = 1 - rowT;
-      fillCell(cells[r][c0], ramp[Math.round(rowT * RAMP_STEPS)]);
-    }
   }
 
   function getCellFill(td) {
@@ -424,11 +294,6 @@
     strokeColor = null;
     var td = e.target.closest('td');
     if (!td) return;
-    if (mode === 'ramp') {
-      rampStartTd = td;
-      paintRampLine(td, td);
-      return;
-    }
     paintCell(td);
   }
 
@@ -436,17 +301,12 @@
     if (!painting) return;
     var td = cellFromEvent(e);
     if (!td) return;
-    if (mode === 'ramp' && rampStartTd) {
-      paintRampLine(rampStartTd, td);
-      return;
-    }
     paintCell(td);
   }
 
   function stopPainting() {
     painting = false;
     strokeColor = null;
-    rampStartTd = null;
   }
 
   function slugify(name) {
@@ -501,18 +361,10 @@
     if (mode === 'eraser') {
       sw.style.background = 'repeating-linear-gradient(45deg, #ccc, #ccc 4px, #fff 4px, #fff 8px)';
       lab.textContent = STR.eraser;
-      renderToneRamp();
-      return;
-    }
-    if (mode === 'ramp') {
-      sw.style.background = 'linear-gradient(to right, ' + currentColor + ', ' + rampEndHex(rampTarget) + ')';
-      lab.textContent = STR.ramp;
-      renderToneRamp();
       return;
     }
     sw.style.background = currentColor;
     lab.textContent = currentLabel || currentColor;
-    renderToneRamp();
   }
 
   function applyPickedColor(hex) {
@@ -521,7 +373,6 @@
     currentLabel = currentColor;
     mode = 'brush';
     document.getElementById('brushBtn').setAttribute('aria-pressed', 'true');
-    document.getElementById('rampBtn').setAttribute('aria-pressed', 'false');
     document.getElementById('eraserBtn').setAttribute('aria-pressed', 'false');
     updateCurrentUI();
     renderRecent();
@@ -532,7 +383,6 @@
     currentLabel = label || hex;
     mode = 'brush';
     document.getElementById('brushBtn').setAttribute('aria-pressed', 'true');
-    document.getElementById('rampBtn').setAttribute('aria-pressed', 'false');
     document.getElementById('eraserBtn').setAttribute('aria-pressed', 'false');
     clearSwatchSelection();
     if (btn) {
@@ -604,7 +454,6 @@
   function setMode(next) {
     mode = next;
     document.getElementById('brushBtn').setAttribute('aria-pressed', next === 'brush');
-    document.getElementById('rampBtn').setAttribute('aria-pressed', next === 'ramp');
     document.getElementById('eraserBtn').setAttribute('aria-pressed', next === 'eraser');
     updateCurrentUI();
   }
@@ -841,8 +690,6 @@
   }
 
   document.getElementById('brushBtn').addEventListener('click', function () { setMode('brush'); });
-  document.getElementById('rampBtn').addEventListener('click', function () { setMode('ramp'); });
-  document.getElementById('toneRampLabel').addEventListener('click', toggleRampTarget);
   dropperBtn.addEventListener('click', function () {
     if (colorPickerPopover.hidden) openColorPicker();
     else closeColorPicker();
@@ -950,7 +797,6 @@
   document.getElementById('compactGridToggle').addEventListener('change', function (e) {
     setCompactGrid(e.target.checked);
   });
-  updateRampTargetUI();
   setBorders(false);
   updateCurrentUI();
 
